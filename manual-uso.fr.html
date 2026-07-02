@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PitWall · Manuel d'utilisation</title>
+<meta name="description" content="Manuel d'utilisation de PitWall : monter la course, la diriger en direct et sortir les résultats.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="manual/manual.css">
+<style>body{--ac:var(--red)}</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="pitwall-landing-fr.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
+    <nav class="links">
+      <a href="pitwall-landing-fr.html">Landing</a>
+      <a href="manual-uso.fr.html" class="here">Manuel d'utilisation</a>
+      <a href="manual-estadisticas.fr.html">Statistiques</a>
+      <div class="lang" aria-label="Langue">
+        <a href="manual-uso.html">ES</a>
+        <a href="manual-uso.en.html">EN</a>
+        <a href="manual-uso.it.html">IT</a>
+        <a href="manual-uso.fr.html" class="on" aria-current="page">FR</a>
+      </div>
+      <a href="manual-estadisticas.fr.html" class="nav-cta">Interpréter les données →</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="doc-hero">
+  <div class="wrap">
+    <div class="kicker">Manuel d'utilisation · Direction de course</div>
+    <h1>Monte, dirige et<br>sors les <span class="ac">résultats</span>.</h1>
+    <p class="lede">Guide destiné à celui qui <b>opère</b> PitWall : créer la course, monter les séries et les participants, diriger chaque manche en direct depuis le matériel de chronométrage et exporter les résultats. Du premier tour au classement final.</p>
+    <div class="xlink">
+      <a class="cur" href="manual-uso.fr.html">▮ Manuel d'utilisation</a>
+      <a href="manual-estadisticas.fr.html">Manuel de statistiques ↔</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<div class="wrap doc-grid">
+  <!-- TOC -->
+  <nav class="toc" aria-label="Sommaire du manuel">
+    <div class="toc-ttl">Sommaire</div>
+    <ol>
+      <li><a href="#introduccion">Introduction</a></li>
+      <li><a href="#escenarios">Scénarios, catégories et catalogues</a></li>
+      <li><a href="#crear">Créer une course</a></li>
+      <li><a href="#tandas">Séries, participants et rotation</a></li>
+      <li><a href="#editar">Éditer la course, les séries et les manches</a></li>
+      <li><a href="#pole">Pole (qualification préalable)</a></li>
+      <li><a href="#lap">PitWall Lap — PIN pour les équipes</a></li>
+      <li><a href="#vivo">Diriger la course en direct</a></li>
+      <li><a href="#turnos">Contrôle des relais de pilote</a></li>
+      <li><a href="#correcciones">Tour par tour et corrections</a></li>
+      <li><a href="#resultados">Résultats et exports</a></li>
+      <li><a href="#entrenamiento">Entraînement</a></li>
+      <li><a href="#ajustes">Réglages</a></li>
+      <li><a href="#glosario">Glossaire</a></li>
+    </ol>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="doc">
+
+    <section id="introduccion">
+      <div class="num">// 01</div>
+      <h2>Introduction</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Écran d'accueil</span></div>
+        <img src="manual/img/01-home.png" loading="lazy" alt="Écran d'accueil de PitWall">
+        <figcaption>Écran d'accueil : accès aux Courses, aux Réglages et à l'état de la liaison.</figcaption>
+      </figure>
+      <p><b>PitWall</b> est le système de chronométrage et de gestion de courses de slot. Il détecte le passage de chaque voiture sur la ligne d'arrivée grâce au matériel de chronométrage, avec deux options compatibles :</p>
+      <ul>
+        <li><b>DS-300</b> — par <b>port série</b>. Tu peux relier <b>jusqu'à 6 circuits</b> DS-300 dans une seule course : chaque boîtier chronomètre ses voies et PitWall les combine.</li>
+        <li><b>BART (Policar)</b> — par <b>Bluetooth</b>. Il admet <b>jusqu'au nombre maximal de voies que permet BART</b> (actuellement <b>32</b>).</li>
+      </ul>
+      <p>Tu peux utiliser l'une ou l'autre source ; pour PitWall le flux de passages est équivalent.</p>
+      <ul>
+        <li>Depuis l'<b>écran d'accueil</b>, tu accèdes aux <b>Courses</b>, aux <b>Réglages</b> et au reste des modules.</li>
+        <li>En bas à droite, tu vois toujours l'<b>état de la liaison</b> (vert = connecté ; « Sans signal » = vérifie le câble/port ou le Bluetooth).</li>
+      </ul>
+      <p><b>La liste des courses</b> te montre toutes tes courses avec leur état (en attente / active / terminée) et le bouton <b>+ Nouvelle course</b>.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Liste des courses</span></div>
+        <img src="manual/img/02-races-list.png" loading="lazy" alt="Liste des courses avec leur état et le bouton de nouvelle course">
+        <figcaption>Liste des courses : état (en attente / active / terminée) et « + Nouvelle course ».</figcaption>
+      </figure>
+    </section>
+
+    <section id="escenarios">
+      <div class="num">// 02</div>
+      <h2>Scénarios, catégories et catalogues (ta bibliothèque)</h2>
+      <p>Pour ne pas reconfigurer la même chose à chaque course, PitWall enregistre des <b>modèles réutilisables</b> que tu choisis ensuite au moment de créer une course.</p>
+
+      <h3>Scénarios (circuits enregistrés)</h3>
+      <p>Un <b>scénario</b> est une piste physique enregistrée : nombre de circuits et de voies (par ex. <span class="mono">8+8+8 = 24</span>), sa <b>séquence de voies</b> (rotation) et le <b>temps minimum par défaut</b>. Toute course affectée à ce scénario en hérite automatiquement.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Scénarios</span></div>
+        <img src="manual/img/op-escenarios.png" loading="lazy" alt="Liste des scénarios (circuits enregistrés) avec leurs voies et leur séquence">
+        <figcaption>Scénarios : pistes enregistrées avec leurs circuits, voies, séquence de rotation et temps minimum.</figcaption>
+      </figure>
+      <p>Lors de l'édition d'un scénario, tu définis son nom, la configuration des voies, tu fais glisser la <b>séquence de rotation</b> (avec des <b>repos DSC</b> s'il y a trop de pilotes), le <b>temps minimum par défaut</b> et, en option, des <b>tours minimums par catégorie</b> (un Pt différent pour GT, Tourisme, Classiques… sur cette même piste).</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Éditer le scénario</span></div>
+        <img src="manual/img/op-escenario-form.png" loading="lazy" alt="Formulaire d'édition d'un scénario avec la séquence de rotation et le temps minimum par catégorie">
+        <figcaption>Éditer le scénario : voies, séquence de rotation (avec repos DSC), temps minimum par défaut et par catégorie.</figcaption>
+      </figure>
+
+      <h3>Catégories</h3>
+      <p>Groupes de niveau/classe (GT, Tourisme, Classiques…) qui servent à <b>surcharger le temps minimum (Pt) par catégorie</b> dans chaque scénario et à classer voitures et pilotes.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Catégories</span></div>
+        <img src="manual/img/op-categorias.png" loading="lazy" alt="Écran de catégories (GT, Tourisme, Classiques) pour classer voitures et pilotes">
+        <figcaption>Catégories : classes (GT, Tourisme, Classiques…) pour classer et pour le Pt par catégorie.</figcaption>
+      </figure>
+
+      <h3>Catalogues réutilisables (pilotes, équipes, voitures)</h3>
+      <p>Tiens à jour ta <b>base de données</b> de participants et de matériel pour la réutiliser d'une course à l'autre :</p>
+      <ul>
+        <li><b>Pilotes</b> — nom et catégorie ; chaque pilote peut avoir son <b>QR</b> d'identification.</li>
+        <li><b>Équipes</b> — nom, couleur, pays, voiture et membres.</li>
+        <li><b>Voitures</b> — marque, modèle et catégorie.</li>
+      </ul>
+      <p>Tous peuvent être <b>importés en bloc depuis un CSV</b> (boutons <b>Modèle CSV</b> et <b>Importer CSV</b>, avec un aperçu des nouveautés vs. doublons) et exportés.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Catalogue de pilotes</span></div>
+        <img src="manual/img/op-catalogo-pilotos.png" loading="lazy" alt="Catalogue de pilotes avec nom, catégorie et importation par CSV">
+        <figcaption>Catalogue de pilotes : base de données réutilisable avec importation par CSV (nouveautés vs. doublons).</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · QR des pilotes</span></div>
+        <img src="manual/img/op-qr-pilotos.png" loading="lazy" alt="Cartes QR d'identification des pilotes pour le changement de pilote par scan">
+        <figcaption>QR des pilotes : cartes d'identification imprimables pour le changement de pilote par scan.</figcaption>
+      </figure>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Avec <b>Exporter QR</b>, tu imprimes les cartes QR de tous les pilotes (pour le changement de pilote par scan en endurance — voir <i>Contrôle des relais</i>).</div>
+      </div>
+    </section>
+
+    <section id="crear">
+      <div class="num">// 03</div>
+      <h2>Créer une course</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Assistant · Étape 1</span></div>
+        <img src="manual/img/03-wizard-step1.png" loading="lazy" alt="Assistant pour créer une nouvelle course, étape 1">
+        <figcaption>Assistant de nouvelle course : type, voies, temps minimum, passages et règles.</figcaption>
+      </figure>
+      <p>Appuie sur <b>+ Nouvelle course</b> et suis l'assistant :</p>
+      <ul>
+        <li><b>Type</b> :
+          <ul>
+            <li><i>Sprint</i> → une <b>course rapide</b>, de <b>pilotes ou d'équipes</b>.</li>
+            <li><i>Endurance</i> → une <b>course d'endurance</b> (par équipes), qui ajoute le <b>contrôle du temps couru par chaque pilote</b> de l'équipe (voir <i>Contrôle des relais de pilote</i>).</li>
+          </ul>
+        </li>
+        <li><b>Voies et circuits</b> : nombre total de voies et répartition entre les boîtiers (par ex. 8+8+6 = 3 boîtiers DS-300).</li>
+        <li><b>Temps minimum de tour (Pt)</b> : en dessous de ce temps, un passage est considéré comme <b>fantôme</b> (rebond/double lecture) et ne compte pas.</li>
+        <li><b>Passages</b> : combien de fois la <b>séquence de voies entière</b> est parcourue. 2 passages = la rotation complète est courue 2 fois (deux fois plus de manches).</li>
+        <li><b>Répéter la voie</b> : chaque voie est courue ce nombre de <b>manches d'affilée</b> (même voie), en cumulant les tours — pour comparer chaque répétition.</li>
+        <li><b>Pole</b> (facultatif) et <b>règles de pilote</b> (championnat uniquement : min/max par pilote, blocage de changement en fin de manche).</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Les <b>passages</b> et la <b>répétition de voie</b> ne changent que la façon dont les manches sont générées ; les totaux se cumulent par participant.</div>
+      </div>
+    </section>
+
+    <section id="tandas">
+      <div class="num">// 04</div>
+      <h2>Séries, participants et rotation</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Série · Participants et manches</span></div>
+        <img src="manual/img/34-tanda.png" loading="lazy" alt="Série avec ses participants et les manches générées par rotation">
+        <figcaption>Une série : participants, leur rotation de voies et les manches générées.</figcaption>
+      </figure>
+      <p>Une <b>série</b> regroupe les participants et leur <b>rotation de voies</b> par manche. Lorsque tu ajoutes les <b>équipes/pilotes</b>, PitWall génère automatiquement toutes les <b>manches</b>.</p>
+
+      <h3>Comment fonctionne la rotation</h3>
+      <p>Chaque participant change de voie de manche en manche en suivant la séquence configurée (par ex. <span class="mono">1, 3, 5, 6, 4, 2</span>). Ainsi, tout le monde passe par toutes les voies et les conditions s'égalisent.</p>
+      <ul>
+        <li><i>Exemple (6 voies, 6 pilotes) :</i> dans la manche 1, le pilote A court sur la voie 1 ; dans la manche 2, la 3 ; dans la 3, la 5… jusqu'à avoir fait le tour de toutes les voies.</li>
+      </ul>
+
+      <h3>Rotation à ta guise</h3>
+      <p>PitWall propose automatiquement une rotation équilibrée, mais <b>tu peux la gérer comme tu veux</b> : réordonne la <b>séquence de voies</b> à la main (en faisant glisser) pour décider exactement par quelle voie passe chaque participant à chaque manche.</p>
+
+      <h3>Repos</h3>
+      <p>S'il y a <b>plus de participants que de voies</b>, la séquence inclut des trous (<span class="mono">0</span> / <span class="mono">DSC</span>) qui sont des <b>repos</b> : dans cette manche, ce participant ne court pas. PitWall les répartit de façon équilibrée, mais <b>tu peux aussi les placer où tu veux</b> dans la rotation (fais-les glisser à la position que tu préfères).</p>
+
+      <h3>Avec passages / répétition de voie</h3>
+      <ul>
+        <li><i>2 passages</i> → la séquence entière se répète : <span class="mono">1,3,5,6,4,2, 1,3,5,6,4,2</span>.</li>
+        <li><i>Répéter la voie 2</i> → chaque voie, deux manches d'affilée : <span class="mono">1,1,3,3,5,5,6,6,4,4,2,2</span>.</li>
+      </ul>
+    </section>
+
+    <section id="editar">
+      <div class="num">// 05</div>
+      <h2>Éditer la course, les séries et les manches</h2>
+      <p>Après avoir créé une course, tu peux la retoucher :</p>
+      <ul>
+        <li><b>Éditer la course</b> — changer le <b>nom</b> et, si elle <b>n'a pas encore de tours enregistrés</b>, le circuit/scénario. S'il y a déjà des tours, le circuit reste <b>verrouillé</b> (pour ne pas casser les données).</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Éditer la course</span></div>
+        <img src="manual/img/op-edit-carrera.png" loading="lazy" alt="Formulaire d'édition d'une course : nom et circuit/scénario">
+        <figcaption>Éditer la course : nom et —s'il n'y a pas encore de tours— circuit/scénario.</figcaption>
+      </figure>
+      <ul>
+        <li><b>Éditer la série</b> — changer les <b>noms</b> des participants et, si la série n'a pas encore commencé, sa composition. Si elle a déjà des manches lancées, elle passe en <b>mode renommer seulement</b> (on n'ajoute ni ne retire de participants, pour ne pas déséquilibrer la rotation).</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Éditer la série</span></div>
+        <img src="manual/img/op-edit-tanda.png" loading="lazy" alt="Formulaire d'édition d'une série : participants et mode renommer seulement">
+        <figcaption>Éditer la série : participants et leur composition (ou mode renommer seulement si elle a déjà commencé).</figcaption>
+      </figure>
+      <ul>
+        <li><b>Éditer la manche</b> — changer <b>qui court sur chaque voie</b> dans une manche précise, sans régénérer toute la série (utile si une équipe ne se présente pas ou en cas de changement de dernière minute).</li>
+      </ul>
+    </section>
+
+    <section id="pole">
+      <div class="num">// 06</div>
+      <h2>Pole (qualification préalable)</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Configurer la Pole Position</span></div>
+        <img src="manual/img/44-pole-setup.png" loading="lazy" alt="Écran de configuration de la Pole Position avec ordre des participants et voie">
+        <figcaption>Configurer la Pole : ordre de départ des participants et voie commune de qualification.</figcaption>
+      </figure>
+      <p>La <b>pole</b> est un tour qualificatif <b>avant</b> la course pour décider l'ordre de départ. Elle est facultative ; elle s'active à la création de la course (<b>Pole</b>) et se lance depuis la page de la course → <b>Configurer la Pole Position</b>.</p>
+      <ul>
+        <li><b>Participants</b> : tous les inscrits apparaissent. L'<b>ordre de la liste</b> est l'ordre dans lequel ils sortiront faire leur tour ; appuie sur <b>🎲 Aléatoire</b> pour le mélanger.</li>
+        <li><b>Voie de pole</b> : <b>tous</b> font leur tour qualificatif sur la <b>même voie</b> (pour que ce soit comparable). Choisis-la avec <b>−/+</b> ou avec <b>🎲 Aléatoire</b>.</li>
+        <li>Appuie sur <b>Commencer la Pole</b> : chaque participant entre à tour de rôle, fait son tour et PitWall enregistre son meilleur temps. Dans le chronométrage, tu peux activer <b>Ignorer le 1er passage (out-lap)</b> pour ne pas compter le tour de lancement.</li>
+      </ul>
+
+      <h3>Résultats de la pole</h3>
+      <p>À la fin apparaît <b>Résultats Pole</b> avec le <b>classement final</b> (du plus rapide au plus lent, avec l'écart au leader et le <b>meilleur tour</b>). D'ici, tu peux <b>✏️ Éditer les temps</b> s'il y a eu une erreur, ou continuer avec <b>🚦 Attribuer les voies de départ</b>.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Résultats Pole</span></div>
+        <img src="manual/img/46-pole-results.png" loading="lazy" alt="Écran de Résultats Pole avec le classement final, l'écart au leader et le meilleur tour">
+        <figcaption>Résultats Pole : classement final, écart au leader et meilleur tour par participant.</figcaption>
+      </figure>
+
+      <h3>Attribuer les voies après la pole</h3>
+      <p>La pole ne répartit pas les voies automatiquement : elle ouvre l'écran <b>Choix de voie</b>, où chaque participant <b>choisit</b> sa voie <b>dans l'ordre du classement</b> — le <b>poleman</b> (le plus rapide) choisit en premier, puis le 2e, et ainsi de suite. C'est le classique « le plus rapide choisit sa voie ».</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Choix de voie</span></div>
+        <img src="manual/img/47-pole-lanes.png" loading="lazy" alt="Écran de choix de voie dans l'ordre du classement, avec les voies disponibles">
+        <figcaption>Choix de voie : chaque participant choisit sa voie dans l'ordre du classement de la pole.</figcaption>
+      </figure>
+      <ul>
+        <li>La bannière <b>Choix en cours</b> indique à qui c'est le tour ; à gauche tu vois l'<b>ordre de choix</b> (le classement) et à droite les <b>voies disponibles</b> (avec leur couleur).</li>
+        <li>Chacun appuie sur la voie qu'il veut ; cette voie disparaît des disponibles et le tour passe au suivant.</li>
+        <li><b>S'il y a plus de participants que de voies</b>, des trous de <b>💤 Repos</b> apparaissent : celui qui choisit le repos <b>ne court pas la manche 1</b> et <b>entre dans la rotation à partir de la manche 2</b>.</li>
+        <li>Quand tout le monde a choisi, appuie sur <b>🏁 Créer la Première Série</b> : PitWall crée la série et génère toutes les manches avec cette grille comme point de départ (l'ordre de choix définit la position initiale dans la rotation des voies). À partir de là, la course fait tourner les voies de manche en manche comme d'habitude (voir <i>Séries et rotation</i>).</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>La pole ne rapporte pas de points dans la course : elle décide seulement <b>qui choisit sa voie en premier</b> et, par là, la grille de départ de la première manche.</div>
+      </div>
+    </section>
+
+    <section id="lap">
+      <div class="num">// 07</div>
+      <h2>PitWall Lap — PIN pour les équipes</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · PINs par équipe</span></div>
+        <img src="manual/img/43-lap-pins.png" loading="lazy" alt="Tableau de PINs par équipe pour accéder à PitWall Lap depuis le mobile">
+        <figcaption>PitWall Lap · PINs : l'adresse pour le mobile et le PIN de chaque équipe.</figcaption>
+      </figure>
+      <p><b>PitWall Lap</b> est la vue mobile qui permet à chaque <b>équipe/pilote</b> de suivre son propre chronométrage depuis le téléphone (ses tours, annoncés par la voix, et sa position). Pour qu'ils accèdent uniquement à <i>leur</i> panneau, un <b>PIN</b> est distribué par équipe.</p>
+      <ul>
+        <li>Entre dans <b>PitWall Lap · PINs</b> de la course. Tu verras l'adresse que les équipes ouvrent sur le mobile (par ex. <span class="mono">http://&lt;IP-du-serveur&gt;:3000/lap/&lt;id&gt;</span>) et le tableau <b>ÉQUIPE → PIN</b>.</li>
+        <li>Donne à chaque équipe <b>son PIN</b>. En ouvrant l'adresse et en le saisissant, ils entrent directement sur leur panneau.</li>
+        <li><b>Nouveau</b> régénère le PIN d'une équipe (au cas où il aurait fuité ou qu'ils veuillent le changer).</li>
+      </ul>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div>Les mobiles doivent être sur le <b>même réseau</b> que l'ordinateur qui fait office de serveur. Utilise l'IP de la machine, pas <span class="mono">localhost</span>, quand ils l'ouvrent depuis le téléphone.</div>
+      </div>
+    </section>
+
+    <section id="vivo">
+      <div class="num">// 08</div>
+      <h2>Diriger la course en direct</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Chronométrage en direct</span></div>
+        <img src="manual/img/20-live-timing.png" loading="lazy" alt="Écran de chronométrage en direct d'une manche">
+        <figcaption>Écran en direct : horloges par circuit, cartes de voie et meilleur tour.</figcaption>
+      </figure>
+      <p>Depuis la page de la course :</p>
+      <ol class="steps">
+        <li><b>Armer la manche</b> (▶). Elle reste prête, en attente du <b>GO</b> du boîtier.</li>
+        <li><b>GO</b> : au moment du départ donné sur le boîtier, le <b>feu tricolore</b> apparaît et le chronomètre démarre. Chaque circuit a sa propre horloge (C1/C2/C3).</li>
+        <li>Pendant la manche, tu vois par voie : <b>total de tours</b>, <b>dernier</b>, <b>moyenne</b>, <b>meilleur</b>, et en haut la bannière du <b>meilleur tour</b>.</li>
+        <li><b>Pause / Reprendre / Arrêter</b> la manche au besoin.</li>
+        <li>À la fin (drapeau ou fin de temps), la manche se ferme et la <b>suivante</b> se prépare.</li>
+        <li>Quand toutes les manches d'une série sont terminées, la <b>série suivante</b> démarre.</li>
+      </ol>
+      <p><b>Choisir la vue.</b> Avec le bouton <b>Vue</b>, tu changes la mise en page selon les voies : <i>Lignes horizontales</i> (peu de voies), <i>Grille compacte</i> (beaucoup) ou <i>Cartes détaillées</i> (avec tours/sorties/pit/Δ par carte).</p>
+
+      <h3>Changer de série, répéter une manche et terminer</h3>
+      <p>Depuis le direct lui-même, tu as des raccourcis sans quitter l'écran :</p>
+      <ul>
+        <li><b>Série suivante</b> — quand les manches d'une série se terminent, passe directement à la suivante.</li>
+        <li><b>Répéter la manche</b> — si une manche a été jugée mauvaise (faux départ, incident), tu la relances avec les mêmes participants et voies.</li>
+        <li><b>Terminer la course</b> — clôt la course (le « drapeau ») : le classement se fige et le résumé est généré pour les résultats et pour les mobiles (PitWall Lap).</li>
+      </ul>
+
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div>Avertissement <b>« Sans signal du DS-300 »</b> : tant qu'il est présent, les tours <b>ne sont pas enregistrés</b>. Vérifie la connexion avant de donner le GO.</div>
+      </div>
+    </section>
+
+    <section id="turnos">
+      <div class="num">// 09</div>
+      <h2>Contrôle des relais de pilote (championnats)</h2>
+      <p>Dans les courses de <b>championnat par équipes</b>, tu peux imposer des règles de partage du volant entre les pilotes d'une équipe. Elles se définissent à la création de la course :</p>
+      <ul>
+        <li><b>Temps minimum / maximum par pilote</b> — chaque pilote doit rouler au moins X et au plus Y.</li>
+        <li><b>Blocage après un changement</b> — un minimum de temps avant de pouvoir rechanger de pilote.</li>
+        <li><b>Maximum de relais par pilote</b>.</li>
+      </ul>
+      <p>Les <b>changements de pilote</b> s'enregistrent en scannant le <b>QR du pilote</b> (ou en saisissant son code) à l'entrée en piste. Depuis le direct, tu ouvres <b>Contrôle des relais</b>, qui affiche le <b>pilote actuel par voie</b>, le <b>temps cumulé</b> de chacun (en signalant s'il enfreint une règle) et l'<b>historique des relais</b> ; si un changement a été mal enregistré, tu peux <b>corriger le temps</b> du relais.</p>
+    </section>
+
+    <section id="correcciones">
+      <div class="num">// 10</div>
+      <h2>Tour par tour et corrections (ajouter / retirer des tours)</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Tour par tour · Corrections</span></div>
+        <img src="manual/img/30-correcciones.png" loading="lazy" alt="Vue tour par tour avec les actions de correction par tour">
+        <figcaption>Tour par tour : liste des tours par voie et actions pour corriger les lectures.</figcaption>
+      </figure>
+      <p>Depuis la course (bouton de <b>correction des tours</b> dans le direct ou dans les résultats), tu accèdes au <b>tour par tour</b> de chaque manche. Il sert à corriger les lectures mal enregistrées.</p>
+      <ul>
+        <li><b>Gauche</b> : les voies de la manche ; choisis l'équipe/le pilote à revoir.</li>
+        <li><b>Droite</b> : sa liste de tours — <b>TR</b> (n°), <b>TEMPS</b>, <b>HORLOGE</b> (moment de course) et <b>Δ PRÉC.</b> (différence avec le tour précédent).</li>
+        <li><b>Actions par tour</b> :
+          <ul>
+            <li><b>Transférer</b> (↔) — passer le tour à <b>une autre voie/équipe</b> (si le système l'a mal attribué).</li>
+            <li><b>Fantôme</b> — marquer le tour comme non valide (il ne compte pas) sans le supprimer ; on peut le <b>restaurer</b>.</li>
+            <li><b>Supprimer</b> (🗑) — éliminer un tour.</li>
+            <li><b>Ajouter un tour manuel</b> — s'il a manqué un passage, tu l'ajoutes à la main.</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div>Utilise-le avec discernement : les corrections modifient les totaux, les moyennes et le classement de cette manche.</div>
+      </div>
+    </section>
+
+    <section id="resultados">
+      <div class="num">// 11</div>
+      <h2>Résultats et exports</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Résultats · Comparatif</span></div>
+        <img src="manual/img/10-results-comparativa.png" loading="lazy" alt="Vue de comparatif des résultats par participant et voie">
+        <figcaption>Comparatif (grille) : par participant et voie, avec rapide, moyenne et consistance.</figcaption>
+      </figure>
+      <p>À la fin (ou à tout moment), entre dans <b>Résultats</b> :</p>
+      <ul>
+        <li><b>Comparatif</b> (grille) : par participant, chaque voie avec <b>Rapide / Moyenne / Consistance / Sorties / Pit-stops</b>. Dans les courses à <b>passages/répétition de voie</b>, chaque voie se décompose en ses <b>occurrences</b> (1/2, 2/2) pour comparer.</li>
+        <li><b>Progression / Positions / Écart au leader / Écart (grille) / Statistiques avancées</b> : différentes vues d'analyse (expliquées en détail dans le <a class="inl" href="manual-estadisticas.fr.html">Manuel de statistiques</a>).</li>
+        <li><b>Exports</b> : <b>Excel</b>, <b>Points (xlsx/csv)</b>, <b>Control (csv)</b>, <b>Exporter pour GitHub</b>, <b>PDF</b>.</li>
+      </ul>
+
+      <h3>Résultats publics</h3>
+      <p>Il existe une page ouverte —<b>Résultats</b>, dans le menu d'accueil— où n'importe qui peut consulter (sans rien toucher ni pouvoir éditer) les résultats des courses <b>terminées</b>. C'est celle que tu partages avec les pilotes et le public pour qu'ils regardent le classement et les statistiques de la course.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Résultats publics</span></div>
+        <img src="manual/img/op-resultados-publicos.png" loading="lazy" alt="Page publique de résultats des courses terminées, en lecture seule">
+        <figcaption>Résultats publics : consultation en lecture seule des courses terminées, pour partager avec les pilotes et le public.</figcaption>
+      </figure>
+    </section>
+
+    <section id="entrenamiento">
+      <div class="num">// 12</div>
+      <h2>Entraînement</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Entraînement</span></div>
+        <img src="manual/img/40-training.png" loading="lazy" alt="Écran du mode Entraînement de PitWall">
+        <figcaption>Entraînement : rouler sans monter une compétition complète (libre ou de compétition).</figcaption>
+      </figure>
+      <p>En plus des courses, PitWall dispose d'un mode <b>Entraînement</b> (depuis l'écran d'accueil) pour rouler sans monter une compétition complète. Il y a deux modalités :</p>
+      <ul>
+        <li><b>Entraînement libre</b> : enregistre des <b>tours par voie sans structure d'équipes</b>. Idéal pour des séances ouvertes où chacun teste voiture et piste ; il n'y a ni rotation ni classement, seulement des temps par voie.</li>
+        <li><b>De compétition</b> : équipes ou pilotes affectés à des voies avec <b>rotation automatique après chaque série</b>, comme une course mais pensé pour s'entraîner au format championnat.</li>
+      </ul>
+      <p>Choisis la modalité, attribue les voies et appuie sur <b>Commencer</b>. Le chronométrage en direct fonctionne comme en course (GO du boîtier, tours, meilleur/moyenne par voie).</p>
+    </section>
+
+    <section id="ajustes">
+      <div class="num">// 13</div>
+      <h2>Réglages</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Réglages</span></div>
+        <img src="manual/img/04-settings.png" loading="lazy" alt="Écran des réglages de PitWall">
+        <figcaption>Réglages : matériel et ports, circuits enregistrés, licence et langue.</figcaption>
+      </figure>
+      <ul>
+        <li><b>Matériel / ports</b> : configure les circuits série (DS-300) et leur nombre de voies.</li>
+        <li><b>Circuits</b> : définis des pistes enregistrées (séquence de voies, temps minimum).</li>
+        <li><b>Licence</b> et langue (ES/EN).</li>
+      </ul>
+    </section>
+
+    <section id="glosario">
+      <div class="num">// 14</div>
+      <h2>Glossaire (opération)</h2>
+      <ul>
+        <li><b>Course</b> : l'événement complet. Il se compose de séries.</li>
+        <li><b>Série</b> : groupe de participants avec sa rotation ; elle se compose de manches.</li>
+        <li><b>Manche</b> : une tirée chronométrée (toutes les voies en même temps) d'une durée donnée.</li>
+        <li><b>Rotation</b> : comment les participants changent de voie d'une manche à l'autre.</li>
+        <li><b>Repos</b> : manche dans laquelle un participant ne court pas (trou <span class="mono">0</span> dans la séquence).</li>
+        <li><b>Passage</b> : parcours complet de la séquence de voies ; N passages = N× manches.</li>
+        <li><b>Répéter la voie</b> : courir chaque voie N manches d'affilée, en cumulant les tours.</li>
+        <li><b>GO</b> : le signal de départ (du boîtier DS-300) qui lance la manche.</li>
+        <li><b>Tour fantôme</b> : tour marqué comme non valide (il ne compte pas), restaurable.</li>
+        <li><b>Pole</b> : séance de qualification préalable (facultative) ; tous roulent sur la même voie et leur meilleur tour fixe la grille de départ.</li>
+        <li><b>Entraînement libre</b> : mode pour enregistrer des tours par voie sans équipes ni rotation (séance ouverte).</li>
+        <li><b>PitWall Lap</b> : vue mobile par équipe/pilote (ses tours annoncés et sa position).</li>
+        <li><b>PIN</b> : code par équipe pour entrer sur son panneau dans PitWall Lap.</li>
+        <li><b>Pt (temps minimum)</b> : seuil en dessous duquel un tour est considéré comme un passage fantôme et ne compte pas.</li>
+        <li><b>Scénario</b> : piste enregistrée (circuits, voies, séquence et temps minimum) réutilisable dans plusieurs courses.</li>
+        <li><b>Catégorie</b> : classe de voiture/pilote (GT, Tourisme, Classiques…) ; permet un Pt différent par catégorie.</li>
+        <li><b>Catalogue</b> : bibliothèque réutilisable de pilotes, équipes et voitures (importable par CSV).</li>
+        <li><b>QR de pilote</b> : code qui identifie le pilote pour enregistrer son relais lors du scan.</li>
+        <li><b>Relais (shift)</b> : période pendant laquelle un pilote est au volant au sein de son équipe en endurance.</li>
+        <li><b>DS-300</b> : le boîtier de chronométrage qui détecte le passage sur la ligne d'arrivée.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="pitwall-landing-fr.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
+    <div class="apps-mini"><a href="manual-uso.fr.html">Manuel d'utilisation</a><a href="manual-estadisticas.fr.html">Statistiques</a></div>
+    <div class="mono">© 2026 · Chronométrage et gestion de slot racing</div>
+  </div>
+</footer>
+
+<a href="#top" class="totop" aria-label="Revenir en haut">↑</a>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var totop = document.querySelector('.totop');
+  function onScroll(){
+    var y = window.scrollY + 100, cur = 0;
+    for (var i=0;i<secs.length;i++){ if(secs[i] && secs[i].offsetTop <= y) cur = i; }
+    links.forEach(function(a,i){ a.classList.toggle('active', i===cur); });
+    totop.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>

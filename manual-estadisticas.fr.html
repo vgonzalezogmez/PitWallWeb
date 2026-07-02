@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PitWall · Manuel de statistiques</title>
+<meta name="description" content="Interprétation des vues Live et Statistiques de PitWall pour les pilotes : ce que chaque chiffre te dit et comment l'utiliser.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="manual/manual.css">
+<style>body{--ac:var(--cyan)}</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="pitwall-landing-fr.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
+    <nav class="links">
+      <a href="pitwall-landing-fr.html">Landing</a>
+      <a href="manual-uso.fr.html">Manuel d'utilisation</a>
+      <a href="manual-estadisticas.fr.html" class="here">Statistiques</a>
+      <div class="lang" role="group" aria-label="Langue">
+        <a href="manual-estadisticas.html">ES</a>
+        <a href="manual-estadisticas.en.html">EN</a>
+        <a href="manual-estadisticas.it.html">IT</a>
+        <a href="manual-estadisticas.fr.html" class="on" aria-current="true">FR</a>
+      </div>
+      <a href="manual-uso.fr.html" class="nav-cta">Comment piloter →</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="doc-hero">
+  <div class="wrap">
+    <div class="kicker">Interprétation des statistiques · Pilotes</div>
+    <h1>Ce que te dit<br>chaque <span class="ac">chiffre</span>.</h1>
+    <p class="lede">Guide destiné aux pilotes, sans jargon. Dans PitWall, tu cours par <b>voies</b> (C1, C2, C3…) et tu <b>tournes de voie de manche en manche</b>. C'est pourquoi il y a deux façons de regarder ta course : <b>ce qui se passe MAINTENANT dans cette manche</b> et <b>où tu vas finir À LA FIN</b> quand tu additionnes toutes tes manches. Ce manuel t'apprend à lire les deux — pour aller plus vite et plus régulièrement.</p>
+    <div class="xlink">
+      <a href="manual-uso.fr.html">↔ Manuel d'utilisation</a>
+      <a class="cur" href="manual-estadisticas.fr.html">▮ Manuel de statistiques</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<div class="wrap doc-grid">
+  <!-- TOC -->
+  <nav class="toc" aria-label="Sommaire du manuel">
+    <div class="toc-ttl">Sommaire</div>
+    <ol>
+      <li><a href="#directo">L'écran en direct</a></li>
+      <li><a href="#pestanas">Les 3 onglets</a></li>
+      <li><a href="#panel">Ton panneau</a></li>
+      <li><a href="#lap">PitWall Lap : ta course sur le mobile</a></li>
+      <li><a href="#consistencia">Consistance</a></li>
+      <li><a href="#graficas">Les graphiques</a></li>
+      <li><a href="#proyeccion">Projection et écarts</a></li>
+      <li><a href="#resultados">La vue Résultats</a></li>
+      <li><a href="#glosario">Glossaire</a></li>
+    </ol>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="doc">
+
+    <section id="directo">
+      <div class="num">// 01</div>
+      <h2>L'écran en direct</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Direct · Manche en cours</span></div>
+        <img src="manual/img/20-live-timing.png" loading="lazy" alt="Écran en direct de la manche en cours">
+        <figcaption>La manche en cours : horloges par circuit et une carte par voiture en piste.</figcaption>
+      </figure>
+      <p>C'est l'écran de la manche en cours. Ce que tu vois en temps réel, tour par tour.</p>
+      <p><b>Horloges par circuit (C1, C2, C3…).</b> Si la course utilise plusieurs circuits en même temps, tu as en haut une horloge pour chacun. Chaque horloge marque le temps de cette manche sur ce circuit. Quand l'horloge arrive à zéro, cette manche se termine et vous tournez tous de voie.</p>
+      <p><b>Cartes de voie.</b> Une carte pour chaque voiture en piste. Sur chaque carte, tu lis d'un coup d'œil :</p>
+      <ul>
+        <li><b>TOTAL</b> — tours cumulés jusqu'à présent dans la manche.</li>
+        <li><b>DERNIER</b> — ton dernier tour complet. C'est ta référence immédiate : tu progresses ou tu chutes ?</li>
+        <li><b>MOYENNE</b> — ton rythme moyen dans la manche (moyenne simple de tes tours, sans compter celui d'échauffement). C'est ce qui commande vraiment pour gagner en endurance : pas le meilleur tour isolé, mais le rythme soutenu.</li>
+        <li><b>MEILLEUR</b> — ton meilleur tour valide de la manche.</li>
+      </ul>
+      <p><b>Bannière du meilleur tour.</b> Quand quelqu'un signe le tour le plus rapide du moment, un avis mis en avant apparaît. Si c'est le tien, tant mieux. Si c'est celui d'un rival, c'est la référence à battre.</p>
+
+      <h3>Les trois vues du direct (bouton « Vue »)</h3>
+      <p>Avec le bouton <b>Vue</b>, tu choisis comment les cartes s'affichent, selon le nombre de voies. Il y a trois modes :</p>
+
+      <p><b>1 · Lignes horizontales</b> — une ligne par voie. Recommandée pour <b>peu de voies</b> : chaque voie occupe une ligne large et se lit très confortablement.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Direct · Vue · Lignes horizontales</span></div>
+        <img src="manual/img/31-vista-1.png" loading="lazy" alt="Vue lignes horizontales, une ligne par voie">
+        <figcaption>Lignes horizontales : une ligne large par voie, idéale avec peu de voies.</figcaption>
+      </figure>
+
+      <p><b>2 · Grille compacte</b> — toutes les pistes à la fois en grille. Idéale pour <b>beaucoup de voies</b> : tu vois tout sans faire défiler.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Direct · Vue · Grille compacte</span></div>
+        <img src="manual/img/31-vista-2.png" loading="lazy" alt="Vue grille compacte avec toutes les voies en grille">
+        <figcaption>Grille compacte : toutes les pistes à la fois, idéale avec beaucoup de voies.</figcaption>
+      </figure>
+
+      <p><b>3 · Cartes détaillées</b> — comme la compacte, mais avec <b>TR</b> (tours), <b>SOR</b> (sorties), <b>PIT</b> et <b>Δ</b> visibles sur chaque carte. Plus d'informations par voie d'un coup d'œil.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Direct · Vue · Cartes détaillées</span></div>
+        <img src="manual/img/31-vista-3.png" loading="lazy" alt="Vue cartes détaillées : tours, sorties, pit et delta par voie">
+        <figcaption>Cartes détaillées : tours, sorties, pit et Δ visibles sur chaque voie.</figcaption>
+      </figure>
+    </section>
+
+    <section id="pestanas">
+      <div class="num">// 02</div>
+      <h2>Live-stats : les 3 onglets</h2>
+      <p>Live-stats est la vue de statistiques. Elle a trois onglets et chacun répond à une question différente.</p>
+
+      <h3>Manche actuelle</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Manche actuelle</span></div>
+        <img src="manual/img/21-livestats-manga.png" loading="lazy" alt="Live-stats, onglet de la manche actuelle">
+        <figcaption>Classement de cette manche avec le détail de chaque pilote.</figcaption>
+      </figure>
+      <p>Le classement de <b>cette</b> manche, avec le détail de chaque pilote : <b>T</b> (tours), <b>MEILLEUR</b>, <b>MOYENNE</b>, <b>Δ</b> (delta, ta marge), <b>SORTIES</b> et <b>PERDU</b> (temps perdu en sorties). Regarde-le pour savoir où tu en es MAINTENANT, avec qui tu partages ta voie et qui domine ta manche.</p>
+
+      <h3>Classement projeté</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Projeté</span></div>
+        <img src="manual/img/22-livestats-proyectada.png" loading="lazy" alt="Live-stats, onglet du classement projeté">
+        <figcaption>La position estimée à la fin de la course, en additionnant toutes les manches.</figcaption>
+      </figure>
+      <p>La position estimée <b>à la fin de la course</b>, quand vous aurez tous complété toutes vos manches. C'est celle qui importe vraiment pour savoir si tu es en train de gagner. Regarde-le pour connaître ta position RÉELLE au général, pas seulement dans la manche que tu es en train de courir.</p>
+
+      <h3>Comparatif par voie</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Par voie</span></div>
+        <img src="manual/img/23-livestats-carril.png" loading="lazy" alt="Live-stats, onglet de comparatif par voie">
+        <figcaption>Le rendement de chaque voie : les différences entre C1, C2, C3…</figcaption>
+      </figure>
+      <p>Le rendement de chaque voie. Certaines voies sont plus rapides que d'autres. Ici tu vois les différences entre C1, C2, C3… Regarde-le pour savoir si ta voie actuelle t'aide ou te pénalise, et quelles voies il te reste à rouler.</p>
+
+      <div class="summary">
+        <div class="tag">Règle rapide</div>
+        <p><b>Manche actuelle</b> = la photo de l'instant. <b>Projeté</b> = comment tu finis. <b>Voie</b> = pourquoi ton rythme change de manche en manche.</p>
+      </div>
+    </section>
+
+    <section id="panel">
+      <div class="num">// 03</div>
+      <h2>Ton panneau (Mon panneau)</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Mon panneau</span></div>
+        <img src="manual/img/21b-livestats-mipanel.png" loading="lazy" alt="Live-stats, panneau personnel du pilote">
+        <figcaption>Choisis ton pilote et tu auras ton propre panneau avec des cartes.</figcaption>
+      </figure>
+      <p>Choisis ton pilote et tu auras ton propre panneau avec des cartes. Une par une :</p>
+      <p><b>POSITION.</b> Attention à celle-ci : c'est ta position <b>PROJETÉE de course</b>, pas celle de la manche. Elle te dit où tu vas finir si le rythme se maintient. Si dans ta manche tu es 4e mais que ton panneau dit P1, c'est qu'en additionnant toutes les manches tu es premier. Fie-toi à celle-ci.</p>
+      <p><b>TOURS MANCHE.</b> Combien de tours tu as effectués dans la manche actuelle.</p>
+      <p><b>MEILLEUR.</b> Ton meilleur tour valide. « Valide » signifie qu'<b>il ne compte pas</b> :</p>
+      <ul>
+        <li>le <b>tour d'échauffement</b> (le premier, avec le bazar du feu tricolore et le passage initial),</li>
+        <li>ni un <b>passage partiel</b> (un tour qui est en réalité un demi-tour mal compté),</li>
+        <li>ni des temps <b>en dessous du minimum</b> de la course (passages fantômes impossibles).</li>
+      </ul>
+      <p>Ainsi, ton MEILLEUR est un vrai tour réel, jamais un chiffre offert.</p>
+      <p><b>MOYENNE.</b> Ton rythme moyen. Moyenne simple de tes tours de course (inclut sorties et pit-stops ; n'exclut que l'échauffement). C'est le chiffre que la projection utilise pour estimer où tu finis. <b>Baisse ta moyenne et tu montes au général.</b></p>
+      <p><b>Δ (delta).</b> C'est ta <b>moyenne propre moins ton meilleur tour</b>. Autrement dit : combien de marge il te reste. Un Δ petit = tu roules presque toujours à fond, très peu à gratter. Un Δ grand = tu as du rythme mais tu le perds sur beaucoup de tours : c'est là qu'est ton or, dans le fait d'être plus constant. La « moyenne propre » ici ne compte ni sorties ni pits, seulement ton roulage normal.</p>
+      <p><b>SORTIES / PIT-STOPS.</b> Combien de fois tu es sorti et combien d'arrêts tu as faits. Chaque sortie te coûte du temps et des positions.</p>
+      <p><b>Temps perdu en sorties.</b> Ce que ces sorties t'ont coûté, en secondes. Mets-le en contexte : parfois une seule sortie vaut plus de positions que des dixièmes de rythme sur toute la manche. Ici tu le vois clairement.</p>
+    </section>
+
+    <section id="lap">
+      <div class="num">// 04</div>
+      <h2>PitWall Lap : ta course sur le mobile</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Accès par PIN</span></div>
+        <img src="manual/img/45-lap-access.png" loading="lazy" alt="Écran d'accès à PitWall Lap par PIN sur le mobile">
+        <figcaption>Accès depuis le mobile : tu choisis ton équipe et tu saisis le PIN à 4 chiffres.</figcaption>
+      </figure>
+      <p><b>PitWall Lap</b> est le site web que tu ouvres sur le <b>mobile depuis ton stand</b> pour suivre ta course en direct, sans rien installer. C'est uniquement pour les <b>courses d'endurance (par équipes)</b>. C'est en lecture seule : tu consultes ton timing, tu ne contrôles pas la course.</p>
+      <p><b>Comment tu entres.</b> L'organisation te donne l'adresse (quelque chose comme <code>http://&lt;IP-du-serveur&gt;:3000/lap/&lt;course&gt;</code>) et un <b>PIN à 4 chiffres</b> de ton équipe. Tu ouvres l'adresse, tu choisis ton <b>équipe</b> dans la liste, tu saisis le <b>PIN</b> et tu appuies sur <b>Entrer</b>. Avec <b>Changer d'équipe</b>, tu peux sortir et entrer avec une autre.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Panneau de l'équipe</span></div>
+        <img src="manual/img/48-lap-team-panel.png" loading="lazy" alt="Panneau de l'équipe dans PitWall Lap : position projetée et cartes de rythme sur le mobile">
+        <figcaption>Le panneau de l'équipe sur le mobile : ta position projetée en grand et les cartes de rythme.</figcaption>
+      </figure>
+      <p><b>Ton panneau.</b> En haut, ta <b>position</b> en grand : c'est la <b>projetée</b> (où tu vas finir en additionnant toutes les manches), la même que celle que tu vois dans le direct et au général — pas celle de la manche isolée. En dessous, ta distance au leader (<i>« à N tours »</i>, <i>« à égalité »</i> ou <i>« 🏁 Leader de la course »</i>). La ligne d'état te dit en direct <b>dans quelle manche et voie tu es et combien il reste</b> (ou <i>« En repos »</i> / <i>« En attente de la prochaine manche »</i> / <i>« Course terminée »</i>). Et les cartes :</p>
+      <ul>
+        <li><b>Dernier tour</b> — ton dernier tour (clignote à la mise à jour).</li>
+        <li><b>Meilleur tour</b> — ton meilleur tour valide.</li>
+        <li><b>Tours</b> — total cumulé de toute la course.</li>
+        <li><b>Moyenne course</b> — ton rythme moyen cumulé (celui qu'utilise la projection).</li>
+        <li><b>Pit stops</b> — arrêts effectués.</li>
+        <li><b>Écart au leader</b> — à combien de tours du premier.</li>
+      </ul>
+      <p>S'il y a une projection active, apparaît <b>Estimation à la fin</b> avec ta <b>position estimée</b> et tes <b>tours projetés</b>.</p>
+      <p><b>La voix (annonceur de tours).</b> Avec le bouton <b>🔊 Voix</b>, tu actives l'annonceur (il démarre <b>éteint</b> : il faut toucher l'écran une fois pour que le mobile laisse le son passer). Il t'annonce le <b>temps de chaque tour</b>, et signale les <b>changements de position</b>, la <b>mi-manche</b>, la <b>dernière minute</b>, les <b>30 dernières secondes</b> et la <b>fin de manche</b>. Dans <b>⚙️ Réglages de voix</b>, tu actives/désactives chaque avis et, dans le bloc avancé, qu'il annonce toutes les X minutes ta <b>moyenne de voie</b>, les <b>écarts avec les rivaux</b> ou la <b>moyenne pour monter</b> d'une position.</p>
+      <p><b>Écran toujours actif.</b> Tant que le panneau est ouvert, l'écran <b>ne s'éteint pas</b> ; au bout de <b>30 secondes sans le toucher, il s'assombrit</b> (pour ne pas user la batterie ni déranger), mais <b>la voix continue d'annoncer</b>. Touche l'écran pour l'éclairer à nouveau.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Conseil.</b> Entre avec le PIN, active la <b>Voix</b>, laisse le mobile au stand et écoute. C'est la façon de rester informé sans quitter la piste des yeux.</div>
+      </div>
+    </section>
+
+    <section id="consistencia">
+      <div class="num">// 05</div>
+      <h2>Consistance</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Consistance</span></div>
+        <img src="manual/img/26-livestats-cons-con.png" loading="lazy" alt="Live-stats, carte de consistance">
+        <figcaption>La consistance mesure ta régularité tour par tour.</figcaption>
+      </figure>
+      <p>La carte la plus importante pour progresser. <b>La consistance mesure ta régularité tour par tour</b> : si tu fais toujours le même temps ou si tu fais des écarts.</p>
+      <p><b>Ce qu'est le %.</b> C'est 100 moins ta variation relative (le CV, coefficient de variation). 100 % serait un robot parfait, toujours identique. Plus c'est élevé, plus tu es régulier. Sur des données réelles, la norme est <b>entre 90 % et 99 %</b>. C'est la même formule qu'utilise TicTac, calculée sur tes tours de rythme (en écartant les incidents ponctuels).</p>
+      <p><b>Le ±ÉT en secondes (plus utile que le %).</b> À côté du %, tu verras quelque chose comme <i>±0,13 s</i>. C'est ton écart-type : <b>combien de secondes, en plus ou en moins, tu oscilles d'un tour à l'autre.</b> Regarde davantage ceci que le % : un ±0,13 s te dit directement à quel point tu roules serré, et discrimine mieux entre deux pilotes qui à première vue ont un % semblable. <b>Objectif : réduire ton ±ÉT.</b></p>
+      <p><b>Niveaux de couleur.</b> Le système te classe selon ta variation :</p>
+      <ul>
+        <li><b>Excellent</b> — variation en dessous de 1,5 %. Rouler comme une horloge.</li>
+        <li><b>Bonne</b> — entre 1,5 % et 2,5 %. Solide.</li>
+        <li><b>Irrégulière</b> — entre 2,5 % et 4 %. Tu fais des écarts, il y a du temps à gagner en étant plus fin.</li>
+        <li><b>Erratique</b> — au-dessus de 4 %. Beaucoup d'instabilité ; concentre-toi sur des tours propres jusqu'au bout avant d'attaquer.</li>
+      </ul>
+      <p><b>Bascule : Sans sorties / Avec sorties.</b></p>
+      <ul>
+        <li><b>Sans sorties</b> — ton <b>rythme pur</b>. Retire sorties, pits et incidents. Elle répond : <i>quand je roule bien, suis-je régulier ?</i> Utilise-la pour peaufiner ta conduite.</li>
+        <li><b>Avec sorties</b> — la <b>régularité réelle de ton relais</b>. Elle inclut TOUT : sorties, pits, trafic. Elle répond : <i>vraiment, tel quel, quel rythme ai-je livré ?</i> Utilise-la pour voir l'impact réel de tes erreurs. Elle ressort en général pire que « Sans sorties », et cette différence est exactement ce que te coûtent les incidents.</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Minimum de tours.</b> Il faut au moins <b>3 tours valides</b> (qui, en retirant l'échauffement et le premier passage, correspondent à environ 5 tours effectués) pour que le chiffre soit fiable. Avec moins, tu verras un tiret (—) jusqu'à ce que tu accumules du roulage.</div>
+      </div>
+    </section>
+
+    <section id="graficas">
+      <div class="num">// 06</div>
+      <h2>Les graphiques</h2>
+      <p>Chaque graphique a trois modes. Ils changent selon ce que tu veux voir.</p>
+      <p><b>Temps par tour.</b> Le classique : chaque point est un tour et son temps. Tu lis la forme de ta course. Baisses-tu en t'échauffant ? Chutes-tu à la fin à cause de la voiture ou de toi ? Un pic isolé (une sortie) ou une tendance ? Il sert à voir où tu gagnes et où tu perds au fil du relais.</p>
+
+      <h3>Par rapport à la moyenne</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Graphique · Par rapport à la moyenne</span></div>
+        <img src="manual/img/24-livestats-chart-media.png" loading="lazy" alt="Graphique de différence de chaque tour par rapport à la moyenne">
+        <figcaption>Chaque tour comme différence par rapport à ta moyenne : la meilleure vue de la consistance.</figcaption>
+      </figure>
+      <p>Ici, chaque tour est dessiné comme différence par rapport à ta moyenne : au-dessus = tour plus lent, en dessous = plus rapide. C'est la meilleure vue de la <b>consistance</b> : plus ta ligne est plate et collée au zéro, plus tu es régulier. Les pics vers le haut sont tes mauvais tours. Objectif visuel : aplatir la ligne.</p>
+
+      <h3>Écart de tours</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Graphique · Écart de tours</span></div>
+        <img src="manual/img/25-livestats-chart-gaplaps.png" loading="lazy" alt="Graphique de distance au leader au fil du temps">
+        <figcaption>Ta distance au leader au fil des minutes de la manche.</figcaption>
+      </figure>
+      <p>Ta distance au leader au fil du temps (axe X = minutes de la manche ; axe Y = écart au leader que tu choisis). Monte = tu perds du terrain ; baisse = tu recolles. Il sert à voir À QUEL MOMENT de la manche tu as gagné ou perdu la course, et si l'écart est stable ou t'échappe.</p>
+    </section>
+
+    <section id="proyeccion">
+      <div class="num">// 07</div>
+      <h2>Projection et écarts</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Projeté</span></div>
+        <img src="manual/img/22-livestats-proyectada.png" loading="lazy" alt="Classement projeté à la fin de la course">
+        <figcaption>La position projetée est la même partout : il n'y a pas deux vérités.</figcaption>
+      </figure>
+      <p><b>Position projetée vs position de manche.</b> Ce sont des choses différentes et les deux importent :</p>
+      <ul>
+        <li><b>De manche</b> — où tu en es dans la manche que tu cours maintenant. Utile pour ton duel direct en piste.</li>
+        <li><b>Projetée</b> — où tu vas finir la course en additionnant toutes les manches. C'est ta position RÉELLE au général. La projection estime tes tours totaux en divisant le temps total de course par ta moyenne. <b>Baisser ta moyenne = meilleure projection.</b></li>
+      </ul>
+      <p>Important : la position projetée est <b>la même partout</b> (carte du direct, Classement Général et panneau Lap). Si tu vois P2 à un endroit, tu vois P2 partout. Il n'y a pas deux vérités.</p>
+      <p><b>Types d'écart.</b></p>
+      <ul>
+        <li><b>Écart au leader</b> — à combien tu es du premier.</li>
+        <li><b>Écart en tours</b> — la distance exprimée en tours (plus intuitif en endurance : « je suis à un tour »).</li>
+        <li><b>Écart par minute</b> — comment la distance évolue avec le temps, pour voir si tu recolles ou si tu décroches.</li>
+      </ul>
+      <p>Quand deux pilotes ont le même nombre de tours, c'est la <b>virgule</b> qui départage : la fraction de tour que tu avais faite juste au moment où le drapeau est tombé. Rouler à fond jusqu'au bout peut te donner cette fraction en plus qui te fait gagner une position.</p>
+    </section>
+
+    <section id="resultados">
+      <div class="num">// 08</div>
+      <h2>La vue Résultats (après la course)</h2>
+      <p>Quand la course se termine, <b>Résultats</b> est l'endroit où l'on analyse tout tranquillement. Elle a plusieurs <b>onglets</b> ; chacun répond à une question différente. En haut, tu vois toujours le <b>meilleur tour de la course</b> (qui et sur quelle voie).</p>
+
+      <h3>Comparatif (la grille par voie)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Résultats · Comparatif</span></div>
+        <img src="manual/img/st-comparativa.png" loading="lazy" alt="Résultats, tableau comparatif par voie">
+        <figcaption>La grille par voie : une ligne par participant et cinq données pour chaque voie.</figcaption>
+      </figure>
+      <p>C'est le tableau principal. Une ligne par participant et, pour <b>chaque voie</b> par laquelle il est passé, cinq données empilées :</p>
+      <ul>
+        <li><b>Rapide</b> — ton meilleur tour sur cette voie. Le point bleu + <b>MEILLEUR</b> marque le meilleur tour <i>de cette voie</i> parmi tous.</li>
+        <li><b>Moyenne</b> — ton rythme moyen sur cette voie.</li>
+        <li><b>Const. sans</b> — ta <b>consistance</b> (sans sorties) sur cette voie, en %.</li>
+        <li><b>Sorties</b> — combien de fois tu es sorti là (et, dessous, le temps perdu).</li>
+        <li><b>Pit-stops</b> — arrêts sur cette voie (avec le n° de tour, par ex. <i>T355</i>).</li>
+      </ul>
+      <p>Il sert à voir <b>sur quelles voies tu rends le mieux ou le moins bien</b>, pas seulement ton chiffre global. Le rectangle bleu marque ta <b>voie de départ</b>.</p>
+      <p><b>Courses à passages / répétition de voie.</b> Si la même voie est courue plusieurs fois, chaque voie se <b>dédouble par occurrence</b> (<code>1/2</code>, <code>2/2</code>…), pour comparer ton 1er passage avec le 2e par le même endroit.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Résultats · Dédoublé par occurrence</span></div>
+        <img src="manual/img/st-ocurrencia.png" loading="lazy" alt="Résultats, comparatif dédoublé par occurrence de voie">
+        <figcaption>Chaque voie dédoublée par occurrence (1/2, 2/2…) dans les courses à passages.</figcaption>
+      </figure>
+
+      <h3>Progression (tour par tour)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Résultats · Progression</span></div>
+        <img src="manual/img/st-progresion.png" loading="lazy" alt="Résultats, graphique de progression tour par tour">
+        <figcaption>Chaque tour de la course dans l'ordre, avec sorties et pit-stops marqués.</figcaption>
+      </figure>
+      <p>Chaque tour de la course, dans l'ordre. Tu peux <b>choisir qui comparer</b>, filtrer par <b>manche</b> ou par <b>voie</b>, et afficher/masquer <b>sorties</b> (points rouges) et <b>pit-stops</b> (oranges). Avec le bouton <b>Δ Delta vs moyenne</b>, chaque tour est dessiné comme différence par rapport à ta moyenne (meilleure vue pour juger ta régularité : plus c'est plat, mieux c'est). Il répond : <i>ai-je baissé en m'échauffant ? me suis-je effondré à la fin ? était-ce un pic isolé ou une tendance ?</i></p>
+
+      <h3>Positions</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Résultats · Positions</span></div>
+        <img src="manual/img/st-posiciones.png" loading="lazy" alt="Résultats, graphique d'évolution des positions">
+        <figcaption>Une ligne par participant : où et quand chaque place s'est décidée.</figcaption>
+      </figure>
+      <p>Une ligne par participant ; l'axe vertical est la <b>position</b> (P1 en haut). Si ta ligne monte, tu perds des positions ; si elle baisse, tu en gagnes. Il sert à voir <b>à quel moment</b> de la course s'est décidé ton résultat.</p>
+
+      <h3>Écart au leader</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Résultats · Écart au leader</span></div>
+        <img src="manual/img/st-gap.png" loading="lazy" alt="Résultats, graphique d'écart au leader au fil du temps">
+        <figcaption>Ta distance au leader au fil du temps : où tu as décroché ou récupéré.</figcaption>
+      </figure>
+      <p>Ta distance au leader <b>au fil du temps</b> (tu peux borner la plage de manches). La ligne qui baisse = tu te rapproches ; qui monte = tu t'éloignes. Il répond : <i>à quelle manche ai-je décroché ou récupéré ?</i></p>
+
+      <h3>Écart (grille)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Résultats · Écart (grille)</span></div>
+        <img src="manual/img/st-gapgrid.png" loading="lazy" alt="Résultats, grille d'écart par manche">
+        <figcaption>L'écart en tableau : lignes équipes, colonnes manches, et les tours de retard par cellule.</figcaption>
+      </figure>
+      <p>La même idée mais en <b>tableau</b> : lignes = équipes, colonnes = manches, et chaque cellule les <b>tours de retard</b> à la clôture de cette manche (0 = leader). Le <b>bord doré</b> signale qu'il y a eu un <b>pit-stop</b> dans cette manche. Tu peux choisir 2 à 4 équipes pour voir l'écart <b>entre elles</b> (pas seulement contre le leader).</p>
+
+      <h3>Statistiques avancées</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Résultats · Statistiques avancées</span></div>
+        <img src="manual/img/st-avanzadas.png" loading="lazy" alt="Résultats, panneau de statistiques avancées d'un participant">
+        <figcaption>L'analyse en profondeur d'un participant : totaux, moyennes, consistance et évolution par voie.</figcaption>
+      </figure>
+      <p>L'analyse en profondeur d'un participant : <b>total de tours</b> (et propres), <b>meilleur</b>, <b>moyenne</b> (avec bascule <i>avec/sans sorties</i>), <b>Δ consistance</b>, <b>sorties · pit-stops</b> et <b>temps perdu</b>. En dessous, l'<b>évolution par voie</b> (ta moyenne piste par piste, pour voir où tu as été le plus rapide) et une carte par voie. Avec <b>Comparer avec</b>, tu choisis un rival et une table <b>face à face</b> est générée avec les différences colorées (vert = mieux, rouge = pire).</p>
+
+      <h3>Classement Le Mans (équipes)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Résultats · Classement Le Mans</span></div>
+        <img src="manual/img/st-lemans.png" loading="lazy" alt="Résultats, classement Le Mans par équipes">
+        <figcaption>Le général par équipes avec tours projetés, écart au leader et rythme pour monter.</figcaption>
+      </figure>
+      <p>Dans les courses par équipes existe en plus le <b>classement Le Mans</b> : le général en grand, avec <b>tours projetés</b>, total, <b>écart</b> au leader, moyenne, meilleur et <b>P/Monter</b> (le rythme dont tu aurais besoin pour rattraper celui de devant). Idéal pour les courses longues.</p>
+
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Icônes et couleurs que tu verras :</b> point bleu + <b>MEILLEUR</b> = meilleur tour de cette voie · rectangle bleu = voie de départ · <b>bord doré</b> = il y a eu un pit-stop dans cette manche · tendance <b>▲/▼</b> = tu es monté/descendu par rapport à la manche précédente.</div>
+      </div>
+    </section>
+
+    <section id="glosario">
+      <div class="num">// 09</div>
+      <h2>Glossaire</h2>
+      <ul>
+        <li><b>Consistance</b> — ta régularité tour par tour. 100 moins ta variation relative. Plus c'est élevé = plus constant.</li>
+        <li><b>±ÉT (écart-type) / CV</b> — le ±ÉT, ce sont les secondes que tu oscilles de tour en tour (regarde ce chiffre). Le CV est cette oscillation en pourcentage relatif à ton rythme ; le % de consistance est 100 − CV.</li>
+        <li><b>Moyenne</b> — moyenne simple de tes temps de tour, sans celui d'échauffement. Inclut sorties et pits. C'est celle qu'utilise la projection.</li>
+        <li><b>Moyenne propre</b> — ta moyenne en comptant seulement les tours normaux (sans sorties). Elle sert pour le Δ et pour détecter les incidents, pas pour projeter.</li>
+        <li><b>Warmup (tour d'échauffement / passage partiel)</b> — le premier vrai tour de la manche, avec les artefacts du feu tricolore et du passage initial. Ne compte ni pour la moyenne, ni pour le meilleur, ni pour la consistance.</li>
+        <li><b>Sous-minimum</b> — un temps en dessous du minimum de tour de la course. Passage fantôme impossible ; il est toujours écarté.</li>
+        <li><b>Sortie (exit)</b> — tu es sorti de la piste. Compte pour la moyenne (c'est du temps réel perdu) mais pas pour ton meilleur tour.</li>
+        <li><b>Pit-stop</b> — arrêt aux stands. Compte comme du temps, pas comme meilleur tour.</li>
+        <li><b>Virgule</b> — la fraction de tour que tu avais faite au moment où le drapeau est tombé. Départage quand vous avez le même nombre de tours.</li>
+        <li><b>Projection</b> — estimation de ton résultat final en additionnant toutes les manches : temps total de course divisé par ta moyenne.</li>
+        <li><b>Écart</b> — ta distance à une autre voiture (ou au leader), en temps, en tours ou par minute.</li>
+        <li><b>PitWall Lap</b> — le site web mobile de ton équipe (accès par PIN) : ta position projetée, tes cartes de rythme et la voix qui annonce les tours. Seulement dans les courses par équipes.</li>
+        <li><b>Occurrence</b> — chaque fois que tu cours la même voie dans les courses à passages/répétition de voie (<code>1/2</code>, <code>2/2</code>…) ; permet de comparer un passage avec un autre.</li>
+        <li><b>P/Monter</b> — dans le classement Le Mans, le rythme (moyenne par tour) dont tu aurais besoin pour atteindre l'équipe de devant.</li>
+        <li><b>Voie de départ</b> — la voie depuis laquelle tu as démarré ; dans la grille des résultats, elle est marquée par un cadre bleu.</li>
+      </ul>
+    </section>
+
+    <div class="summary">
+      <div class="tag">En une phrase</div>
+      <p>Regarde ta <b>position projetée</b> pour savoir où tu finis, baisse ta <b>moyenne</b> pour monter, et aplatis ta <b>consistance</b> (réduis le ±ÉT) pour arrêter d'offrir du temps tour après tour.</p>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="pitwall-landing-fr.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
+    <div class="apps-mini"><a href="manual-uso.fr.html">Manuel d'utilisation</a><a href="manual-estadisticas.fr.html">Statistiques</a></div>
+    <div class="mono">© 2026 · Chronométrage et gestion de slot racing</div>
+  </div>
+</footer>
+
+<a href="#top" class="totop" aria-label="Revenir en haut">↑</a>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var totop = document.querySelector('.totop');
+  function onScroll(){
+    var y = window.scrollY + 100, cur = 0;
+    for (var i=0;i<secs.length;i++){ if(secs[i] && secs[i].offsetTop <= y) cur = i; }
+    links.forEach(function(a,i){ a.classList.toggle('active', i===cur); });
+    totop.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PitWall · Statistics manual</title>
+<meta name="description" content="Interpreting PitWall's Live and Statistics views for drivers: what each number tells you and how to use it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="manual/manual.css">
+<style>body{--ac:var(--cyan)}</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="pitwall-landing-en.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
+    <nav class="links">
+      <a href="pitwall-landing-en.html">Landing</a>
+      <a href="manual-uso.en.html">User manual</a>
+      <a href="manual-estadisticas.en.html" class="here">Statistics</a>
+      <div class="lang" role="group" aria-label="Language">
+        <a href="manual-estadisticas.html">ES</a>
+        <a href="manual-estadisticas.en.html" class="on" aria-current="true">EN</a>
+        <a href="manual-estadisticas.it.html">IT</a>
+        <a href="manual-estadisticas.fr.html">FR</a>
+      </div>
+      <a href="manual-uso.en.html" class="nav-cta">How to operate →</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="doc-hero">
+  <div class="wrap">
+    <div class="kicker">Interpreting statistics · Drivers</div>
+    <h1>What each<br><span class="ac">number</span> tells you.</h1>
+    <p class="lede">A guide for drivers, no jargon. In PitWall you race by <b>lanes</b> (C1, C2, C3…) and you keep <b>rotating lanes heat to heat</b>. That's why there are two ways to look at your race: <b>what's happening NOW in this heat</b> and <b>how you'll end up AT THE END</b> when you add up all your heats. This manual teaches you to read both — to go faster and more consistently.</p>
+    <div class="xlink">
+      <a href="manual-uso.en.html">↔ User manual</a>
+      <a class="cur" href="manual-estadisticas.en.html">▮ Statistics manual</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<div class="wrap doc-grid">
+  <!-- TOC -->
+  <nav class="toc" aria-label="Manual contents">
+    <div class="toc-ttl">Contents</div>
+    <ol>
+      <li><a href="#directo">The live screen</a></li>
+      <li><a href="#pestanas">The 3 tabs</a></li>
+      <li><a href="#panel">Your panel</a></li>
+      <li><a href="#lap">PitWall Lap: your race on the phone</a></li>
+      <li><a href="#consistencia">Consistency</a></li>
+      <li><a href="#graficas">The charts</a></li>
+      <li><a href="#proyeccion">Projection and gaps</a></li>
+      <li><a href="#resultados">The Results view</a></li>
+      <li><a href="#glosario">Glossary</a></li>
+    </ol>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="doc">
+
+    <section id="directo">
+      <div class="num">// 01</div>
+      <h2>The live screen</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Live · Heat in progress</span></div>
+        <img src="manual/img/20-live-timing.png" loading="lazy" alt="Live screen of the heat in progress">
+        <figcaption>The heat in progress: clocks per track and one card per car on track.</figcaption>
+      </figure>
+      <p>It's the screen of the heat in progress. What you see in real time, lap by lap.</p>
+      <p><b>Clocks per track (C1, C2, C3…).</b> If the race uses several tracks at once, at the top you have one clock for each. Each clock marks the time of that heat on that track. When the clock reaches zero, that heat ends and everyone rotates lanes.</p>
+      <p><b>Lane cards.</b> One card per car on track. On each card you read, at a glance:</p>
+      <ul>
+        <li><b>TOTAL</b> — laps accumulated so far in the heat.</li>
+        <li><b>LAST</b> — your last complete lap. It's your immediate reference: are you improving or dropping off?</li>
+        <li><b>AVERAGE</b> — your average pace in the heat (a simple average of your laps, not counting the warm-up one). It's what really matters for winning in endurance: not the odd fast lap, but sustained pace.</li>
+        <li><b>BEST</b> — your best valid lap of the heat.</li>
+      </ul>
+      <p><b>Fastest lap banner.</b> When someone sets the fastest lap of the moment, a highlighted alert pops up. If it's yours, good. If it's a rival's, it's the benchmark to beat.</p>
+
+      <h3>The three live views (the "View" button)</h3>
+      <p>With the <b>View</b> button you choose how the cards are shown, depending on how many lanes there are. There are three modes:</p>
+
+      <p><b>1 · Horizontal rows</b> — one row per lane. Recommended for <b>few lanes</b>: each lane takes a wide row and reads very comfortably.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live · View · Horizontal rows</span></div>
+        <img src="manual/img/31-vista-1.png" loading="lazy" alt="Horizontal rows view, one row per lane">
+        <figcaption>Horizontal rows: one wide row per lane, ideal with few lanes.</figcaption>
+      </figure>
+
+      <p><b>2 · Compact grid</b> — all the tracks at once in a grid. Ideal for <b>many lanes</b>: you see everything without scrolling.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live · View · Compact grid</span></div>
+        <img src="manual/img/31-vista-2.png" loading="lazy" alt="Compact grid view with all lanes in a grid">
+        <figcaption>Compact grid: all the tracks at once, ideal with many lanes.</figcaption>
+      </figure>
+
+      <p><b>3 · Cards with details</b> — like the compact one, but with <b>LAP</b> (laps), <b>EXIT</b> (exits), <b>PIT</b> and <b>Δ</b> visible on each card. More information per lane at a glance.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live · View · Cards with details</span></div>
+        <img src="manual/img/31-vista-3.png" loading="lazy" alt="Cards with details view: laps, exits, pit and delta per lane">
+        <figcaption>Cards with details: laps, exits, pit and Δ visible on each lane.</figcaption>
+      </figure>
+    </section>
+
+    <section id="pestanas">
+      <div class="num">// 02</div>
+      <h2>Live-stats: the 3 tabs</h2>
+      <p>Live-stats is the statistics view. It has three tabs and each one answers a different question.</p>
+
+      <h3>Current heat</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Current heat</span></div>
+        <img src="manual/img/21-livestats-manga.png" loading="lazy" alt="Live-stats, current heat tab">
+        <figcaption>The classification of this heat with the detail of each driver.</figcaption>
+      </figure>
+      <p>The classification of <b>this</b> heat, with the detail of each driver: <b>L</b> (laps), <b>BEST</b>, <b>AVERAGE</b>, <b>Δ</b> (delta, your margin), <b>EXITS</b> and <b>LOST</b> (time lost in exits). Look at it to know how you're doing NOW, who you share a lane with and who leads your heat.</p>
+
+      <h3>Projected classification</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Projected</span></div>
+        <img src="manual/img/22-livestats-proyectada.png" loading="lazy" alt="Live-stats, projected classification tab">
+        <figcaption>The estimated position at the end of the race, adding up all the heats.</figcaption>
+      </figure>
+      <p>The estimated position <b>at the end of the race</b>, when everyone has completed all their heats. It's the one that really matters to know if you're winning. Look at it to know your REAL position in the overall, not just in the heat you're running.</p>
+
+      <h3>Lane comparison</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · By lane</span></div>
+        <img src="manual/img/23-livestats-carril.png" loading="lazy" alt="Live-stats, lane comparison tab">
+        <figcaption>How each lane performs: the differences between C1, C2, C3…</figcaption>
+      </figure>
+      <p>How each lane performs. Some lanes are faster than others. Here you see the differences between C1, C2, C3… Look at it to know if your current lane helps or penalizes you, and which lanes you have left to run.</p>
+
+      <div class="summary">
+        <div class="tag">Quick rule</div>
+        <p><b>Current heat</b> = the snapshot of now. <b>Projected</b> = how you finish. <b>Lane</b> = why your pace changes from heat to heat.</p>
+      </div>
+    </section>
+
+    <section id="panel">
+      <div class="num">// 03</div>
+      <h2>Your panel (My panel)</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · My panel</span></div>
+        <img src="manual/img/21b-livestats-mipanel.png" loading="lazy" alt="Live-stats, driver's personal panel">
+        <figcaption>Choose your driver and you'll have your own panel with cards.</figcaption>
+      </figure>
+      <p>Choose your driver and you'll have your own panel with cards. One by one:</p>
+      <p><b>POSITION.</b> Watch out for this one: it's your <b>PROJECTED race position</b>, not the heat one. It tells you where you'll finish if the pace holds. If in your heat you're 4th but your panel says P1, it means that adding up all the heats you're first. Trust this one.</p>
+      <p><b>HEAT LAPS.</b> How many laps you have in the current heat.</p>
+      <p><b>BEST.</b> Your best valid lap. "Valid" means that <b>it does NOT count</b>:</p>
+      <ul>
+        <li>the <b>warm-up lap</b> (the first one, with the fuss of the lights and the initial crossing),</li>
+        <li>nor a <b>partial crossing</b> (a lap that's really half a lap miscounted),</li>
+        <li>nor times <b>below the minimum</b> of the race (impossible ghost crossings).</li>
+      </ul>
+      <p>So your BEST is a truly real lap, never a gifted number.</p>
+      <p><b>AVERAGE.</b> Your average pace. A simple average of your race laps (includes exits and pit-stops; only excludes the warm-up). It's the number the projection uses to estimate where you finish. <b>Lower your average and you climb in the overall.</b></p>
+      <p><b>Δ (delta).</b> It's your <b>clean average minus your best lap</b>. That is: how much margin you have left. A small Δ = you almost always run flat out, very little to shave off. A big Δ = you have pace but lose it on many laps: that's where your gold is, in being more consistent. The "clean average" here doesn't count exits or pits, only your normal running.</p>
+      <p><b>EXITS / PIT-STOPS.</b> How many times you've gone off and how many stops you've made. Each exit costs you time and positions.</p>
+      <p><b>Time lost in exits.</b> What those exits cost you, in seconds. Put it in context: sometimes a single exit is worth more positions than tenths of pace throughout the whole heat. Here you see it clearly.</p>
+    </section>
+
+    <section id="lap">
+      <div class="num">// 04</div>
+      <h2>PitWall Lap: your race on the phone</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · PIN access</span></div>
+        <img src="manual/img/45-lap-access.png" loading="lazy" alt="PitWall Lap PIN access screen on the phone">
+        <figcaption>Access from the phone: you pick your team and enter the 4-digit PIN.</figcaption>
+      </figure>
+      <p><b>PitWall Lap</b> is the web page you open on the <b>phone from your box</b> to follow your race live, without installing anything. It's only for <b>endurance (team) races</b>. It's read-only: you consult your timing, you don't control the race.</p>
+      <p><b>How you get in.</b> The organization gives you the address (something like <code>http://&lt;server-IP&gt;:3000/lap/&lt;race&gt;</code>) and a <b>4-digit PIN</b> for your team. You open the address, pick your <b>team</b> in the list, enter the <b>PIN</b> and press <b>Enter</b>. With <b>Change team</b> you can log out and log in with another.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Team panel</span></div>
+        <img src="manual/img/48-lap-team-panel.png" loading="lazy" alt="Team panel in PitWall Lap: projected position and pace cards on the phone">
+        <figcaption>The team panel on the phone: your projected position in large and the pace cards.</figcaption>
+      </figure>
+      <p><b>Your panel.</b> At the top, your <b>position</b> in large: it's the <b>projected</b> one (where you'll finish adding up all the heats), the same one you see in the live screen and in the overall — not the standalone heat one. Below, your distance to the leader (<i>"N laps down"</i>, <i>"level"</i> or <i>"🏁 Race leader"</i>). The status line tells you live <b>which heat and lane you're on and how much is left</b> (or <i>"Resting"</i> / <i>"Waiting for next heat"</i> / <i>"Race finished"</i>). And the cards:</p>
+      <ul>
+        <li><b>Last lap</b> — your last lap (blinks when it updates).</li>
+        <li><b>Best lap</b> — your best valid lap.</li>
+        <li><b>Laps</b> — total accumulated over the whole race.</li>
+        <li><b>Race average</b> — your accumulated average pace (the one the projection uses).</li>
+        <li><b>Pit stops</b> — stops made.</li>
+        <li><b>Gap to leader</b> — how many laps behind the first.</li>
+      </ul>
+      <p>If projection is active, <b>Estimate at the finish</b> appears with your <b>estimated position</b> and your <b>projected laps</b>.</p>
+      <p><b>The voice (lap caller).</b> With the <b>🔊 Voice</b> button you enable the announcer (it starts <b>off</b>: you have to tap the screen once so the phone allows the audio to play). It calls out the <b>time of each lap</b>, and warns of <b>position change</b>, <b>half heat</b>, <b>last minute</b>, <b>last 30 s</b> and <b>end of heat</b>. In <b>⚙️ Voice settings</b> you enable/disable each alert and, in the advanced block, that it call out every X minutes your <b>lane average</b>, the <b>gaps with rivals</b> or the <b>average needed to climb</b> a position.</p>
+      <p><b>Screen always on.</b> While the panel is open, the screen <b>doesn't turn off</b>; after <b>30 seconds without touching it, it dims</b> (to not waste battery or bother you), but <b>the voice keeps calling out</b>. Touch the screen to light it up again.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Tip.</b> Log in with the PIN, enable the <b>Voice</b>, leave the phone in the box and listen. It's the way to stay informed without taking your eyes off the track.</div>
+      </div>
+    </section>
+
+    <section id="consistencia">
+      <div class="num">// 05</div>
+      <h2>Consistency</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Consistency</span></div>
+        <img src="manual/img/26-livestats-cons-con.png" loading="lazy" alt="Live-stats, consistency card">
+        <figcaption>Consistency measures your lap-to-lap regularity.</figcaption>
+      </figure>
+      <p>The most important card for improving. <b>Consistency measures your lap-to-lap regularity</b>: whether you always do the same time or whether you jump around.</p>
+      <p><b>What the % is.</b> It's 100 minus your relative variation (the CV, coefficient of variation). 100% would be a perfect robot, always identical. The higher, the more regular. In real data the normal range is <b>between 90% and 99%</b>. It's the same formula TicTac uses, calculated over your pace laps (discarding one-off incidents).</p>
+      <p><b>The ±SD in seconds (more useful than the %).</b> Next to the % you'll see something like <i>±0.13 s</i>. It's your standard deviation: <b>how many seconds, up or down, you swing from one lap to the next.</b> Pay more attention to this than to the %: a ±0.13 s tells you directly how tight you run, and it discriminates better between two drivers who at first glance have a similar %. <b>Goal: reduce your ±SD.</b></p>
+      <p><b>Color levels.</b> The system classifies you by your variation:</p>
+      <ul>
+        <li><b>Excellent</b> — variation below 1.5%. Clockwork running.</li>
+        <li><b>Good</b> — between 1.5% and 2.5%. Solid.</li>
+        <li><b>Irregular</b> — between 2.5% and 4%. You jump around, there's time to gain by being finer.</li>
+        <li><b>Erratic</b> — above 4%. A lot of instability; focus on finishing clean laps before attacking.</li>
+      </ul>
+      <p><b>Toggle: Without exits / With exits.</b></p>
+      <ul>
+        <li><b>Without exits</b> — your <b>pure pace</b>. Removes exits, pits and incidents. It answers: <i>when I run well, am I consistent?</i> Use it to polish your driving.</li>
+        <li><b>With exits</b> — the <b>real regularity of your stint</b>. It includes EVERYTHING: exits, pits, traffic. It answers: <i>for real, as it was, what pace did I deliver?</i> Use it to see the real impact of your mistakes. It usually comes out worse than "Without exits", and that difference is exactly what the incidents cost you.</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Minimum laps.</b> You need at least <b>3 valid laps</b> (which, removing warm-up and the first crossing, are about 5 laps run) for the number to be reliable. With fewer you'll see a dash (—) until you build up mileage.</div>
+      </div>
+    </section>
+
+    <section id="graficas">
+      <div class="num">// 06</div>
+      <h2>The charts</h2>
+      <p>Each chart has three modes. They change according to what you want to see.</p>
+      <p><b>Lap time.</b> The classic: each point is a lap and its time. You read the shape of your race. Do you drop off as you warm up? Do you fade at the end because of the car or because of you? An isolated spike (an exit) or a trend? It serves to see where you gain and where you lose throughout the stint.</p>
+
+      <h3>Around the average</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Chart · Around the average</span></div>
+        <img src="manual/img/24-livestats-chart-media.png" loading="lazy" alt="Chart of each lap's difference from the average">
+        <figcaption>Each lap as a difference from your average: the best view of consistency.</figcaption>
+      </figure>
+      <p>Here each lap is drawn as a difference from your average: above = slower lap, below = faster. It's the best view for <b>consistency</b>: the flatter and closer to zero your line is, the more regular you are. The spikes upward are your bad laps. Visual goal: flatten the line.</p>
+
+      <h3>Lap gap</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Chart · Lap gap</span></div>
+        <img src="manual/img/25-livestats-chart-gaplaps.png" loading="lazy" alt="Chart of distance to the leader over time">
+        <figcaption>Your distance to the leader over the minutes of the heat.</figcaption>
+      </figure>
+      <p>Your distance to the leader over time (X axis = minutes of the heat; Y axis = the gap to the leader you choose). Up = you lose ground; down = you close in. It serves to see AT WHICH MOMENT of the heat you won or lost the race, and whether the gap is stable or slipping away from you.</p>
+    </section>
+
+    <section id="proyeccion">
+      <div class="num">// 07</div>
+      <h2>Projection and gaps</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Projected</span></div>
+        <img src="manual/img/22-livestats-proyectada.png" loading="lazy" alt="Projected classification at the end of the race">
+        <figcaption>The projected position is the same everywhere: there aren't two truths.</figcaption>
+      </figure>
+      <p><b>Projected position vs heat position.</b> They're different things and both matter:</p>
+      <ul>
+        <li><b>Heat</b> — where you are in the heat you're running now. Useful for your direct duel on track.</li>
+        <li><b>Projected</b> — where you'll finish the race adding up all the heats. It's your REAL position in the overall. The projection estimates your total laps by dividing the total race time by your average. <b>Lowering your average = better projection.</b></li>
+      </ul>
+      <p>Important: the projected position is <b>the same everywhere</b> (live card, Overall Classification and Lap panel). If you see P2 in one place, you see P2 everywhere. There aren't two truths.</p>
+      <p><b>Types of gap.</b></p>
+      <ul>
+        <li><b>Gap to leader</b> — how far you are from the first.</li>
+        <li><b>Gap by laps</b> — the distance expressed in laps (more intuitive in endurance: "I'm one lap down").</li>
+        <li><b>Gap by minute</b> — how the distance evolves with time, to see if you're closing in or dropping off.</li>
+      </ul>
+      <p>When two drivers have the same laps, the <b>fraction</b> breaks the tie: the fraction of a lap you'd completed just as the flag fell. Running right to the end can give you that extra fraction that moves you up a position.</p>
+    </section>
+
+    <section id="resultados">
+      <div class="num">// 08</div>
+      <h2>The Results view (after the race)</h2>
+      <p>When the race ends, <b>Results</b> is where everything is analyzed calmly. It has several <b>tabs</b>; each one answers a different question. At the top you always see the <b>fastest lap of the race</b> (who and on which lane).</p>
+
+      <h3>Comparison (the grid by lane)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Results · Comparison</span></div>
+        <img src="manual/img/st-comparativa.png" loading="lazy" alt="Results, comparison table by lane">
+        <figcaption>The grid by lane: one row per participant and five data points per lane.</figcaption>
+      </figure>
+      <p>It's the main table. One row per participant and, for <b>each lane</b> they went through, five stacked data points:</p>
+      <ul>
+        <li><b>Fastest</b> — your best lap on that lane. The blue dot + <b>BEST</b> marks the fastest lap <i>of that lane</i> among everyone.</li>
+        <li><b>Average</b> — your average pace on that lane.</li>
+        <li><b>Const. w/o</b> — your <b>consistency</b> (without exits) on that lane, in %.</li>
+        <li><b>Exits</b> — how many times you went off there (and, below, the time lost).</li>
+        <li><b>Pit-stops</b> — stops on that lane (with the lap number, e.g. <i>L355</i>).</li>
+      </ul>
+      <p>It serves to see <b>which lanes you perform better or worse on</b>, not just your global number. The blue rectangle marks your <b>starting lane</b>.</p>
+      <p><b>Passes / repeat-lane races.</b> If the same lane is run several times, each lane is <b>split by occurrence</b> (<code>1/2</code>, <code>2/2</code>…), to compare your 1st pass with the 2nd on the same spot.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Results · Split by occurrence</span></div>
+        <img src="manual/img/st-ocurrencia.png" loading="lazy" alt="Results, comparison split by lane occurrence">
+        <figcaption>Each lane split by occurrence (1/2, 2/2…) in passes races.</figcaption>
+      </figure>
+
+      <h3>Progression (lap by lap)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Results · Progression</span></div>
+        <img src="manual/img/st-progresion.png" loading="lazy" alt="Results, lap-by-lap progression chart">
+        <figcaption>Every lap of the race in order, with exits and pit-stops marked.</figcaption>
+      </figure>
+      <p>Every lap of the race, in order. You can <b>choose who to compare</b> with, filter by <b>heat</b> or by <b>lane</b>, and show/hide <b>exits</b> (red dots) and <b>pit-stops</b> (orange). With the <b>Δ Delta vs average</b> button each lap is drawn as a difference from your average (better view to judge your regularity: the flatter, the better). It answers: <i>did I drop off as I warmed up? did I fade at the end? was it an isolated spike or a trend?</i></p>
+
+      <h3>Positions</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Results · Positions</span></div>
+        <img src="manual/img/st-posiciones.png" loading="lazy" alt="Results, positions evolution chart">
+        <figcaption>One line per participant: where and when each place was decided.</figcaption>
+      </figure>
+      <p>One line per participant; the vertical axis is the <b>position</b> (P1 at the top). If your line goes up, you lose positions; if it goes down, you gain. It serves to see <b>at which moment</b> of the race your result was decided.</p>
+
+      <h3>Gap to leader</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Results · Gap to leader</span></div>
+        <img src="manual/img/st-gap.png" loading="lazy" alt="Results, gap to leader over time chart">
+        <figcaption>Your distance to the leader over time: where you dropped off or recovered.</figcaption>
+      </figure>
+      <p>Your distance to the leader <b>over time</b> (you can restrict the range of heats). The line going down = you close in; going up = you drop away. It answers: <i>in which heat did I drop off or recover?</i></p>
+
+      <h3>Gap (grid)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Results · Gap (grid)</span></div>
+        <img src="manual/img/st-gapgrid.png" loading="lazy" alt="Results, gap grid by heat">
+        <figcaption>The gap in a table: rows teams, columns heats, and the laps of disadvantage per cell.</figcaption>
+      </figure>
+      <p>The same idea but in a <b>table</b>: rows = teams, columns = heats, and each cell the <b>laps of disadvantage</b> at the close of that heat (0 = leader). The <b>gold border</b> warns that there was a <b>pit-stop</b> in that heat. You can pick 2–4 teams to see the gap <b>between them</b> (not just against the leader).</p>
+
+      <h3>Advanced statistics</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Results · Advanced statistics</span></div>
+        <img src="manual/img/st-avanzadas.png" loading="lazy" alt="Results, advanced statistics panel of a participant">
+        <figcaption>The deep analysis of a participant: totals, averages, consistency and evolution by lane.</figcaption>
+      </figure>
+      <p>The deep analysis of a participant: <b>total laps</b> (and clean ones), <b>best</b>, <b>average</b> (with <i>with/without exits</i> toggle), <b>Δ consistency</b>, <b>exits · pit-stops</b> and <b>time lost</b>. Below, the <b>evolution by lane</b> (your average track by track, to see where you were faster) and one card per lane. With <b>Compare with</b> you pick a rival and a <b>head-to-head</b> table is generated with the differences colored (green = better, red = worse).</p>
+
+      <h3>Le Mans classification (teams)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Results · Le Mans classification</span></div>
+        <img src="manual/img/st-lemans.png" loading="lazy" alt="Results, Le Mans classification by teams">
+        <figcaption>The team overall with projected laps, gap to leader and pace to climb.</figcaption>
+      </figure>
+      <p>In team races there's also the <b>Le Mans classification</b>: the overall in large, with <b>projected laps</b>, total, <b>gap</b> to the leader, average, best and <b>P/Climb</b> (the pace you'd need to catch the one ahead). Ideal for long races.</p>
+
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Icons and colors you'll see:</b> blue dot + <b>BEST</b> = fastest lap of that lane · blue rectangle = starting lane · <b>gold border</b> = there was a pit-stop in that heat · trend <b>▲/▼</b> = you went up/down compared to the previous heat.</div>
+      </div>
+    </section>
+
+    <section id="glosario">
+      <div class="num">// 09</div>
+      <h2>Glossary</h2>
+      <ul>
+        <li><b>Consistency</b> — your lap-to-lap regularity. 100 minus your relative variation. Higher = more consistent.</li>
+        <li><b>±SD (standard deviation) / CV</b> — the ±SD is the seconds you swing from lap to lap (look at this number). The CV is that swing as a percentage relative to your pace; the consistency % is 100 − CV.</li>
+        <li><b>Average</b> — a simple average of your lap times, without the warm-up one. Includes exits and pits. It's the one the projection uses.</li>
+        <li><b>Clean average</b> — your average counting only normal laps (without exits). Used for the Δ and to detect incidents, not to project.</li>
+        <li><b>Warmup (warm-up lap / partial crossing)</b> — the first real lap of the heat, with artifacts from the lights and the initial crossing. Doesn't count for average, best or consistency.</li>
+        <li><b>Sub-minimum</b> — a time below the race's minimum lap. An impossible ghost crossing; always discarded.</li>
+        <li><b>Exit</b> — you've gone off the track. Counts for the average (it's real time lost) but not for your best lap.</li>
+        <li><b>Pit-stop</b> — a stop in the pits. Counts as time, not as best lap.</li>
+        <li><b>Fraction</b> — the fraction of a lap you'd completed when the flag fell. Breaks the tie when two of you have the same laps.</li>
+        <li><b>Projection</b> — an estimate of your final result by adding up all the heats: total race time divided by your average.</li>
+        <li><b>Gap</b> — your distance to another car (or to the leader), in time, in laps or per minute.</li>
+        <li><b>PitWall Lap</b> — your team's mobile web page (PIN access): your projected position, your pace cards and the voice that calls out the laps. Only in team races.</li>
+        <li><b>Occurrence</b> — each time you run the same lane in passes/repeat-lane races (<code>1/2</code>, <code>2/2</code>…); it lets you compare one pass with another.</li>
+        <li><b>P/Climb</b> — in the Le Mans classification, the pace (average per lap) you'd need to catch the team ahead.</li>
+        <li><b>Starting lane</b> — the lane you started from; in the results grid it's marked with a blue box.</li>
+      </ul>
+    </section>
+
+    <div class="summary">
+      <div class="tag">In one sentence</div>
+      <p>Look at your <b>projected position</b> to know where you finish, lower your <b>average</b> to climb, and flatten your <b>consistency</b> (reduce the ±SD) to stop gifting time lap after lap.</p>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="pitwall-landing-en.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
+    <div class="apps-mini"><a href="manual-uso.en.html">User manual</a><a href="manual-estadisticas.en.html">Statistics</a></div>
+    <div class="mono">© 2026 · Slot racing timing and management</div>
+  </div>
+</footer>
+
+<a href="#top" class="totop" aria-label="Back to top">↑</a>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var totop = document.querySelector('.totop');
+  function onScroll(){
+    var y = window.scrollY + 100, cur = 0;
+    for (var i=0;i<secs.length;i++){ if(secs[i] && secs[i].offsetTop <= y) cur = i; }
+    links.forEach(function(a,i){ a.classList.toggle('active', i===cur); });
+    totop.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>

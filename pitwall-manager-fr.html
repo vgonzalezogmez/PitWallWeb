@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PitWall Manager · Contrôle de course et chronométrage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#08080a; --bg-2:#0d0d11; --surface:#121217; --surface-2:#181820; --elevated:#1f1f29;
+    --line:rgba(255,255,255,.08); --line-strong:rgba(255,255,255,.16);
+    --ink:#f5f5f7; --ink-2:#b6b6c2; --ink-3:#76767f;
+    --red:#ef4651; --cyan:#22b8d6; --amber:#f59e0b; --green:#22c55e;
+    --ac:var(--red);
+    --display:"Saira Condensed",sans-serif; --body:"Saira",sans-serif; --mono:"IBM Plex Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:400;
+    line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),
+      linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:46px 46px;opacity:.35;
+    -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 10%,transparent 75%);
+            mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 10%,transparent 75%);
+    pointer-events:none;z-index:0}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+  a{color:inherit;text-decoration:none}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-3)}
+
+  header{position:sticky;top:0;z-index:40;backdrop-filter:blur(14px);
+    background:linear-gradient(180deg,rgba(8,8,10,.92),rgba(8,8,10,.55));border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{display:flex;align-items:center;gap:11px;font-family:var(--display);
+    font-weight:800;font-size:21px;letter-spacing:.04em;text-transform:uppercase}
+  .logo .mark{width:27px;height:27px;display:block;flex:0 0 auto}
+  .logo b{color:var(--red);font-weight:800}
+  .logo small{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--ac);
+    border:1px solid var(--ac);border-radius:2px;padding:2px 7px;margin-left:4px;font-weight:500}
+  nav.links{display:flex;gap:30px;align-items:center}
+  nav.links a{font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-2);transition:color .2s}
+  nav.links a:hover{color:var(--ink)}
+  .nav-cta{border:1px solid var(--line-strong);padding:8px 16px;border-radius:2px;
+    color:var(--ink)!important;transition:.2s}
+  .nav-cta:hover{border-color:var(--ac);color:var(--ac)!important}
+  .langs{display:flex;gap:9px;align-items:center;margin-left:4px}
+  nav.links .langs a,.langs b{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em}
+  nav.links .langs a{color:var(--ink-3)}
+  nav.links .langs a:hover{color:var(--ink)}
+  .langs b{color:var(--ac);font-weight:600}
+  @media(max-width:780px){nav.links a:not(.nav-cta):not(.lg){display:none}}
+
+  .hero{padding:64px 0 40px}
+  .hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:54px;align-items:center}
+  @media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+  .crumb{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+  .crumb a:hover{color:var(--ac)}
+  h1{font-family:var(--display);font-weight:800;text-transform:uppercase;
+    font-size:clamp(44px,6.6vw,76px);line-height:.94;margin:18px 0 0}
+  h1 .a{color:var(--ac)}
+  .lede{margin-top:20px;font-size:18px;color:var(--ink-2);max-width:30em}
+  .lede b{color:var(--ink);font-weight:600}
+  .cta-row{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+  .btn{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+    padding:14px 22px;border-radius:2px;border:1px solid transparent;cursor:pointer;
+    transition:.18s;display:inline-flex;align-items:center;gap:9px}
+  .btn-primary{background:var(--ac);color:#0b0405;font-weight:600}
+  .btn-primary:hover{filter:brightness(1.12);transform:translateY(-1px)}
+  .btn-ghost{border-color:var(--line-strong);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink-2);background:var(--surface)}
+
+  /* "próximamente" badge */
+  .soon{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+    padding:14px 22px;border-radius:2px;border:1px dashed var(--ac);color:var(--ac);
+    display:inline-flex;align-items:center;gap:10px}
+  .soon::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ac);
+    box-shadow:0 0 9px var(--ac);animation:soonblink 1.4s infinite;flex:0 0 auto}
+  .nav-soon{padding:8px 14px;font-size:11px;letter-spacing:.12em}
+  @keyframes soonblink{0%,100%{opacity:1}50%{opacity:.25}}
+
+  section{padding:84px 0;position:relative}
+  .sec-head{max-width:42em;margin-bottom:50px}
+  .sec-head h2{font-family:var(--display);font-weight:700;text-transform:uppercase;
+    font-size:clamp(30px,4.4vw,48px);line-height:1;margin:12px 0 0}
+  .sec-head p{margin-top:16px;color:var(--ink-2);font-size:17px;max-width:34em}
+  .rule{height:1px;background:linear-gradient(90deg,var(--line-strong),transparent)}
+
+  .why{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+    border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  @media(max-width:880px){.why{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.why{grid-template-columns:1fr}}
+  .why div{background:var(--bg);padding:26px 22px}
+  .why .n{font-family:var(--mono);font-size:11px;color:var(--ac);letter-spacing:.14em}
+  .why h4{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:19px;margin:11px 0 8px}
+  .why p{font-size:13.5px;color:var(--ink-2)}
+
+  /* window frame */
+  .shot{border-radius:8px;overflow:hidden;border:1px solid var(--line-strong);
+    box-shadow:0 30px 70px -36px rgba(0,0,0,.9);user-select:none}
+  .shot-bar{display:flex;align-items:center;gap:6px;height:28px;padding:0 11px;
+    background:#16161d;border-bottom:1px solid var(--line)}
+  .shot-bar i{width:9px;height:9px;border-radius:50%;background:#3a3a44;flex:0 0 auto}
+  .shot-bar i:nth-child(1){background:#ff5f57}
+  .shot-bar i:nth-child(2){background:#febc2e}
+  .shot-bar i:nth-child(3){background:#28c840}
+  .shot-bar span{margin-left:6px;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+  @media(max-width:880px){.duo{grid-template-columns:1fr}}
+  .duo figcaption{margin-top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+    color:var(--ink-3);text-transform:uppercase}
+
+  /* cross apps */
+  .xapps{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:720px){.xapps{grid-template-columns:1fr}}
+  .xapp{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--xc);
+    border-radius:8px;padding:22px 24px;transition:.2s;display:block}
+  .xapp:hover{transform:translateY(-3px);border-color:var(--xc)}
+  .xapp .tag{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--xc)}
+  .xapp h3{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:26px;margin:8px 0 4px}
+  .xapp p{font-size:13.5px;color:var(--ink-2)}
+  .xapp .go{margin-top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--xc)}
+
+  .final{padding:90px 0;text-align:center}
+  .final h2{font-family:var(--display);font-weight:800;text-transform:uppercase;
+    font-size:clamp(36px,5.4vw,62px);line-height:.95}
+  .final h2 .a{color:var(--ac)}
+  .final p{color:var(--ink-2);max-width:30em;margin:18px auto 0;font-size:17px}
+  .final .cta-row{justify-content:center}
+
+  footer{border-top:1px solid var(--line);padding:34px 0;margin-top:10px}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+  .foot .mono{font-size:11.5px;color:var(--ink-3);letter-spacing:.1em}
+  .foot .apps-mini{display:flex;gap:18px;font-family:var(--mono);font-size:11px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+  .foot .apps-mini a:hover{color:var(--ink)}
+
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="pitwall-landing-fr.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b><small>Manager</small></a>
+    <nav class="links">
+      <a href="#funciones">Fonctions</a>
+      <a href="#pantallas">À l'écran</a>
+      <a href="manual-uso.fr.html">Manuel</a>
+      <a href="manual-estadisticas.fr.html">Statistiques</a>
+      <a href="pitwall-lap-fr.html">Lap</a>
+      <a href="pitwall-control-fr.html">Control</a>
+      <span class="soon nav-soon">Bientôt</span>
+      <div class="langs"><a class="lg" href="pitwall-manager.html">ES</a><a class="lg" href="pitwall-manager-en.html">EN</a><b>FR</b><a class="lg" href="pitwall-manager-it.html">IT</a></div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="crumb"><a href="pitwall-landing-fr.html">← Écosystème PitWall</a> · Bureau</div>
+      <h1>Le moteur de<br>la <span class="a">course</span>.</h1>
+      <p class="lede">PitWall Manager est le cerveau du système : il dialogue avec le chronométreur — <b>DS-300 par port série</b> ou <b>BART en Bluetooth LE</b> —, compte chaque passage, calcule temps et statistiques, et fait office de <b>serveur web</b> : Lap, Control et n'importe quel appareil du pilote ou de l'équipe vivent la course en direct.</p>
+      <div class="cta-row">
+        <span class="soon">Bientôt disponible</span>
+        <a class="btn btn-ghost" href="#funciones">Voir les fonctions</a>
+      </div>
+    </div>
+
+    <figure class="shot" aria-label="Écran de course en direct de PitWall Manager (démonstration)">
+      <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Manager · Course en direct</span></div>
+      <img src="manual/img/20-live-timing.png" alt="Écran de course en direct de PitWall Manager : chronos, cartes de voie et meilleurs tours" loading="lazy" style="width:100%;display:block">
+    </figure>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<section id="funciones">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Fonctions</div>
+      <h2>Tout le contrôle, dans une salle.</h2>
+      <p>Manager tourne sur ton ordinateur, au bord de la piste. Sans internet, sans cloud : ton hardware, ton réseau WiFi et la course.</p>
+    </div>
+    <div class="why">
+      <div>
+        <div class="n">01</div>
+        <h4>DS-300 en série</h4>
+        <p>Connexion directe au chronométreur DS-300 par port COM, avec parser maison et alerte immédiate si le signal se perd en pleine course.</p>
+      </div>
+      <div>
+        <div class="n">02</div>
+        <h4>BART en Bluetooth</h4>
+        <p>Compatible avec le système BART (Slot.it / Policar) en Bluetooth LE : master + slaves pour monter jusqu'à 32 voies.</p>
+      </div>
+      <div>
+        <div class="n">03</div>
+        <h4>Trois vues de course</h4>
+        <p>Lignes horizontales, grille compacte ou cartes détaillées. Choisis la vue selon le nombre de voies et la taille de l'écran.</p>
+      </div>
+      <div>
+        <div class="n">04</div>
+        <h4>Classement projeté</h4>
+        <p>Tours projetés en fin de course, écart avec celui de devant et rythme nécessaire pour le rattraper. Dans une fenêtre à part, prête à projeter.</p>
+      </div>
+      <div>
+        <div class="n">05</div>
+        <h4>Meilleurs tours</h4>
+        <p>Bandeau en direct avec le meilleur tour de chaque voie, toujours visible pendant que la manche tourne.</p>
+      </div>
+      <div>
+        <div class="n">06</div>
+        <h4>Endurance</h4>
+        <p>Pauses, relais et rotation des voies pour les courses longues type 24 heures, avec la séquence de rotation toujours sous les yeux.</p>
+      </div>
+      <div>
+        <div class="n">07</div>
+        <h4>Correction de tours</h4>
+        <p>Ajoute ou retire des passages sans arrêter la course. Les résultats finaux s'exportent prêts à partager ou à compter les points.</p>
+      </div>
+      <div>
+        <div class="n">08</div>
+        <h4>Pole et structure</h4>
+        <p>La course entière comme un flux : pole position, séries et manches, puis résultats. Chaque phase sait quand vient son tour.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pantallas" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">À l'écran</div>
+      <h2>Pensé pour être regardé de loin.</h2>
+      <p>De grands chiffres, l'or pour ce qui compte maintenant et le vert pour celui qui est en piste. Le classement général vit dans sa propre fenêtre, prête pour le projecteur.</p>
+    </div>
+    <div class="duo">
+      <figure>
+        <div class="shot" aria-label="Classement général (démonstration)">
+          <div class="shot-bar"><i></i><i></i><i></i><span>Classement général</span></div>
+          <img src="manual/img/21-livestats-manga.png" alt="Classement de la manche : tours, meilleur, moyenne, écart et sorties par participant" loading="lazy" style="width:100%;display:block">
+        </div>
+        <figcaption>Classement projeté · fenêtre flottante</figcaption>
+      </figure>
+      <figure>
+        <div class="shot" aria-label="Structure de la course (démonstration)">
+          <div class="shot-bar"><i></i><i></i><i></i><span>Structure de la course</span></div>
+          <img src="manual/img/06-race-page.png" alt="Page de la course : séries et manches avec la structure et les boutons de contrôle" loading="lazy" style="width:100%;display:block">
+        </div>
+        <figcaption>Pole → séries → résultats · rotation avec pause</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">L'écosystème</div>
+      <h2>Manager ne court jamais seul.</h2>
+    </div>
+    <div class="xapps">
+      <a class="xapp" style="--xc:var(--cyan)" href="pitwall-lap-fr.html">
+        <div class="tag">Mobile · Le copilote</div>
+        <h3>Lap</h3>
+        <p>Annonces vocales pendant que tu roules, course consultable à l'arrivée et entraînements comparés.</p>
+        <div class="go">Découvrir Lap →</div>
+      </a>
+      <a class="xapp" style="--xc:var(--amber)" href="pitwall-control-fr.html">
+        <div class="tag">Gestion · La saison</div>
+        <h3>Control</h3>
+        <p>Les résultats de Manager alimentent le championnat : classements, calendrier et trésorerie.</p>
+        <div class="go">Découvrir Control →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Ta salle mérite<br>son <span class="a">mur des stands</span>.</h2>
+    <p>Branche ton DS-300 ou ton BART, ouvre Manager et laisse le chronométrage se débrouiller tout seul.</p>
+    <div class="cta-row">
+      <span class="soon">Bientôt disponible</span>
+      <a class="btn btn-ghost" href="pitwall-landing-fr.html">← Retour à l'écosystème</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="pitwall-landing-fr.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
+    <div class="apps-mini"><a href="pitwall-manager-fr.html">Manager</a><a href="pitwall-lap-fr.html">Lap</a><a href="pitwall-control-fr.html">Control</a></div>
+    <div class="mono">© 2026 · Chronométrage et gestion de slot racing</div>
+  </div>
+</footer>
+
+</body>
+</html>

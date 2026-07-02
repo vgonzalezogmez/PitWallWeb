@@ -1,0 +1,229 @@
+# Manuale d'uso — PitWall (organizzazione / direzione di gara)
+
+Guida per chi **utilizza** PitWall: allestire la gara, dirigerla in diretta, correggere i giri ed estrarre i risultati.
+
+---
+
+## 1. Introduzione
+![img: 01-home.png]
+
+**PitWall** è il sistema di cronometraggio e gestione delle gare di slot. Rileva il passaggio di ciascuna auto sulla linea del traguardo tramite l'hardware di cronometraggio, con due opzioni compatibili:
+
+- **DS-300** — tramite **porta seriale**. Puoi collegare **fino a 6 circuiti** DS-300 in una sola gara: ogni box cronometra le proprie corsie e PitWall le combina.
+- **BART (Policar)** — tramite **Bluetooth**. Supporta **fino al massimo di corsie consentito da BART** (attualmente **32**).
+
+Puoi usare l'una o l'altra fonte; per PitWall il flusso dei passaggi è equivalente.
+
+- Dalla **schermata iniziale** accedi a **Gare (“Carreras”)**, **Impostazioni (“Ajustes”)** e al resto dei moduli.
+- In basso a destra vedi sempre lo **stato del collegamento** (verde = connesso; "Sin señal" = controlla il cavo/porta o il Bluetooth).
+
+**L'elenco delle gare** ti mostra tutte le tue gare con il loro stato (in attesa / attiva / terminata) e il pulsante **Nuova gara (“+ Nueva carrera”)**.
+
+![img: 02-races-list.png]
+
+## 2. Scenari, categorie e cataloghi (la tua libreria)
+
+Per non riconfigurare le stesse cose a ogni gara, PitWall salva **modelli riutilizzabili** che poi scegli al momento di creare una gara.
+
+**Scenari (circuiti salvati).** Uno **scenario** è una pista fisica salvata: n° di circuiti e corsie (p.es. `8+8+8 = 24`), la sua **sequenza di corsie** (rotazione) e il **tempo minimo predefinito**. Qualsiasi gara assegnata a quello scenario eredita tutto automaticamente.
+
+![img: op-escenarios.png]
+
+Modificando uno scenario ne definisci il nome, la configurazione delle corsie, trascini la **sequenza di rotazione** (con **riposi DSC** se avanzano piloti), il **tempo minimo predefinito** e, facoltativamente, i **giri minimi per categoria** (un Pt diverso per GT, Turismo, Classiche… su quella stessa pista).
+
+![img: op-escenario-form.png]
+
+**Categorie.** Gruppi di livello/classe (GT, Turismo, Classiche…) che servono a **sovrascrivere il tempo minimo (Pt) per categoria** in ogni scenario e a classificare auto e piloti.
+
+![img: op-categorias.png]
+
+**Cataloghi riutilizzabili (piloti, squadre, auto).** Mantieni il tuo **database** di partecipanti e materiale per riutilizzarlo tra le gare:
+- **Piloti** — nome e categoria; ogni pilota può avere il proprio **QR** di identificazione.
+- **Squadre** — nome, colore, nazione, auto e componenti.
+- **Auto** — marca, modello e categoria.
+
+Tutti possono essere **importati in blocco da CSV** (pulsanti **Modello CSV (“Plantilla CSV”)** e **Importa CSV (“Importar CSV”)**, con anteprima delle novità vs. duplicati) ed esportati.
+
+![img: op-catalogo-pilotos.png]
+
+![img: op-qr-pilotos.png]
+
+> Con **Esporta QR (“Exportar QR”)** stampi le tessere QR di tutti i piloti (per il cambio di pilota tramite scansione nelle gare di resistenza — vedi *Controllo dei turni*).
+
+## 3. Creare una gara
+![img: 03-wizard-step1.png]
+
+Premi **Nuova gara (“+ Nueva carrera”)** e segui la procedura guidata:
+
+- **Tipo**:
+  - *Sprint* → una **gara veloce**, di **piloti o squadre**.
+  - *Resistenza* → una **gara di resistenza** (a squadre), che aggiunge il **controllo di quanto ha corso ciascun pilota** della squadra (vedi *Controllo dei turni di pilota*).
+- **Corsie e circuiti**: n° totale di corsie e come si ripartiscono tra i box (p.es. 8+8+6 = 3 box DS-300).
+- **Tempo minimo di giro (Pt)**: al di sotto di questo tempo, un passaggio è considerato **fantasma** (rimbalzo/doppia lettura) e non conta.
+- **Passate**: quante volte si percorre l'**intera sequenza di corsie**. 2 passate = la rotazione completa si corre 2 volte (il doppio delle manche).
+- **Ripeti corsia**: ogni corsia si corre questo n° di **manche di seguito** (stessa corsia), sommando i giri — per confrontare ogni ripetizione.
+- **Pole** (facoltativa) e **regole di pilota** (solo campionato: min/max per pilota, blocco del cambio a fine manche).
+
+> **Passate** e **ripeti corsia** cambiano solo il modo in cui si generano le manche; i totali si sommano per partecipante.
+
+## 4. Tande, partecipanti e rotazione
+![img: 34-tanda.png]
+
+Una **tanda** raggruppa i partecipanti e la loro **rotazione di corsie** per manche. Aggiungendo le **squadre/piloti**, PitWall genera automaticamente tutte le **manche**.
+
+**Come funziona la rotazione.** Ogni partecipante cambia corsia manche dopo manche seguendo la sequenza configurata (p.es. `1, 3, 5, 6, 4, 2`). Così tutti passano per tutte le corsie e le condizioni si equiparano.
+
+- *Esempio (6 corsie, 6 piloti):* nella manche 1 il pilota A corre la corsia 1; nella manche 2, la 3; nella 3, la 5… fino a completare il giro di tutte le corsie.
+
+**Rotazione a piacere.** PitWall propone automaticamente una rotazione equilibrata, ma **puoi gestirla come vuoi**: riordina la **sequenza di corsie** a mano (trascinando) per decidere esattamente per quale corsia passa ciascun partecipante in ogni manche.
+
+**Riposi.** Se ci sono **più partecipanti che corsie**, la sequenza include spazi vuoti (`0` / `DSC`) che sono **riposi**: in quella manche quel partecipante non corre. PitWall li distribuisce in modo equilibrato, ma **puoi anche collocarli dove vuoi** all'interno della rotazione (trascinali nella posizione che preferisci).
+
+**Con passate / ripeti corsia:**
+- *2 passate* → l'intera sequenza si ripete: `1,3,5,6,4,2, 1,3,5,6,4,2`.
+- *Ripeti corsia 2* → ogni corsia, due manche di seguito: `1,1,3,3,5,5,6,6,4,4,2,2`.
+
+## 5. Modificare gara, tande e manche
+
+Dopo aver creato una gara puoi ritoccarla:
+- **Modifica gara (“Editar carrera”)** — cambiare il **nome** e, se **non ha ancora giri registrati**, il circuito/scenario. Se ci sono già giri, il circuito resta **bloccato** (per non rovinare i dati).
+
+![img: op-edit-carrera.png]
+
+- **Modifica tanda (“Editar tanda”)** — cambiare i **nomi** dei partecipanti e, se la tanda non è ancora iniziata, la sua composizione. Se ha già manche avviate, entra in **modalità solo rinomina** (non si aggiungono né si tolgono partecipanti, per non scompaginare la rotazione).
+
+![img: op-edit-tanda.png]
+
+- **Modifica manche (“Editar manga”)** — cambiare **chi corre in ogni corsia** in una manche specifica, senza rigenerare tutta la tanda (utile se una squadra non si presenta o c'è un cambio dell'ultimo minuto).
+
+## 6. Pole (qualifica preliminare)
+![img: 44-pole-setup.png]
+
+La **pole** è un giro di qualifica **prima** della gara per decidere l'ordine di partenza. È facoltativa; si attiva al momento di creare la gara (**Pole**) e si lancia dalla pagina della gara → **Configura Pole Position (“Configurar Pole Position”)**.
+
+- **Partecipanti**: compaiono tutti gli iscritti. L'**ordine dell'elenco** è l'ordine in cui usciranno a fare il loro giro; premi **🎲 Casuale (“🎲 Aleatorio”)** per mescolarlo.
+- **Corsia di pole**: **tutti** fanno il loro giro di qualifica sulla **stessa corsia** (perché sia confrontabile). Scegliela con **−/+** o con **🎲 Casuale (“🎲 Aleatorio”)**.
+- Premi **Inizia Pole (“Empezar Pole”)**: ogni partecipante entra a turno, fa il suo giro e PitWall registra il suo miglior tempo. Nel cronometraggio puoi attivare **Salta 1° passaggio (out-lap) (“Omitir 1er cruce (out-lap)”)** per non contare il giro di lancio.
+
+**Risultati della pole.** Al termine compare **Risultati Pole (“Resultados Pole”)** con la **classifica finale** (dal più veloce al più lento, con il gap dal leader e il **giro veloce**). Da qui puoi **✏️ Modificare i tempi (“✏️ Editar tiempos”)** se c'è stato un errore, o proseguire con **🚦 Assegna corsie di partenza (“🚦 Asignar carriles de salida”)**.
+
+![img: 46-pole-results.png]
+
+**Assegnare le corsie dopo la pole.** La pole non distribuisce le corsie automaticamente: apre la schermata **Scelta della corsia (“Elección de carril”)**, dove ogni partecipante **sceglie** la propria corsia **in ordine di classifica** — il **poleman** (il più veloce) sceglie per primo, poi il 2°, e così via. È il classico "il più veloce sceglie la corsia".
+
+![img: 47-pole-lanes.png]
+
+- Il banner **Sta scegliendo ora (“Eligiendo ahora”)** indica a chi tocca; a sinistra vedi l'**ordine di scelta** (la classifica) e a destra le **corsie disponibili** (con il loro colore).
+- Ciascuno preme la corsia che vuole; quella corsia scompare dalle disponibili e il turno passa al successivo.
+- **Se ci sono più partecipanti che corsie**, compaiono spazi di **💤 Riposo (“💤 Descanso”)**: chi sceglie il riposo **non corre la manche 1** ed **entra nella rotazione a partire dalla manche 2**.
+- Quando tutti hanno scelto, premi **🏁 Crea Prima Tanda (“🏁 Crear Primera Tanda”)**: PitWall crea la tanda e genera tutte le manche con quella griglia come punto di partenza (l'ordine di scelta definisce la posizione iniziale nella rotazione di corsie). Da lì in poi, la gara ruota le corsie manche dopo manche come sempre (vedi *Tande e rotazione*).
+
+> La pole non attribuisce punti in gara: decide solo **chi sceglie la corsia per primo** e, con ciò, la griglia di partenza della prima manche.
+
+## 7. PitWall Lap — PIN per le squadre
+![img: 43-lap-pins.png]
+
+**PitWall Lap** è la vista mobile che permette a ciascuna **squadra/pilota** di seguire il proprio cronometraggio dal telefono (i propri giri, annunciati a voce, e la propria posizione). Perché entrino solo nel *loro* pannello si distribuisce un **PIN** per squadra.
+
+- Entra in **PitWall Lap · PIN** della gara. Vedrai l'indirizzo che le squadre aprono sul cellulare (p.es. `http://<IP-del-server>:3000/lap/<id>`) e la tabella **SQUADRA → PIN**.
+- Dai a ogni squadra **il suo PIN**. Aprendo l'indirizzo e inserendolo, entrano direttamente nel loro pannello.
+- **Nuovo (“Nuevo”)** rigenera il PIN di una squadra (nel caso trapelasse o volessero cambiarlo).
+
+> I cellulari devono essere sulla **stessa rete** del computer che fa da server. Usa l'IP del computer, non `localhost`, quando lo aprono dal telefono.
+
+## 8. Dirigere la gara in diretta
+![img: 20-live-timing.png]
+
+Dalla pagina della gara:
+
+1. **Armare la manche** (▶). Resta pronta in attesa del **GO** del box.
+2. **GO**: dando la partenza dal box, compare il **semaforo** e parte il cronometro. Ogni circuito ha il proprio orologio (C1/C2/C3).
+3. Durante la manche vedi per ogni corsia: **totale giri**, **ultimo**, **media**, **miglior**, e in alto il banner del **giro veloce**.
+4. **Pausa / Riprendi / Ferma** la manche quando serve.
+5. Al termine (bandiera o fine tempo), la manche si chiude e si prepara la **successiva**.
+6. Terminate tutte le manche di una tanda, parte la **tanda successiva**.
+
+**Scegliere la vista.** Con il pulsante **Vista** cambi il layout in base alle corsie: *Righe orizzontali* (poche corsie), *Griglia compatta* (molte) o *Schede con dettagli* (con giri/uscite/pit/Δ per scheda).
+
+**Cambiare tanda, ripetere una manche e finalizzare.** Dalla diretta stessa hai scorciatoie senza uscire dalla schermata:
+- **Tanda successiva (“Siguiente tanda”)** — quando finiscono le manche di una tanda, passa direttamente alla successiva.
+- **Ripeti manche (“Repetir manga”)** — se una manche è stata annullata (falsa partenza, incidente), la rilanci con gli stessi partecipanti e corsie.
+- **Finalizza gara (“Finalizar carrera”)** — chiude la gara (la "bandiera"): si congela la classifica e si genera il riepilogo per i risultati e per i cellulari (PitWall Lap).
+
+> Avviso **"Sin señal del DS-300"**: finché è presente, i giri **non vengono registrati**. Controlla la connessione prima di dare il GO.
+
+## 9. Controllo dei turni di pilota (campionati)
+
+Nelle gare di **campionato a squadre** puoi imporre regole di ripartizione del volante tra i piloti di una squadra. Si definiscono al momento di creare la gara:
+- **Tempo minimo / massimo per pilota** — ogni pilota deve girare almeno X e al massimo Y.
+- **Blocco dopo un cambio** — un tempo minimo senza poter ricambiare pilota.
+- **Massimo di turni per pilota**.
+
+I **cambi di pilota** si registrano scansionando il **QR del pilota** (o inserendo il suo codice) all'ingresso in pista. Dalla diretta apri **Controllo dei turni (“Control de turnos”)**, che mostra il **pilota attuale per corsia**, il **tempo accumulato** di ciascuno (segnalando se viola una regola) e lo **storico dei turni**; se un cambio è stato registrato male, puoi **correggere il tempo** del turno.
+
+## 10. Giro per giro e correzioni (aggiungere / togliere giri)
+![img: 30-correcciones.png]
+
+Dalla gara (pulsante di **correzione dei giri** nella diretta o nei risultati) entri nel **giro per giro** di ogni manche. Serve a sistemare le letture registrate male.
+
+- **Sinistra**: le corsie della manche; scegli la squadra/pilota da revisionare.
+- **Destra**: la sua lista di giri — **VLT** (n°), **TEMPO**, **OROLOGIO** (momento di gara) e **Δ PREC.** (differenza col giro precedente).
+- **Azioni per giro**:
+  - **Trasferisci** (↔) — passare il giro a **un'altra corsia/squadra** (se il sistema lo ha assegnato male).
+  - **Fantasma** — segnare il giro come non valido (non conta) senza cancellarlo; si può **ripristinare**.
+  - **Cancella** (🗑) — eliminare un giro.
+  - **Aggiungi giro manuale** — se è mancato un passaggio, lo aggiungi a mano.
+
+> Usalo con criterio: le correzioni cambiano totali, medie e classifica di quella manche.
+
+## 11. Risultati ed esportazioni
+![img: 10-results-comparativa.png]
+
+Al termine (o in qualsiasi momento) entra in **Risultati (“Resultados”)**:
+
+- **Comparativa** (griglia): per partecipante, ogni corsia con **Veloce / Media / Consistenza / Uscite / Pit-stop**. Nelle gare di **passate/ripeti-corsia**, ogni corsia si scompone nelle sue **occorrenze** (1/2, 2/2) per confrontare.
+- **Progressione / Posizioni / Gap dal leader / Gap (griglia) / Statistiche avanzate**: diverse viste di analisi (spiegate in dettaglio nel *Manuale delle statistiche*).
+- **Esportazioni**: **Excel**, **Punti (xlsx/csv)**, **Control (csv)**, **Esporta per GitHub**, **PDF**.
+
+**Risultati pubblici.** C'è una pagina aperta —**Risultati (“Resultados”)**, nel menu iniziale— dove chiunque può consultare (senza toccare nulla né poter modificare) i risultati delle gare **finalizzate**. È quella che condividi con piloti e pubblico affinché guardino la classifica e le statistiche della gara.
+
+![img: op-resultados-publicos.png]
+
+## 12. Allenamento
+![img: 40-training.png]
+
+Oltre alle gare, PitWall ha una modalità **Allenamento (“Entrenamiento”)** (dalla schermata iniziale) per girare senza allestire una competizione completa. Ci sono due modalità:
+
+- **Allenamento libero**: registra **giri per corsia senza struttura di squadre**. Ideale per sessioni aperte dove ciascuno prova auto e pista; non c'è rotazione né classifica, solo tempi per corsia.
+- **Da competizione**: squadre o piloti assegnati alle corsie con **rotazione automatica dopo ogni tanda**, come una gara ma pensato per allenare il formato di campionato.
+
+Scegli la modalità, assegna le corsie e premi **Inizia (“Empezar”)**. Il cronometraggio in diretta funziona come in gara (GO del box, giri, miglior/media per corsia).
+
+## 13. Impostazioni
+![img: 04-settings.png]
+
+- **Hardware / porte**: configura i circuiti seriali (DS-300) e il loro n° di corsie.
+- **Circuiti**: definisci le piste salvate (sequenza di corsie, tempo minimo).
+- **Licenza** e lingua (ES/EN).
+
+## 14. Glossario (operazione)
+- **Gara**: l'evento completo. Si compone di tande.
+- **Tanda**: gruppo di partecipanti con la sua rotazione; si compone di manche.
+- **Manche**: una tornata cronometrata (tutte le corsie insieme) di una certa durata.
+- **Rotazione**: come cambiano corsia i partecipanti da una manche all'altra.
+- **Riposo**: manche in cui un partecipante non corre (spazio vuoto `0` nella sequenza).
+- **Passata**: percorso completo della sequenza di corsie; N passate = N× manche.
+- **Ripeti corsia**: correre ogni corsia N manche di seguito, sommando i giri.
+- **GO**: il segnale di partenza (del box DS-300) che avvia la manche.
+- **Giro fantasma**: giro segnato come non valido (non conta), ripristinabile.
+- **Pole**: sessione di qualifica preliminare (facoltativa); tutti girano sulla stessa corsia e il loro miglior giro fissa la griglia di partenza.
+- **Allenamento libero**: modalità per registrare giri per corsia senza squadre né rotazione (sessione aperta).
+- **PitWall Lap**: vista mobile per squadra/pilota (i suoi giri annunciati a voce e la sua posizione).
+- **PIN**: codice per squadra per entrare nel proprio pannello in PitWall Lap.
+- **Pt (tempo minimo)**: soglia al di sotto della quale un giro è considerato passaggio fantasma e non conta.
+- **Scenario**: pista salvata (circuiti, corsie, sequenza e tempo minimo) riutilizzabile in più gare.
+- **Categoria**: classe di auto/pilota (GT, Turismo, Classiche…); permette un Pt diverso per categoria.
+- **Catalogo**: libreria riutilizzabile di piloti, squadre e auto (importabile da CSV).
+- **QR di pilota**: codice che identifica il pilota per registrare il suo turno alla scansione.
+- **Turno (shift)**: periodo in cui un pilota è al volante all'interno della sua squadra in resistenza.
+- **DS-300**: il box di cronometraggio che rileva il passaggio sul traguardo.

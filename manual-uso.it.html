@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PitWall · Manuale d'uso</title>
+<meta name="description" content="Manuale d'uso di PitWall: allestire la gara, dirigerla in diretta ed estrarre i risultati.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="manual/manual.css">
+<style>body{--ac:var(--red)}</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="pitwall-landing-it.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
+    <nav class="links">
+      <a href="pitwall-landing-it.html">Landing</a>
+      <a href="manual-uso.it.html" class="here">Manuale d'uso</a>
+      <a href="manual-estadisticas.it.html">Statistiche</a>
+      <div class="lang" aria-label="Lingua">
+        <a href="manual-uso.html">ES</a>
+        <a href="manual-uso.en.html">EN</a>
+        <a href="manual-uso.it.html" class="on" aria-current="page">IT</a>
+        <a href="manual-uso.fr.html">FR</a>
+      </div>
+      <a href="manual-estadisticas.it.html" class="nav-cta">Interpretare i dati →</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="doc-hero">
+  <div class="wrap">
+    <div class="kicker">Manuale d'uso · Direzione di gara</div>
+    <h1>Allestisci, dirigi ed<br>estrai <span class="ac">risultati</span>.</h1>
+    <p class="lede">Guida per chi <b>utilizza</b> PitWall: creare la gara, allestire tande e partecipanti, dirigere ogni manche in diretta dall'hardware di cronometraggio ed esportare i risultati. Dal primo giro alla classifica finale.</p>
+    <div class="xlink">
+      <a class="cur" href="manual-uso.it.html">▮ Manuale d'uso</a>
+      <a href="manual-estadisticas.it.html">Manuale delle statistiche ↔</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<div class="wrap doc-grid">
+  <!-- TOC -->
+  <nav class="toc" aria-label="Indice del manuale">
+    <div class="toc-ttl">Contenuti</div>
+    <ol>
+      <li><a href="#introduccion">Introduzione</a></li>
+      <li><a href="#escenarios">Scenari, categorie e cataloghi</a></li>
+      <li><a href="#crear">Creare una gara</a></li>
+      <li><a href="#tandas">Tande, partecipanti e rotazione</a></li>
+      <li><a href="#editar">Modificare gara, tande e manche</a></li>
+      <li><a href="#pole">Pole (qualifica preliminare)</a></li>
+      <li><a href="#lap">PitWall Lap — PIN per le squadre</a></li>
+      <li><a href="#vivo">Dirigere la gara in diretta</a></li>
+      <li><a href="#turnos">Controllo dei turni di pilota</a></li>
+      <li><a href="#correcciones">Giro per giro e correzioni</a></li>
+      <li><a href="#resultados">Risultati ed esportazioni</a></li>
+      <li><a href="#entrenamiento">Allenamento</a></li>
+      <li><a href="#ajustes">Impostazioni</a></li>
+      <li><a href="#glosario">Glossario</a></li>
+    </ol>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="doc">
+
+    <section id="introduccion">
+      <div class="num">// 01</div>
+      <h2>Introduzione</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Schermata iniziale</span></div>
+        <img src="manual/img/01-home.png" loading="lazy" alt="Schermata iniziale di PitWall">
+        <figcaption>Schermata iniziale: accesso a Gare, Impostazioni e stato del collegamento.</figcaption>
+      </figure>
+      <p><b>PitWall</b> è il sistema di cronometraggio e gestione delle gare di slot. Rileva il passaggio di ciascuna auto sulla linea del traguardo tramite l'hardware di cronometraggio, con due opzioni compatibili:</p>
+      <ul>
+        <li><b>DS-300</b> — tramite <b>porta seriale</b>. Puoi collegare <b>fino a 6 circuiti</b> DS-300 in una sola gara: ogni box cronometra le proprie corsie e PitWall le combina.</li>
+        <li><b>BART (Policar)</b> — tramite <b>Bluetooth</b>. Supporta <b>fino al massimo di corsie consentito da BART</b> (attualmente <b>32</b>).</li>
+      </ul>
+      <p>Puoi usare l'una o l'altra fonte; per PitWall il flusso dei passaggi è equivalente.</p>
+      <ul>
+        <li>Dalla <b>schermata iniziale</b> accedi a <b>Gare ("Carreras")</b>, <b>Impostazioni ("Ajustes")</b> e al resto dei moduli.</li>
+        <li>In basso a destra vedi sempre lo <b>stato del collegamento</b> (verde = connesso; "Sin señal" = controlla il cavo/porta o il Bluetooth).</li>
+      </ul>
+      <p><b>L'elenco delle gare</b> ti mostra tutte le tue gare con il loro stato (in attesa / attiva / terminata) e il pulsante <b>Nuova gara ("+ Nueva carrera")</b>.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Elenco delle gare</span></div>
+        <img src="manual/img/02-races-list.png" loading="lazy" alt="Elenco delle gare con il loro stato e il pulsante di nuova gara">
+        <figcaption>Elenco delle gare: stato (in attesa / attiva / terminata) e "+ Nueva carrera".</figcaption>
+      </figure>
+    </section>
+
+    <section id="escenarios">
+      <div class="num">// 02</div>
+      <h2>Scenari, categorie e cataloghi (la tua libreria)</h2>
+      <p>Per non riconfigurare le stesse cose a ogni gara, PitWall salva <b>modelli riutilizzabili</b> che poi scegli al momento di creare una gara.</p>
+
+      <h3>Scenari (circuiti salvati)</h3>
+      <p>Uno <b>scenario</b> è una pista fisica salvata: n° di circuiti e corsie (p.es. <span class="mono">8+8+8 = 24</span>), la sua <b>sequenza di corsie</b> (rotazione) e il <b>tempo minimo predefinito</b>. Qualsiasi gara assegnata a quello scenario eredita tutto automaticamente.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Scenari</span></div>
+        <img src="manual/img/op-escenarios.png" loading="lazy" alt="Elenco degli scenari (circuiti salvati) con le loro corsie e sequenza">
+        <figcaption>Scenari: piste salvate con i loro circuiti, corsie, sequenza di rotazione e tempo minimo.</figcaption>
+      </figure>
+      <p>Modificando uno scenario ne definisci il nome, la configurazione delle corsie, trascini la <b>sequenza di rotazione</b> (con <b>riposi DSC</b> se avanzano piloti), il <b>tempo minimo predefinito</b> e, facoltativamente, i <b>giri minimi per categoria</b> (un Pt diverso per GT, Turismo, Classiche… su quella stessa pista).</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Modifica scenario</span></div>
+        <img src="manual/img/op-escenario-form.png" loading="lazy" alt="Modulo di modifica di uno scenario con la sequenza di rotazione e il tempo minimo per categoria">
+        <figcaption>Modifica scenario: corsie, sequenza di rotazione (con riposi DSC), tempo minimo predefinito e per categoria.</figcaption>
+      </figure>
+
+      <h3>Categorie</h3>
+      <p>Gruppi di livello/classe (GT, Turismo, Classiche…) che servono a <b>sovrascrivere il tempo minimo (Pt) per categoria</b> in ogni scenario e a classificare auto e piloti.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Categorie</span></div>
+        <img src="manual/img/op-categorias.png" loading="lazy" alt="Schermata delle categorie (GT, Turismo, Classiche) per classificare auto e piloti">
+        <figcaption>Categorie: classi (GT, Turismo, Classiche…) per classificare e per il Pt per categoria.</figcaption>
+      </figure>
+
+      <h3>Cataloghi riutilizzabili (piloti, squadre, auto)</h3>
+      <p>Mantieni il tuo <b>database</b> di partecipanti e materiale per riutilizzarlo tra le gare:</p>
+      <ul>
+        <li><b>Piloti</b> — nome e categoria; ogni pilota può avere il proprio <b>QR</b> di identificazione.</li>
+        <li><b>Squadre</b> — nome, colore, nazione, auto e componenti.</li>
+        <li><b>Auto</b> — marca, modello e categoria.</li>
+      </ul>
+      <p>Tutti possono essere <b>importati in blocco da CSV</b> (pulsanti <b>Modello CSV ("Plantilla CSV")</b> e <b>Importa CSV ("Importar CSV")</b>, con anteprima delle novità vs. duplicati) ed esportati.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Catalogo dei piloti</span></div>
+        <img src="manual/img/op-catalogo-pilotos.png" loading="lazy" alt="Catalogo dei piloti con nome, categoria e importazione da CSV">
+        <figcaption>Catalogo dei piloti: database riutilizzabile con importazione da CSV (novità vs. duplicati).</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · QR dei piloti</span></div>
+        <img src="manual/img/op-qr-pilotos.png" loading="lazy" alt="Tessere QR di identificazione dei piloti per il cambio di pilota tramite scansione">
+        <figcaption>QR dei piloti: tessere di identificazione stampabili per il cambio di pilota tramite scansione.</figcaption>
+      </figure>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Con <b>Esporta QR ("Exportar QR")</b> stampi le tessere QR di tutti i piloti (per il cambio di pilota tramite scansione nelle gare di resistenza — vedi <i>Controllo dei turni</i>).</div>
+      </div>
+    </section>
+
+    <section id="crear">
+      <div class="num">// 03</div>
+      <h2>Creare una gara</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Procedura guidata · Passo 1</span></div>
+        <img src="manual/img/03-wizard-step1.png" loading="lazy" alt="Procedura guidata per creare una nuova gara, passo 1">
+        <figcaption>Procedura guidata di nuova gara: tipo, corsie, tempo minimo, passate e regole.</figcaption>
+      </figure>
+      <p>Premi <b>Nuova gara ("+ Nueva carrera")</b> e segui la procedura guidata:</p>
+      <ul>
+        <li><b>Tipo</b>:
+          <ul>
+            <li><i>Sprint</i> → una <b>gara veloce</b>, di <b>piloti o squadre</b>.</li>
+            <li><i>Resistenza</i> → una <b>gara di resistenza</b> (a squadre), che aggiunge il <b>controllo di quanto ha corso ciascun pilota</b> della squadra (vedi <i>Controllo dei turni di pilota</i>).</li>
+          </ul>
+        </li>
+        <li><b>Corsie e circuiti</b>: n° totale di corsie e come si ripartiscono tra i box (p.es. 8+8+6 = 3 box DS-300).</li>
+        <li><b>Tempo minimo di giro (Pt)</b>: al di sotto di questo tempo, un passaggio è considerato <b>fantasma</b> (rimbalzo/doppia lettura) e non conta.</li>
+        <li><b>Passate</b>: quante volte si percorre l'<b>intera sequenza di corsie</b>. 2 passate = la rotazione completa si corre 2 volte (il doppio delle manche).</li>
+        <li><b>Ripeti corsia</b>: ogni corsia si corre questo n° di <b>manche di seguito</b> (stessa corsia), sommando i giri — per confrontare ogni ripetizione.</li>
+        <li><b>Pole</b> (facoltativa) e <b>regole di pilota</b> (solo campionato: min/max per pilota, blocco del cambio a fine manche).</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Passate</b> e <b>ripeti corsia</b> cambiano solo il modo in cui si generano le manche; i totali si sommano per partecipante.</div>
+      </div>
+    </section>
+
+    <section id="tandas">
+      <div class="num">// 04</div>
+      <h2>Tande, partecipanti e rotazione</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Tanda · Partecipanti e manche</span></div>
+        <img src="manual/img/34-tanda.png" loading="lazy" alt="Tanda con i suoi partecipanti e le manche generate per rotazione">
+        <figcaption>Una tanda: partecipanti, la loro rotazione di corsie e le manche generate.</figcaption>
+      </figure>
+      <p>Una <b>tanda</b> raggruppa i partecipanti e la loro <b>rotazione di corsie</b> per manche. Aggiungendo le <b>squadre/piloti</b>, PitWall genera automaticamente tutte le <b>manche</b>.</p>
+
+      <h3>Come funziona la rotazione</h3>
+      <p>Ogni partecipante cambia corsia manche dopo manche seguendo la sequenza configurata (p.es. <span class="mono">1, 3, 5, 6, 4, 2</span>). Così tutti passano per tutte le corsie e le condizioni si equiparano.</p>
+      <ul>
+        <li><i>Esempio (6 corsie, 6 piloti):</i> nella manche 1 il pilota A corre la corsia 1; nella manche 2, la 3; nella 3, la 5… fino a completare il giro di tutte le corsie.</li>
+      </ul>
+
+      <h3>Rotazione a piacere</h3>
+      <p>PitWall propone automaticamente una rotazione equilibrata, ma <b>puoi gestirla come vuoi</b>: riordina la <b>sequenza di corsie</b> a mano (trascinando) per decidere esattamente per quale corsia passa ciascun partecipante in ogni manche.</p>
+
+      <h3>Riposi</h3>
+      <p>Se ci sono <b>più partecipanti che corsie</b>, la sequenza include spazi vuoti (<span class="mono">0</span> / <span class="mono">DSC</span>) che sono <b>riposi</b>: in quella manche quel partecipante non corre. PitWall li distribuisce in modo equilibrato, ma <b>puoi anche collocarli dove vuoi</b> all'interno della rotazione (trascinali nella posizione che preferisci).</p>
+
+      <h3>Con passate / ripeti corsia</h3>
+      <ul>
+        <li><i>2 passate</i> → l'intera sequenza si ripete: <span class="mono">1,3,5,6,4,2, 1,3,5,6,4,2</span>.</li>
+        <li><i>Ripeti corsia 2</i> → ogni corsia, due manche di seguito: <span class="mono">1,1,3,3,5,5,6,6,4,4,2,2</span>.</li>
+      </ul>
+    </section>
+
+    <section id="editar">
+      <div class="num">// 05</div>
+      <h2>Modificare gara, tande e manche</h2>
+      <p>Dopo aver creato una gara puoi ritoccarla:</p>
+      <ul>
+        <li><b>Modifica gara ("Editar carrera")</b> — cambiare il <b>nome</b> e, se <b>non ha ancora giri registrati</b>, il circuito/scenario. Se ci sono già giri, il circuito resta <b>bloccato</b> (per non rovinare i dati).</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Modifica gara</span></div>
+        <img src="manual/img/op-edit-carrera.png" loading="lazy" alt="Modulo di modifica di una gara: nome e circuito/scenario">
+        <figcaption>Modifica gara: nome e —se non ci sono ancora giri— circuito/scenario.</figcaption>
+      </figure>
+      <ul>
+        <li><b>Modifica tanda ("Editar tanda")</b> — cambiare i <b>nomi</b> dei partecipanti e, se la tanda non è ancora iniziata, la sua composizione. Se ha già manche avviate, entra in <b>modalità solo rinomina</b> (non si aggiungono né si tolgono partecipanti, per non scompaginare la rotazione).</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Modifica tanda</span></div>
+        <img src="manual/img/op-edit-tanda.png" loading="lazy" alt="Modulo di modifica di una tanda: partecipanti e modalità solo rinomina">
+        <figcaption>Modifica tanda: partecipanti e la sua composizione (o modalità solo rinomina se è già iniziata).</figcaption>
+      </figure>
+      <ul>
+        <li><b>Modifica manche ("Editar manga")</b> — cambiare <b>chi corre in ogni corsia</b> in una manche specifica, senza rigenerare tutta la tanda (utile se una squadra non si presenta o c'è un cambio dell'ultimo minuto).</li>
+      </ul>
+    </section>
+
+    <section id="pole">
+      <div class="num">// 06</div>
+      <h2>Pole (qualifica preliminare)</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Configura Pole Position</span></div>
+        <img src="manual/img/44-pole-setup.png" loading="lazy" alt="Schermata di configurazione della Pole Position con ordine dei partecipanti e corsia">
+        <figcaption>Configura Pole: ordine di partenza dei partecipanti e corsia comune di qualifica.</figcaption>
+      </figure>
+      <p>La <b>pole</b> è un giro di qualifica <b>prima</b> della gara per decidere l'ordine di partenza. È facoltativa; si attiva al momento di creare la gara (<b>Pole</b>) e si lancia dalla pagina della gara → <b>Configura Pole Position ("Configurar Pole Position")</b>.</p>
+      <ul>
+        <li><b>Partecipanti</b>: compaiono tutti gli iscritti. L'<b>ordine dell'elenco</b> è l'ordine in cui usciranno a fare il loro giro; premi <b>🎲 Casuale ("🎲 Aleatorio")</b> per mescolarlo.</li>
+        <li><b>Corsia di pole</b>: <b>tutti</b> fanno il loro giro di qualifica sulla <b>stessa corsia</b> (perché sia confrontabile). Scegliela con <b>−/+</b> o con <b>🎲 Casuale ("🎲 Aleatorio")</b>.</li>
+        <li>Premi <b>Inizia Pole ("Empezar Pole")</b>: ogni partecipante entra a turno, fa il suo giro e PitWall registra il suo miglior tempo. Nel cronometraggio puoi attivare <b>Salta 1° passaggio (out-lap) ("Omitir 1er cruce (out-lap)")</b> per non contare il giro di lancio.</li>
+      </ul>
+
+      <h3>Risultati della pole</h3>
+      <p>Al termine compare <b>Risultati Pole ("Resultados Pole")</b> con la <b>classifica finale</b> (dal più veloce al più lento, con il gap dal leader e il <b>giro veloce</b>). Da qui puoi <b>✏️ Modificare i tempi ("✏️ Editar tiempos")</b> se c'è stato un errore, o proseguire con <b>🚦 Assegna corsie di partenza ("🚦 Asignar carriles de salida")</b>.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Risultati Pole</span></div>
+        <img src="manual/img/46-pole-results.png" loading="lazy" alt="Schermata di Risultati Pole con la classifica finale, gap dal leader e giro veloce">
+        <figcaption>Risultati Pole: classifica finale, gap dal leader e giro veloce per partecipante.</figcaption>
+      </figure>
+
+      <h3>Assegnare le corsie dopo la pole</h3>
+      <p>La pole non distribuisce le corsie automaticamente: apre la schermata <b>Scelta della corsia ("Elección de carril")</b>, dove ogni partecipante <b>sceglie</b> la propria corsia <b>in ordine di classifica</b> — il <b>poleman</b> (il più veloce) sceglie per primo, poi il 2°, e così via. È il classico "il più veloce sceglie la corsia".</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Scelta della corsia</span></div>
+        <img src="manual/img/47-pole-lanes.png" loading="lazy" alt="Schermata di scelta della corsia in ordine di classifica, con corsie disponibili">
+        <figcaption>Scelta della corsia: ogni partecipante sceglie la corsia in ordine di classifica della pole.</figcaption>
+      </figure>
+      <ul>
+        <li>Il banner <b>Sta scegliendo ora ("Eligiendo ahora")</b> indica a chi tocca; a sinistra vedi l'<b>ordine di scelta</b> (la classifica) e a destra le <b>corsie disponibili</b> (con il loro colore).</li>
+        <li>Ciascuno preme la corsia che vuole; quella corsia scompare dalle disponibili e il turno passa al successivo.</li>
+        <li><b>Se ci sono più partecipanti che corsie</b>, compaiono spazi di <b>💤 Riposo ("💤 Descanso")</b>: chi sceglie il riposo <b>non corre la manche 1</b> ed <b>entra nella rotazione a partire dalla manche 2</b>.</li>
+        <li>Quando tutti hanno scelto, premi <b>🏁 Crea Prima Tanda ("🏁 Crear Primera Tanda")</b>: PitWall crea la tanda e genera tutte le manche con quella griglia come punto di partenza (l'ordine di scelta definisce la posizione iniziale nella rotazione di corsie). Da lì in poi, la gara ruota le corsie manche dopo manche come sempre (vedi <i>Tande e rotazione</i>).</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>La pole non attribuisce punti in gara: decide solo <b>chi sceglie la corsia per primo</b> e, con ciò, la griglia di partenza della prima manche.</div>
+      </div>
+    </section>
+
+    <section id="lap">
+      <div class="num">// 07</div>
+      <h2>PitWall Lap — PIN per le squadre</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · PIN per squadra</span></div>
+        <img src="manual/img/43-lap-pins.png" loading="lazy" alt="Tabella di PIN per squadra per accedere a PitWall Lap dal cellulare">
+        <figcaption>PitWall Lap · PIN: l'indirizzo per il cellulare e il PIN di ogni squadra.</figcaption>
+      </figure>
+      <p><b>PitWall Lap</b> è la vista mobile che permette a ciascuna <b>squadra/pilota</b> di seguire il proprio cronometraggio dal telefono (i propri giri, annunciati a voce, e la propria posizione). Perché entrino solo nel <i>loro</i> pannello si distribuisce un <b>PIN</b> per squadra.</p>
+      <ul>
+        <li>Entra in <b>PitWall Lap · PIN</b> della gara. Vedrai l'indirizzo che le squadre aprono sul cellulare (p.es. <span class="mono">http://&lt;IP-del-server&gt;:3000/lap/&lt;id&gt;</span>) e la tabella <b>SQUADRA → PIN</b>.</li>
+        <li>Dai a ogni squadra <b>il suo PIN</b>. Aprendo l'indirizzo e inserendolo, entrano direttamente nel loro pannello.</li>
+        <li><b>Nuovo ("Nuevo")</b> rigenera il PIN di una squadra (nel caso trapelasse o volessero cambiarlo).</li>
+      </ul>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div>I cellulari devono essere sulla <b>stessa rete</b> del computer che fa da server. Usa l'IP del computer, non <span class="mono">localhost</span>, quando lo aprono dal telefono.</div>
+      </div>
+    </section>
+
+    <section id="vivo">
+      <div class="num">// 08</div>
+      <h2>Dirigere la gara in diretta</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Cronometraggio in diretta</span></div>
+        <img src="manual/img/20-live-timing.png" loading="lazy" alt="Schermata di cronometraggio in diretta di una manche">
+        <figcaption>Schermata in diretta: orologi per circuito, schede di corsia e giro veloce.</figcaption>
+      </figure>
+      <p>Dalla pagina della gara:</p>
+      <ol class="steps">
+        <li><b>Armare la manche</b> (▶). Resta pronta in attesa del <b>GO</b> del box.</li>
+        <li><b>GO</b>: dando la partenza dal box, compare il <b>semaforo</b> e parte il cronometro. Ogni circuito ha il proprio orologio (C1/C2/C3).</li>
+        <li>Durante la manche vedi per ogni corsia: <b>totale giri</b>, <b>ultimo</b>, <b>media</b>, <b>miglior</b>, e in alto il banner del <b>giro veloce</b>.</li>
+        <li><b>Pausa / Riprendi / Ferma</b> la manche quando serve.</li>
+        <li>Al termine (bandiera o fine tempo), la manche si chiude e si prepara la <b>successiva</b>.</li>
+        <li>Terminate tutte le manche di una tanda, parte la <b>tanda successiva</b>.</li>
+      </ol>
+      <p><b>Scegliere la vista.</b> Con il pulsante <b>Vista</b> cambi il layout in base alle corsie: <i>Righe orizzontali</i> (poche corsie), <i>Griglia compatta</i> (molte) o <i>Schede con dettagli</i> (con giri/uscite/pit/Δ per scheda).</p>
+
+      <h3>Cambiare tanda, ripetere una manche e finalizzare</h3>
+      <p>Dalla diretta stessa hai scorciatoie senza uscire dalla schermata:</p>
+      <ul>
+        <li><b>Tanda successiva ("Siguiente tanda")</b> — quando finiscono le manche di una tanda, passa direttamente alla successiva.</li>
+        <li><b>Ripeti manche ("Repetir manga")</b> — se una manche è stata annullata (falsa partenza, incidente), la rilanci con gli stessi partecipanti e corsie.</li>
+        <li><b>Finalizza gara ("Finalizar carrera")</b> — chiude la gara (la "bandiera"): si congela la classifica e si genera il riepilogo per i risultati e per i cellulari (PitWall Lap).</li>
+      </ul>
+
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div>Avviso <b>"Sin señal del DS-300"</b>: finché è presente, i giri <b>non vengono registrati</b>. Controlla la connessione prima di dare il GO.</div>
+      </div>
+    </section>
+
+    <section id="turnos">
+      <div class="num">// 09</div>
+      <h2>Controllo dei turni di pilota (campionati)</h2>
+      <p>Nelle gare di <b>campionato a squadre</b> puoi imporre regole di ripartizione del volante tra i piloti di una squadra. Si definiscono al momento di creare la gara:</p>
+      <ul>
+        <li><b>Tempo minimo / massimo per pilota</b> — ogni pilota deve girare almeno X e al massimo Y.</li>
+        <li><b>Blocco dopo un cambio</b> — un tempo minimo senza poter ricambiare pilota.</li>
+        <li><b>Massimo di turni per pilota</b>.</li>
+      </ul>
+      <p>I <b>cambi di pilota</b> si registrano scansionando il <b>QR del pilota</b> (o inserendo il suo codice) all'ingresso in pista. Dalla diretta apri <b>Controllo dei turni ("Control de turnos")</b>, che mostra il <b>pilota attuale per corsia</b>, il <b>tempo accumulato</b> di ciascuno (segnalando se viola una regola) e lo <b>storico dei turni</b>; se un cambio è stato registrato male, puoi <b>correggere il tempo</b> del turno.</p>
+    </section>
+
+    <section id="correcciones">
+      <div class="num">// 10</div>
+      <h2>Giro per giro e correzioni (aggiungere / togliere giri)</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Giro per giro · Correzioni</span></div>
+        <img src="manual/img/30-correcciones.png" loading="lazy" alt="Vista giro per giro con le azioni di correzione per giro">
+        <figcaption>Giro per giro: lista di giri per corsia e azioni per correggere le letture.</figcaption>
+      </figure>
+      <p>Dalla gara (pulsante di <b>correzione dei giri</b> nella diretta o nei risultati) entri nel <b>giro per giro</b> di ogni manche. Serve a sistemare le letture registrate male.</p>
+      <ul>
+        <li><b>Sinistra</b>: le corsie della manche; scegli la squadra/pilota da revisionare.</li>
+        <li><b>Destra</b>: la sua lista di giri — <b>VLT</b> (n°), <b>TEMPO</b>, <b>OROLOGIO</b> (momento di gara) e <b>Δ PREC.</b> (differenza col giro precedente).</li>
+        <li><b>Azioni per giro</b>:
+          <ul>
+            <li><b>Trasferisci</b> (↔) — passare il giro a <b>un'altra corsia/squadra</b> (se il sistema lo ha assegnato male).</li>
+            <li><b>Fantasma</b> — segnare il giro come non valido (non conta) senza cancellarlo; si può <b>ripristinare</b>.</li>
+            <li><b>Cancella</b> (🗑) — eliminare un giro.</li>
+            <li><b>Aggiungi giro manuale</b> — se è mancato un passaggio, lo aggiungi a mano.</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div>Usalo con criterio: le correzioni cambiano totali, medie e classifica di quella manche.</div>
+      </div>
+    </section>
+
+    <section id="resultados">
+      <div class="num">// 11</div>
+      <h2>Risultati ed esportazioni</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Risultati · Comparativa</span></div>
+        <img src="manual/img/10-results-comparativa.png" loading="lazy" alt="Vista comparativa dei risultati per partecipante e corsia">
+        <figcaption>Comparativa (griglia): per partecipante e corsia, con veloce, media e consistenza.</figcaption>
+      </figure>
+      <p>Al termine (o in qualsiasi momento) entra in <b>Risultati ("Resultados")</b>:</p>
+      <ul>
+        <li><b>Comparativa</b> (griglia): per partecipante, ogni corsia con <b>Veloce / Media / Consistenza / Uscite / Pit-stop</b>. Nelle gare di <b>passate/ripeti-corsia</b>, ogni corsia si scompone nelle sue <b>occorrenze</b> (1/2, 2/2) per confrontare.</li>
+        <li><b>Progressione / Posizioni / Gap dal leader / Gap (griglia) / Statistiche avanzate</b>: diverse viste di analisi (spiegate in dettaglio nel <a class="inl" href="manual-estadisticas.it.html">Manuale delle statistiche</a>).</li>
+        <li><b>Esportazioni</b>: <b>Excel</b>, <b>Punti (xlsx/csv)</b>, <b>Control (csv)</b>, <b>Esporta per GitHub</b>, <b>PDF</b>.</li>
+      </ul>
+
+      <h3>Risultati pubblici</h3>
+      <p>C'è una pagina aperta —<b>Risultati ("Resultados")</b>, nel menu iniziale— dove chiunque può consultare (senza toccare nulla né poter modificare) i risultati delle gare <b>finalizzate</b>. È quella che condividi con piloti e pubblico affinché guardino la classifica e le statistiche della gara.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Risultati pubblici</span></div>
+        <img src="manual/img/op-resultados-publicos.png" loading="lazy" alt="Pagina pubblica di risultati delle gare finalizzate, in sola lettura">
+        <figcaption>Risultati pubblici: consultazione in sola lettura delle gare finalizzate, da condividere con piloti e pubblico.</figcaption>
+      </figure>
+    </section>
+
+    <section id="entrenamiento">
+      <div class="num">// 12</div>
+      <h2>Allenamento</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Allenamento</span></div>
+        <img src="manual/img/40-training.png" loading="lazy" alt="Schermata della modalità Allenamento di PitWall">
+        <figcaption>Allenamento: girare senza allestire una competizione completa (libero o da competizione).</figcaption>
+      </figure>
+      <p>Oltre alle gare, PitWall ha una modalità <b>Allenamento ("Entrenamiento")</b> (dalla schermata iniziale) per girare senza allestire una competizione completa. Ci sono due modalità:</p>
+      <ul>
+        <li><b>Allenamento libero</b>: registra <b>giri per corsia senza struttura di squadre</b>. Ideale per sessioni aperte dove ciascuno prova auto e pista; non c'è rotazione né classifica, solo tempi per corsia.</li>
+        <li><b>Da competizione</b>: squadre o piloti assegnati alle corsie con <b>rotazione automatica dopo ogni tanda</b>, come una gara ma pensato per allenare il formato di campionato.</li>
+      </ul>
+      <p>Scegli la modalità, assegna le corsie e premi <b>Inizia ("Empezar")</b>. Il cronometraggio in diretta funziona come in gara (GO del box, giri, miglior/media per corsia).</p>
+    </section>
+
+    <section id="ajustes">
+      <div class="num">// 13</div>
+      <h2>Impostazioni</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Impostazioni</span></div>
+        <img src="manual/img/04-settings.png" loading="lazy" alt="Schermata delle impostazioni di PitWall">
+        <figcaption>Impostazioni: hardware e porte, circuiti salvati, licenza e lingua.</figcaption>
+      </figure>
+      <ul>
+        <li><b>Hardware / porte</b>: configura i circuiti seriali (DS-300) e il loro n° di corsie.</li>
+        <li><b>Circuiti</b>: definisci le piste salvate (sequenza di corsie, tempo minimo).</li>
+        <li><b>Licenza</b> e lingua (ES/EN).</li>
+      </ul>
+    </section>
+
+    <section id="glosario">
+      <div class="num">// 14</div>
+      <h2>Glossario (operazione)</h2>
+      <ul>
+        <li><b>Gara</b>: l'evento completo. Si compone di tande.</li>
+        <li><b>Tanda</b>: gruppo di partecipanti con la sua rotazione; si compone di manche.</li>
+        <li><b>Manche</b>: una tornata cronometrata (tutte le corsie insieme) di una certa durata.</li>
+        <li><b>Rotazione</b>: come cambiano corsia i partecipanti da una manche all'altra.</li>
+        <li><b>Riposo</b>: manche in cui un partecipante non corre (spazio vuoto <span class="mono">0</span> nella sequenza).</li>
+        <li><b>Passata</b>: percorso completo della sequenza di corsie; N passate = N× manche.</li>
+        <li><b>Ripeti corsia</b>: correre ogni corsia N manche di seguito, sommando i giri.</li>
+        <li><b>GO</b>: il segnale di partenza (del box DS-300) che avvia la manche.</li>
+        <li><b>Giro fantasma</b>: giro segnato come non valido (non conta), ripristinabile.</li>
+        <li><b>Pole</b>: sessione di qualifica preliminare (facoltativa); tutti girano sulla stessa corsia e il loro miglior giro fissa la griglia di partenza.</li>
+        <li><b>Allenamento libero</b>: modalità per registrare giri per corsia senza squadre né rotazione (sessione aperta).</li>
+        <li><b>PitWall Lap</b>: vista mobile per squadra/pilota (i suoi giri annunciati a voce e la sua posizione).</li>
+        <li><b>PIN</b>: codice per squadra per entrare nel proprio pannello in PitWall Lap.</li>
+        <li><b>Pt (tempo minimo)</b>: soglia al di sotto della quale un giro è considerato passaggio fantasma e non conta.</li>
+        <li><b>Scenario</b>: pista salvata (circuiti, corsie, sequenza e tempo minimo) riutilizzabile in più gare.</li>
+        <li><b>Categoria</b>: classe di auto/pilota (GT, Turismo, Classiche…); permette un Pt diverso per categoria.</li>
+        <li><b>Catalogo</b>: libreria riutilizzabile di piloti, squadre e auto (importabile da CSV).</li>
+        <li><b>QR di pilota</b>: codice che identifica il pilota per registrare il suo turno alla scansione.</li>
+        <li><b>Turno (shift)</b>: periodo in cui un pilota è al volante all'interno della sua squadra in resistenza.</li>
+        <li><b>DS-300</b>: il box di cronometraggio che rileva il passaggio sul traguardo.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="pitwall-landing-it.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
+    <div class="apps-mini"><a href="manual-uso.it.html">Manuale d'uso</a><a href="manual-estadisticas.it.html">Statistiche</a></div>
+    <div class="mono">© 2026 · Cronometraggio e gestione di slot racing</div>
+  </div>
+</footer>
+
+<a href="#top" class="totop" aria-label="Torna su">↑</a>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var totop = document.querySelector('.totop');
+  function onScroll(){
+    var y = window.scrollY + 100, cur = 0;
+    for (var i=0;i<secs.length;i++){ if(secs[i] && secs[i].offsetTop <= y) cur = i; }
+    links.forEach(function(a,i){ a.classList.toggle('active', i===cur); });
+    totop.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>

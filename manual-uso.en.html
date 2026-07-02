@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PitWall · User manual</title>
+<meta name="description" content="PitWall user manual: setting up the race, running it live and producing results.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="manual/manual.css">
+<style>body{--ac:var(--red)}</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="pitwall-landing-en.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
+    <nav class="links">
+      <a href="pitwall-landing-en.html">Landing</a>
+      <a href="manual-uso.en.html" class="here">User manual</a>
+      <a href="manual-estadisticas.en.html">Statistics</a>
+      <div class="lang" aria-label="Language">
+        <a href="manual-uso.html">ES</a>
+        <a href="manual-uso.en.html" class="on" aria-current="page">EN</a>
+        <a href="manual-uso.it.html">IT</a>
+        <a href="manual-uso.fr.html">FR</a>
+      </div>
+      <a href="manual-estadisticas.en.html" class="nav-cta">Interpret the data →</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="doc-hero">
+  <div class="wrap">
+    <div class="kicker">User manual · Race direction</div>
+    <h1>Set it up, run it and<br>produce <span class="ac">results</span>.</h1>
+    <p class="lede">A guide for whoever <b>operates</b> PitWall: creating the race, setting up batches and participants, running each heat live from the timing hardware and exporting the results. From the first lap to the final classification.</p>
+    <div class="xlink">
+      <a class="cur" href="manual-uso.en.html">▮ User manual</a>
+      <a href="manual-estadisticas.en.html">Statistics manual ↔</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<div class="wrap doc-grid">
+  <!-- TOC -->
+  <nav class="toc" aria-label="Manual contents">
+    <div class="toc-ttl">Contents</div>
+    <ol>
+      <li><a href="#introduccion">Introduction</a></li>
+      <li><a href="#escenarios">Scenarios, categories and catalogs</a></li>
+      <li><a href="#crear">Creating a race</a></li>
+      <li><a href="#tandas">Batches, participants and rotation</a></li>
+      <li><a href="#editar">Editing race, batches and heats</a></li>
+      <li><a href="#pole">Pole (pre-race qualifying)</a></li>
+      <li><a href="#lap">PitWall Lap — PIN for teams</a></li>
+      <li><a href="#vivo">Running the race live</a></li>
+      <li><a href="#turnos">Driver shift control</a></li>
+      <li><a href="#correcciones">Lap by lap and corrections</a></li>
+      <li><a href="#resultados">Results and exports</a></li>
+      <li><a href="#entrenamiento">Training</a></li>
+      <li><a href="#ajustes">Settings</a></li>
+      <li><a href="#glosario">Glossary</a></li>
+    </ol>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="doc">
+
+    <section id="introduccion">
+      <div class="num">// 01</div>
+      <h2>Introduction</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Home screen</span></div>
+        <img src="manual/img/01-home.png" loading="lazy" alt="PitWall home screen">
+        <figcaption>Home screen: access to Races, Settings and the link status.</figcaption>
+      </figure>
+      <p><b>PitWall</b> is the timing and management system for slot racing. It detects each car crossing the finish line through the timing hardware, with two compatible options:</p>
+      <ul>
+        <li><b>DS-300</b> — via <b>serial port</b>. You can combine <b>up to 6 DS-300 tracks</b> in a single race: each box times its own lanes and PitWall combines them.</li>
+        <li><b>BART (Policar)</b> — via <b>Bluetooth</b>. It supports <b>up to the maximum number of lanes that BART allows</b> (currently <b>32</b>).</li>
+      </ul>
+      <p>You can use either source; for PitWall the flow of crossings is equivalent.</p>
+      <ul>
+        <li>From the <b>home screen</b> you reach <b>Races</b>, <b>Settings</b> and the rest of the modules.</li>
+        <li>At the bottom right you always see the <b>link status</b> (green = connected; "No signal" = check the cable/port or the Bluetooth).</li>
+      </ul>
+      <p><b>The race list</b> shows all your races with their status (pending / active / finished) and the <b>+ New race</b> button.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Race list</span></div>
+        <img src="manual/img/02-races-list.png" loading="lazy" alt="Race list with statuses and the new race button">
+        <figcaption>Race list: status (pending / active / finished) and "+ New race".</figcaption>
+      </figure>
+    </section>
+
+    <section id="escenarios">
+      <div class="num">// 02</div>
+      <h2>Scenarios, categories and catalogs (your library)</h2>
+      <p>To avoid reconfiguring the same thing for every race, PitWall keeps <b>reusable templates</b> that you then pick when creating a race.</p>
+
+      <h3>Scenarios (saved tracks)</h3>
+      <p>A <b>scenario</b> is a saved physical track: number of tracks and lanes (e.g. <span class="mono">8+8+8 = 24</span>), its <b>lane sequence</b> (rotation) and the <b>default minimum time</b>. Any race assigned to that scenario inherits everything automatically.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Scenarios</span></div>
+        <img src="manual/img/op-escenarios.png" loading="lazy" alt="List of scenarios (saved tracks) with their lanes and sequence">
+        <figcaption>Scenarios: saved tracks with their tracks, lanes, rotation sequence and minimum time.</figcaption>
+      </figure>
+      <p>When editing a scenario you define its name, the lane configuration, you drag the <b>rotation sequence</b> (with <b>DSC rests</b> if there are spare drivers), the <b>default minimum time</b> and, optionally, <b>minimum laps per category</b> (a different Pt for GT, Touring, Classics… on that same track).</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Edit scenario</span></div>
+        <img src="manual/img/op-escenario-form.png" loading="lazy" alt="Scenario edit form with the rotation sequence and the minimum time per category">
+        <figcaption>Edit scenario: lanes, rotation sequence (with DSC rests), default minimum time and per category.</figcaption>
+      </figure>
+
+      <h3>Categories</h3>
+      <p>Level/class groups (GT, Touring, Classics…) that serve to <b>override the minimum time (Pt) per category</b> in each scenario and to classify cars and drivers.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Categories</span></div>
+        <img src="manual/img/op-categorias.png" loading="lazy" alt="Categories screen (GT, Touring, Classics) to classify cars and drivers">
+        <figcaption>Categories: classes (GT, Touring, Classics…) to classify and for the Pt per category.</figcaption>
+      </figure>
+
+      <h3>Reusable catalogs (drivers, teams, cars)</h3>
+      <p>Keep your <b>database</b> of participants and equipment to reuse it across races:</p>
+      <ul>
+        <li><b>Drivers</b> — name and category; each driver can have their identification <b>QR</b>.</li>
+        <li><b>Teams</b> — name, color, country, car and members.</li>
+        <li><b>Cars</b> — make, model and category.</li>
+      </ul>
+      <p>All of them can be <b>bulk-imported from CSV</b> (the <b>CSV template</b> and <b>Import CSV</b> buttons, with a preview of new entries vs. duplicates) and exported.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Driver catalog</span></div>
+        <img src="manual/img/op-catalogo-pilotos.png" loading="lazy" alt="Driver catalog with name, category and CSV import">
+        <figcaption>Driver catalog: reusable database with CSV import (new entries vs. duplicates).</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Driver QR codes</span></div>
+        <img src="manual/img/op-qr-pilotos.png" loading="lazy" alt="Driver identification QR cards for the scan-based driver change">
+        <figcaption>Driver QR codes: printable identification cards for the scan-based driver change.</figcaption>
+      </figure>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>With <b>Export QR</b> you print the QR cards for all drivers (for the scan-based driver change in endurance — see <i>Driver shift control</i>).</div>
+      </div>
+    </section>
+
+    <section id="crear">
+      <div class="num">// 03</div>
+      <h2>Creating a race</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Wizard · Step 1</span></div>
+        <img src="manual/img/03-wizard-step1.png" loading="lazy" alt="Wizard to create a new race, step 1">
+        <figcaption>New race wizard: type, lanes, minimum time, passes and rules.</figcaption>
+      </figure>
+      <p>Press <b>+ New race</b> and follow the wizard:</p>
+      <ul>
+        <li><b>Type</b>:
+          <ul>
+            <li><i>Sprint</i> → a <b>quick race</b>, of <b>drivers or teams</b>.</li>
+            <li><i>Endurance</i> → an <b>endurance race</b> (by teams), which adds the <b>control of how much each driver of the team has run</b> (see <i>Driver shift control</i>).</li>
+          </ul>
+        </li>
+        <li><b>Lanes and tracks</b>: total number of lanes and how they are split across boxes (e.g. 8+8+6 = 3 DS-300 boxes).</li>
+        <li><b>Minimum lap time (Pt)</b>: below this time, a crossing is considered a <b>ghost</b> (bounce/double read) and does not count.</li>
+        <li><b>Passes</b>: how many times the <b>entire lane sequence</b> is run. 2 passes = the full rotation is run twice (double the heats).</li>
+        <li><b>Repeat lane</b>: each lane is run this number of <b>consecutive heats</b> (same lane), adding up the laps — to compare each repetition.</li>
+        <li><b>Pole</b> (optional) and <b>driver rules</b> (championship only: min/max per driver, change lock at the end of a heat).</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Passes</b> and <b>repeat lane</b> only change how the heats are generated; totals are summed per participant.</div>
+      </div>
+    </section>
+
+    <section id="tandas">
+      <div class="num">// 04</div>
+      <h2>Batches, participants and rotation</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Batch · Participants and heats</span></div>
+        <img src="manual/img/34-tanda.png" loading="lazy" alt="Batch with its participants and the heats generated by rotation">
+        <figcaption>A batch: participants, their lane rotation and the generated heats.</figcaption>
+      </figure>
+      <p>A <b>batch</b> groups the participants and their <b>lane rotation</b> per heat. When you add the <b>teams/drivers</b>, PitWall automatically generates all the <b>heats</b>.</p>
+
+      <h3>How rotation works</h3>
+      <p>Each participant keeps changing lanes from heat to heat following the configured sequence (e.g. <span class="mono">1, 3, 5, 6, 4, 2</span>). This way everyone goes through every lane and conditions are evened out.</p>
+      <ul>
+        <li><i>Example (6 lanes, 6 drivers):</i> in heat 1 driver A runs lane 1; in heat 2, lane 3; in heat 3, lane 5… until completing the loop through all lanes.</li>
+      </ul>
+
+      <h3>Rotation your way</h3>
+      <p>PitWall proposes a balanced rotation automatically, but <b>you can manage it however you like</b>: reorder the <b>lane sequence</b> by hand (by dragging) to decide exactly which lane each participant runs in each heat.</p>
+
+      <h3>Rests</h3>
+      <p>If there are <b>more participants than lanes</b>, the sequence includes gaps (<span class="mono">0</span> / <span class="mono">DSC</span>) that are <b>rests</b>: in that heat that participant does not run. PitWall spreads them out evenly, but <b>you can also place them wherever you want</b> within the rotation (drag them to the position you prefer).</p>
+
+      <h3>With passes / repeat lane</h3>
+      <ul>
+        <li><i>2 passes</i> → the whole sequence repeats: <span class="mono">1,3,5,6,4,2, 1,3,5,6,4,2</span>.</li>
+        <li><i>Repeat lane 2</i> → each lane, two consecutive heats: <span class="mono">1,1,3,3,5,5,6,6,4,4,2,2</span>.</li>
+      </ul>
+    </section>
+
+    <section id="editar">
+      <div class="num">// 05</div>
+      <h2>Editing race, batches and heats</h2>
+      <p>After creating a race you can tweak it:</p>
+      <ul>
+        <li><b>Edit race</b> — change the <b>name</b> and, if it <b>still has no laps recorded</b>, the track/scenario. If there are already laps, the track is <b>locked</b> (so as not to break the data).</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Edit race</span></div>
+        <img src="manual/img/op-edit-carrera.png" loading="lazy" alt="Race edit form: name and track/scenario">
+        <figcaption>Edit race: name and —if there are no laps yet— track/scenario.</figcaption>
+      </figure>
+      <ul>
+        <li><b>Edit batch</b> — change the <b>names</b> of the participants and, if the batch hasn't started yet, its composition. If it already has heats started, it enters <b>rename-only mode</b> (no participants added or removed, so as not to unbalance the rotation).</li>
+      </ul>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Edit batch</span></div>
+        <img src="manual/img/op-edit-tanda.png" loading="lazy" alt="Batch edit form: participants and rename-only mode">
+        <figcaption>Edit batch: participants and their composition (or rename-only mode if it already started).</figcaption>
+      </figure>
+      <ul>
+        <li><b>Edit heat</b> — change <b>who runs in each lane</b> in a specific heat, without regenerating the whole batch (useful if a team doesn't show up or there's a last-minute change).</li>
+      </ul>
+    </section>
+
+    <section id="pole">
+      <div class="num">// 06</div>
+      <h2>Pole (pre-race qualifying)</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Set up Pole Position</span></div>
+        <img src="manual/img/44-pole-setup.png" loading="lazy" alt="Pole Position setup screen with participant order and lane">
+        <figcaption>Set up Pole: participants' starting order and common qualifying lane.</figcaption>
+      </figure>
+      <p>The <b>pole</b> is a qualifying lap <b>before</b> the race to decide the starting order. It's optional; it's enabled when creating the race (<b>Pole</b>) and it's launched from the race page → <b>Set up Pole Position</b>.</p>
+      <ul>
+        <li><b>Participants</b>: everyone entered appears. The <b>order of the list</b> is the order in which they'll go out to do their lap; hit <b>🎲 Random</b> to shuffle it.</li>
+        <li><b>Pole lane</b>: <b>everyone</b> does their qualifying lap on the <b>same lane</b> (so it's comparable). Pick it with <b>−/+</b> or with <b>🎲 Random</b>.</li>
+        <li>Press <b>Start Pole</b>: each participant enters in turn, does their lap and PitWall records their best time. In timing you can enable <b>Skip 1st crossing (out-lap)</b> so the launch lap isn't counted.</li>
+      </ul>
+
+      <h3>Pole results</h3>
+      <p>When it finishes, <b>Pole Results</b> appears with the <b>final classification</b> (from fastest to slowest, with the gap to the leader and the <b>fastest lap</b>). From here you can <b>✏️ Edit times</b> if there was an error, or continue with <b>🚦 Assign starting lanes</b>.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Pole Results</span></div>
+        <img src="manual/img/46-pole-results.png" loading="lazy" alt="Pole Results screen with the final classification, gap to leader and fastest lap">
+        <figcaption>Pole Results: final classification, gap to leader and fastest lap per participant.</figcaption>
+      </figure>
+
+      <h3>Assigning lanes after the pole</h3>
+      <p>The pole doesn't distribute lanes automatically: it opens the <b>Lane choice</b> screen, where each participant <b>chooses</b> their lane <b>in classification order</b> — the <b>poleman</b> (the fastest) chooses first, then the 2nd, and so on. It's the classic "the fastest one picks lane".</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Lane choice</span></div>
+        <img src="manual/img/47-pole-lanes.png" loading="lazy" alt="Lane choice screen in classification order, with available lanes">
+        <figcaption>Lane choice: each participant picks a lane in the pole classification order.</figcaption>
+      </figure>
+      <ul>
+        <li>The <b>Choosing now</b> banner indicates whose turn it is; on the left you see the <b>choosing order</b> (the classification) and on the right the <b>available lanes</b> (with their color).</li>
+        <li>Each one presses the lane they want; that lane disappears from the available ones and the turn passes to the next.</li>
+        <li><b>If there are more participants than lanes</b>, <b>💤 Rest</b> gaps appear: whoever picks a rest <b>doesn't run heat 1</b> and <b>enters the rotation from heat 2</b>.</li>
+        <li>When everyone has chosen, press <b>🏁 Create First Batch</b>: PitWall creates the batch and generates all the heats with that grid as the starting point (the choosing order defines the initial position in the lane rotation). From there, the race rotates the lanes heat to heat as always (see <i>Batches and rotation</i>).</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>The pole doesn't score in the race: it only decides <b>who picks lane first</b> and, with that, the starting grid of the first heat.</div>
+      </div>
+    </section>
+
+    <section id="lap">
+      <div class="num">// 07</div>
+      <h2>PitWall Lap — PIN for the teams</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · PINs per team</span></div>
+        <img src="manual/img/43-lap-pins.png" loading="lazy" alt="Table of PINs per team to access PitWall Lap from the phone">
+        <figcaption>PitWall Lap · PINs: the mobile address and each team's PIN.</figcaption>
+      </figure>
+      <p><b>PitWall Lap</b> is the mobile view for each <b>team/driver</b> to follow their own timing from the phone (their laps, called out by voice, and their position). So that they only enter <i>their</i> panel, a <b>PIN</b> is handed out per team.</p>
+      <ul>
+        <li>Go into <b>PitWall Lap · PINs</b> of the race. You'll see the address teams open on the mobile (e.g. <span class="mono">http://&lt;server-IP&gt;:3000/lap/&lt;id&gt;</span>) and the <b>TEAM → PIN</b> table.</li>
+        <li>Give each team <b>their PIN</b>. When they open the address and enter it, they go straight into their panel.</li>
+        <li><b>New</b> regenerates a team's PIN (in case it was leaked or they want to change it).</li>
+      </ul>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div>The phones must be on the <b>same network</b> as the computer acting as server. Use the computer's IP, not <span class="mono">localhost</span>, when they open it from the phone.</div>
+      </div>
+    </section>
+
+    <section id="vivo">
+      <div class="num">// 08</div>
+      <h2>Running the race live</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Live timing</span></div>
+        <img src="manual/img/20-live-timing.png" loading="lazy" alt="Live timing screen of a heat">
+        <figcaption>Live screen: clocks per track, lane cards and fastest lap.</figcaption>
+      </figure>
+      <p>From the race page:</p>
+      <ol class="steps">
+        <li><b>Arm the heat</b> (▶). It stays ready waiting for the <b>GO</b> from the box.</li>
+        <li><b>GO</b>: when the start is given at the box, the <b>lights</b> appear and the timer starts. Each track has its own clock (C1/C2/C3).</li>
+        <li>During the heat you see per lane: <b>total laps</b>, <b>last</b>, <b>average</b>, <b>best</b>, and at the top the <b>fastest lap</b> banner.</li>
+        <li><b>Pause / Resume / Stop</b> the heat when needed.</li>
+        <li>When it ends (flag or time out), the heat closes and the <b>next one</b> is prepared.</li>
+        <li>When all the heats of a batch are done, the <b>next batch</b> starts.</li>
+      </ol>
+      <p><b>Choosing the view.</b> With the <b>View</b> button you change the layout depending on the lanes: <i>Horizontal rows</i> (few lanes), <i>Compact grid</i> (many) or <i>Cards with details</i> (with laps/exits/pit/Δ per card).</p>
+
+      <h3>Switching batch, repeating a heat and finishing</h3>
+      <p>From the live screen itself you have shortcuts without leaving the screen:</p>
+      <ul>
+        <li><b>Next batch</b> — when a batch's heats are done, it moves straight to the next.</li>
+        <li><b>Repeat heat</b> — if a heat was called bad (false start, incident), you launch it again with the same participants and lanes.</li>
+        <li><b>Finish race</b> — closes the race (the "flag"): the classification is frozen and the summary is generated for results and for the mobiles (PitWall Lap).</li>
+      </ul>
+
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div><b>"No DS-300 signal"</b> warning: while it's showing, laps are <b>not recorded</b>. Check the connection before giving the GO.</div>
+      </div>
+    </section>
+
+    <section id="turnos">
+      <div class="num">// 09</div>
+      <h2>Driver shift control (championships)</h2>
+      <p>In <b>team championship</b> races you can enforce rules for sharing the wheel among a team's drivers. They are defined when creating the race:</p>
+      <ul>
+        <li><b>Minimum / maximum time per driver</b> — each driver must run at least X and at most Y.</li>
+        <li><b>Lock after a change</b> — a minimum time before changing driver again.</li>
+        <li><b>Maximum number of shifts per driver</b>.</li>
+      </ul>
+      <p><b>Driver changes</b> are recorded by scanning the <b>driver's QR</b> (or entering their code) when they come onto the track. From the live screen you open <b>Shift control</b>, which shows the <b>current driver per lane</b>, the <b>accumulated time</b> of each one (warning if they break a rule) and the <b>shift history</b>; if a change was recorded wrong, you can <b>correct the time</b> of the shift.</p>
+    </section>
+
+    <section id="correcciones">
+      <div class="num">// 10</div>
+      <h2>Lap by lap and corrections (add / remove laps)</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Lap by lap · Corrections</span></div>
+        <img src="manual/img/30-correcciones.png" loading="lazy" alt="Lap by lap view with the correction actions per lap">
+        <figcaption>Lap by lap: list of laps per lane and actions to fix readings.</figcaption>
+      </figure>
+      <p>From the race (the <b>lap correction</b> button in the live screen or in results) you enter the <b>lap by lap</b> of each heat. It serves to fix wrongly recorded readings.</p>
+      <ul>
+        <li><b>Left</b>: the lanes of the heat; pick the team/driver to review.</li>
+        <li><b>Right</b>: their lap list — <b>LAP</b> (no.), <b>TIME</b>, <b>CLOCK</b> (race moment) and <b>Δ PREV.</b> (difference from the previous lap).</li>
+        <li><b>Actions per lap</b>:
+          <ul>
+            <li><b>Transfer</b> (↔) — pass the lap to <b>another lane/team</b> (if the system assigned it wrong).</li>
+            <li><b>Ghost</b> — mark the lap as invalid (doesn't count) without deleting it; it can be <b>restored</b>.</li>
+            <li><b>Delete</b> (🗑) — remove a lap.</li>
+            <li><b>Add manual lap</b> — if a crossing was missed, you add it by hand.</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div>Use it with judgment: corrections change totals, averages and classification of that heat.</div>
+      </div>
+    </section>
+
+    <section id="resultados">
+      <div class="num">// 11</div>
+      <h2>Results and exports</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Results · Comparison</span></div>
+        <img src="manual/img/10-results-comparativa.png" loading="lazy" alt="Results comparison view per participant and lane">
+        <figcaption>Comparison (grid): per participant and lane, with fastest, average and consistency.</figcaption>
+      </figure>
+      <p>When it finishes (or at any time) go into <b>Results</b>:</p>
+      <ul>
+        <li><b>Comparison</b> (grid): per participant, each lane with <b>Fastest / Average / Consistency / Exits / Pit-stops</b>. In <b>passes/repeat-lane</b> races, each lane is broken down into its <b>occurrences</b> (1/2, 2/2) to compare.</li>
+        <li><b>Progression / Positions / Gap to leader / Gap (grid) / Advanced statistics</b>: different analysis views (explained in detail in the <a class="inl" href="manual-estadisticas.en.html">Statistics manual</a>).</li>
+        <li><b>Exports</b>: <b>Excel</b>, <b>Points (xlsx/csv)</b>, <b>Control (csv)</b>, <b>Export for GitHub</b>, <b>PDF</b>.</li>
+      </ul>
+
+      <h3>Public results</h3>
+      <p>There's an open page —<b>Results</b>, in the home menu— where anyone can consult (without touching anything or being able to edit) the results of the <b>finished</b> races. It's the one you share with drivers and public so they can look at the classification and statistics of the race.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Public results</span></div>
+        <img src="manual/img/op-resultados-publicos.png" loading="lazy" alt="Public results page of finished races, read-only">
+        <figcaption>Public results: read-only consultation of finished races, to share with drivers and public.</figcaption>
+      </figure>
+    </section>
+
+    <section id="entrenamiento">
+      <div class="num">// 12</div>
+      <h2>Training</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Training</span></div>
+        <img src="manual/img/40-training.png" loading="lazy" alt="PitWall Training mode screen">
+        <figcaption>Training: run without setting up a full competition (free or competition).</figcaption>
+      </figure>
+      <p>Besides races, PitWall has a <b>Training</b> mode (from the home screen) to run without setting up a full competition. There are two modes:</p>
+      <ul>
+        <li><b>Free training</b>: records <b>laps per lane without a team structure</b>. Ideal for open sessions where each person tries the car and track; there's no rotation or classification, just times per lane.</li>
+        <li><b>Competition</b>: teams or drivers assigned to lanes with <b>automatic rotation after each batch</b>, like a race but designed to practice the championship format.</li>
+      </ul>
+      <p>Choose the mode, assign the lanes and press <b>Start</b>. Live timing works the same as in a race (box GO, laps, best/average per lane).</p>
+    </section>
+
+    <section id="ajustes">
+      <div class="num">// 13</div>
+      <h2>Settings</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Settings</span></div>
+        <img src="manual/img/04-settings.png" loading="lazy" alt="PitWall settings screen">
+        <figcaption>Settings: hardware and ports, saved tracks, license and language.</figcaption>
+      </figure>
+      <ul>
+        <li><b>Hardware / ports</b>: configure the serial tracks (DS-300) and their number of lanes.</li>
+        <li><b>Tracks</b>: define saved tracks (lane sequence, minimum time).</li>
+        <li><b>License</b> and language (ES/EN).</li>
+      </ul>
+    </section>
+
+    <section id="glosario">
+      <div class="num">// 14</div>
+      <h2>Glossary (operation)</h2>
+      <ul>
+        <li><b>Race</b>: the complete event. Made up of batches.</li>
+        <li><b>Batch</b>: group of participants with their rotation; made up of heats.</li>
+        <li><b>Heat</b>: one timed run (all lanes at once) of a set duration.</li>
+        <li><b>Rotation</b>: how participants change lanes from one heat to another.</li>
+        <li><b>Rest</b>: a heat in which a participant doesn't run (a <span class="mono">0</span> gap in the sequence).</li>
+        <li><b>Pass</b>: a complete run through the lane sequence; N passes = N× heats.</li>
+        <li><b>Repeat lane</b>: run each lane N consecutive heats, adding up laps.</li>
+        <li><b>GO</b>: the start signal (from the DS-300 box) that launches the heat.</li>
+        <li><b>Ghost lap</b>: a lap marked as invalid (doesn't count), restorable.</li>
+        <li><b>Pole</b>: a pre-race qualifying session (optional); everyone runs on the same lane and their best lap sets the starting grid.</li>
+        <li><b>Free training</b>: mode to record laps per lane without teams or rotation (open session).</li>
+        <li><b>PitWall Lap</b>: per-team/driver mobile view (their called-out laps and their position).</li>
+        <li><b>PIN</b>: per-team code to enter their panel in PitWall Lap.</li>
+        <li><b>Pt (minimum time)</b>: threshold below which a lap is considered a ghost crossing and doesn't count.</li>
+        <li><b>Scenario</b>: a saved track (tracks, lanes, sequence and minimum time) reusable across several races.</li>
+        <li><b>Category</b>: a car/driver class (GT, Touring, Classics…); allows a different Pt per category.</li>
+        <li><b>Catalog</b>: reusable library of drivers, teams and cars (importable via CSV).</li>
+        <li><b>Driver QR</b>: a code that identifies the driver to record their shift when scanned.</li>
+        <li><b>Shift</b>: the period a driver is at the wheel within their team in endurance.</li>
+        <li><b>DS-300</b>: the timing box that detects the crossing at the line.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="pitwall-landing-en.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
+    <div class="apps-mini"><a href="manual-uso.en.html">User manual</a><a href="manual-estadisticas.en.html">Statistics</a></div>
+    <div class="mono">© 2026 · Slot racing timing and management</div>
+  </div>
+</footer>
+
+<a href="#top" class="totop" aria-label="Back to top">↑</a>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var totop = document.querySelector('.totop');
+  function onScroll(){
+    var y = window.scrollY + 100, cur = 0;
+    for (var i=0;i<secs.length;i++){ if(secs[i] && secs[i].offsetTop <= y) cur = i; }
+    links.forEach(function(a,i){ a.classList.toggle('active', i===cur); });
+    totop.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>

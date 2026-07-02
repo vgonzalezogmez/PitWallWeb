@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PitWall · Manual de estadísticas</title>
+<meta name="description" content="Interpretación de las vistas Live y Estadísticas de PitWall para pilotos: qué te dice cada número y cómo usarlo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="manual/manual.css">
+<style>body{--ac:var(--cyan)}</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="pitwall-landing.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
+    <nav class="links">
+      <a href="pitwall-landing.html">Landing</a>
+      <a href="manual-uso.html">Manual de uso</a>
+      <a href="manual-estadisticas.html" class="here">Estadísticas</a>
+      <div class="lang" role="group" aria-label="Idioma">
+        <a href="manual-estadisticas.html" class="on" aria-current="true">ES</a>
+        <a href="manual-estadisticas.en.html">EN</a>
+        <a href="manual-estadisticas.it.html">IT</a>
+        <a href="manual-estadisticas.fr.html">FR</a>
+      </div>
+      <a href="manual-uso.html" class="nav-cta">Cómo se opera →</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="doc-hero">
+  <div class="wrap">
+    <div class="kicker">Interpretación de estadísticas · Pilotos</div>
+    <h1>Qué te dice<br>cada <span class="ac">número</span>.</h1>
+    <p class="lede">Guía para pilotos, sin tecnicismos. En PitWall corres por <b>carriles</b> (C1, C2, C3…) y vas <b>rotando de carril manga a manga</b>. Por eso hay dos formas de mirar tu carrera: <b>lo que pasa AHORA en esta manga</b> y <b>cómo vas a quedar AL FINAL</b> cuando sumes todas tus mangas. Este manual te enseña a leer ambas — para ir más rápido y más regular.</p>
+    <div class="xlink">
+      <a href="manual-uso.html">↔ Manual de uso</a>
+      <a class="cur" href="manual-estadisticas.html">▮ Manual de estadísticas</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<div class="wrap doc-grid">
+  <!-- TOC -->
+  <nav class="toc" aria-label="Índice del manual">
+    <div class="toc-ttl">Contenido</div>
+    <ol>
+      <li><a href="#directo">La pantalla en directo</a></li>
+      <li><a href="#pestanas">Las 3 pestañas</a></li>
+      <li><a href="#panel">Tu panel</a></li>
+      <li><a href="#lap">PitWall Lap: tu carrera en el móvil</a></li>
+      <li><a href="#consistencia">Consistencia</a></li>
+      <li><a href="#graficas">Las gráficas</a></li>
+      <li><a href="#proyeccion">Proyección y gaps</a></li>
+      <li><a href="#resultados">La vista de Resultados</a></li>
+      <li><a href="#glosario">Glosario</a></li>
+    </ol>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="doc">
+
+    <section id="directo">
+      <div class="num">// 01</div>
+      <h2>La pantalla en directo</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Directo · Manga en curso</span></div>
+        <img src="manual/img/20-live-timing.png" loading="lazy" alt="Pantalla en directo de la manga en curso">
+        <figcaption>La manga en curso: relojes por circuito y una tarjeta por coche en pista.</figcaption>
+      </figure>
+      <p>Es la pantalla de la manga en curso. Lo que ves en tiempo real, vuelta a vuelta.</p>
+      <p><b>Relojes por circuito (C1, C2, C3…).</b> Si la carrera usa varios circuitos a la vez, arriba tienes un reloj por cada uno. Cada reloj marca el tiempo de esa manga en ese circuito. Cuando el reloj llega a cero, esa manga termina y todos rotáis de carril.</p>
+      <p><b>Tarjetas de carril.</b> Una tarjeta por cada coche en pista. En cada tarjeta lees, de un vistazo:</p>
+      <ul>
+        <li><b>TOTAL</b> — vueltas acumuladas hasta ahora en la manga.</li>
+        <li><b>ÚLTIMA</b> — tu última vuelta completa. Es tu referencia inmediata: ¿mejoras o te caes?</li>
+        <li><b>MEDIA</b> — tu ritmo medio en la manga (media simple de tus vueltas, sin contar la de calentamiento). Es lo que de verdad manda para ganar en resistencia: no la mejor vuelta suelta, sino el ritmo sostenido.</li>
+        <li><b>MEJOR</b> — tu mejor vuelta válida de la manga.</li>
+      </ul>
+      <p><b>Banner de vuelta rápida.</b> Cuando alguien marca la vuelta más rápida del momento, salta un aviso destacado. Si es tuya, bien. Si es de un rival, es la vara de medir a batir.</p>
+
+      <h3>Las tres vistas del directo (botón "Vista")</h3>
+      <p>Con el botón <b>Vista</b> eliges cómo se muestran las tarjetas, según cuántos carriles haya. Hay tres modos:</p>
+
+      <p><b>1 · Filas horizontales</b> — una fila por carril. Recomendada para <b>pocos carriles</b>: cada carril ocupa una fila ancha y se lee muy cómodo.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Directo · Vista · Filas horizontales</span></div>
+        <img src="manual/img/31-vista-1.png" loading="lazy" alt="Vista de filas horizontales, una fila por carril">
+        <figcaption>Filas horizontales: una fila ancha por carril, ideal con pocos carriles.</figcaption>
+      </figure>
+
+      <p><b>2 · Cuadrícula compacta</b> — todas las pistas a la vez en rejilla. Ideal para <b>muchos carriles</b>: lo ves todo sin desplazarte.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Directo · Vista · Cuadrícula compacta</span></div>
+        <img src="manual/img/31-vista-2.png" loading="lazy" alt="Vista de cuadrícula compacta con todos los carriles en rejilla">
+        <figcaption>Cuadrícula compacta: todas las pistas a la vez, ideal con muchos carriles.</figcaption>
+      </figure>
+
+      <p><b>3 · Tarjetas con detalles</b> — como la compacta, pero con <b>VLT</b> (vueltas), <b>SAL</b> (salidas), <b>PIT</b> y <b>Δ</b> visibles en cada tarjeta. Más información por carril de un vistazo.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Directo · Vista · Tarjetas con detalles</span></div>
+        <img src="manual/img/31-vista-3.png" loading="lazy" alt="Vista de tarjetas con detalles: vueltas, salidas, pit y delta por carril">
+        <figcaption>Tarjetas con detalles: vueltas, salidas, pit y Δ visibles en cada carril.</figcaption>
+      </figure>
+    </section>
+
+    <section id="pestanas">
+      <div class="num">// 02</div>
+      <h2>Live-stats: las 3 pestañas</h2>
+      <p>Live-stats es la vista de estadísticas. Tiene tres pestañas y cada una responde a una pregunta distinta.</p>
+
+      <h3>Manga actual</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Manga actual</span></div>
+        <img src="manual/img/21-livestats-manga.png" loading="lazy" alt="Live-stats, pestaña de manga actual">
+        <figcaption>Clasificación de esta manga con el detalle de cada piloto.</figcaption>
+      </figure>
+      <p>La clasificación de <b>esta</b> manga, con el detalle de cada piloto: <b>V</b> (vueltas), <b>MEJOR</b>, <b>MEDIA</b>, <b>Δ</b> (delta, tu margen), <b>SALIDAS</b> y <b>PERDIDO</b> (tiempo perdido en salidas). Míralo para saber cómo vas AHORA, contra quién compartes carril y quién manda en tu manga.</p>
+
+      <h3>Clasificación proyectada</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Proyectada</span></div>
+        <img src="manual/img/22-livestats-proyectada.png" loading="lazy" alt="Live-stats, pestaña de clasificación proyectada">
+        <figcaption>La posición estimada al final de la carrera, sumando todas las mangas.</figcaption>
+      </figure>
+      <p>La posición estimada <b>al final de la carrera</b>, cuando todos hayáis completado todas vuestras mangas. Es la que de verdad importa para saber si vas ganando. Míralo para saber tu posición REAL en la general, no solo en la manga que estás corriendo.</p>
+
+      <h3>Comparativa por carril</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Por carril</span></div>
+        <img src="manual/img/23-livestats-carril.png" loading="lazy" alt="Live-stats, pestaña de comparativa por carril">
+        <figcaption>Qué rinde cada carril: las diferencias entre C1, C2, C3…</figcaption>
+      </figure>
+      <p>Qué rinde cada carril. Unos carriles son más rápidos que otros. Aquí ves las diferencias entre C1, C2, C3… Míralo para saber si tu carril actual te ayuda o te penaliza, y qué carriles te quedan por rodar.</p>
+
+      <div class="summary">
+        <div class="tag">Regla rápida</div>
+        <p><b>Manga actual</b> = la foto de ahora. <b>Proyectada</b> = cómo acabas. <b>Carril</b> = por qué tu ritmo cambia de manga a manga.</p>
+      </div>
+    </section>
+
+    <section id="panel">
+      <div class="num">// 03</div>
+      <h2>Tu panel (Mi panel)</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Mi panel</span></div>
+        <img src="manual/img/21b-livestats-mipanel.png" loading="lazy" alt="Live-stats, panel personal del piloto">
+        <figcaption>Elige tu piloto y tendrás tu propio panel con tarjetas.</figcaption>
+      </figure>
+      <p>Elige tu piloto y tendrás tu propio panel con tarjetas. Una a una:</p>
+      <p><b>POSICIÓN.</b> Ojo con esta: es tu posición <b>PROYECTADA de carrera</b>, no la de la manga. Te dice dónde vas a acabar si el ritmo se mantiene. Si en tu manga vas 4º pero tu panel dice P1, es que sumando todas las mangas vas primero. Fíate de esta.</p>
+      <p><b>VUELTAS MANGA.</b> Cuántas vueltas llevas en la manga actual.</p>
+      <p><b>MEJOR.</b> Tu mejor vuelta válida. "Válida" significa que <b>no cuenta</b>:</p>
+      <ul>
+        <li>la <b>vuelta de calentamiento</b> (la primera, con el lío del semáforo y el cruce inicial),</li>
+        <li>ni un <b>cruce parcial</b> (una vuelta que en realidad es media vuelta mal contada),</li>
+        <li>ni tiempos <b>por debajo del mínimo</b> de la carrera (cruces fantasma imposibles).</li>
+      </ul>
+      <p>Así que tu MEJOR es una vuelta real de verdad, nunca un número regalado.</p>
+      <p><b>MEDIA.</b> Tu ritmo medio. Media simple de tus vueltas de carrera (incluye salidas y pit-stops; solo excluye el calentamiento). Es el número que la proyección usa para estimar dónde acabas. <b>Baja tu media y subes en la general.</b></p>
+      <p><b>Δ (delta).</b> Es tu <b>media limpia menos tu mejor vuelta</b>. O sea: cuánto margen te queda. Un Δ pequeño = ruedas casi siempre a tope, muy poco que rascar. Un Δ grande = tienes ritmo pero lo pierdes en muchas vueltas: ahí está tu oro, en ser más constante. La "media limpia" aquí no cuenta salidas ni pits, solo tu rodar normal.</p>
+      <p><b>SALIDAS / PIT-STOPS.</b> Cuántas veces te has salido y cuántas paradas has hecho. Cada salida te cuesta tiempo y posiciones.</p>
+      <p><b>Tiempo perdido en salidas.</b> Lo que te han costado esas salidas, en segundos. Ponlo en contexto: a veces una sola salida vale más posiciones que décimas de ritmo durante toda la manga. Aquí lo ves claro.</p>
+    </section>
+
+    <section id="lap">
+      <div class="num">// 04</div>
+      <h2>PitWall Lap: tu carrera en el móvil</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Acceso por PIN</span></div>
+        <img src="manual/img/45-lap-access.png" loading="lazy" alt="Pantalla de acceso a PitWall Lap por PIN en el móvil">
+        <figcaption>Acceso desde el móvil: eliges tu equipo y metes el PIN de 4 dígitos.</figcaption>
+      </figure>
+      <p><b>PitWall Lap</b> es la web que abres en el <b>móvil desde tu box</b> para seguir tu carrera en directo, sin instalar nada. Es solo para <b>carreras de resistencia (por equipos)</b>. Es de solo lectura: consultas tu timing, no controlas la carrera.</p>
+      <p><b>Cómo entras.</b> La organización te da la dirección (algo como <code>http://&lt;IP-del-servidor&gt;:3000/lap/&lt;carrera&gt;</code>) y un <b>PIN de 4 dígitos</b> de tu equipo. Abres la dirección, eliges tu <b>equipo</b> en la lista, metes el <b>PIN</b> y pulsas <b>Entrar</b>. Con <b>Cambiar equipo</b> puedes salir y entrar con otro.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · Panel del equipo</span></div>
+        <img src="manual/img/48-lap-team-panel.png" loading="lazy" alt="Panel del equipo en PitWall Lap: posición proyectada y tarjetas de ritmo en el móvil">
+        <figcaption>El panel del equipo en el móvil: tu posición proyectada en grande y las tarjetas de ritmo.</figcaption>
+      </figure>
+      <p><b>Tu panel.</b> Arriba, tu <b>posición</b> en grande: es la <b>proyectada</b> (dónde vas a acabar sumando todas las mangas), la misma que ves en el directo y en la general — no la de la manga suelta. Debajo, tu distancia al líder (<i>"a N vueltas"</i>, <i>"a la par"</i> o <i>"🏁 Líder de la carrera"</i>). La línea de estado te dice en vivo <b>en qué manga y carril vas y cuánto queda</b> (o <i>"En descanso"</i> / <i>"Esperando próxima manga"</i> / <i>"Carrera finalizada"</i>). Y las tarjetas:</p>
+      <ul>
+        <li><b>Última vuelta</b> — tu última vuelta (parpadea al actualizarse).</li>
+        <li><b>Mejor vuelta</b> — tu mejor vuelta válida.</li>
+        <li><b>Vueltas</b> — total acumulado de toda la carrera.</li>
+        <li><b>Media carrera</b> — tu ritmo medio acumulado (el que usa la proyección).</li>
+        <li><b>Pit stops</b> — paradas hechas.</li>
+        <li><b>Gap al líder</b> — a cuántas vueltas del primero.</li>
+      </ul>
+      <p>Si hay proyección activa, aparece <b>Estimación al final</b> con tu <b>posición estimada</b> y tus <b>vueltas proyectadas</b>.</p>
+      <p><b>La voz (canta-vueltas).</b> Con el botón <b>🔊 Voz</b> activas el locutor (arranca <b>apagado</b>: hay que tocar la pantalla una vez para que el móvil deje sonar el audio). Te canta el <b>tiempo de cada vuelta</b>, y avisa de <b>cambio de posición</b>, <b>media manga</b>, <b>último minuto</b>, <b>últimos 30 s</b> y <b>fin de manga</b>. En <b>⚙️ Ajustes de voz</b> activas/desactivas cada aviso y, en el bloque avanzado, que cante cada X minutos tu <b>media de carril</b>, los <b>gaps con rivales</b> o la <b>media para subir</b> una posición.</p>
+      <p><b>Pantalla siempre activa.</b> Mientras el panel esté abierto, la pantalla <b>no se apaga</b>; a los <b>30 segundos sin tocarla se oscurece</b> (para no gastar batería ni molestar), pero <b>la voz sigue cantando</b>. Toca la pantalla para iluminarla otra vez.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Consejo.</b> Entra con el PIN, activa la <b>Voz</b>, deja el móvil en el box y escucha. Es la forma de ir informado sin despegar la vista de la pista.</div>
+      </div>
+    </section>
+
+    <section id="consistencia">
+      <div class="num">// 05</div>
+      <h2>Consistencia</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Consistencia</span></div>
+        <img src="manual/img/26-livestats-cons-con.png" loading="lazy" alt="Live-stats, tarjeta de consistencia">
+        <figcaption>La consistencia mide tu regularidad vuelta a vuelta.</figcaption>
+      </figure>
+      <p>La tarjeta más importante para mejorar. <b>La consistencia mide tu regularidad vuelta a vuelta</b>: si haces siempre el mismo tiempo o si das saltos.</p>
+      <p><b>Qué es el %.</b> Es 100 menos tu variación relativa (el CV, coeficiente de variación). 100% sería un robot perfecto, siempre idéntico. Cuanto más alto, más regular. En datos reales lo normal es <b>entre 90% y 99%</b>. Es la misma fórmula que usa TicTac, calculada sobre tus vueltas de ritmo (descartando incidentes puntuales).</p>
+      <p><b>El ±DE en segundos (más útil que el %).</b> Junto al % verás algo como <i>±0,13 s</i>. Es tu desviación típica: <b>cuántos segundos, arriba o abajo, oscilas de una vuelta a otra.</b> Fíjate más en esto que en el %: un ±0,13 s te dice de forma directa lo apretado que ruedas, y discrimina mejor entre dos pilotos que a simple vista tienen un % parecido. <b>Objetivo: reducir tu ±DE.</b></p>
+      <p><b>Niveles de color.</b> El sistema te clasifica según tu variación:</p>
+      <ul>
+        <li><b>Excelente</b> — variación por debajo del 1,5%. Rodar de reloj.</li>
+        <li><b>Buena</b> — entre 1,5% y 2,5%. Sólido.</li>
+        <li><b>Irregular</b> — entre 2,5% y 4%. Das saltos, hay tiempo que ganar siendo más fino.</li>
+        <li><b>Errática</b> — por encima del 4%. Mucha inestabilidad; céntrate en terminar vueltas limpias antes que en atacar.</li>
+      </ul>
+      <p><b>Toggle: Sin salidas / Con salidas.</b></p>
+      <ul>
+        <li><b>Sin salidas</b> — tu <b>ritmo puro</b>. Quita salidas, pits e incidentes. Responde: <i>cuando ruedo bien, ¿soy regular?</i> Úsalo para pulir tu conducción.</li>
+        <li><b>Con salidas</b> — la <b>regularidad real de tu stint</b>. Incluye TODO: salidas, pits, tráfico. Responde: <i>de verdad, tal cual, ¿qué ritmo entregué?</i> Úsalo para ver el impacto real de tus errores. Suele salir peor que "Sin salidas", y esa diferencia es exactamente lo que te cuestan los incidentes.</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Mínimo de vueltas.</b> Hacen falta al menos <b>3 vueltas válidas</b> (que, quitando calentamiento y primera cruzada, son unas 5 vueltas dadas) para que el número sea fiable. Con menos verás un guion (—) hasta que acumules recorrido.</div>
+      </div>
+    </section>
+
+    <section id="graficas">
+      <div class="num">// 06</div>
+      <h2>Las gráficas</h2>
+      <p>Cada gráfica tiene tres modos. Cambian según lo que quieras ver.</p>
+      <p><b>Tiempo por vuelta.</b> El clásico: cada punto es una vuelta y su tiempo. Lees la forma de tu carrera. ¿Bajas al calentar? ¿Te caes al final por el coche o por ti? ¿Un pico aislado (una salida) o una tendencia? Sirve para ver dónde ganas y dónde pierdes a lo largo del stint.</p>
+
+      <h3>Sobre la media</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Gráfica · Sobre la media</span></div>
+        <img src="manual/img/24-livestats-chart-media.png" loading="lazy" alt="Gráfica de diferencia de cada vuelta respecto a la media">
+        <figcaption>Cada vuelta como diferencia respecto a tu media: la mejor vista de la consistencia.</figcaption>
+      </figure>
+      <p>Aquí cada vuelta se dibuja como diferencia respecto a tu media: por encima = vuelta más lenta, por debajo = más rápida. Es la mejor vista de la <b>consistencia</b>: cuanto más plana y pegada al cero esté tu línea, más regular eres. Los picos hacia arriba son tus vueltas malas. Objetivo visual: aplanar la línea.</p>
+
+      <h3>Gap de vueltas</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Gráfica · Gap de vueltas</span></div>
+        <img src="manual/img/25-livestats-chart-gaplaps.png" loading="lazy" alt="Gráfica de distancia al líder a lo largo del tiempo">
+        <figcaption>Tu distancia al líder a lo largo de los minutos de la manga.</figcaption>
+      </figure>
+      <p>Tu distancia al líder a lo largo del tiempo (eje X = minutos de la manga; eje Y = gap al líder que elijas). Sube = pierdes terreno; baja = recortas. Sirve para ver EN QUÉ MOMENTO de la manga ganaste o perdiste la carrera, y si el hueco es estable o se te escapa.</p>
+    </section>
+
+    <section id="proyeccion">
+      <div class="num">// 07</div>
+      <h2>Proyección y gaps</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Live-stats · Proyectada</span></div>
+        <img src="manual/img/22-livestats-proyectada.png" loading="lazy" alt="Clasificación proyectada al final de la carrera">
+        <figcaption>La posición proyectada es la misma en todas partes: no hay dos verdades.</figcaption>
+      </figure>
+      <p><b>Posición proyectada vs posición de manga.</b> Son cosas distintas y las dos importan:</p>
+      <ul>
+        <li><b>De manga</b> — dónde vas en la manga que corres ahora. Útil para tu duelo directo en pista.</li>
+        <li><b>Proyectada</b> — dónde vas a acabar la carrera sumando todas las mangas. Es tu posición REAL en la general. La proyección estima tus vueltas totales dividiendo el tiempo total de carrera entre tu media. <b>Bajar tu media = mejor proyección.</b></li>
+      </ul>
+      <p>Importante: la posición proyectada es <b>la misma en todas partes</b> (tarjeta del directo, Clasificación General y panel Lap). Si en un sitio ves P2, en todos ves P2. No hay dos verdades.</p>
+      <p><b>Tipos de gap.</b></p>
+      <ul>
+        <li><b>Gap al líder</b> — a cuánto estás del primero.</li>
+        <li><b>Gap por vueltas</b> — la distancia expresada en vueltas (más intuitivo en resistencia: "voy a una vuelta").</li>
+        <li><b>Gap por minuto</b> — cómo evoluciona la distancia con el tiempo, para ver si recortas o te descuelgas.</li>
+      </ul>
+      <p>Cuando dos pilotos tienen las mismas vueltas, desempata la <b>coma</b>: la fracción de vuelta que llevabas hecha justo al caer la bandera. Rodar apurado hasta el final puede darte esa fracción de más que te sube una posición.</p>
+    </section>
+
+    <section id="resultados">
+      <div class="num">// 08</div>
+      <h2>La vista de Resultados (después de la carrera)</h2>
+      <p>Cuando la carrera termina, <b>Resultados</b> es donde se analiza todo con calma. Tiene varias <b>pestañas</b>; cada una responde a una pregunta distinta. Arriba siempre ves la <b>vuelta rápida de la carrera</b> (quién y en qué carril).</p>
+
+      <h3>Comparativa (la parrilla por carril)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Resultados · Comparativa</span></div>
+        <img src="manual/img/st-comparativa.png" loading="lazy" alt="Resultados, tabla comparativa por carril">
+        <figcaption>La parrilla por carril: una fila por participante y cinco datos por cada carril.</figcaption>
+      </figure>
+      <p>Es la tabla principal. Una fila por participante y, para <b>cada carril</b> por el que pasó, cinco datos apilados:</p>
+      <ul>
+        <li><b>Rápida</b> — tu mejor vuelta en ese carril. El punto azul + <b>MEJOR</b> marca la vuelta rápida <i>de ese carril</i> entre todos.</li>
+        <li><b>Media</b> — tu ritmo medio en ese carril.</li>
+        <li><b>Const. sin</b> — tu <b>consistencia</b> (sin salidas) en ese carril, en %.</li>
+        <li><b>Salidas</b> — cuántas te saliste ahí (y, debajo, el tiempo perdido).</li>
+        <li><b>Pit-stops</b> — paradas en ese carril (con el nº de vuelta, p.ej. <i>V355</i>).</li>
+      </ul>
+      <p>Sirve para ver <b>en qué carriles rindes mejor o peor</b>, no solo tu número global. El rectángulo azul marca tu <b>carril de salida</b>.</p>
+      <p><b>Carreras de pasadas / repetir-carril.</b> Si el mismo carril se corre varias veces, cada carril se <b>desdobla por ocurrencia</b> (<code>1/2</code>, <code>2/2</code>…), para comparar tu 1ª pasada con la 2ª por el mismo sitio.</p>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Resultados · Desdoblado por ocurrencia</span></div>
+        <img src="manual/img/st-ocurrencia.png" loading="lazy" alt="Resultados, comparativa desdoblada por ocurrencia de carril">
+        <figcaption>Cada carril desdoblado por ocurrencia (1/2, 2/2…) en carreras de pasadas.</figcaption>
+      </figure>
+
+      <h3>Progresión (vuelta a vuelta)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Resultados · Progresión</span></div>
+        <img src="manual/img/st-progresion.png" loading="lazy" alt="Resultados, gráfica de progresión vuelta a vuelta">
+        <figcaption>Cada vuelta de la carrera en orden, con salidas y pit-stops marcados.</figcaption>
+      </figure>
+      <p>Cada vuelta de la carrera, en orden. Puedes <b>elegir a quién comparar</b>, filtrar por <b>manga</b> o por <b>carril</b>, y mostrar/ocultar <b>salidas</b> (puntos rojos) y <b>pit-stops</b> (naranjas). Con el botón <b>Δ Delta vs media</b> cada vuelta se dibuja como diferencia respecto a tu media (mejor vista para juzgar tu regularidad: cuanto más plana, mejor). Responde: <i>¿bajé al calentar? ¿me caí al final? ¿fue un pico aislado o una tendencia?</i></p>
+
+      <h3>Posiciones</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Resultados · Posiciones</span></div>
+        <img src="manual/img/st-posiciones.png" loading="lazy" alt="Resultados, gráfica de evolución de posiciones">
+        <figcaption>Una línea por participante: dónde y cuándo se decidió cada puesto.</figcaption>
+      </figure>
+      <p>Una línea por participante; el eje vertical es la <b>posición</b> (P1 arriba). Si tu línea sube, pierdes posiciones; si baja, ganas. Sirve para ver <b>en qué momento</b> de la carrera se decidió tu resultado.</p>
+
+      <h3>Gap al líder</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Resultados · Gap al líder</span></div>
+        <img src="manual/img/st-gap.png" loading="lazy" alt="Resultados, gráfica de gap al líder a lo largo del tiempo">
+        <figcaption>Tu distancia al líder a lo largo del tiempo: dónde te descolgaste o recuperaste.</figcaption>
+      </figure>
+      <p>Tu distancia al líder <b>a lo largo del tiempo</b> (puedes acotar el rango de mangas). La línea que baja = te acercas; que sube = te alejas. Responde: <i>¿en qué manga me descolgué o recuperé?</i></p>
+
+      <h3>Gap (rejilla)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Resultados · Gap (rejilla)</span></div>
+        <img src="manual/img/st-gapgrid.png" loading="lazy" alt="Resultados, rejilla de gap por manga">
+        <figcaption>El gap en tabla: filas equipos, columnas mangas, y las vueltas de desventaja por celda.</figcaption>
+      </figure>
+      <p>La misma idea pero en <b>tabla</b>: filas = equipos, columnas = mangas, y cada celda las <b>vueltas de desventaja</b> al cierre de esa manga (0 = líder). El <b>borde dorado</b> avisa de que hubo <b>pit-stop</b> en esa manga. Puedes elegir 2–4 equipos para ver el gap <b>entre ellos</b> (no solo contra el líder).</p>
+
+      <h3>Estadísticas avanzadas</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Resultados · Estadísticas avanzadas</span></div>
+        <img src="manual/img/st-avanzadas.png" loading="lazy" alt="Resultados, panel de estadísticas avanzadas de un participante">
+        <figcaption>El análisis profundo de un participante: totales, medias, consistencia y evolución por carril.</figcaption>
+      </figure>
+      <p>El análisis profundo de un participante: <b>total de vueltas</b> (y limpias), <b>mejor</b>, <b>media</b> (con toggle <i>con/sin salidas</i>), <b>Δ consistencia</b>, <b>salidas · pit-stops</b> y <b>tiempo perdido</b>. Debajo, la <b>evolución por carril</b> (tu media pista a pista, para ver dónde fuiste más rápido) y una tarjeta por carril. Con <b>Comparar con</b> eliges un rival y se genera una tabla <b>cara a cara</b> con las diferencias coloreadas (verde = mejor, rojo = peor).</p>
+
+      <h3>Clasificación Le Mans (equipos)</h3>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>Resultados · Clasificación Le Mans</span></div>
+        <img src="manual/img/st-lemans.png" loading="lazy" alt="Resultados, clasificación Le Mans por equipos">
+        <figcaption>La general por equipos con vueltas proyectadas, gap al líder y ritmo para subir.</figcaption>
+      </figure>
+      <p>En carreras por equipos existe además la <b>clasificación Le Mans</b>: la general en grande, con <b>vueltas proyectadas</b>, total, <b>gap</b> al líder, media, mejor y <b>P/Subir</b> (el ritmo que necesitarías para cazar al de delante). Ideal para carreras largas.</p>
+
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Iconos y colores que verás:</b> punto azul + <b>MEJOR</b> = vuelta rápida de ese carril · rectángulo azul = carril de salida · <b>borde dorado</b> = hubo pit-stop en esa manga · tendencia <b>▲/▼</b> = subiste/bajaste respecto a la manga anterior.</div>
+      </div>
+    </section>
+
+    <section id="glosario">
+      <div class="num">// 09</div>
+      <h2>Glosario</h2>
+      <ul>
+        <li><b>Consistencia</b> — tu regularidad vuelta a vuelta. 100 menos tu variación relativa. Más alto = más constante.</li>
+        <li><b>±DE (desviación típica) / CV</b> — el ±DE son los segundos que oscilas de vuelta a vuelta (mira este número). El CV es esa oscilación en porcentaje relativo a tu ritmo; el % de consistencia es 100 − CV.</li>
+        <li><b>Media</b> — media simple de tus tiempos de vuelta, sin la de calentamiento. Incluye salidas y pits. Es la que usa la proyección.</li>
+        <li><b>Media limpia</b> — tu media contando solo vueltas normales (sin salidas). Se usa para el Δ y para detectar incidentes, no para proyectar.</li>
+        <li><b>Warmup (vuelta de calentamiento / cruce parcial)</b> — la primera vuelta real de la manga, con artefactos del semáforo y el cruce inicial. No cuenta para media, mejor ni consistencia.</li>
+        <li><b>Sub-mínimo</b> — un tiempo por debajo del mínimo de vuelta de la carrera. Cruce fantasma imposible; se descarta siempre.</li>
+        <li><b>Salida (exit)</b> — te has salido de pista. Cuenta para la media (es tiempo real perdido) pero no para tu mejor vuelta.</li>
+        <li><b>Pit-stop</b> — parada en boxes. Cuenta como tiempo, no como mejor vuelta.</li>
+        <li><b>Coma</b> — la fracción de vuelta que llevabas al caer la bandera. Desempata cuando dos tenéis las mismas vueltas.</li>
+        <li><b>Proyección</b> — estimación de tu resultado final sumando todas las mangas: tiempo total de carrera dividido entre tu media.</li>
+        <li><b>Gap</b> — tu distancia a otro coche (o al líder), en tiempo, en vueltas o por minuto.</li>
+        <li><b>PitWall Lap</b> — la web móvil de tu equipo (acceso por PIN): tu posición proyectada, tus tarjetas de ritmo y la voz que canta las vueltas. Solo en carreras por equipos.</li>
+        <li><b>Ocurrencia</b> — cada vez que corres el mismo carril en carreras de pasadas/repetir-carril (<code>1/2</code>, <code>2/2</code>…); permite comparar una pasada con otra.</li>
+        <li><b>P/Subir</b> — en la clasificación Le Mans, el ritmo (media por vuelta) que necesitarías para alcanzar al equipo de delante.</li>
+        <li><b>Carril de salida</b> — el carril desde el que arrancaste; en la parrilla de resultados se marca con un recuadro azul.</li>
+      </ul>
+    </section>
+
+    <div class="summary">
+      <div class="tag">En una frase</div>
+      <p>Mira tu <b>posición proyectada</b> para saber dónde acabas, baja tu <b>media</b> para subir, y aplana tu <b>consistencia</b> (reduce el ±DE) para dejar de regalar tiempo vuelta a vuelta.</p>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="pitwall-landing.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b></a>
+    <div class="apps-mini"><a href="manual-uso.html">Manual de uso</a><a href="manual-estadisticas.html">Estadísticas</a></div>
+    <div class="mono">© 2026 · Cronometraje y gestión de slot racing</div>
+  </div>
+</footer>
+
+<a href="#top" class="totop" aria-label="Volver arriba">↑</a>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var totop = document.querySelector('.totop');
+  function onScroll(){
+    var y = window.scrollY + 100, cur = 0;
+    for (var i=0;i<secs.length;i++){ if(secs[i] && secs[i].offsetTop <= y) cur = i; }
+    links.forEach(function(a,i){ a.classList.toggle('active', i===cur); });
+    totop.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>
