@@ -129,44 +129,82 @@
   .hero-stats .n{font-size:24px;font-weight:600;color:var(--ink)}
   .hero-stats .l{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin-top:3px}
 
-  /* ---------- live timing board (signature) ---------- */
-  .board{background:linear-gradient(180deg,var(--surface),var(--bg-2));
-    border:1px solid var(--line-strong);border-radius:7px;overflow:hidden;
-    box-shadow:0 30px 80px -40px rgba(0,0,0,.9),0 0 0 1px rgba(0,0,0,.4)}
-  .board-top{display:flex;align-items:center;justify-content:space-between;
-    padding:12px 16px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.3)}
-  .board-top .ttl{font-family:var(--mono);font-size:11px;letter-spacing:.2em;
-    text-transform:uppercase;color:var(--ink-2);display:flex;align-items:center;gap:9px}
-  .rec{width:8px;height:8px;border-radius:50%;background:var(--red);
-    box-shadow:0 0 9px var(--red);animation:rec 1.4s infinite}
-  @keyframes rec{0%,100%{opacity:1}50%{opacity:.25}}
-  .clock{font-family:var(--mono);font-size:13px;color:var(--ink);letter-spacing:.05em}
+  /* ---------- live timing board · réplica de PitWall Manager ---------- */
+  .appwin{background:#0a0b0e;border:1px solid var(--line-strong);border-radius:11px;
+    overflow:hidden;box-shadow:0 34px 90px -44px rgba(0,0,0,.95),0 0 0 1px rgba(0,0,0,.4)}
+  .win-bar{display:flex;align-items:center;gap:10px;padding:9px 13px;
+    background:#1a1d24;border-bottom:1px solid #000}
+  .win-bar .dots{display:flex;gap:6px;flex:0 0 auto}
+  .win-bar .dots i{width:11px;height:11px;border-radius:50%;background:#3a3a44}
+  .win-bar .dots i:nth-child(1){background:#ff5f57}
+  .win-bar .dots i:nth-child(2){background:#febc2e}
+  .win-bar .dots i:nth-child(3){background:#28c840}
+  .win-title{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;
+    color:#8b949e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-  .board-head,.row{display:grid;grid-template-columns:34px 1fr 64px 64px 58px;
-    align-items:center;gap:8px;padding:0 16px}
-  .board-head{height:30px;border-bottom:1px solid var(--line);
-    font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
-  .board-head .num,.board-head .t{text-align:right}
-  .rows{padding:5px 0}
-  .row{height:46px;font-family:var(--mono);position:relative;transition:background .4s}
-  .row+.row{border-top:1px solid rgba(255,255,255,.04)}
-  .row.move{background:rgba(239,70,81,.09)}
-  .pos{font-size:15px;font-weight:600;color:var(--ink)}
-  .pos.p1{color:#ffd24a}.pos.p2{color:#cfd3da}.pos.p3{color:#d98a48}
-  .pilot{display:flex;align-items:center;gap:10px;min-width:0}
-  .lane{width:8px;height:22px;border-radius:2px;flex:0 0 auto}
-  .pname{font-family:var(--body);font-weight:600;font-size:14px;letter-spacing:.01em;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink)}
-  .num{text-align:right;font-size:14px;font-weight:500}
-  .last{color:var(--ink)}
-  .last.fast{color:var(--green)}.last.ok{color:var(--ink)}.last.slow{color:var(--amber)}.last.bad{color:var(--red)}
-  .best{color:var(--ink-2)}
-  .gap{text-align:right;font-size:12.5px;color:var(--ink-3)}
-  .gap.lead{color:var(--green)}
-  .board-foot{padding:10px 16px;border-top:1px solid var(--line);
-    font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--ink-3);display:flex;justify-content:space-between}
+  /* barra superior: relojes + manga + acciones */
+  .mgr-hd{display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    padding:11px 13px;border-bottom:1px solid #14171e;background:#0c0e12}
+  .mgr-clocks{display:flex;gap:11px;flex:0 0 auto}
+  .ck{display:flex;flex-direction:column;align-items:flex-start;line-height:1}
+  .ck span{font-family:var(--mono);font-size:7px;letter-spacing:.1em;color:#5b6470;margin-bottom:3px}
+  .ck b{font-family:var(--mono);font-size:18px;font-weight:600;color:#22c55e;letter-spacing:.03em}
+  .mgr-meta{min-width:0}
+  .mgr-heat{display:flex;align-items:center;gap:7px}
+  .mgr-heat .tanda{font-family:var(--mono);font-size:8px;background:#12233a;color:#5aa9ff;
+    border:1px solid #274b73;border-radius:3px;padding:2px 5px;flex:0 0 auto}
+  .mgr-heat b{font-family:var(--body);font-weight:700;font-size:14px;color:#e6edf3}
+  .mgr-live2{display:flex;align-items:center;gap:6px;margin-top:4px;
+    font-family:var(--mono);font-size:9px;color:#3fb950}
+  .mgr-live2 .demo{color:#5b6470}
+  .live-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;
+    box-shadow:0 0 8px #22c55e;flex:0 0 auto;animation:rec 1.6s infinite}
+  @keyframes rec{0%,100%{opacity:1}50%{opacity:.3}}
+  .mgr-actions{margin-left:auto;display:flex;gap:6px;flex:0 0 auto}
+  .pill{font-family:var(--mono);font-size:9px;letter-spacing:.05em;padding:6px 10px;
+    border-radius:6px;border:1px solid;white-space:nowrap}
+  .pill.amber{color:#f6c90e;border-color:#6f5c14;background:rgba(246,201,14,.07)}
+  .pill.blue{color:#5aa9ff;border-color:#274b73;background:rgba(90,169,255,.07)}
 
+  /* tira de vueltas rápidas */
+  .mgr-fast{display:flex;align-items:center;gap:9px;flex-wrap:wrap;
+    padding:8px 13px;border-bottom:1px solid #14171e;background:rgba(246,201,14,.045)}
+  .mgr-fast .fh{font-family:var(--mono);font-size:9px;color:#f6c90e;font-weight:600;
+    letter-spacing:.12em;text-transform:uppercase}
+  .mgr-fast .fc{display:inline-flex;align-items:center;gap:5px;
+    font-family:var(--mono);font-size:9.5px;color:#c9d1d9}
+  .mgr-fast .fc b{width:15px;height:15px;border-radius:50%;display:inline-flex;
+    align-items:center;justify-content:center;font-size:8px;font-weight:700;color:#fff}
+  .mgr-fast .fc .ft{color:#f6c90e;font-weight:600}
+
+  /* rejilla de tarjetas de coche */
+  .mgr-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:11px 13px;background:#050506}
+  .mc{background:#0b0d11;border:1px solid var(--cc);border-radius:7px;
+    padding:8px 10px 9px;min-width:0;transition:transform .35s}
+  .mc.move{transform:translateY(-2px)}
+  .mc-top{display:flex;align-items:center;gap:5px;margin-bottom:6px}
+  .mc-pos{font-family:var(--mono);font-size:9.5px;font-weight:700;color:#111;
+    background:#f6c90e;border-radius:3px;padding:1px 5px;flex:0 0 auto}
+  .mc-wr{color:#7d8590;font-size:10px;line-height:1}
+  .mc-warn{font-family:var(--mono);font-size:9px;color:#f59e0b;display:inline-flex;align-items:center;gap:2px}
+  .mc-no{margin-left:auto;width:19px;height:19px;border-radius:4px;flex:0 0 auto;
+    display:flex;align-items:center;justify-content:center;font-family:var(--mono);
+    font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+  .mc-name{font-family:var(--body);font-weight:700;font-size:12.5px;color:#e6edf3;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:7px}
+  .mc-stats{display:grid;grid-template-columns:1fr 1fr;gap:5px 12px}
+  .mc-stats>div{display:flex;flex-direction:column;min-width:0}
+  .mc-stats span{font-family:var(--mono);font-size:7px;letter-spacing:.08em;
+    text-transform:uppercase;color:#5b6470;margin-bottom:1px}
+  .mc-stats em{font-family:var(--mono);font-size:14px;font-weight:600;color:#e6edf3;
+    font-style:normal;line-height:1}
+  .mc-stats em.fast{color:#22c55e}.mc-stats em.slow{color:#f59e0b}.mc-stats em.bad{color:#ef4444}
+  .mc-stats em.best{color:#22c55e}
+  @media(max-width:520px){.mgr-grid{grid-template-columns:1fr}}
+
+  .mgr-foot{padding:9px 13px;border-top:1px solid #14171e;background:#0a0b0e;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:#5b6470;display:flex;justify-content:space-between}
   /* ---------- section frame ---------- */
   section{padding:88px 0;position:relative}
   .sec-head{max-width:42em;margin-bottom:54px}
@@ -374,20 +412,27 @@
       </div>
     </div>
 
-    <!-- SIGNATURE: live timing tower -->
-    <div class="board" id="board" aria-label="Cronometraggio live (dimostrazione)">
-      <div class="board-top">
-        <span class="ttl"><span class="rec"></span>Live · PitWall Manager</span>
-        <span class="clock" id="clock">00:00.0</span>
+    <!-- SIGNATURE: réplica del live timing de PitWall Manager -->
+    <div class="appwin" id="board" aria-label="Cronometraggio live (dimostrazione)">
+      <div class="win-bar">
+        <span class="dots"><i></i><i></i><i></i></span>
+        <span class="win-title">PitWall Manager · Gara in diretta</span>
       </div>
-      <div class="board-head">
-        <span>Pos</span><span>Pilota</span><span class="num">Ult</span><span class="num">Migl</span><span class="t">Gap</span>
+      <div class="mgr-hd">
+        <div class="mgr-clocks">
+          <div class="ck"><span>C1</span><b id="c1">43:46</b></div>
+          <div class="ck"><span>C2</span><b id="c2">43:46</b></div>
+          <div class="ck"><span>C3</span><b id="c3">43:46</b></div>
+        </div>
+        <div class="mgr-meta">
+          <div class="mgr-heat"><span class="tanda">Turno 1/1</span><b>Manche 1/22</b></div>
+          <div class="mgr-live2"><span class="live-dot"></span>In gara · 24h Italia <span class="demo">(demo dal vivo)</span></div>
+        </div>
+        <div class="mgr-actions"><span class="pill amber">Solo veloci</span><span class="pill blue">Vista</span></div>
       </div>
-      <div class="rows" id="rows"></div>
-      <div class="board-foot">
-        <span>Giro <span id="lapn">1</span></span>
-        <span>Demo · dati simulati</span>
-      </div>
+      <div class="mgr-fast" id="fast"></div>
+      <div class="mgr-grid" id="rows"></div>
+      <div class="mgr-foot"><span>Giro <span id="lapn">1</span></span><span>Demo · dati simulati</span></div>
     </div>
   </div>
 </section>
@@ -631,91 +676,95 @@
     },{threshold:.6}).observe(g2);
   } else { runLights(g2); }
 
-  /* ----- live timing board ----- */
-  var laneColors = ['#ef4444','#3b82f6','#22c55e','#f59e0b','#a855f7','#22b8d6'];
+  /* ----- live timing board · réplica del live timing de PitWall Manager ----- */
   var pilots = [
-    {name:'M. COLL',  lane:0, base:7.42},
-    {name:'D. ZERO',  lane:1, base:7.55},
-    {name:'A. PUIG',  lane:2, base:7.61},
-    {name:'J. ROCA',  lane:3, base:7.70},
-    {name:'X. SOLÉ',  lane:4, base:7.83},
-    {name:'N. VIDAL', lane:5, base:7.91}
+    {no:7, name:'TUSCANY FACTORY', color:'#f97316', base:9.28},
+    {no:2, name:'ZOO SLOT P1',     color:'#3b82f6', base:9.40},
+    {no:8, name:'CATANIA SLOT P1', color:'#94a3b8', base:9.44},
+    {no:5, name:'SLOTMANIA PALM.', color:'#a855f7', base:9.62},
+    {no:3, name:'MRC SLOT P1',     color:'#22c55e', base:9.70},
+    {no:1, name:'PEG 1 P1',        color:'#ef4444', base:9.78}
   ].map(function(p){
-    return {name:p.name, lane:p.lane, base:p.base, total:0, best:Infinity, last:0, laps:0};
+    return {no:p.no, name:p.name, color:p.color, base:p.base,
+            total:0, best:Infinity, last:0, laps:0,
+            warn:(Math.random()*5|0)+1, pit:Math.random()<0.28};
   });
 
   var rowsEl = document.getElementById('rows');
-  var clockEl = document.getElementById('clock');
   var lapnEl = document.getElementById('lapn');
+  var fastEl = document.getElementById('fast');
+  var clocks = [document.getElementById('c1'),document.getElementById('c2'),document.getElementById('c3')];
   var prevOrder = {};
 
   function rnd(m){ return (Math.random()-0.5)*m; }
-  function fmt(t){
-    if(t===Infinity||!t) return '--.--';
-    return t.toFixed(2);
-  }
-  function fmtClock(s){
-    var m=Math.floor(s/60), r=s-m*60;
-    return (m<10?'0':'')+m+':'+(r<10?'0':'')+r.toFixed(1);
-  }
+  function fmt(t){ return (t===Infinity||!t) ? '--.--' : t.toFixed(2); }
   function lastClass(p){
-    if(p.best===Infinity) return 'ok';
+    if(p.best===Infinity) return '';
     var d=(p.last-p.best)/p.best*100;
-    if(d<=0.6) return 'fast';
-    if(d<=2)   return 'ok';
-    if(d<=4.5) return 'slow';
+    if(d<=0.8) return 'fast';
+    if(d<=3)   return '';
+    if(d<=6)   return 'slow';
     return 'bad';
   }
-
-  // seed an initial lap so the board isn't empty
-  function tick(){
-    pilots.forEach(function(p){
-      var lap = p.base + rnd(0.55) + (Math.random()<0.07?rnd(1.4):0);
-      if(lap<p.base-0.6) lap=p.base-0.6;
-      p.last=lap; p.total+=lap; p.laps++;
-      if(lap<p.best) p.best=lap;
-    });
-    render();
+  function oneLap(p){
+    var lap = p.base + rnd(0.5) + (Math.random()<0.06?Math.abs(rnd(1.6)):0);
+    if(lap<p.base-0.45) lap=p.base-0.45;
+    p.last=lap; p.total+=lap; p.laps++;
+    if(lap<p.best) p.best=lap;
   }
 
+  // arranque: siembra ~80 vueltas para que los totales sean realistas
+  pilots.forEach(function(p){
+    var n = 80 + Math.round((9.8-p.base)*6);
+    for(var i=0;i<n;i++) oneLap(p);
+  });
+
   function render(){
-    var sorted = pilots.slice().sort(function(a,b){ return a.total-b.total; });
-    var lead = sorted[0].total;
-    var maxLap = Math.max.apply(null,pilots.map(function(p){return p.laps;}));
-    lapnEl.textContent = maxLap;
-    clockEl.textContent = fmtClock(lead);
+    var sorted = pilots.slice().sort(function(a,b){
+      return (b.laps-a.laps) || (a.total/a.laps - b.total/b.laps);
+    });
+    lapnEl.textContent = sorted[0].laps;
 
     var html='';
     sorted.forEach(function(p,i){
       var pos=i+1;
       var moved = prevOrder[p.name]!==undefined && prevOrder[p.name]!==pos;
-      var posCls = pos<=3 ? 'pos p'+pos : 'pos';
-      var gap = i===0 ? 'LEADER' : '+'+(p.total-lead).toFixed(2);
-      var gapCls = i===0 ? 'gap lead' : 'gap';
-      html+='<div class="row'+(moved?' move':'')+'">'
-        + '<span class="'+posCls+'">'+pos+'</span>'
-        + '<span class="pilot"><span class="lane" style="background:'+laneColors[p.lane]+'"></span>'
-        + '<span class="pname">'+p.name+'</span></span>'
-        + '<span class="num last '+lastClass(p)+'">'+fmt(p.last)+'</span>'
-        + '<span class="num best">'+fmt(p.best)+'</span>'
-        + '<span class="'+gapCls+'">'+gap+'</span>'
-        + '</div>';
+      var media = p.total/p.laps;
+      html+='<div class="mc'+(moved?' move':'')+'" style="--cc:'+p.color+'">'
+        + '<div class="mc-top"><span class="mc-pos">P.'+pos+'</span>'
+        + (p.pit?'<span class="mc-wr">🔧</span>':'')
+        + '<span class="mc-warn">⚠ '+p.warn+'</span>'
+        + '<span class="mc-no" style="background:'+p.color+'">'+p.no+'</span></div>'
+        + '<div class="mc-name">'+p.name+'</div>'
+        + '<div class="mc-stats">'
+        +   '<div><span>Total</span><em>'+p.laps+'</em></div>'
+        +   '<div><span>Ult.</span><em class="'+lastClass(p)+'">'+fmt(p.last)+'</em></div>'
+        +   '<div><span>Media</span><em>'+fmt(media)+'</em></div>'
+        +   '<div><span>Migl.</span><em class="best">'+fmt(p.best)+'</em></div>'
+        + '</div></div>';
       prevOrder[p.name]=pos;
     });
     rowsEl.innerHTML=html;
+
+    var byBest = pilots.slice().sort(function(a,b){ return a.best-b.best; }).slice(0,4);
+    fastEl.innerHTML = '<span class="fh">⚡ Giri veloci</span>' + byBest.map(function(p){
+      return '<span class="fc"><b style="background:'+p.color+'">'+p.no+'</b>'
+        + p.name.split(' ')[0] + ' <span class="ft">'+fmt(p.best)+'</span></span>';
+    }).join('');
   }
 
-  tick();
+  var raceBase = 43*60+46, t0 = Date.now();
+  function fmtMMSS(s){ var m=Math.floor(s/60), r=Math.floor(s-m*60);
+    return (m<10?'0':'')+m+':'+(r<10?'0':'')+r; }
+  function updClock(){ var v=fmtMMSS(raceBase+(Date.now()-t0)/1000);
+    clocks.forEach(function(c){ if(c) c.textContent=v; }); }
+
+  render(); updClock();
   if(!reduce){
-    setInterval(tick, 1300);
-    // smooth-ish clock between ticks
-    var c=0;
-    setInterval(function(){
-      var sorted=pilots.slice().sort(function(a,b){return a.total-b.total;});
-      c=sorted[0].total + (Date.now()%1300)/1000;
-      clockEl.textContent=fmtClock(c);
-    },100);
+    setInterval(function(){ pilots.forEach(oneLap); render(); }, 1600);
+    setInterval(updClock, 500);
   }
+
 })();
 </script>
 </body>
