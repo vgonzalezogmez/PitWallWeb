@@ -331,12 +331,27 @@
     <section id="pitwall">
       <div class="num">// 15</div>
       <h2>Inviare a PitWall / importare i risultati</h2>
-      <p>PitWall Control comunica con il cronometratore <b>PitWall</b> per non digitare due volte:</p>
+      <p>PitWall Control comunica con il cronometratore <b>PitWall</b> per non digitare due volte: gli <b>invia la prova</b> allestita (squadre, corsie e rotazione) e poi <b>importa i risultati</b> per classifica e crediti. Entrambe le app devono trovarsi sulla <b>stessa rete</b> LAN/WiFi.</p>
+
+      <h3>Inviare la tanda a PitWall (andata)</h3>
+      <p>Genera la tanda (formato <span class="mono">pitwall.tanda/v1</span>) affinché PitWall <b>crei automaticamente la gara</b> — ogni manche diventa una tanda con ciascuna squadra nella sua corsia di partenza, e i <b>riposi</b> (<span class="mono">D1…Dk</span>) vengono collocati e ruotati correttamente. Ci sono due vie:</p>
       <ul>
-        <li><b>Esportare / inviare la tanda</b>: genera la tanda (formato <span class="mono">pitwall.tanda/v1</span>) e la invia via <b>LAN</b> a PitWall, oppure la salva come JSON. I riposi (<span class="mono">D1…Dk</span>) vengono trattati correttamente.</li>
-        <li><b>Importare i risultati</b>: importa da PitWall i risultati della prova tramite la rete locale, pronti per classifica e crediti.</li>
+        <li><b>Esporta tanda (JSON)</b>: salva la prova in un file che poi <b>carichi</b> in PitWall (Gare → Importa tanda). Esportando su file, l'app ti <b>chiede se la gara ha la pole</b>.</li>
+        <li><b>Invia a PitWall</b> (via rete): Control <b>rileva</b> il PitWall sulla rete locale (o gli indichi l'<b>IP</b> a mano) e ti chiede il <b>PIN di abbinamento</b> — quello mostrato dalla schermata <b>Importa tanda</b> di PitWall.</li>
       </ul>
-      <!-- figura: manual/img/control-15-enviar.png — Enviar tanda a PitWall por LAN -->
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+        <div>Con l'interruttore <b>La gara ha pole</b> attivo, Control <b>non invia l'ordine delle corsie</b>: PitWall crea la gara con la sessione di pole (tutte le squadre) e la griglia si decide dopo aver corso la pole.</div>
+      </div>
+
+      <h3>Importare i risultati da PitWall (ritorno)</h3>
+      <p>Quando la gara è terminata, dal pannello della prova premi <b>Importa risultati da PitWall</b>:</p>
+      <ol class="steps">
+        <li>Scegli il <b>PitWall</b> sulla rete e vedi l'<b>elenco delle gare</b>; selezioni quella corrispondente a questa prova.</li>
+        <li>Control mostra un'<b>anteprima</b> con le squadre <b>abbinate per nome</b>, così puoi controllare l'abbinamento prima di applicare.</li>
+        <li><b>Applicando</b>, vengono scritte le <b>posizioni per manche</b> nella prova. I <b>punti</b> li assegna Control con la sua <b>tabella dei punti</b> (non provengono da PitWall).</li>
+      </ol>
+      <!-- figura: manual/img/control-15-enviar.png — Enviar tanda a PitWall por LAN y traer resultados -->
     </section>
 
     <section id="glosario">
@@ -359,6 +374,8 @@
         <li><b>Scarto</b>: peggior risultato che non conta per la classifica.</li>
         <li><b>Tesoreria</b>: quote per prova e loro ripartizione (comitato organizzatore / club).</li>
         <li><b>Tanda</b>: pacchetto della prova (<span class="mono">pitwall.tanda/v1</span>) che si invia a PitWall.</li>
+        <li><b>Importare i risultati</b>: importare da PitWall le posizioni per manche (abbinate per nome) per classifica e crediti; i punti li assegna Control.</li>
+        <li><b>PIN di abbinamento</b>: codice che PitWall mostra in <i>Importa tanda</i> e che Control richiede per autorizzare l'invio via rete.</li>
         <li><b>Marchio</b>: titolo e slogan del campionato che vengono stampati sui PDF.</li>
       </ul>
     </section>

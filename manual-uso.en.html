@@ -60,6 +60,7 @@
       <li><a href="#introduccion">Introduction</a></li>
       <li><a href="#escenarios">Scenarios, categories and catalogs</a></li>
       <li><a href="#crear">Creating a race</a></li>
+      <li><a href="#importar">Importing a batch from PitWall Control</a></li>
       <li><a href="#tandas">Batches, participants and rotation</a></li>
       <li><a href="#editar">Editing race, batches and heats</a></li>
       <li><a href="#pole">Pole (pre-race qualifying)</a></li>
@@ -70,6 +71,7 @@
       <li><a href="#resultados">Results and exports</a></li>
       <li><a href="#entrenamiento">Training</a></li>
       <li><a href="#ajustes">Settings</a></li>
+      <li><a href="#publico">Public tracking over the internet</a></li>
       <li><a href="#glosario">Glossary</a></li>
     </ol>
   </nav>
@@ -180,10 +182,40 @@
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div><b>Passes</b> and <b>repeat lane</b> only change how the heats are generated; totals are summed per participant.</div>
       </div>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Do you manage the championship with <b>PitWall Control</b>? No need to type the teams and rotation again: you can <b>import the whole event</b> from Control (see <a class="inl" href="#importar">Importing a batch from PitWall Control</a>).</div>
+      </div>
+    </section>
+
+    <section id="importar">
+      <div class="num">// 04</div>
+      <h2>Importing a batch from PitWall Control</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Import batch · Pairing PIN</span></div>
+        <img src="manual/img/op-import-tanda.png" loading="lazy" alt="PitWall import batch screen with the pairing PIN">
+        <figcaption>Import batch: upload the JSON or receive the event over the network; the pairing PIN is shown here.</figcaption>
+      </figure>
+      <p>If you organize the championship with <b>PitWall Control</b> (the season manager), you can set up the event there —teams, cups, lanes and rotation— and pass it to PitWall <b>without typing anything again</b>. PitWall <b>auto-creates the race</b> from what it receives.</p>
+      <p>Go into <b>Races → Import batch</b>. There are <b>two ways</b> to bring the event over:</p>
+      <ul>
+        <li><b>JSON file</b> — in Control you press <b>Export batch (JSON)</b> and save the file; in PitWall you <b>upload</b> it on the import screen.</li>
+        <li><b>Over the network (WiFi/LAN)</b> — in Control you press <b>Send to PitWall</b>: Control <b>discovers</b> your PitWall on the local network (or you enter the <b>IP</b> by hand) and asks for a <b>pairing PIN</b>. That PIN is the one shown by PitWall's <b>Import batch</b> screen — type it into Control to authorize the send.</li>
+      </ul>
+      <p><b>What PitWall creates.</b> Each <b>heat</b> of the Control event becomes a <b>batch</b>, with each team placed in its <b>starting lane</b>. The <b>rests</b> (<span class="mono">D1</span>, <span class="mono">D2</span>…) are placed and rotated like in any rotation (see <a class="inl" href="#tandas">Batches, participants and rotation</a>).</p>
+      <p><b>With pole.</b> If the event has pole (the <b>This race has pole</b> switch in Control; when exporting to a file it asks you), Control <b>does not send the lane order</b>. On PitWall's import screen tick <b>This race has pole</b>: PitWall creates the race with the <b>pole session</b> (all teams) and the grid is decided <b>after running the pole</b> (see <a class="inl" href="#pole">Pole</a>).</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Right after importing you can <b>edit the race</b> to assign it your club's <b>scenario</b> (and inherit its lanes, sequence and minimum time) — see <a class="inl" href="#editar">Editing race, batches and heats</a>.</div>
+      </div>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div><b>Requirement:</b> for the network send, PitWall and PitWall Control must be on the <b>same</b> LAN/WiFi network. The pairing PIN is shown in PitWall's <b>Import batch</b>. The other half of the bridge —<b>bringing the results</b> back to Control— is explained in the <a class="inl" href="manual-control.en.html">PitWall Control manual</a>.</div>
+      </div>
     </section>
 
     <section id="tandas">
-      <div class="num">// 04</div>
+      <div class="num">// 05</div>
       <h2>Batches, participants and rotation</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Batch · Participants and heats</span></div>
@@ -212,17 +244,21 @@
     </section>
 
     <section id="editar">
-      <div class="num">// 05</div>
+      <div class="num">// 06</div>
       <h2>Editing race, batches and heats</h2>
       <p>After creating a race you can tweak it:</p>
       <ul>
-        <li><b>Edit race</b> — change the <b>name</b> and, if it <b>still has no laps recorded</b>, the track/scenario. If there are already laps, the track is <b>locked</b> (so as not to break the data).</li>
+        <li><b>Edit race</b> — change the <b>name</b> and, <b>as long as there are no laps recorded</b>, the <b>scenario</b>. You can <b>assign</b> a scenario to a race that didn't have one, <b>change</b> it for another or <b>remove</b> it. When you <b>assign</b> a scenario, the race inherits its <b>lanes</b>, its rotation <b>sequence</b> and its <b>minimum time</b> (and the minimum laps per <b>category</b>, if it has them), and PitWall <b>regenerates the pending batches</b> with that configuration; when you <b>remove</b> it, the race switches to <b>manual mode</b> keeping the configuration it had. If there are already laps, the scenario is <b>locked</b> (so as not to break the data).</li>
       </ul>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Edit race</span></div>
-        <img src="manual/img/op-edit-carrera.png" loading="lazy" alt="Race edit form: name and track/scenario">
-        <figcaption>Edit race: name and —if there are no laps yet— track/scenario.</figcaption>
+        <img src="manual/img/op-edit-carrera.png" loading="lazy" alt="Race edit form: name and assignable scenario">
+        <figcaption>Edit race: name and —if there are no laps yet— assign, change or remove the scenario.</figcaption>
       </figure>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Typical case: you <b>import a batch from PitWall Control</b> (which arrives in manual mode) and then <b>edit it to assign your club's scenario</b>, so it inherits your track's lanes, sequence and minimum time.</div>
+      </div>
       <ul>
         <li><b>Edit batch</b> — change the <b>names</b> of the participants and, if the batch hasn't started yet, its composition. If it already has heats started, it enters <b>rename-only mode</b> (no participants added or removed, so as not to unbalance the rotation).</li>
       </ul>
@@ -237,7 +273,7 @@
     </section>
 
     <section id="pole">
-      <div class="num">// 06</div>
+      <div class="num">// 07</div>
       <h2>Pole (pre-race qualifying)</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Set up Pole Position</span></div>
@@ -279,7 +315,7 @@
     </section>
 
     <section id="lap">
-      <div class="num">// 07</div>
+      <div class="num">// 08</div>
       <h2>PitWall Lap — PIN for the teams</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · PINs per team</span></div>
@@ -294,12 +330,12 @@
       </ul>
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
-        <div>The phones must be on the <b>same network</b> as the computer acting as server. Use the computer's IP, not <span class="mono">localhost</span>, when they open it from the phone.</div>
+        <div>The phones must be on the <b>same network</b> as the computer acting as server. Use the computer's IP, not <span class="mono">localhost</span>, when they open it from the phone. If you want teams to follow the race <b>from outside the venue</b> (over the internet), see <a class="inl" href="#publico">Public tracking over the internet</a>.</div>
       </div>
     </section>
 
     <section id="vivo">
-      <div class="num">// 08</div>
+      <div class="num">// 09</div>
       <h2>Running the race live</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Live timing</span></div>
@@ -332,7 +368,7 @@
     </section>
 
     <section id="turnos">
-      <div class="num">// 09</div>
+      <div class="num">// 10</div>
       <h2>Driver shift control (championships)</h2>
       <p>In <b>team championship</b> races you can enforce rules for sharing the wheel among a team's drivers. They are defined when creating the race:</p>
       <ul>
@@ -344,7 +380,7 @@
     </section>
 
     <section id="correcciones">
-      <div class="num">// 10</div>
+      <div class="num">// 11</div>
       <h2>Lap by lap and corrections (add / remove laps)</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Lap by lap · Corrections</span></div>
@@ -371,7 +407,7 @@
     </section>
 
     <section id="resultados">
-      <div class="num">// 11</div>
+      <div class="num">// 12</div>
       <h2>Results and exports</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Results · Comparison</span></div>
@@ -395,7 +431,7 @@
     </section>
 
     <section id="entrenamiento">
-      <div class="num">// 12</div>
+      <div class="num">// 13</div>
       <h2>Training</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Training</span></div>
@@ -411,22 +447,48 @@
     </section>
 
     <section id="ajustes">
-      <div class="num">// 13</div>
+      <div class="num">// 14</div>
       <h2>Settings</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Settings</span></div>
         <img src="manual/img/04-settings.png" loading="lazy" alt="PitWall settings screen">
-        <figcaption>Settings: hardware and ports, saved tracks, license and language.</figcaption>
+        <figcaption>Settings: hardware and ports, saved tracks, public tracking, license and language.</figcaption>
       </figure>
       <ul>
         <li><b>Hardware / ports</b>: configure the serial tracks (DS-300) and their number of lanes.</li>
         <li><b>Tracks</b>: define saved tracks (lane sequence, minimum time).</li>
+        <li><b>Public tracking over the internet</b>: publish the public views on the internet to follow the race from outside the venue (see the <a class="inl" href="#publico">next section</a>).</li>
         <li><b>License</b> and language (ES/EN).</li>
       </ul>
+
+      <h3>Version history</h3>
+      <p>In the <b>footer of every page</b> you see PitWall's <b>version</b> number. Pressing it opens the <b>Version history</b> (<span class="mono">/changelog</span>), with what was <b>Added</b>, <b>Improved</b> and <b>Fixed</b> in each update. The version <b>goes up with every update</b>, so you always know which PitWall you have and what has changed.</p>
+    </section>
+
+    <section id="publico">
+      <div class="num">// 15</div>
+      <h2>Public tracking over the internet</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Settings · Public tracking over the internet</span></div>
+        <img src="manual/img/op-seguimiento-publico.png" loading="lazy" alt="Public tracking over the internet screen with the modes, start buttons and the live URL">
+        <figcaption>Public tracking: Quick and Own Cloudflare modes, Start/Stop, status and live URL.</figcaption>
+      </figure>
+      <p>By default PitWall's views (the <b>live timing</b>, the <b>Results</b> and <b>PitWall Lap</b>) are only visible on the <b>local network</b>. With <b>Public tracking over the internet</b> each club can <b>publish them on the internet</b> so drivers and public can follow the race <b>from outside the venue</b>, without opening ports or setting up a VPN: PitWall brings up the club's <b>own Cloudflare tunnel</b>.</p>
+      <p>It's in <b>Settings → Public tracking over the internet</b>. There are <b>two modes</b>:</p>
+      <ul>
+        <li><b>Quick</b> — PitWall generates a <b>temporary URL</b> (<span class="mono">*.trycloudflare.com</span>) on the fly: <b>no account or domain</b>. It's the option for a one-off afternoon; keep in mind the URL <b>changes on every start</b>.</li>
+        <li><b>Own Cloudflare</b> — you use the club's <b>tunnel token</b> and <b>your own domain</b>, so the <b>URL is fixed</b> and branded. The screen itself carries a <b>step-by-step guide</b>, with links to Cloudflare's <b>Zero Trust</b> dashboard and to the official documentation, to create the tunnel and paste its token.</li>
+      </ul>
+      <p><b>Controls.</b> <b>Start</b> / <b>Stop</b> buttons with the <b>status</b> and the <b>live URL</b> (to copy and share it). <b>Start</b> applies whatever you have on screen at that moment. You can enable <b>auto-start</b> so the tunnel comes up by itself when PitWall opens.</p>
+      <p><b>Install cloudflared.</b> The tunnel is brought up by the <span class="mono">cloudflared</span> tool. If it isn't installed, the <b>Install cloudflared</b> button appears, which <b>downloads the official version</b> to PitWall's data folder — <b>without asking for administrator permissions</b>.</p>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div><b>Security.</b> From outside, <b>only the public views are visible</b> (live timing, results and PitWall Lap). The <b>app control</b> (creating, running or editing races) is <b>blocked</b>: no one from outside can touch the race.</div>
+      </div>
     </section>
 
     <section id="glosario">
-      <div class="num">// 14</div>
+      <div class="num">// 16</div>
       <h2>Glossary (operation)</h2>
       <ul>
         <li><b>Race</b>: the complete event. Made up of batches.</li>
@@ -449,6 +511,11 @@
         <li><b>Driver QR</b>: a code that identifies the driver to record their shift when scanned.</li>
         <li><b>Shift</b>: the period a driver is at the wheel within their team in endurance.</li>
         <li><b>DS-300</b>: the timing box that detects the crossing at the line.</li>
+        <li><b>Import batch</b>: bring in an event set up in PitWall Control (by JSON or over LAN + PIN) so PitWall auto-creates the race.</li>
+        <li><b>PitWall Control</b>: the championship-management app that sets up the event and receives the results from PitWall.</li>
+        <li><b>Public tracking over the internet</b>: publish the public views (live timing, results, Lap) on the internet with the club's own Cloudflare tunnel.</li>
+        <li><b>Cloudflare tunnel</b>: a connection that exposes PitWall's public views on the internet without opening ports (Quick mode with a temporary URL, or Own Cloudflare with a fixed domain).</li>
+        <li><b>Version history</b>: the page (<span class="mono">/changelog</span>) opened by the version number in the footer, with what was added, improved and fixed in each update.</li>
       </ul>
     </section>
 

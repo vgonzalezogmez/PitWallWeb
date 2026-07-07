@@ -331,12 +331,27 @@
     <section id="pitwall">
       <div class="num">// 15</div>
       <h2>Send to PitWall / bring back results</h2>
-      <p>PitWall Control talks to the <b>PitWall</b> timing app so you don't type things twice:</p>
+      <p>PitWall Control talks to the <b>PitWall</b> timing app so you don't type things twice: it <b>sends the event</b> you've set up (teams, lanes and rotation) and later <b>brings back the results</b> for standings and credits. Both apps must be on the <b>same</b> LAN/WiFi network.</p>
+
+      <h3>Send the batch to PitWall (outbound)</h3>
+      <p>It generates the batch (<span class="mono">pitwall.tanda/v1</span> format) so PitWall <b>auto-creates the race</b> — each heat becomes a batch with each team in its starting lane, and the <b>rest slots</b> (<span class="mono">D1…Dk</span>) are placed and rotated correctly. There are two routes:</p>
       <ul>
-        <li><b>Export / send the heat</b>: generates the heat (<span class="mono">pitwall.tanda/v1</span> format) and sends it over <b>LAN</b> to PitWall, or saves it as JSON. The rest slots (<span class="mono">D1…Dk</span>) are handled correctly.</li>
-        <li><b>Bring back the results</b>: imports the event results from PitWall over the local network, ready for standings and credits.</li>
+        <li><b>Export batch (JSON)</b>: saves the event to a file that you then <b>upload</b> in PitWall (Races → Import batch). When exporting to a file, the app <b>asks whether the race has pole</b>.</li>
+        <li><b>Send to PitWall</b> (over the network): Control <b>discovers</b> the PitWall on the local network (or you enter the <b>IP</b> by hand) and asks you for the <b>pairing PIN</b> — the one shown by PitWall's <b>Import batch</b> screen.</li>
       </ul>
-      <!-- figura: manual/img/control-15-enviar.png — Enviar tanda a PitWall por LAN -->
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+        <div>With the <b>This race has pole</b> switch on, Control <b>does not send the lane order</b>: PitWall creates the race with the pole session (all teams) and the grid is decided after running the pole.</div>
+      </div>
+
+      <h3>Bring back the results from PitWall (inbound)</h3>
+      <p>Once the race has finished, from the event panel you press <b>Bring back results from PitWall</b>:</p>
+      <ol class="steps">
+        <li>You pick the <b>PitWall</b> on the network and see the <b>list of races</b>; you select the one for this event.</li>
+        <li>Control shows a <b>preview</b> with the teams <b>matched by name</b>, so you can check the pairing before applying.</li>
+        <li>On <b>apply</b>, the <b>positions per heat</b> are written into the event. The <b>points</b> are set by Control with its own <b>points table</b> (they don't come from PitWall).</li>
+      </ol>
+      <!-- figura: manual/img/control-15-enviar.png — Enviar tanda a PitWall por LAN y traer resultados -->
     </section>
 
     <section id="glosario">
@@ -358,7 +373,9 @@
         <li><b>Class ladder</b>: BRONCE · PLATA · ORO · PLATINO.</li>
         <li><b>Drop score</b>: worst result that does not count towards the standings.</li>
         <li><b>Treasury</b>: fees per event and their split (organising committee / club).</li>
-        <li><b>Heat</b>: the event package (<span class="mono">pitwall.tanda/v1</span>) sent to PitWall.</li>
+        <li><b>Batch</b>: the event package (<span class="mono">pitwall.tanda/v1</span>) sent to PitWall.</li>
+        <li><b>Bring back results</b>: import the positions per heat from PitWall (matched by name) for standings and credits; the points are set by Control.</li>
+        <li><b>Pairing PIN</b>: the code PitWall shows in <i>Import batch</i>, which Control asks for to authorize the network send.</li>
         <li><b>Brand</b>: the championship's title and tagline stamped onto the PDFs.</li>
       </ul>
     </section>

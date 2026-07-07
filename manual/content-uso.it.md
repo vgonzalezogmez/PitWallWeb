@@ -66,7 +66,27 @@ Premi **Nuova gara (“+ Nueva carrera”)** e segui la procedura guidata:
 
 > **Passate** e **ripeti corsia** cambiano solo il modo in cui si generano le manche; i totali si sommano per partecipante.
 
-## 4. Tande, partecipanti e rotazione
+> Gestisci il campionato con **PitWall Control**? Non devi digitare di nuovo squadre e rotazione: puoi **importare l'intera prova** da Control (vedi *Importare una tanda da PitWall Control*).
+
+## 4. Importare una tanda da PitWall Control
+![img: op-import-tanda.png]
+
+Se organizzi il campionato con **PitWall Control** (il gestore di stagione), puoi allestire lì la prova —squadre, coppe, corsie e rotazione— e passarla a PitWall **senza ridigitare nulla**. PitWall **crea automaticamente la gara** da ciò che riceve.
+
+Entra in **Gare → Importa tanda**. Ci sono **due modi** per portare la prova:
+
+- **File JSON.** In Control premi **Esporta tanda (JSON)** e salvi il file; in PitWall lo **carichi** nella schermata di importazione.
+- **Via rete (WiFi/LAN).** In Control premi **Invia a PitWall**: Control **rileva** il tuo PitWall sulla rete locale (o gli indichi l'**IP** a mano) e chiede un **PIN di abbinamento**. Quel PIN è quello mostrato dalla schermata **Importa tanda** di PitWall — digitalo in Control per autorizzare l'invio.
+
+**Cosa crea PitWall.** Ogni **manche** della prova di Control diventa una **tanda**, con ciascuna squadra collocata nella sua **corsia di partenza**. I **riposi** (`D1`, `D2`…) vengono collocati e ruotati come in qualsiasi rotazione (vedi *Tande, partecipanti e rotazione*).
+
+**Con pole.** Se la prova ha la pole (interruttore **La gara ha pole** in Control; esportando su file te lo chiede), Control **non invia l'ordine delle corsie**. Nella schermata di importazione di PitWall spunta **Questa gara ha pole**: PitWall crea la gara con la **sessione di pole** (tutte le squadre) e la griglia si decide **dopo aver corso la pole** (vedi *Pole*).
+
+> Subito dopo l'importazione puoi **modificare la gara** per assegnarle lo **scenario** del tuo club (ed ereditarne corsie, sequenza e tempo minimo) — vedi *Modificare gara, tande e manche*.
+
+> **Requisito:** per l'invio via rete, PitWall e PitWall Control devono trovarsi sulla **stessa rete** LAN/WiFi. Il PIN di abbinamento è mostrato in **Importa tanda** di PitWall. L'altra metà del ponte —**riportare i risultati** verso Control— è spiegata nel *Manuale di PitWall Control*.
+
+## 5. Tande, partecipanti e rotazione
 ![img: 34-tanda.png]
 
 Una **tanda** raggruppa i partecipanti e la loro **rotazione di corsie** per manche. Aggiungendo le **squadre/piloti**, PitWall genera automaticamente tutte le **manche**.
@@ -83,12 +103,14 @@ Una **tanda** raggruppa i partecipanti e la loro **rotazione di corsie** per man
 - *2 passate* → l'intera sequenza si ripete: `1,3,5,6,4,2, 1,3,5,6,4,2`.
 - *Ripeti corsia 2* → ogni corsia, due manche di seguito: `1,1,3,3,5,5,6,6,4,4,2,2`.
 
-## 5. Modificare gara, tande e manche
+## 6. Modificare gara, tande e manche
 
 Dopo aver creato una gara puoi ritoccarla:
-- **Modifica gara (“Editar carrera”)** — cambiare il **nome** e, se **non ha ancora giri registrati**, il circuito/scenario. Se ci sono già giri, il circuito resta **bloccato** (per non rovinare i dati).
+- **Modifica gara (“Editar carrera”)** — cambiare il **nome** e, **finché non ci sono giri registrati**, lo **scenario**. Puoi **assegnare** uno scenario a una gara che non ne aveva, **cambiarlo** con un altro o **toglierlo**. **Assegnando** uno scenario, la gara ne eredita le **corsie**, la **sequenza** di rotazione e il **tempo minimo** (e i giri minimi per **categoria**, se presenti), e PitWall **rigenera le tande in sospeso** con quella configurazione; **togliendolo**, la gara passa in **modalità manuale** conservando la configurazione che aveva. Se ci sono già giri, lo scenario resta **bloccato** (per non rovinare i dati).
 
 ![img: op-edit-carrera.png]
+
+> Caso tipico: **importi una tanda da PitWall Control** (che arriva in modalità manuale) e poi la **modifichi per assegnarle lo scenario** del tuo club, così eredita corsie, sequenza e tempo minimo della tua pista.
 
 - **Modifica tanda (“Editar tanda”)** — cambiare i **nomi** dei partecipanti e, se la tanda non è ancora iniziata, la sua composizione. Se ha già manche avviate, entra in **modalità solo rinomina** (non si aggiungono né si tolgono partecipanti, per non scompaginare la rotazione).
 
@@ -96,7 +118,7 @@ Dopo aver creato una gara puoi ritoccarla:
 
 - **Modifica manche (“Editar manga”)** — cambiare **chi corre in ogni corsia** in una manche specifica, senza rigenerare tutta la tanda (utile se una squadra non si presenta o c'è un cambio dell'ultimo minuto).
 
-## 6. Pole (qualifica preliminare)
+## 7. Pole (qualifica preliminare)
 ![img: 44-pole-setup.png]
 
 La **pole** è un giro di qualifica **prima** della gara per decidere l'ordine di partenza. È facoltativa; si attiva al momento di creare la gara (**Pole**) e si lancia dalla pagina della gara → **Configura Pole Position (“Configurar Pole Position”)**.
@@ -120,7 +142,7 @@ La **pole** è un giro di qualifica **prima** della gara per decidere l'ordine d
 
 > La pole non attribuisce punti in gara: decide solo **chi sceglie la corsia per primo** e, con ciò, la griglia di partenza della prima manche.
 
-## 7. PitWall Lap — PIN per le squadre
+## 8. PitWall Lap — PIN per le squadre
 ![img: 43-lap-pins.png]
 
 **PitWall Lap** è la vista mobile che permette a ciascuna **squadra/pilota** di seguire il proprio cronometraggio dal telefono (i propri giri, annunciati a voce, e la propria posizione). Perché entrino solo nel *loro* pannello si distribuisce un **PIN** per squadra.
@@ -129,9 +151,9 @@ La **pole** è un giro di qualifica **prima** della gara per decidere l'ordine d
 - Dai a ogni squadra **il suo PIN**. Aprendo l'indirizzo e inserendolo, entrano direttamente nel loro pannello.
 - **Nuovo (“Nuevo”)** rigenera il PIN di una squadra (nel caso trapelasse o volessero cambiarlo).
 
-> I cellulari devono essere sulla **stessa rete** del computer che fa da server. Usa l'IP del computer, non `localhost`, quando lo aprono dal telefono.
+> I cellulari devono essere sulla **stessa rete** del computer che fa da server. Usa l'IP del computer, non `localhost`, quando lo aprono dal telefono. Se vuoi che le squadre seguano la gara **da fuori della sede** (via internet), vedi *Seguito pubblico su internet*.
 
-## 8. Dirigere la gara in diretta
+## 9. Dirigere la gara in diretta
 ![img: 20-live-timing.png]
 
 Dalla pagina della gara:
@@ -152,7 +174,7 @@ Dalla pagina della gara:
 
 > Avviso **"Sin señal del DS-300"**: finché è presente, i giri **non vengono registrati**. Controlla la connessione prima di dare il GO.
 
-## 9. Controllo dei turni di pilota (campionati)
+## 10. Controllo dei turni di pilota (campionati)
 
 Nelle gare di **campionato a squadre** puoi imporre regole di ripartizione del volante tra i piloti di una squadra. Si definiscono al momento di creare la gara:
 - **Tempo minimo / massimo per pilota** — ogni pilota deve girare almeno X e al massimo Y.
@@ -161,7 +183,7 @@ Nelle gare di **campionato a squadre** puoi imporre regole di ripartizione del v
 
 I **cambi di pilota** si registrano scansionando il **QR del pilota** (o inserendo il suo codice) all'ingresso in pista. Dalla diretta apri **Controllo dei turni (“Control de turnos”)**, che mostra il **pilota attuale per corsia**, il **tempo accumulato** di ciascuno (segnalando se viola una regola) e lo **storico dei turni**; se un cambio è stato registrato male, puoi **correggere il tempo** del turno.
 
-## 10. Giro per giro e correzioni (aggiungere / togliere giri)
+## 11. Giro per giro e correzioni (aggiungere / togliere giri)
 ![img: 30-correcciones.png]
 
 Dalla gara (pulsante di **correzione dei giri** nella diretta o nei risultati) entri nel **giro per giro** di ogni manche. Serve a sistemare le letture registrate male.
@@ -176,7 +198,7 @@ Dalla gara (pulsante di **correzione dei giri** nella diretta o nei risultati) e
 
 > Usalo con criterio: le correzioni cambiano totali, medie e classifica di quella manche.
 
-## 11. Risultati ed esportazioni
+## 12. Risultati ed esportazioni
 ![img: 10-results-comparativa.png]
 
 Al termine (o in qualsiasi momento) entra in **Risultati (“Resultados”)**:
@@ -189,7 +211,7 @@ Al termine (o in qualsiasi momento) entra in **Risultati (“Resultados”)**:
 
 ![img: op-resultados-publicos.png]
 
-## 12. Allenamento
+## 13. Allenamento
 ![img: 40-training.png]
 
 Oltre alle gare, PitWall ha una modalità **Allenamento (“Entrenamiento”)** (dalla schermata iniziale) per girare senza allestire una competizione completa. Ci sono due modalità:
@@ -199,14 +221,33 @@ Oltre alle gare, PitWall ha una modalità **Allenamento (“Entrenamiento”)** 
 
 Scegli la modalità, assegna le corsie e premi **Inizia (“Empezar”)**. Il cronometraggio in diretta funziona come in gara (GO del box, giri, miglior/media per corsia).
 
-## 13. Impostazioni
+## 14. Impostazioni
 ![img: 04-settings.png]
 
 - **Hardware / porte**: configura i circuiti seriali (DS-300) e il loro n° di corsie.
 - **Circuiti**: definisci le piste salvate (sequenza di corsie, tempo minimo).
+- **Seguito pubblico su internet**: pubblica le viste pubbliche su internet per seguire la gara da fuori della sede (vedi la sezione seguente).
 - **Licenza** e lingua (ES/EN).
 
-## 14. Glossario (operazione)
+**Cronologia delle versioni.** Nel **piè di pagina di tutte le pagine** vedi il numero di **versione** di PitWall. Premendolo si apre la **Cronologia delle versioni** (`/changelog`), con ciò che è stato **Aggiunto**, **Migliorato** e **Corretto** in ogni aggiornamento. La versione **sale a ogni aggiornamento**, così sai sempre quale PitWall hai e cosa è cambiato.
+
+## 15. Seguito pubblico su internet
+![img: op-seguimiento-publico.png]
+
+Per impostazione predefinita le viste di PitWall (la **diretta**, i **Risultati** e **PitWall Lap**) sono visibili solo sulla **rete locale**. Con il **Seguito pubblico su internet** ogni club può **pubblicarle su internet** affinché piloti e pubblico seguano la gara **da fuori della sede**, senza aprire porte né configurare una VPN: PitWall attiva un **tunnel Cloudflare proprio** del club.
+
+Si trova in **Impostazioni → Seguito pubblico su internet**. Ci sono **due modalità**:
+
+- **Rapido.** PitWall genera al volo una **URL temporanea** (`*.trycloudflare.com`): **senza account né dominio**. È l'opzione per un pomeriggio isolato; tieni presente che la URL **cambia a ogni avvio**.
+- **Cloudflare proprio.** Usi il **token del tunnel** del club e **il tuo dominio**, così la **URL è fissa** e col tuo marchio. La schermata stessa contiene una **guida passo passo**, con collegamenti al pannello **Zero Trust** di Cloudflare e alla documentazione ufficiale, per creare il tunnel e incollarne il token.
+
+**Comandi.** Pulsanti **Avvia** / **Ferma** con lo **stato** e la **URL in tempo reale** (da copiare e condividere). **Avvia** applica ciò che hai sullo schermo in quel momento. Puoi attivare l'**avvio automatico** perché il tunnel si attivi da solo all'apertura di PitWall.
+
+**Installare cloudflared.** Il tunnel è attivato dallo strumento `cloudflared`. Se non è installato, compare il pulsante **Installa cloudflared**, che **scarica la versione ufficiale** nella cartella dati di PitWall — **senza chiedere permessi di amministratore**.
+
+> **Sicurezza.** Da fuori **si vedono solo le viste pubbliche** (diretta, risultati e PitWall Lap). Il **controllo dell'app** (creare, dirigere o modificare gare) **resta bloccato**: nessuno da fuori può toccare la gara.
+
+## 16. Glossario (operazione)
 - **Gara**: l'evento completo. Si compone di tande.
 - **Tanda**: gruppo di partecipanti con la sua rotazione; si compone di manche.
 - **Manche**: una tornata cronometrata (tutte le corsie insieme) di una certa durata.
@@ -227,3 +268,8 @@ Scegli la modalità, assegna le corsie e premi **Inizia (“Empezar”)**. Il cr
 - **QR di pilota**: codice che identifica il pilota per registrare il suo turno alla scansione.
 - **Turno (shift)**: periodo in cui un pilota è al volante all'interno della sua squadra in resistenza.
 - **DS-300**: il box di cronometraggio che rileva il passaggio sul traguardo.
+- **Importa tanda**: portare una prova allestita in PitWall Control (via JSON o via rete LAN + PIN) affinché PitWall crei automaticamente la gara.
+- **PitWall Control**: l'app di gestione dei campionati che allestisce la prova e riceve i risultati da PitWall.
+- **Seguito pubblico su internet**: pubblicare le viste pubbliche (diretta, risultati, Lap) su internet con un tunnel Cloudflare proprio del club.
+- **Tunnel Cloudflare**: connessione che espone su internet le viste pubbliche di PitWall senza aprire porte (modalità Rapido con URL temporanea, o Cloudflare proprio con dominio fisso).
+- **Cronologia delle versioni**: la pagina (`/changelog`) che apre il numero di versione del piè di pagina, con ciò che è stato aggiunto, migliorato e corretto in ogni aggiornamento.

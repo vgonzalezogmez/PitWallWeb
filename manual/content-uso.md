@@ -66,7 +66,27 @@ Pulsa **+ Nueva carrera** y sigue el asistente:
 
 > **Pasadas** y **repetir carril** solo cambian cómo se generan las mangas; los totales se suman por participante.
 
-## 4. Tandas, participantes y rotación
+> ¿Gestionas el campeonato con **PitWall Control**? No hace falta que teclees los equipos y la rotación otra vez: puedes **importar la prueba** entera desde Control (ver *Importar una tanda de PitWall Control*).
+
+## 4. Importar una tanda de PitWall Control
+![img: op-import-tanda.png]
+
+Si organizas el campeonato con **PitWall Control** (el gestor de temporada), puedes montar allí la prueba —equipos, copas, carriles y rotación— y pasársela a PitWall **sin volver a teclear nada**. PitWall **autocrea la carrera** a partir de lo que recibe.
+
+Entra en **Carreras → Importar tanda**. Hay **dos formas** de traer la prueba:
+
+- **Fichero JSON.** En Control pulsas **Exportar tanda (JSON)** y guardas el archivo; en PitWall lo **subes** en la pantalla de import.
+- **Por red (WiFi/LAN).** En Control pulsas **Enviar a PitWall**: Control **descubre** tu PitWall en la red local (o le indicas la **IP** a mano) y pide un **PIN de emparejamiento**. Ese PIN es el que muestra la pantalla **Importar tanda** de PitWall — tecléalo en Control para autorizar el envío.
+
+**Qué crea PitWall.** Cada **manga** de la prueba de Control se convierte en una **tanda**, con cada equipo colocado en su **carril de salida**. Los **descansos** (`D1`, `D2`…) se colocan y rotan como en cualquier rotación (ver *Tandas, participantes y rotación*).
+
+**Con pole.** Si la prueba tiene pole (interruptor **La carrera tiene pole** en Control; al exportar a fichero te lo pregunta), Control **no envía el orden de carril**. En la pantalla de import de PitWall marca **Esta carrera tiene pole**: PitWall crea la carrera con la **sesión de pole** (todos los equipos) y la parrilla se decide **después de correr la pole** (ver *Pole*).
+
+> Justo después de importar puedes **editar la carrera** para asignarle el **escenario** de tu club (y heredar sus carriles, secuencia y tiempo mínimo) — ver *Editar carrera, tandas y mangas*.
+
+> **Requisito:** para el envío por red, PitWall y PitWall Control deben estar en la **misma red** LAN/WiFi. El PIN de emparejamiento se ve en **Importar tanda** de PitWall. La otra mitad del puente —**traer los resultados** de vuelta a Control— se explica en el *Manual de PitWall Control*.
+
+## 5. Tandas, participantes y rotación
 ![img: 34-tanda.png]
 
 Una **tanda** agrupa a los participantes y su **rotación de carriles** por manga. Al añadir los **equipos/pilotos**, PitWall genera automáticamente todas las **mangas**.
@@ -83,12 +103,14 @@ Una **tanda** agrupa a los participantes y su **rotación de carriles** por mang
 - *2 pasadas* → la secuencia entera se repite: `1,3,5,6,4,2, 1,3,5,6,4,2`.
 - *Repetir carril 2* → cada carril, dos mangas seguidas: `1,1,3,3,5,5,6,6,4,4,2,2`.
 
-## 5. Editar carrera, tandas y mangas
+## 6. Editar carrera, tandas y mangas
 
 Después de crear una carrera puedes retocarla:
-- **Editar carrera** — cambiar el **nombre** y, si **aún no tiene vueltas registradas**, el circuito/escenario. Si ya hay vueltas, el circuito queda **bloqueado** (para no romper los datos).
+- **Editar carrera** — cambiar el **nombre** y, **mientras no haya vueltas registradas**, el **escenario**. Puedes **asignar** un escenario a una carrera que no lo tenía, **cambiarlo** por otro o **quitarlo**. Al **asignar** un escenario, la carrera hereda sus **carriles**, su **secuencia** de rotación y su **tiempo mínimo** (y las vueltas mínimas por **categoría**, si las tiene), y PitWall **regenera las tandas pendientes** con esa configuración; al **quitarlo**, la carrera pasa a **modo manual** conservando la configuración que tenía. Si ya hay vueltas, el escenario queda **bloqueado** (para no romper los datos).
 
 ![img: op-edit-carrera.png]
+
+> Caso típico: **importas una tanda de PitWall Control** (que llega en modo manual) y luego la **editas para asignarle el escenario** de tu club, de modo que herede carriles, secuencia y tiempo mínimo de tu pista.
 
 - **Editar tanda** — cambiar los **nombres** de los participantes y, si la tanda aún no ha empezado, su composición. Si ya tiene mangas iniciadas, entra en **modo solo renombrar** (no se añaden ni quitan participantes, para no descuadrar la rotación).
 
@@ -96,7 +118,7 @@ Después de crear una carrera puedes retocarla:
 
 - **Editar manga** — cambiar **quién corre en cada carril** en una manga concreta, sin regenerar toda la tanda (útil si un equipo no se presenta o hay un cambio de última hora).
 
-## 6. Pole (clasificación previa)
+## 7. Pole (clasificación previa)
 ![img: 44-pole-setup.png]
 
 La **pole** es una vuelta clasificatoria **antes** de la carrera para decidir el orden de salida. Es opcional; se activa al crear la carrera (**Pole**) y se lanza desde la página de la carrera → **Configurar Pole Position**.
@@ -120,7 +142,7 @@ La **pole** es una vuelta clasificatoria **antes** de la carrera para decidir el
 
 > La pole no puntúa en la carrera: solo decide **quién elige carril primero** y, con ello, la parrilla de salida de la primera manga.
 
-## 7. PitWall Lap — PIN para los equipos
+## 8. PitWall Lap — PIN para los equipos
 ![img: 43-lap-pins.png]
 
 **PitWall Lap** es la vista móvil para que cada **equipo/piloto** siga su propio cronometraje desde el teléfono (sus vueltas, cantadas por voz, y su posición). Para que entren solo a *su* panel se reparte un **PIN** por equipo.
@@ -129,9 +151,9 @@ La **pole** es una vuelta clasificatoria **antes** de la carrera para decidir el
 - Da a cada equipo **su PIN**. Al abrir la dirección e introducirlo, entran directamente a su panel.
 - **Nuevo** regenera el PIN de un equipo (por si se filtró o quieren cambiarlo).
 
-> Los móviles deben estar en la **misma red** que el ordenador que hace de servidor. Usa la IP del equipo, no `localhost`, cuando lo abran desde el teléfono.
+> Los móviles deben estar en la **misma red** que el ordenador que hace de servidor. Usa la IP del equipo, no `localhost`, cuando lo abran desde el teléfono. Si quieres que los equipos sigan la carrera **desde fuera del local** (por internet), mira *Seguimiento público por internet*.
 
-## 8. Dirigir la carrera en vivo
+## 9. Dirigir la carrera en vivo
 ![img: 20-live-timing.png]
 
 Desde la página de la carrera:
@@ -152,7 +174,7 @@ Desde la página de la carrera:
 
 > Aviso **"Sin señal del DS-300"**: mientras esté, las vueltas **no se registran**. Revisa la conexión antes de dar el GO.
 
-## 9. Control de turnos de piloto (campeonatos)
+## 10. Control de turnos de piloto (campeonatos)
 
 En carreras de **campeonato por equipos** puedes obligar reglas de reparto de volante entre los pilotos de un equipo. Se definen al crear la carrera:
 - **Tiempo mínimo / máximo por piloto** — cada piloto debe rodar al menos X y como mucho Y.
@@ -161,7 +183,7 @@ En carreras de **campeonato por equipos** puedes obligar reglas de reparto de vo
 
 Los **cambios de piloto** se registran escaneando el **QR del piloto** (o metiendo su código) al entrar a pista. Desde el directo abres **Control de turnos**, que muestra el **piloto actual por carril**, el **tiempo acumulado** de cada uno (avisando si incumple una regla) y el **histórico de turnos**; si un cambio se registró mal, puedes **corregir el tiempo** del turno.
 
-## 10. Vuelta a vuelta y correcciones (añadir / quitar vueltas)
+## 11. Vuelta a vuelta y correcciones (añadir / quitar vueltas)
 ![img: 30-correcciones.png]
 
 Desde la carrera (botón de **corrección de vueltas** en el directo o en resultados) entras al **vuelta a vuelta** de cada manga. Sirve para arreglar lecturas mal registradas.
@@ -176,7 +198,7 @@ Desde la carrera (botón de **corrección de vueltas** en el directo o en result
 
 > Úsalo con criterio: las correcciones cambian totales, medias y clasificación de esa manga.
 
-## 11. Resultados y exports
+## 12. Resultados y exports
 ![img: 10-results-comparativa.png]
 
 Al terminar (o en cualquier momento) entra en **Resultados**:
@@ -189,7 +211,7 @@ Al terminar (o en cualquier momento) entra en **Resultados**:
 
 ![img: op-resultados-publicos.png]
 
-## 12. Entrenamiento
+## 13. Entrenamiento
 ![img: 40-training.png]
 
 Además de las carreras, PitWall tiene un modo **Entrenamiento** (desde la pantalla de inicio) para rodar sin montar una competición completa. Hay dos modalidades:
@@ -199,14 +221,33 @@ Además de las carreras, PitWall tiene un modo **Entrenamiento** (desde la panta
 
 Elige la modalidad, asigna los carriles y pulsa **Empezar**. El cronometraje en directo funciona igual que en carrera (GO de la caja, vueltas, mejor/media por carril).
 
-## 13. Ajustes
+## 14. Ajustes
 ![img: 04-settings.png]
 
 - **Hardware / puertos**: configura los circuitos serie (DS-300) y su nº de carriles.
 - **Circuitos**: define pistas guardadas (secuencia de carriles, tiempo mínimo).
+- **Seguimiento público por internet**: publica las vistas públicas en internet para seguir la carrera desde fuera del local (ver la sección siguiente).
 - **Licencia** e idioma (ES/EN).
 
-## 14. Glosario (operación)
+**Historial de versiones.** En el **pie de todas las páginas** ves el número de **versión** de PitWall. Al pulsarlo se abre el **Historial de versiones** (`/changelog`), con lo **Añadido**, **Mejorado** y **Corregido** en cada actualización. La versión **sube con cada actualización**, así siempre sabes qué PitWall tienes y qué ha cambiado.
+
+## 15. Seguimiento público por internet
+![img: op-seguimiento-publico.png]
+
+Por defecto las vistas de PitWall (el **directo**, los **Resultados** y **PitWall Lap**) solo se ven en la **red local**. Con el **Seguimiento público por internet** cada club puede **publicarlas en internet** para que pilotos y público sigan la carrera **desde fuera del local**, sin abrir puertos ni montar una VPN: PitWall levanta un **túnel Cloudflare propio** del club.
+
+Está en **Ajustes → Seguimiento público por internet**. Hay **dos modos**:
+
+- **Rápido.** PitWall genera una **URL temporal** (`*.trycloudflare.com`) al vuelo: **sin cuenta ni dominio**. Es la opción para una tarde suelta; ten en cuenta que la URL **cambia en cada arranque**.
+- **Cloudflare propio.** Usas el **token del túnel** del club y **tu propio dominio**, con lo que la **URL es fija** y de marca. La propia pantalla trae una **guía paso a paso**, con enlaces al panel **Zero Trust** de Cloudflare y a la documentación oficial, para crear el túnel y pegar su token.
+
+**Controles.** Botones **Arrancar** / **Parar** con el **estado** y la **URL en vivo** (para copiarla y compartirla). **Arrancar** aplica lo que tengas en pantalla en ese momento. Puedes activar el **autoarranque** para que el túnel se levante solo al abrir PitWall.
+
+**Instalar cloudflared.** El túnel lo levanta la herramienta `cloudflared`. Si no está instalada, aparece el botón **Instalar cloudflared**, que **descarga la versión oficial** a la carpeta de datos de PitWall — **sin pedir permisos de administrador**.
+
+> **Seguridad.** Desde fuera **solo se ven las vistas públicas** (directo, resultados y PitWall Lap). El **control de la app** (crear, dirigir o editar carreras) **queda bloqueado**: nadie de fuera puede tocar la carrera.
+
+## 16. Glosario (operación)
 - **Carrera**: el evento completo. Se compone de tandas.
 - **Tanda**: grupo de participantes con su rotación; se compone de mangas.
 - **Manga**: una tirada cronometrada (todos los carriles a la vez) de una duración.
@@ -227,3 +268,8 @@ Elige la modalidad, asigna los carriles y pulsa **Empezar**. El cronometraje en 
 - **QR de piloto**: código que identifica al piloto para registrar su turno al escanearlo.
 - **Turno (shift)**: periodo que un piloto está al volante dentro de su equipo en resistencia.
 - **DS-300**: la caja de cronometraje que detecta el paso por meta.
+- **Importar tanda**: traer una prueba montada en PitWall Control (por JSON o por red LAN + PIN) para que PitWall autocree la carrera.
+- **PitWall Control**: la app de gestión de campeonatos que monta la prueba y recibe los resultados de PitWall.
+- **Seguimiento público por internet**: publicar las vistas públicas (directo, resultados, Lap) en internet con un túnel Cloudflare propio del club.
+- **Túnel Cloudflare**: conexión que expone en internet las vistas públicas de PitWall sin abrir puertos (modo Rápido con URL temporal, o Cloudflare propio con dominio fijo).
+- **Historial de versiones**: la página (`/changelog`) que abre el número de versión del pie, con lo añadido, mejorado y corregido en cada actualización.

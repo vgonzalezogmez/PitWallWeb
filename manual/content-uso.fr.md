@@ -66,7 +66,27 @@ Appuie sur *Nouvelle course (« + Nueva carrera »)* et suis l'assistant :
 
 > Les **passages** et la **répétition de voie** ne changent que la façon dont les manches sont générées ; les totaux se cumulent par participant.
 
-## 4. Séries, participants et rotation
+> Tu gères le championnat avec **PitWall Control** ? Pas besoin de ressaisir les équipes et la rotation : tu peux **importer l'épreuve** entière depuis Control (voir *Importer une série de PitWall Control*).
+
+## 4. Importer une série de PitWall Control
+![img: op-import-tanda.png]
+
+Si tu organises le championnat avec **PitWall Control** (le gestionnaire de saison), tu peux y monter l'épreuve —équipes, coupes, voies et rotation— et la transmettre à PitWall **sans rien ressaisir**. PitWall **crée automatiquement la course** à partir de ce qu'il reçoit.
+
+Entre dans **Courses → Importer une série (« Importar tanda »)**. Il y a **deux façons** d'apporter l'épreuve :
+
+- **Fichier JSON.** Dans Control, tu appuies sur **Exporter la série (JSON)** et tu enregistres le fichier ; dans PitWall, tu le **téléverses** sur l'écran d'import.
+- **Par réseau (Wi-Fi/LAN).** Dans Control, tu appuies sur **Envoyer à PitWall** : Control **détecte** ton PitWall sur le réseau local (ou tu lui indiques l'**IP** à la main) et demande un **PIN d'appairage**. Ce PIN est celui qu'affiche l'écran **Importer une série** de PitWall — saisis-le dans Control pour autoriser l'envoi.
+
+**Ce que crée PitWall.** Chaque **manche** de l'épreuve de Control devient une **série**, avec chaque équipe placée sur sa **voie de départ**. Les **repos** (`D1`, `D2`…) sont placés et tournent comme dans n'importe quelle rotation (voir *Séries, participants et rotation*).
+
+**Avec pole.** Si l'épreuve a une pole (interrupteur **La course a une pole** dans Control ; à l'export vers fichier, il te le demande), Control **n'envoie pas l'ordre des voies**. Sur l'écran d'import de PitWall, coche **Cette course a une pole** : PitWall crée la course avec la **séance de pole** (toutes les équipes) et la grille se décide **après avoir couru la pole** (voir *Pole*).
+
+> Juste après l'import, tu peux **éditer la course** pour lui attribuer le **scénario** de ton club (et hériter de ses voies, sa séquence et son temps minimum) — voir *Éditer la course, les séries et les manches*.
+
+> **Prérequis :** pour l'envoi par réseau, PitWall et PitWall Control doivent être sur le **même réseau** LAN/Wi-Fi. Le PIN d'appairage s'affiche dans **Importer une série** de PitWall. L'autre moitié du pont —**récupérer les résultats** vers Control— est expliquée dans le *Manuel de PitWall Control*.
+
+## 5. Séries, participants et rotation
 ![img: 34-tanda.png]
 
 Une **série** regroupe les participants et leur **rotation de voies** par manche. Lorsque tu ajoutes les **équipes/pilotes**, PitWall génère automatiquement toutes les **manches**.
@@ -83,12 +103,14 @@ Une **série** regroupe les participants et leur **rotation de voies** par manch
 - *2 passages* → la séquence entière se répète : `1,3,5,6,4,2, 1,3,5,6,4,2`.
 - *Répéter la voie 2* → chaque voie, deux manches d'affilée : `1,1,3,3,5,5,6,6,4,4,2,2`.
 
-## 5. Éditer la course, les séries et les manches
+## 6. Éditer la course, les séries et les manches
 
 Après avoir créé une course, tu peux la retoucher :
-- **Éditer la course** — changer le **nom** et, si elle **n'a pas encore de tours enregistrés**, le circuit/scénario. S'il y a déjà des tours, le circuit reste **verrouillé** (pour ne pas casser les données).
+- **Éditer la course** — changer le **nom** et, **tant qu'il n'y a pas de tours enregistrés**, le **scénario**. Tu peux **attribuer** un scénario à une course qui n'en avait pas, le **changer** pour un autre ou le **retirer**. En **attribuant** un scénario, la course hérite de ses **voies**, de sa **séquence** de rotation et de son **temps minimum** (et des tours minimum par **catégorie**, s'il y en a), et PitWall **régénère les séries en attente** avec cette configuration ; en le **retirant**, la course passe en **mode manuel** en conservant sa configuration. S'il y a déjà des tours, le scénario reste **verrouillé** (pour ne pas casser les données).
 
 ![img: op-edit-carrera.png]
+
+> Cas typique : tu **importes une série de PitWall Control** (qui arrive en mode manuel) puis tu l'**édites pour lui attribuer le scénario** de ton club, afin qu'elle hérite des voies, de la séquence et du temps minimum de ta piste.
 
 - **Éditer la série** — changer les **noms** des participants et, si la série n'a pas encore commencé, sa composition. Si elle a déjà des manches lancées, elle passe en **mode renommer seulement** (on n'ajoute ni ne retire de participants, pour ne pas déséquilibrer la rotation).
 
@@ -96,7 +118,7 @@ Après avoir créé une course, tu peux la retoucher :
 
 - **Éditer la manche** — changer **qui court sur chaque voie** dans une manche précise, sans régénérer toute la série (utile si une équipe ne se présente pas ou en cas de changement de dernière minute).
 
-## 6. Pole (qualification préalable)
+## 7. Pole (qualification préalable)
 ![img: 44-pole-setup.png]
 
 La **pole** est un tour qualificatif **avant** la course pour décider l'ordre de départ. Elle est facultative ; elle s'active à la création de la course (**Pole**) et se lance depuis la page de la course → *Configurer la Pole Position (« Configurar Pole Position »)*.
@@ -120,7 +142,7 @@ La **pole** est un tour qualificatif **avant** la course pour décider l'ordre d
 
 > La pole ne rapporte pas de points dans la course : elle décide seulement **qui choisit sa voie en premier** et, par là, la grille de départ de la première manche.
 
-## 7. PitWall Lap — PIN pour les équipes
+## 8. PitWall Lap — PIN pour les équipes
 ![img: 43-lap-pins.png]
 
 **PitWall Lap** est la vue mobile qui permet à chaque **équipe/pilote** de suivre son propre chronométrage depuis le téléphone (ses tours, annoncés par la voix, et sa position). Pour qu'ils accèdent uniquement à *leur* panneau, un **PIN** est distribué par équipe.
@@ -129,9 +151,9 @@ La **pole** est un tour qualificatif **avant** la course pour décider l'ordre d
 - Donne à chaque équipe **son PIN**. En ouvrant l'adresse et en le saisissant, ils entrent directement sur leur panneau.
 - *Nouveau (« Nuevo »)* régénère le PIN d'une équipe (au cas où il aurait fuité ou qu'ils veuillent le changer).
 
-> Les mobiles doivent être sur le **même réseau** que l'ordinateur qui fait office de serveur. Utilise l'IP de la machine, pas `localhost`, quand ils l'ouvrent depuis le téléphone.
+> Les mobiles doivent être sur le **même réseau** que l'ordinateur qui fait office de serveur. Utilise l'IP de la machine, pas `localhost`, quand ils l'ouvrent depuis le téléphone. Si tu veux que les équipes suivent la course **depuis l'extérieur du local** (par internet), voir *Suivi public par internet*.
 
-## 8. Diriger la course en direct
+## 9. Diriger la course en direct
 ![img: 20-live-timing.png]
 
 Depuis la page de la course :
@@ -152,7 +174,7 @@ Depuis la page de la course :
 
 > Avertissement **« Sans signal du DS-300 »** : tant qu'il est présent, les tours **ne sont pas enregistrés**. Vérifie la connexion avant de donner le GO.
 
-## 9. Contrôle des relais de pilote (championnats)
+## 10. Contrôle des relais de pilote (championnats)
 
 Dans les courses de **championnat par équipes**, tu peux imposer des règles de partage du volant entre les pilotes d'une équipe. Elles se définissent à la création de la course :
 - **Temps minimum / maximum par pilote** — chaque pilote doit rouler au moins X et au plus Y.
@@ -161,7 +183,7 @@ Dans les courses de **championnat par équipes**, tu peux imposer des règles de
 
 Les **changements de pilote** s'enregistrent en scannant le **QR du pilote** (ou en saisissant son code) à l'entrée en piste. Depuis le direct, tu ouvres **Contrôle des relais**, qui affiche le **pilote actuel par voie**, le **temps cumulé** de chacun (en signalant s'il enfreint une règle) et l'**historique des relais** ; si un changement a été mal enregistré, tu peux **corriger le temps** du relais.
 
-## 10. Tour par tour et corrections (ajouter / retirer des tours)
+## 11. Tour par tour et corrections (ajouter / retirer des tours)
 ![img: 30-correcciones.png]
 
 Depuis la course (bouton de **correction des tours** dans le direct ou dans les résultats), tu accèdes au **tour par tour** de chaque manche. Il sert à corriger les lectures mal enregistrées.
@@ -176,7 +198,7 @@ Depuis la course (bouton de **correction des tours** dans le direct ou dans les 
 
 > Utilise-le avec discernement : les corrections modifient les totaux, les moyennes et le classement de cette manche.
 
-## 11. Résultats et exports
+## 12. Résultats et exports
 ![img: 10-results-comparativa.png]
 
 À la fin (ou à tout moment), entre dans **Résultats** :
@@ -189,7 +211,7 @@ Depuis la course (bouton de **correction des tours** dans le direct ou dans les 
 
 ![img: op-resultados-publicos.png]
 
-## 12. Entraînement
+## 13. Entraînement
 ![img: 40-training.png]
 
 En plus des courses, PitWall dispose d'un mode **Entraînement** (depuis l'écran d'accueil) pour rouler sans monter une compétition complète. Il y a deux modalités :
@@ -199,14 +221,33 @@ En plus des courses, PitWall dispose d'un mode **Entraînement** (depuis l'écra
 
 Choisis la modalité, attribue les voies et appuie sur *Commencer (« Empezar »)*. Le chronométrage en direct fonctionne comme en course (GO du boîtier, tours, meilleur/moyenne par voie).
 
-## 13. Réglages
+## 14. Réglages
 ![img: 04-settings.png]
 
 - **Matériel / ports** : configure les circuits série (DS-300) et leur nombre de voies.
 - **Circuits** : définis des pistes enregistrées (séquence de voies, temps minimum).
+- **Suivi public par internet** : publie les vues publiques sur internet pour suivre la course depuis l'extérieur du local (voir la section suivante).
 - **Licence** et langue (ES/EN).
 
-## 14. Glossaire (opération)
+**Historique des versions.** Dans le **pied de toutes les pages**, tu vois le numéro de **version** de PitWall. En cliquant dessus, l'**Historique des versions** (`/changelog`) s'ouvre, avec ce qui a été **Ajouté**, **Amélioré** et **Corrigé** à chaque mise à jour. La version **augmente à chaque mise à jour**, ainsi tu sais toujours quel PitWall tu as et ce qui a changé.
+
+## 15. Suivi public par internet
+![img: op-seguimiento-publico.png]
+
+Par défaut, les vues de PitWall (le **direct**, les **Résultats** et **PitWall Lap**) ne sont visibles que sur le **réseau local**. Avec le **Suivi public par internet**, chaque club peut les **publier sur internet** pour que pilotes et public suivent la course **depuis l'extérieur du local**, sans ouvrir de ports ni monter un VPN : PitWall crée un **tunnel Cloudflare propre** au club.
+
+C'est dans **Réglages → Suivi public par internet**. Il y a **deux modes** :
+
+- **Rapide.** PitWall génère une **URL temporaire** (`*.trycloudflare.com`) à la volée : **sans compte ni domaine**. C'est l'option pour un après-midi ponctuel ; note que l'URL **change à chaque démarrage**.
+- **Cloudflare propre.** Tu utilises le **token du tunnel** du club et **ton propre domaine**, ce qui rend l'**URL fixe** et à ton image. L'écran lui-même propose un **guide pas à pas**, avec des liens vers le panneau **Zero Trust** de Cloudflare et vers la documentation officielle, pour créer le tunnel et coller son token.
+
+**Contrôles.** Boutons **Démarrer** / **Arrêter** avec l'**état** et l'**URL en direct** (pour la copier et la partager). **Démarrer** applique ce que tu as à l'écran à ce moment-là. Tu peux activer le **démarrage automatique** pour que le tunnel se lance seul à l'ouverture de PitWall.
+
+**Installer cloudflared.** Le tunnel est lancé par l'outil `cloudflared`. S'il n'est pas installé, le bouton **Installer cloudflared** apparaît : il **télécharge la version officielle** dans le dossier de données de PitWall — **sans demander de droits d'administrateur**.
+
+> **Sécurité.** Depuis l'extérieur, **seules les vues publiques sont visibles** (direct, résultats et PitWall Lap). Le **contrôle de l'app** (créer, diriger ou éditer des courses) **reste bloqué** : personne de l'extérieur ne peut toucher à la course.
+
+## 16. Glossaire (opération)
 - **Course** : l'événement complet. Il se compose de séries.
 - **Série** : groupe de participants avec sa rotation ; elle se compose de manches.
 - **Manche** : une tirée chronométrée (toutes les voies en même temps) d'une durée donnée.
@@ -227,3 +268,8 @@ Choisis la modalité, attribue les voies et appuie sur *Commencer (« Empezar »
 - **QR de pilote** : code qui identifie le pilote pour enregistrer son relais lors du scan.
 - **Relais (shift)** : période pendant laquelle un pilote est au volant au sein de son équipe en endurance.
 - **DS-300** : le boîtier de chronométrage qui détecte le passage sur la ligne d'arrivée.
+- **Importer une série** : apporter une épreuve montée dans PitWall Control (par JSON ou par réseau LAN + PIN) pour que PitWall crée automatiquement la course.
+- **PitWall Control** : l'app de gestion de championnats qui monte l'épreuve et reçoit les résultats de PitWall.
+- **Suivi public par internet** : publier les vues publiques (direct, résultats, Lap) sur internet avec un tunnel Cloudflare propre au club.
+- **Tunnel Cloudflare** : connexion qui expose sur internet les vues publiques de PitWall sans ouvrir de ports (mode Rapide avec URL temporaire, ou Cloudflare propre avec domaine fixe).
+- **Historique des versions** : la page (`/changelog`) qu'ouvre le numéro de version du pied, avec ce qui a été ajouté, amélioré et corrigé à chaque mise à jour.
