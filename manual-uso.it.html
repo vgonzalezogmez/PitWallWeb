@@ -60,6 +60,7 @@
       <li><a href="#introduccion">Introduzione</a></li>
       <li><a href="#escenarios">Scenari, categorie e cataloghi</a></li>
       <li><a href="#crear">Creare una gara</a></li>
+      <li><a href="#importar">Importare una tanda da PitWall Control</a></li>
       <li><a href="#tandas">Tande, partecipanti e rotazione</a></li>
       <li><a href="#editar">Modificare gara, tande e manche</a></li>
       <li><a href="#pole">Pole (qualifica preliminare)</a></li>
@@ -70,6 +71,7 @@
       <li><a href="#resultados">Risultati ed esportazioni</a></li>
       <li><a href="#entrenamiento">Allenamento</a></li>
       <li><a href="#ajustes">Impostazioni</a></li>
+      <li><a href="#publico">Seguito pubblico su internet</a></li>
       <li><a href="#glosario">Glossario</a></li>
     </ol>
   </nav>
@@ -180,10 +182,40 @@
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <div><b>Passate</b> e <b>ripeti corsia</b> cambiano solo il modo in cui si generano le manche; i totali si sommano per partecipante.</div>
       </div>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Gestisci il campionato con <b>PitWall Control</b>? Non devi ridigitare squadre e rotazione: puoi <b>importare l'intera prova</b> da Control (vedi <a class="inl" href="#importar">Importare una tanda da PitWall Control</a>).</div>
+      </div>
+    </section>
+
+    <section id="importar">
+      <div class="num">// 04</div>
+      <h2>Importare una tanda da PitWall Control</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Importa tanda · PIN di abbinamento</span></div>
+        <img src="manual/img/op-import-tanda.png" loading="lazy" alt="Schermata di importazione tanda di PitWall Control con il PIN di abbinamento">
+        <figcaption>Importa tanda: carica il JSON o ricevi la prova via rete; il PIN di abbinamento è mostrato qui.</figcaption>
+      </figure>
+      <p>Se organizzi il campionato con <b>PitWall Control</b> (il gestore di stagione), puoi allestire lì la prova —squadre, coppe, corsie e rotazione— e passarla a PitWall <b>senza ridigitare nulla</b>. PitWall <b>crea automaticamente la gara</b> da ciò che riceve.</p>
+      <p>Entra in <b>Gare → Importa tanda</b>. Ci sono <b>due modi</b> per portare la prova:</p>
+      <ul>
+        <li><b>File JSON</b> — in Control premi <b>Esporta tanda (JSON)</b> e salvi il file; in PitWall lo <b>carichi</b> nella schermata di importazione.</li>
+        <li><b>Via rete (WiFi/LAN)</b> — in Control premi <b>Invia a PitWall</b>: Control <b>rileva</b> il tuo PitWall sulla rete locale (o gli indichi l'<b>IP</b> a mano) e chiede un <b>PIN di abbinamento</b>. Quel PIN è quello mostrato dalla schermata <b>Importa tanda</b> di PitWall — digitalo in Control per autorizzare l'invio.</li>
+      </ul>
+      <p><b>Cosa crea PitWall.</b> Ogni <b>manche</b> della prova di Control diventa una <b>tanda</b>, con ciascuna squadra collocata nella sua <b>corsia di partenza</b>. I <b>riposi</b> (<span class="mono">D1</span>, <span class="mono">D2</span>…) vengono collocati e ruotati come in qualsiasi rotazione (vedi <a class="inl" href="#tandas">Tande, partecipanti e rotazione</a>).</p>
+      <p><b>Con pole.</b> Se la prova ha la pole (interruttore <b>La gara ha pole</b> in Control; esportando su file te lo chiede), Control <b>non invia l'ordine delle corsie</b>. Nella schermata di importazione di PitWall spunta <b>Questa gara ha pole</b>: PitWall crea la gara con la <b>sessione di pole</b> (tutte le squadre) e la griglia si decide <b>dopo aver corso la pole</b> (vedi <a class="inl" href="#pole">Pole</a>).</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Subito dopo l'importazione puoi <b>modificare la gara</b> per assegnarle lo <b>scenario</b> del tuo club (ed ereditarne corsie, sequenza e tempo minimo) — vedi <a class="inl" href="#editar">Modificare gara, tande e manche</a>.</div>
+      </div>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div><b>Requisito:</b> per l'invio via rete, PitWall e PitWall Control devono trovarsi sulla <b>stessa rete</b> LAN/WiFi. Il PIN di abbinamento è mostrato in <b>Importa tanda</b> di PitWall. L'altra metà del ponte —<b>riportare i risultati</b> verso Control— è spiegata nel <a class="inl" href="manual-control.it.html">Manuale di PitWall Control</a>.</div>
+      </div>
     </section>
 
     <section id="tandas">
-      <div class="num">// 04</div>
+      <div class="num">// 05</div>
       <h2>Tande, partecipanti e rotazione</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Tanda · Partecipanti e manche</span></div>
@@ -212,17 +244,21 @@
     </section>
 
     <section id="editar">
-      <div class="num">// 05</div>
+      <div class="num">// 06</div>
       <h2>Modificare gara, tande e manche</h2>
       <p>Dopo aver creato una gara puoi ritoccarla:</p>
       <ul>
-        <li><b>Modifica gara ("Editar carrera")</b> — cambiare il <b>nome</b> e, se <b>non ha ancora giri registrati</b>, il circuito/scenario. Se ci sono già giri, il circuito resta <b>bloccato</b> (per non rovinare i dati).</li>
+        <li><b>Modifica gara ("Editar carrera")</b> — cambiare il <b>nome</b> e, <b>finché non ci sono giri registrati</b>, lo <b>scenario</b>. Puoi <b>assegnare</b> uno scenario a una gara che non ne aveva, <b>cambiarlo</b> con un altro o <b>toglierlo</b>. <b>Assegnando</b> uno scenario, la gara ne eredita le <b>corsie</b>, la <b>sequenza</b> di rotazione e il <b>tempo minimo</b> (e i giri minimi per <b>categoria</b>, se presenti), e PitWall <b>rigenera le tande in sospeso</b> con quella configurazione; <b>togliendolo</b>, la gara passa in <b>modalità manuale</b> conservando la configurazione che aveva. Se ci sono già giri, lo scenario resta <b>bloccato</b> (per non rovinare i dati).</li>
       </ul>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Modifica gara</span></div>
-        <img src="manual/img/op-edit-carrera.png" loading="lazy" alt="Modulo di modifica di una gara: nome e circuito/scenario">
-        <figcaption>Modifica gara: nome e —se non ci sono ancora giri— circuito/scenario.</figcaption>
+        <img src="manual/img/op-edit-carrera.png" loading="lazy" alt="Modulo di modifica di una gara: nome e scenario assegnabile">
+        <figcaption>Modifica gara: nome e —se non ci sono ancora giri— assegnare, cambiare o togliere lo scenario.</figcaption>
       </figure>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>Caso tipico: <b>importi una tanda da PitWall Control</b> (che arriva in modalità manuale) e poi la <b>modifichi per assegnarle lo scenario</b> del tuo club, così eredita corsie, sequenza e tempo minimo della tua pista.</div>
+      </div>
       <ul>
         <li><b>Modifica tanda ("Editar tanda")</b> — cambiare i <b>nomi</b> dei partecipanti e, se la tanda non è ancora iniziata, la sua composizione. Se ha già manche avviate, entra in <b>modalità solo rinomina</b> (non si aggiungono né si tolgono partecipanti, per non scompaginare la rotazione).</li>
       </ul>
@@ -237,7 +273,7 @@
     </section>
 
     <section id="pole">
-      <div class="num">// 06</div>
+      <div class="num">// 07</div>
       <h2>Pole (qualifica preliminare)</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Configura Pole Position</span></div>
@@ -279,7 +315,7 @@
     </section>
 
     <section id="lap">
-      <div class="num">// 07</div>
+      <div class="num">// 08</div>
       <h2>PitWall Lap — PIN per le squadre</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall Lap · PIN per squadra</span></div>
@@ -294,12 +330,12 @@
       </ul>
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
-        <div>I cellulari devono essere sulla <b>stessa rete</b> del computer che fa da server. Usa l'IP del computer, non <span class="mono">localhost</span>, quando lo aprono dal telefono.</div>
+        <div>I cellulari devono essere sulla <b>stessa rete</b> del computer che fa da server. Usa l'IP del computer, non <span class="mono">localhost</span>, quando lo aprono dal telefono. Se vuoi che le squadre seguano la gara <b>da fuori della sede</b> (via internet), vedi <a class="inl" href="#publico">Seguito pubblico su internet</a>.</div>
       </div>
     </section>
 
     <section id="vivo">
-      <div class="num">// 08</div>
+      <div class="num">// 09</div>
       <h2>Dirigere la gara in diretta</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Cronometraggio in diretta</span></div>
@@ -332,7 +368,7 @@
     </section>
 
     <section id="turnos">
-      <div class="num">// 09</div>
+      <div class="num">// 10</div>
       <h2>Controllo dei turni di pilota (campionati)</h2>
       <p>Nelle gare di <b>campionato a squadre</b> puoi imporre regole di ripartizione del volante tra i piloti di una squadra. Si definiscono al momento di creare la gara:</p>
       <ul>
@@ -344,7 +380,7 @@
     </section>
 
     <section id="correcciones">
-      <div class="num">// 10</div>
+      <div class="num">// 11</div>
       <h2>Giro per giro e correzioni (aggiungere / togliere giri)</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Giro per giro · Correzioni</span></div>
@@ -371,7 +407,7 @@
     </section>
 
     <section id="resultados">
-      <div class="num">// 11</div>
+      <div class="num">// 12</div>
       <h2>Risultati ed esportazioni</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Risultati · Comparativa</span></div>
@@ -395,7 +431,7 @@
     </section>
 
     <section id="entrenamiento">
-      <div class="num">// 12</div>
+      <div class="num">// 13</div>
       <h2>Allenamento</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Allenamento</span></div>
@@ -411,22 +447,48 @@
     </section>
 
     <section id="ajustes">
-      <div class="num">// 13</div>
+      <div class="num">// 14</div>
       <h2>Impostazioni</h2>
       <figure class="shot">
         <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Impostazioni</span></div>
         <img src="manual/img/04-settings.png" loading="lazy" alt="Schermata delle impostazioni di PitWall">
-        <figcaption>Impostazioni: hardware e porte, circuiti salvati, licenza e lingua.</figcaption>
+        <figcaption>Impostazioni: hardware e porte, circuiti salvati, seguito pubblico, licenza e lingua.</figcaption>
       </figure>
       <ul>
         <li><b>Hardware / porte</b>: configura i circuiti seriali (DS-300) e il loro n° di corsie.</li>
         <li><b>Circuiti</b>: definisci le piste salvate (sequenza di corsie, tempo minimo).</li>
+        <li><b>Seguito pubblico su internet</b>: pubblica le viste pubbliche su internet per seguire la gara da fuori della sede (vedi la <a class="inl" href="#publico">sezione seguente</a>).</li>
         <li><b>Licenza</b> e lingua (ES/EN).</li>
       </ul>
+
+      <h3>Cronologia delle versioni</h3>
+      <p>Nel <b>piè di pagina di tutte le pagine</b> vedi il numero di <b>versione</b> di PitWall. Premendolo si apre la <b>Cronologia delle versioni</b> (<span class="mono">/changelog</span>), con ciò che è stato <b>Aggiunto</b>, <b>Migliorato</b> e <b>Corretto</b> in ogni aggiornamento. La versione <b>sale a ogni aggiornamento</b>, così sai sempre quale PitWall hai e cosa è cambiato.</p>
+    </section>
+
+    <section id="publico">
+      <div class="num">// 15</div>
+      <h2>Seguito pubblico su internet</h2>
+      <figure class="shot">
+        <div class="shot-bar"><i></i><i></i><i></i><span>PitWall · Impostazioni · Seguito pubblico su internet</span></div>
+        <img src="manual/img/op-seguimiento-publico.png" loading="lazy" alt="Schermata di seguito pubblico su internet con le modalità, i pulsanti di avvio e la URL in tempo reale">
+        <figcaption>Seguito pubblico: modalità Rapido e Cloudflare proprio, Avvia/Ferma, stato e URL in tempo reale.</figcaption>
+      </figure>
+      <p>Per impostazione predefinita le viste di PitWall (la <b>diretta</b>, i <b>Risultati</b> e <b>PitWall Lap</b>) sono visibili solo sulla <b>rete locale</b>. Con il <b>Seguito pubblico su internet</b> ogni club può <b>pubblicarle su internet</b> affinché piloti e pubblico seguano la gara <b>da fuori della sede</b>, senza aprire porte né configurare una VPN: PitWall attiva un <b>tunnel Cloudflare proprio</b> del club.</p>
+      <p>Si trova in <b>Impostazioni → Seguito pubblico su internet</b>. Ci sono <b>due modalità</b>:</p>
+      <ul>
+        <li><b>Rapido</b> — PitWall genera al volo una <b>URL temporanea</b> (<span class="mono">*.trycloudflare.com</span>): <b>senza account né dominio</b>. È l'opzione per un pomeriggio isolato; tieni presente che la URL <b>cambia a ogni avvio</b>.</li>
+        <li><b>Cloudflare proprio</b> — usi il <b>token del tunnel</b> del club e <b>il tuo dominio</b>, così la <b>URL è fissa</b> e col tuo marchio. La schermata stessa contiene una <b>guida passo passo</b>, con collegamenti al pannello <b>Zero Trust</b> di Cloudflare e alla documentazione ufficiale, per creare il tunnel e incollarne il token.</li>
+      </ul>
+      <p><b>Comandi.</b> Pulsanti <b>Avvia</b> / <b>Ferma</b> con lo <b>stato</b> e la <b>URL in tempo reale</b> (da copiare e condividere). <b>Avvia</b> applica ciò che hai sullo schermo in quel momento. Puoi attivare l'<b>avvio automatico</b> perché il tunnel si attivi da solo all'apertura di PitWall.</p>
+      <p><b>Installare cloudflared.</b> Il tunnel è attivato dallo strumento <span class="mono">cloudflared</span>. Se non è installato, compare il pulsante <b>Installa cloudflared</b>, che <b>scarica la versione ufficiale</b> nella cartella dati di PitWall — <b>senza chiedere permessi di amministratore</b>.</p>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/></svg>
+        <div><b>Sicurezza.</b> Da fuori <b>si vedono solo le viste pubbliche</b> (diretta, risultati e PitWall Lap). Il <b>controllo dell'app</b> (creare, dirigere o modificare gare) <b>resta bloccato</b>: nessuno da fuori può toccare la gara.</div>
+      </div>
     </section>
 
     <section id="glosario">
-      <div class="num">// 14</div>
+      <div class="num">// 16</div>
       <h2>Glossario (operazione)</h2>
       <ul>
         <li><b>Gara</b>: l'evento completo. Si compone di tande.</li>
@@ -449,6 +511,11 @@
         <li><b>QR di pilota</b>: codice che identifica il pilota per registrare il suo turno alla scansione.</li>
         <li><b>Turno (shift)</b>: periodo in cui un pilota è al volante all'interno della sua squadra in resistenza.</li>
         <li><b>DS-300</b>: il box di cronometraggio che rileva il passaggio sul traguardo.</li>
+        <li><b>Importa tanda</b>: portare una prova allestita in PitWall Control (via JSON o via rete LAN + PIN) affinché PitWall crei automaticamente la gara.</li>
+        <li><b>PitWall Control</b>: l'app di gestione dei campionati che allestisce la prova e riceve i risultati da PitWall.</li>
+        <li><b>Seguito pubblico su internet</b>: pubblicare le viste pubbliche (diretta, risultati, Lap) su internet con un tunnel Cloudflare proprio del club.</li>
+        <li><b>Tunnel Cloudflare</b>: connessione che espone su internet le viste pubbliche di PitWall senza aprire porte (modalità Rapido con URL temporanea, o Cloudflare proprio con dominio fisso).</li>
+        <li><b>Cronologia delle versioni</b>: la pagina (<span class="mono">/changelog</span>) che apre il numero di versione del piè di pagina, con ciò che è stato aggiunto, migliorato e corretto in ogni aggiornamento.</li>
       </ul>
     </section>
 

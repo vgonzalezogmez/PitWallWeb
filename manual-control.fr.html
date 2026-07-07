@@ -331,12 +331,27 @@
     <section id="pitwall">
       <div class="num">// 15</div>
       <h2>Envoyer à PitWall / récupérer les résultats</h2>
-      <p>PitWall Control communique avec le chronométreur <b>PitWall</b> pour ne pas saisir deux fois :</p>
+      <p>PitWall Control communique avec le chronométreur <b>PitWall</b> pour ne pas saisir deux fois : il <b>envoie l'épreuve</b> que tu as montée (équipes, voies et rotation) et, plus tard, <b>récupère les résultats</b> pour le classement et les crédits. Les deux apps doivent être sur le <b>même</b> réseau LAN/Wi-Fi.</p>
+
+      <h3>Envoyer la série à PitWall (aller)</h3>
+      <p>Il génère la série (format <span class="mono">pitwall.tanda/v1</span>) pour que PitWall <b>crée automatiquement la course</b> — chaque manche devient une série avec chaque équipe sur sa voie de départ, et les <b>repos</b> (<span class="mono">D1…Dk</span>) sont placés et tournés correctement. Il y a deux voies :</p>
       <ul>
-        <li><b>Exporter / envoyer la manche</b> : génère la manche (format <span class="mono">pitwall.tanda/v1</span>) et l'envoie par <b>LAN</b> à PitWall, ou l'enregistre en JSON. Les repos (<span class="mono">D1…Dk</span>) sont correctement traités.</li>
-        <li><b>Récupérer les résultats</b> : importe depuis PitWall les résultats de l'épreuve via le réseau local, prêts pour le classement et les crédits.</li>
+        <li><b>Exporter la série (JSON)</b> : enregistre l'épreuve dans un fichier que tu <b>téléverses</b> ensuite dans PitWall (Courses → Importer une série). À l'export vers un fichier, l'app <b>te demande si la course a une pole</b>.</li>
+        <li><b>Envoyer à PitWall</b> (par réseau) : Control <b>détecte</b> le PitWall sur le réseau local (ou tu saisis l'<b>IP</b> à la main) et te demande le <b>PIN d'appairage</b> — celui qu'affiche l'écran <b>Importer une série</b> de PitWall.</li>
       </ul>
-      <!-- figura: manual/img/control-15-enviar.png — Enviar tanda a PitWall por LAN -->
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+        <div>Avec l'interrupteur <b>Cette course a une pole</b> activé, Control <b>n'envoie pas l'ordre des voies</b> : PitWall crée la course avec la séance de pole (toutes les équipes) et la grille se décide après avoir couru la pole.</div>
+      </div>
+
+      <h3>Récupérer les résultats depuis PitWall (retour)</h3>
+      <p>Une fois la course terminée, depuis le panneau de l'épreuve tu appuies sur <b>Récupérer les résultats de PitWall</b> :</p>
+      <ol class="steps">
+        <li>Tu choisis le <b>PitWall</b> sur le réseau et tu vois la <b>liste des courses</b> ; tu sélectionnes celle de cette épreuve.</li>
+        <li>Control affiche un <b>aperçu</b> avec les équipes <b>appariées par nom</b>, pour vérifier l'appairage avant d'appliquer.</li>
+        <li>À l'<b>application</b>, les <b>positions par manche</b> sont écrites dans l'épreuve. Les <b>points</b> sont fixés par Control avec sa propre <b>table de points</b> (ils ne viennent pas de PitWall).</li>
+      </ol>
+      <!-- figura: manual/img/control-15-enviar.png — Enviar tanda a PitWall por LAN y traer resultados -->
     </section>
 
     <section id="glosario">
@@ -358,7 +373,9 @@
         <li><b>Échelle des catégories</b> : BRONCE · PLATA · ORO · PLATINO.</li>
         <li><b>Résultat écarté</b> : plus mauvais résultat qui ne compte pas pour le classement.</li>
         <li><b>Trésorerie</b> : cotisations par épreuve et leur répartition (comité d'organisation / club).</li>
-        <li><b>Manche (tanda)</b> : paquet de l'épreuve (<span class="mono">pitwall.tanda/v1</span>) envoyé à PitWall.</li>
+        <li><b>Série (tanda)</b> : paquet de l'épreuve (<span class="mono">pitwall.tanda/v1</span>) envoyé à PitWall.</li>
+        <li><b>Récupérer les résultats</b> : importer depuis PitWall les positions par manche (appariées par nom) pour le classement et les crédits ; les points sont fixés par Control.</li>
+        <li><b>PIN d'appairage</b> : le code que PitWall affiche dans <i>Importer une série</i>, que Control demande pour autoriser l'envoi par réseau.</li>
         <li><b>Marque</b> : titre et devise du championnat estampillés sur les PDF.</li>
       </ul>
     </section>

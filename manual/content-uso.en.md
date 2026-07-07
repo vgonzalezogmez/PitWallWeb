@@ -66,7 +66,27 @@ Press New race (“+ Nueva carrera”) and follow the wizard:
 
 > **Passes** and **repeat lane** only change how the heats are generated; totals are summed per participant.
 
-## 4. Batches, participants and rotation
+> Do you manage the championship with **PitWall Control**? You don't have to type the teams and rotation again: you can **import the whole event** from Control (see *Importing a batch from PitWall Control*).
+
+## 4. Importing a batch from PitWall Control
+![img: op-import-tanda.png]
+
+If you organize the championship with **PitWall Control** (the season manager), you can set up the event there —teams, cups, lanes and rotation— and pass it to PitWall **without typing anything again**. PitWall **auto-creates the race** from what it receives.
+
+Go into **Races → Import batch**. There are **two ways** to bring the event over:
+
+- **JSON file** — in Control you press **Export batch (JSON)** and save the file; in PitWall you **upload** it on the import screen.
+- **Over the network (WiFi/LAN)** — in Control you press **Send to PitWall**: Control **discovers** your PitWall on the local network (or you enter the **IP** by hand) and asks for a **pairing PIN**. That PIN is the one shown by PitWall's **Import batch** screen — type it into Control to authorize the send.
+
+**What PitWall creates.** Each **heat** of the Control event becomes a **batch**, with each team placed in its **starting lane**. The **rests** (`D1`, `D2`…) are placed and rotated like in any rotation (see *Batches, participants and rotation*).
+
+**With pole.** If the event has pole (the **This race has pole** switch in Control; when exporting to a file it asks you), Control **does not send the lane order**. On PitWall's import screen tick **This race has pole**: PitWall creates the race with the **pole session** (all teams) and the grid is decided **after running the pole** (see *Pole*).
+
+> Right after importing you can **edit the race** to assign it your club's **scenario** (and inherit its lanes, sequence and minimum time) — see *Editing race, batches and heats*.
+
+> **Requirement:** for the network send, PitWall and PitWall Control must be on the **same** LAN/WiFi network. The pairing PIN is shown in PitWall's **Import batch**. The other half of the bridge —**bringing the results** back to Control— is explained in the *PitWall Control manual*.
+
+## 5. Batches, participants and rotation
 ![img: 34-tanda.png]
 
 A **batch** groups the participants and their **lane rotation** per heat. When you add the **teams/drivers**, PitWall automatically generates all the **heats**.
@@ -83,12 +103,14 @@ A **batch** groups the participants and their **lane rotation** per heat. When y
 - *2 passes* → the whole sequence repeats: `1,3,5,6,4,2, 1,3,5,6,4,2`.
 - *Repeat lane 2* → each lane, two consecutive heats: `1,1,3,3,5,5,6,6,4,4,2,2`.
 
-## 5. Editing race, batches and heats
+## 6. Editing race, batches and heats
 
 After creating a race you can tweak it:
-- **Edit race** — change the **name** and, if it **still has no laps recorded**, the track/scenario. If there are already laps, the track is **locked** (so as not to break the data).
+- **Edit race** — change the **name** and, **as long as there are no laps recorded**, the **scenario**. You can **assign** a scenario to a race that didn't have one, **change** it for another or **remove** it. When you **assign** a scenario, the race inherits its **lanes**, its rotation **sequence** and its **minimum time** (and the minimum laps per **category**, if it has them), and PitWall **regenerates the pending batches** with that configuration; when you **remove** it, the race switches to **manual mode** keeping the configuration it had. If there are already laps, the scenario is **locked** (so as not to break the data).
 
 ![img: op-edit-carrera.png]
+
+> Typical case: you **import a batch from PitWall Control** (which arrives in manual mode) and then **edit it to assign your club's scenario**, so it inherits your track's lanes, sequence and minimum time.
 
 - **Edit batch** — change the **names** of the participants and, if the batch hasn't started yet, its composition. If it already has heats started, it enters **rename-only mode** (no participants added or removed, so as not to unbalance the rotation).
 
@@ -96,7 +118,7 @@ After creating a race you can tweak it:
 
 - **Edit heat** — change **who runs in each lane** in a specific heat, without regenerating the whole batch (useful if a team doesn't show up or there's a last-minute change).
 
-## 6. Pole (pre-race qualifying)
+## 7. Pole (pre-race qualifying)
 ![img: 44-pole-setup.png]
 
 The **pole** is a qualifying lap **before** the race to decide the starting order. It's optional; it's enabled when creating the race (**Pole**) and it's launched from the race page → Set up Pole Position (“Configurar Pole Position”).
@@ -120,7 +142,7 @@ The **pole** is a qualifying lap **before** the race to decide the starting orde
 
 > The pole doesn't score in the race: it only decides **who picks lane first** and, with that, the starting grid of the first heat.
 
-## 7. PitWall Lap — PIN for the teams
+## 8. PitWall Lap — PIN for the teams
 ![img: 43-lap-pins.png]
 
 **PitWall Lap** is the mobile view for each **team/driver** to follow their own timing from the phone (their laps, called out by voice, and their position). So that they only enter *their* panel, a **PIN** is handed out per team.
@@ -129,9 +151,9 @@ The **pole** is a qualifying lap **before** the race to decide the starting orde
 - Give each team **their PIN**. When they open the address and enter it, they go straight into their panel.
 - New (“Nuevo”) regenerates a team's PIN (in case it was leaked or they want to change it).
 
-> The phones must be on the **same network** as the computer acting as server. Use the computer's IP, not `localhost`, when they open it from the phone.
+> The phones must be on the **same network** as the computer acting as server. Use the computer's IP, not `localhost`, when they open it from the phone. If you want teams to follow the race **from outside the venue** (over the internet), see *Public tracking over the internet*.
 
-## 8. Running the race live
+## 9. Running the race live
 ![img: 20-live-timing.png]
 
 From the race page:
@@ -152,7 +174,7 @@ From the race page:
 
 > "Sin señal del DS-300" (no DS-300 signal) warning: while it's showing, laps are **not recorded**. Check the connection before giving the GO.
 
-## 9. Driver shift control (championships)
+## 10. Driver shift control (championships)
 
 In **team championship** races you can enforce rules for sharing the wheel among a team's drivers. They are defined when creating the race:
 - **Minimum / maximum time per driver** — each driver must run at least X and at most Y.
@@ -161,7 +183,7 @@ In **team championship** races you can enforce rules for sharing the wheel among
 
 **Driver changes** are recorded by scanning the **driver's QR** (or entering their code) when they come onto the track. From the live screen you open **Shift control**, which shows the **current driver per lane**, the **accumulated time** of each one (warning if they break a rule) and the **shift history**; if a change was recorded wrong, you can **correct the time** of the shift.
 
-## 10. Lap by lap and corrections (add / remove laps)
+## 11. Lap by lap and corrections (add / remove laps)
 ![img: 30-correcciones.png]
 
 From the race (the **lap correction** button in the live screen or in results) you enter the **lap by lap** of each heat. It serves to fix wrongly recorded readings.
@@ -176,7 +198,7 @@ From the race (the **lap correction** button in the live screen or in results) y
 
 > Use it with judgment: corrections change totals, averages and classification of that heat.
 
-## 11. Results and exports
+## 12. Results and exports
 ![img: 10-results-comparativa.png]
 
 When it finishes (or at any time) go into **Results**:
@@ -189,7 +211,7 @@ When it finishes (or at any time) go into **Results**:
 
 ![img: op-resultados-publicos.png]
 
-## 12. Training
+## 13. Training
 ![img: 40-training.png]
 
 Besides races, PitWall has a **Training** mode (from the home screen) to run without setting up a full competition. There are two modes:
@@ -199,14 +221,33 @@ Besides races, PitWall has a **Training** mode (from the home screen) to run wit
 
 Choose the mode, assign the lanes and press **Start**. Live timing works the same as in a race (box GO, laps, best/average per lane).
 
-## 13. Settings
+## 14. Settings
 ![img: 04-settings.png]
 
 - **Hardware / ports**: configure the serial tracks (DS-300) and their number of lanes.
 - **Tracks**: define saved tracks (lane sequence, minimum time).
+- **Public tracking over the internet**: publish the public views on the internet to follow the race from outside the venue (see the next section).
 - **License** and language (ES/EN).
 
-## 14. Glossary (operation)
+**Version history.** In the **footer of every page** you see PitWall's **version** number. Pressing it opens the **Version history** (`/changelog`), with what was **Added**, **Improved** and **Fixed** in each update. The version **goes up with every update**, so you always know which PitWall you have and what has changed.
+
+## 15. Public tracking over the internet
+![img: op-seguimiento-publico.png]
+
+By default PitWall's views (the **live timing**, the **Results** and **PitWall Lap**) are only visible on the **local network**. With **Public tracking over the internet** each club can **publish them on the internet** so drivers and public can follow the race **from outside the venue**, without opening ports or setting up a VPN: PitWall brings up the club's **own Cloudflare tunnel**.
+
+It's in **Settings → Public tracking over the internet**. There are **two modes**:
+
+- **Quick.** PitWall generates a **temporary URL** (`*.trycloudflare.com`) on the fly: **no account or domain**. It's the option for a one-off afternoon; keep in mind the URL **changes on every start**.
+- **Own Cloudflare.** You use the club's **tunnel token** and **your own domain**, so the **URL is fixed** and branded. The screen itself carries a **step-by-step guide**, with links to Cloudflare's **Zero Trust** dashboard and to the official documentation, to create the tunnel and paste its token.
+
+**Controls.** **Start** / **Stop** buttons with the **status** and the **live URL** (to copy and share it). **Start** applies whatever you have on screen at that moment. You can enable **auto-start** so the tunnel comes up by itself when PitWall opens.
+
+**Install cloudflared.** The tunnel is brought up by the `cloudflared` tool. If it isn't installed, the **Install cloudflared** button appears, which **downloads the official version** to PitWall's data folder — **without asking for administrator permissions**.
+
+> **Security.** From outside, **only the public views are visible** (live timing, results and PitWall Lap). The **app control** (creating, running or editing races) is **blocked**: no one from outside can touch the race.
+
+## 16. Glossary (operation)
 - **Race**: the complete event. Made up of batches.
 - **Batch**: group of participants with their rotation; made up of heats.
 - **Heat**: one timed run (all lanes at once) of a set duration.
@@ -227,3 +268,8 @@ Choose the mode, assign the lanes and press **Start**. Live timing works the sam
 - **Driver QR**: a code that identifies the driver to record their shift when scanned.
 - **Shift**: the period a driver is at the wheel within their team in endurance.
 - **DS-300**: the timing box that detects the crossing at the line.
+- **Import batch**: bring in an event set up in PitWall Control (by JSON or over LAN + PIN) so PitWall auto-creates the race.
+- **PitWall Control**: the championship-management app that sets up the event and receives the results from PitWall.
+- **Public tracking over the internet**: publish the public views (live timing, results, Lap) on the internet with the club's own Cloudflare tunnel.
+- **Cloudflare tunnel**: a connection that exposes PitWall's public views on the internet without opening ports (Quick mode with a temporary URL, or Own Cloudflare with a fixed domain).
+- **Version history**: the page (`/changelog`) opened by the version number in the footer, with what was added, improved and fixed in each update.
