@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<!--
+  PitWall Web — Copyright (C) 2026 Víctor González Gómez <vgonzalezgomez@outlook.es>
+  Software libre bajo la GNU Affero General Public License v3, o (a tu elección)
+  cualquier versión posterior. Código fuente: https://github.com/vgonzalezgomez85/PitWallWeb
+  Se ofrece SIN NINGUNA GARANTÍA. Véase <https://www.gnu.org/licenses/>.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PitWall Control · User manual</title>
+<meta name="description" content="PitWall Control user manual: manage slot racing championships from start to finish — drivers, teams, events, scrutineering, credits, standings and exports.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800&family=Saira:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="manual/manual.css">
+<style>
+  body{--ac:var(--amber)}
+  /* etiqueta CONTROL en el logo, coherente con la página de producto */
+  .logo small{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--ac);
+    border:1px solid var(--ac);border-radius:2px;padding:2px 7px;margin-left:2px;font-weight:500}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="pitwall-landing-en.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b><small>CONTROL</small></a>
+    <nav class="links">
+      <a href="pitwall-landing-en.html">Landing</a>
+      <a href="pitwall-control-en.html">Product</a>
+      <a href="manual-control.en.html" class="here">Manual</a>
+      <div class="lang" aria-label="Language">
+        <a href="manual-control.html">ES</a>
+        <a href="manual-control.en.html" class="on" aria-current="page">EN</a>
+        <a href="manual-control.it.html">IT</a>
+        <a href="manual-control.fr.html">FR</a>
+      </div>
+      <a href="pitwall-control-en.html" class="nav-cta">PitWall Control →</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="doc-hero">
+  <div class="wrap">
+    <div class="kicker">User manual · Championship management</div>
+    <h1>Manage the<br>championship from<br>start to <span class="ac">finish</span>.</h1>
+    <p class="lede">A guide for whoever <b>administers</b> PitWall Control: create the championship, maintain the catalogues, register drivers and teams, set up events and heats, <b>scrutineer</b> cars against the rules, run <b>credits</b> and <b>treasury</b>, publish the <b>standings</b> and export everything to PDF. From the first entry to the season close.</p>
+    <div class="xlink">
+      <a class="cur" href="manual-control.en.html">▮ PitWall Control manual</a>
+      <a href="pitwall-control-en.html">See the product ↔</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<div class="wrap doc-grid">
+  <!-- TOC -->
+  <nav class="toc" aria-label="Manual index">
+    <div class="toc-ttl">Contents</div>
+    <ol>
+      <li><a href="#introduccion">Introduction</a></li>
+      <li><a href="#campeonato">Create the championship</a></li>
+      <li><a href="#catalogos">Catalogues (your library)</a></li>
+      <li><a href="#pilotos">Drivers</a></li>
+      <li><a href="#equipos">Teams</a></li>
+      <li><a href="#pruebas">Events and heats</a></li>
+      <li><a href="#verificaciones">Scrutineering</a></li>
+      <li><a href="#clasificacion">Standings</a></li>
+      <li><a href="#tesoreria">Treasury</a></li>
+      <li><a href="#creditos">Credits and season close</a></li>
+      <li><a href="#sorteo">Motor draw</a></li>
+      <li><a href="#google">Sync with Google Sheets</a></li>
+      <li><a href="#csv">CSV templates</a></li>
+      <li><a href="#pdf">Export to PDF</a></li>
+      <li><a href="#pitwall">Send to PitWall / results</a></li>
+      <li><a href="#glosario">Glossary</a></li>
+    </ol>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="doc">
+
+    <section id="introduccion">
+      <div class="num">// 01</div>
+      <h2>Introduction</h2>
+      <p><b>PitWall Control</b> is the <b>slot racing championship</b> manager: the administrative and season side. It does not time races (that is handled by <b>PitWall</b>, the timing app); Control maintains everything around the competition — drivers, teams, technical catalogues, scrutineering, credits, treasury and standings — and talks to PitWall to send the heats and bring back the results.</p>
+      <ul>
+        <li>Runs on <b>desktop</b> (macOS/Windows) and on <b>mobile</b>. The data lives on the device itself.</li>
+        <li>The main navigation, on the left, changes according to the <b>active championship</b>: <b>Home, Drivers, Teams, Events, Scrutineering, Standings, Treasury</b> and <b>Credits</b>.</li>
+        <li>Below the navigation panel you have the secondary shortcuts: <b>Motor draw, Championships, Catalogues, Google settings</b> and <b>CSV templates</b>.</li>
+      </ul>
+      <div class="summary">
+        <span class="tag">In one sentence</span>
+        <p>You set up the championship and its catalogues once, and from there you only register, scrutineer and publish: PitWall Control carries the rules for you.</p>
+      </div>
+      <figure class="shot">
+        <img src="manual/img/control-01-inicio.png" loading="lazy" alt="PitWall Control home screen with the active championship, the next event, the leader and the quick shortcuts">
+        <figcaption>Home: active championship, next event, leader and quick shortcuts. On the left, the navigation.</figcaption>
+      </figure>
+    </section>
+
+    <section id="campeonato">
+      <div class="num">// 02</div>
+      <h2>Create the championship</h2>
+      <p>Everything hangs off a <b>championship</b>. From <b>Championships</b> (secondary shortcut) you create a new one and define how it works. The championship you mark as <b>active</b> is the one you see across the whole app.</p>
+
+      <h3>Basic details</h3>
+      <ul>
+        <li><b>Name</b>, <b>year</b> and <b>organisation</b> (appears in headers and PDFs).</li>
+        <li><b>Format</b>: <b>Individual</b> (1 driver per team), <b>Pairs</b> (2) or <b>Endurance</b> (teams of up to 6 drivers, typically 4-5).</li>
+        <li><b>Cups / classes</b>: the list of classes that race (e.g. <span class="mono">GRUPO C1</span>, <span class="mono">GRUPO C2</span>, <span class="mono">GT</span>, <span class="mono">CLÁSICOS</span>). They are used for standings and to <b>filter the catalogues</b> during scrutineering.</li>
+      </ul>
+
+      <h3>Technical rules</h3>
+      <ul>
+        <li><b>Tooth range</b> allowed in scrutineering: pinion (min/max) and crown gear (min/max). If min = max, the value is fixed (e.g. pinion 12).</li>
+        <li><b>Organisation motor draw range</b> (min/max numbers). Required in order to draw motors.</li>
+      </ul>
+
+      <h3>Optional modules</h3>
+      <ul>
+        <li><b>Credits</b>: enables the handicap system. If you disable it, all the fields and the Credits section are hidden.</li>
+        <li><b>Treasury</b>: enables fee control per event (and its split). If you disable it, it is hidden.</li>
+        <li><b>Brand</b>: the championship's own title and tagline for the PDF header and footer. If you leave them empty, the app's default brand is used.</li>
+        <li><b>Finished</b>: marks the season as closed.</li>
+      </ul>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+        <div>The championship <b>cups</b> are the key piece: almost everything (teams, catalogues, scrutineering, standings) rests on them. Define them before you start registering.</div>
+      </div>
+      <figure class="shot">
+        <img src="manual/img/control-02-campeonatos.png" loading="lazy" alt="List of championships with format, year and drop scores; the active one highlighted">
+        <figcaption>Championships: each one with its format (Pairs / Individual / 24H), year and drop scores. The active one, highlighted.</figcaption>
+      </figure>
+    </section>
+
+    <section id="catalogos">
+      <div class="num">// 03</div>
+      <h2>Catalogues (your library)</h2>
+      <p>The <b>catalogues</b> are the reusable lists of homologated material. They are maintained once and feed the dropdowns during scrutineering. Each tab has a <b>search box</b> and, where relevant, a <b>filter by cup</b>.</p>
+      <ul>
+        <li><b>Cars</b>: model, <b>cup(s)</b> it belongs to and a <b>reference photo</b> (to compare against the car the team hands in). One car can be valid for several cups.</li>
+        <li><b>Motors</b>: identifier, RPM, gauss and <b>cup(s)</b>.</li>
+        <li><b>Gears</b>: pinions and crown gears (brand and teeth) with <b>cup(s)</b>.</li>
+        <li><b>Tyres</b>: name, reference and <b>cup(s)</b>.</li>
+        <li><b>Motor pods</b> and <b>chassis</b>: with <b>cup(s)</b>.</li>
+        <li><b>Wheels</b>: by axle (front / rear / both), brand and size.</li>
+        <li><b>Brands</b>, <b>cups</b> and <b>clubs</b>: support lists.</li>
+      </ul>
+      <div class="callout">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        <div><b>Cup marked vs. unmarked.</b> If an item has no cup marked, it is considered valid for <b>all</b>. If you mark specific cups, it only applies to those. This way, when scrutineering a <span class="mono">GRUPO C2</span> team you will see its material and the "for all" one, but <b>never</b> the one exclusive to <span class="mono">GRUPO C1</span>.</div>
+      </div>
+      <p>You can fill the catalogues by hand, <b>import them via CSV</b> (see <a class="inl" href="#csv">CSV templates</a>) or <b>sync them with Google Sheets</b> (see <a class="inl" href="#google">Sync</a>).</p>
+      <figure class="shot">
+        <img src="manual/img/control-03-catalogos.png" loading="lazy" alt="Cars catalogue with tabs by type, search box and filter by cup">
+        <figcaption>Catalogues: tabs by type (cars, brands, gears, motors…), with a search box and filter by cup.</figcaption>
+      </figure>
+    </section>
+
+    <section id="pilotos">
+      <div class="num">// 04</div>
+      <h2>Drivers</h2>
+      <p>The driver is a <b>single master record</b> (name, track record, phone, email) that can take part in several championships. For each championship they have their own <b>profile</b>:</p>
+      <ul>
+        <li><b>Class</b> (PLATINO · ORO · PLATA · BRONCE), the "ladder" used by the season-end bonus and promotion between seasons.</li>
+        <li><b>Initial/current credits</b> and the previous season's balance (if the championship uses credits).</li>
+        <li><b>Organising committee</b>: if a driver belongs to the organising committee, their team does not pay a fee.</li>
+      </ul>
+      <p>From <b>Drivers</b> you add, edit and search. To bring in many at once, use the CSV import.</p>
+      <figure class="shot">
+        <img src="manual/img/control-04-pilotos.png" loading="lazy" alt="List of championship drivers with a search box">
+        <figcaption>Drivers: the championship's driver master, with a search by name and quick add.</figcaption>
+      </figure>
+    </section>
+
+    <section id="equipos">
+      <div class="num">// 05</div>
+      <h2>Teams</h2>
+      <p>A <b>team</b> groups the drivers who share a car and races in a specific <b>cup</b>. The number of drivers depends on the championship format:</p>
+      <ul>
+        <li><b>Individual</b>: 1 driver.</li>
+        <li><b>Pairs</b>: 2 drivers.</li>
+        <li><b>Endurance</b>: 1 to 6 drivers (usually 4-5). You add and remove slots in the editor.</li>
+      </ul>
+      <div class="callout">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <div>The <b>team's cup</b> is what rules in scrutineering: it determines which cars, motors, gears, tyres, motor pods and chassis are offered.</div>
+      </div>
+      <p>As with drivers, you can create teams by hand or <b>import them via CSV</b> (the endurance template accepts <span class="mono">Piloto 1…5</span> columns).</p>
+      <figure class="shot">
+        <img src="manual/img/control-05-equipos.png" loading="lazy" alt="List of endurance teams with 4-5 drivers and their cup (GRUPO C1 / C2)">
+        <figcaption>Teams: in endurance, each team groups 4-5 drivers and shows its cup (GRUPO C1 / GRUPO C2).</figcaption>
+      </figure>
+    </section>
+
+    <section id="pruebas">
+      <div class="num">// 06</div>
+      <h2>Events and heats</h2>
+      <p>An <b>event</b> is each fixture on the calendar (name, venue, date, order). Within the event you set up the <b>heats</b> with their lanes, and you record the teams' <b>entries</b>.</p>
+      <ol class="steps">
+        <li>Create the event and order it on the calendar.</li>
+        <li>Register the participating teams (each entry saves the cup the team races <b>in that event</b>).</li>
+        <li>Generate the <b>heats</b> and their lane assignment.</li>
+      </ol>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4"/></svg>
+        <div>The cup is saved as a <b>fixed snapshot</b> at the moment of entry: if the team's cup later changes, the event already played keeps the one it raced.</div>
+      </div>
+      <figure class="shot">
+        <img src="manual/img/control-06-pruebas.png" loading="lazy" alt="List of calendar events with their status">
+        <figcaption>Events: the championship calendar with the status of each fixture (scheduled / in progress / finished).</figcaption>
+      </figure>
+    </section>
+
+    <section id="verificaciones">
+      <div class="num">// 07</div>
+      <h2>Scrutineering</h2>
+      <p><b>Scrutineering</b> is the administrative heart of race day: for each team you check that its material meets the rules before validating it. You enter from <b>Scrutineering</b>, choose the heat and the team.</p>
+      <p>Under the team's name the <b>cup it races</b> is shown, and all the dropdowns are <b>filtered by that cup</b>:</p>
+      <ul>
+        <li><b>Car</b>: only models from its cup (or "for all"), with the <b>reference photo</b> below to compare against the car handed in.</li>
+        <li><b>Motor</b>: organisation (with <b>draw</b>) or own, with RPM/measurements.</li>
+        <li><b>Pinion and crown gear</b>: brand (restricted to the ones homologated for that cup) and teeth, validated against the <b>championship range</b>.</li>
+        <li><b>Tyre, motor pod, chassis, wheels</b>: filtered by the cup.</li>
+        <li><b>Weight</b>, suspension, braid, notes and <b>photos</b>.</li>
+      </ul>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div>If the team's cup has no item marked in the catalogue, the dropdown <b>falls back to the championship cups</b> and, as a last resort, to everything — so you never run out of options, but it always prioritises what belongs to its cup.</div>
+      </div>
+      <p>Scrutineering <b>autosaves</b> as a draft with every change (top right you see the status: pending / saving / saved), so you can have several open without losing anything. When everything complies, <b>"Everything meets the rules. You can validate"</b> appears and you confirm.</p>
+      <figure class="shot">
+        <img src="manual/img/control-07-verificaciones.png" loading="lazy" alt="Scrutineering summary by heat with the progress of validated teams">
+        <figcaption>Scrutineering: by event and heat, with the progress of validated teams (0 / 27).</figcaption>
+      </figure>
+    </section>
+
+    <section id="clasificacion">
+      <div class="num">// 08</div>
+      <h2>Standings</h2>
+      <p>The <b>standings</b> are calculated from the event results and the championship rules:</p>
+      <ul>
+        <li><b>Points table</b> per position (defined per championship).</li>
+        <li><b>Drop scores</b>: number of worst results that do not count.</li>
+        <li><b>Regularisation cap</b>.</li>
+        <li><b>By cup</b>: the standings are <b>individual</b> (per driver) within each cup/class.</li>
+      </ul>
+      <p>It is exported to PDF (see <a class="inl" href="#pdf">Export</a>).</p>
+      <figure class="shot">
+        <img src="manual/img/control-08-clasificacion.png" loading="lazy" alt="Overall and per-cup standings, with points, drop scores and total per driver">
+        <figcaption>Standings: Overall and per-cup tabs; points per event, drop scores and total per driver. Exportable to PDF.</figcaption>
+      </figure>
+    </section>
+
+    <section id="tesoreria">
+      <div class="num">// 09</div>
+      <h2>Treasury</h2>
+      <p>If the championship uses treasury, each event has a <b>fee</b> per team, with a split between <b>organising committee</b> and <b>club</b>. Organising-committee drivers do not pay. From <b>Treasury</b> you keep track of what is collected per event.</p>
+      <!-- figura: manual/img/control-09-tesoreria.png — Tesorería por prueba -->
+    </section>
+
+    <section id="creditos">
+      <div class="num">// 10</div>
+      <h2>Credits and season close</h2>
+      <p>The <b>credits</b> system is the championship's handicap: each driver starts with a number of credits and these go up or down depending on the result. From <b>Credits</b> you see the balance, the movements (each with its <b>description</b>) and you manage the season close.</p>
+
+      <h3>Season-end bonus</h3>
+      <p>At the end of the season a <b>bonus</b> is applied based on the driver's <b>class</b> and the number of <b>races</b> contested (bands configurable per championship). The movement is described (e.g. <span class="mono">"bonificación por 6 carreras"</span>).</p>
+
+      <h3>Class review</h3>
+      <p>Before finishing, the <b>Class review</b> screen lets you decide, driver by driver, whether they <b>are promoted, relegated or stay</b> (Up / Down / Keep buttons over the BRONCE→PLATA→ORO→PLATINO ladder). That resulting class is used for the bonus and as the <b>initial class when importing into the next championship</b>. The screen has a search by name.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+        <div>Adjust the classes first in <b>Review</b> and then apply the season-end bonus: that way both use the same final snapshot.</div>
+      </div>
+      <!-- figura: manual/img/control-10-revision.png — Revisión de categorías de cierre -->
+    </section>
+
+    <section id="sorteo">
+      <div class="num">// 11</div>
+      <h2>Motor draw</h2>
+      <p>For <b>organisation</b> motors, PitWall Control draws a number within the <b>range configured in the championship</b>, deducting the ones already assigned in the event. You can draw from the <b>Motor draw</b> shortcut (choosing the event) or directly inside the team's scrutineering.</p>
+      <figure class="shot">
+        <img src="manual/img/control-11-sorteo.png" loading="lazy" alt="Motor draw screen: choose the event to draw for">
+        <figcaption>Motor draw: you choose the event and the app hands out the available organisation motor numbers.</figcaption>
+      </figure>
+    </section>
+
+    <section id="google">
+      <div class="num">// 12</div>
+      <h2>Sync with Google Sheets</h2>
+      <p>The catalogues can be synced <b>two-way</b> with a Google Sheet, handy for editing as a team or making a copy. From <b>Google settings</b> you connect your account and point to the sheet.</p>
+      <ol class="steps">
+        <li>Connect your Google account and authorise access.</li>
+        <li>Point to the spreadsheet you will use as the catalogue.</li>
+        <li><b>Pull</b> from the Sheet brings the data into the app; <b>Push to the Sheet</b> sends yours. <b>Conflicts</b> are resolved row by row.</li>
+      </ol>
+      <div class="callout">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-9-9c2.5 0 4.77 1 6.4 2.6"/><path d="M21 3v6h-6"/></svg>
+        <div>Setting up the Google connection (credentials and permissions) is explained in the <b>configuration manual</b>. Here only usage is covered.</div>
+      </div>
+      <!-- figura: manual/img/control-12-google.png — Configuración de Google y sincronización -->
+    </section>
+
+    <section id="csv">
+      <div class="num">// 13</div>
+      <h2>CSV templates</h2>
+      <p>From <b>CSV templates</b> (secondary, global shortcut) you download the templates ready to fill in and import: drivers, teams (including the <b>endurance</b> one with <span class="mono">Equipo · Copa · Piloto 1…5</span> columns) and catalogues. You fill in the CSV, import it from the corresponding section and the app maps the columns automatically.</p>
+      <figure class="shot">
+        <img src="manual/img/control-13-plantillas.png" loading="lazy" alt="CSV templates section with downloads for drivers, teams, endurance and catalogues">
+        <figcaption>CSV templates: download the template for each import (drivers, teams, endurance, catalogues) with their columns.</figcaption>
+      </figure>
+    </section>
+
+    <section id="pdf">
+      <div class="num">// 14</div>
+      <h2>Export to PDF</h2>
+      <p>PitWall Control generates PDFs of <b>scrutineering</b>, <b>heats</b>, <b>standings</b> and <b>credits</b>. When exporting you choose the document <b>language</b> (Spanish, English, Italian or French) and the <b>championship brand</b> (title and tagline) is applied to the header and footer.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+        <div>The heat PDF fits on a single sheet (A4 → A3 if needed) so it prints comfortably on the scrutineers' table.</div>
+      </div>
+      <!-- figura: manual/img/control-14-pdf.png — Elección de idioma al exportar -->
+    </section>
+
+    <section id="pitwall">
+      <div class="num">// 15</div>
+      <h2>Send to PitWall / bring back results</h2>
+      <p>PitWall Control talks to the <b>PitWall</b> timing app so you don't type things twice:</p>
+      <ul>
+        <li><b>Export / send the heat</b>: generates the heat (<span class="mono">pitwall.tanda/v1</span> format) and sends it over <b>LAN</b> to PitWall, or saves it as JSON. The rest slots (<span class="mono">D1…Dk</span>) are handled correctly.</li>
+        <li><b>Bring back the results</b>: imports the event results from PitWall over the local network, ready for standings and credits.</li>
+      </ul>
+      <!-- figura: manual/img/control-15-enviar.png — Enviar tanda a PitWall por LAN -->
+    </section>
+
+    <section id="glosario">
+      <div class="num">// 16</div>
+      <h2>Glossary</h2>
+      <ul>
+        <li><b>Championship</b>: the container for the whole season (format, cups, rules, modules).</li>
+        <li><b>Cup / class</b>: the class in which a team races (GRUPO C1, GT, Clásicos…). It filters catalogues and groups the standings.</li>
+        <li><b>Format</b>: Individual (1), Pairs (2) or Endurance (up to 6 drivers per team).</li>
+        <li><b>Catalogue</b>: reusable library of material (cars, motors, gears, tyres, motor pods, chassis, wheels…).</li>
+        <li><b>Driver profile</b>: the driver's data <b>in a championship</b> (class, credits).</li>
+        <li><b>Event</b>: each fixture on the calendar; contains heats and entries.</li>
+        <li><b>Heat</b>: one run of the event with its lane assignment.</li>
+        <li><b>Scrutineering</b>: checking a team's material against the rules before validating it.</li>
+        <li><b>Reference photo</b>: image of the car in the catalogue to compare against the one the team hands in.</li>
+        <li><b>Credits</b>: handicap system; they go up/down depending on the result.</li>
+        <li><b>Season-end bonus</b>: credits added at the end based on class and number of races.</li>
+        <li><b>Class review</b>: promotion/relegation of each driver before closing (BRONCE→PLATINO ladder).</li>
+        <li><b>Class ladder</b>: BRONCE · PLATA · ORO · PLATINO.</li>
+        <li><b>Drop score</b>: worst result that does not count towards the standings.</li>
+        <li><b>Treasury</b>: fees per event and their split (organising committee / club).</li>
+        <li><b>Heat</b>: the event package (<span class="mono">pitwall.tanda/v1</span>) sent to PitWall.</li>
+        <li><b>Brand</b>: the championship's title and tagline stamped onto the PDFs.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="pitwall-landing-en.html"><svg class="mark" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="14.5" y="14.5" width="71" height="71" rx="22" stroke="#fff" stroke-width="6.5"/><path d="M31 38 L53 55 L31 72" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="58" y="60" width="16.5" height="11.5" rx="3.6" fill="var(--red)"/></svg>PIT<b>WALL</b><small>CONTROL</small></a>
+    <div class="apps-mini"><a href="pitwall-control-en.html">Product</a><a href="manual-control.en.html">Manual</a><a href="pitwall-landing-en.html">Landing</a></div>
+    <div class="mono">© 2026 · Slot racing championship management</div>
+  </div>
+</footer>
+
+<a href="#top" class="totop" aria-label="Back to top">↑</a>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var totop = document.querySelector('.totop');
+  function onScroll(){
+    var y = window.scrollY + 100, cur = 0;
+    for (var i=0;i<secs.length;i++){ if(secs[i] && secs[i].offsetTop <= y) cur = i; }
+    links.forEach(function(a,i){ a.classList.toggle('active', i===cur); });
+    totop.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>
