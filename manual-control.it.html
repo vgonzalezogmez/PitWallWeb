@@ -148,18 +148,49 @@
         <li><b>Ingranaggi</b>: pignoni e corone (marca e denti) con <b>coppa/e</b>.</li>
         <li><b>Gomme</b>: nome, riferimento e <b>coppa/e</b>.</li>
         <li><b>Supporti motore</b> e <b>telai</b>: con <b>coppa/e</b>.</li>
-        <li><b>Cerchi</b>: per asse (anteriore / posteriore / entrambi), marca e misura.</li>
+        <li><b>Cerchi</b>: misura (dimensione), <b>tipo</b> per asse (anteriore / posteriore / entrambi) e <b>coppa/e</b>.</li>
         <li><b>Marche</b>, <b>coppe</b> e <b>club</b>: liste di supporto.</li>
       </ul>
+
+      <h3>Quali cataloghi hanno la coppa</h3>
+      <p>Sono <b>sette</b> i cataloghi in cui ogni scheda può contrassegnare a quali coppe si applica: <b>Auto</b>, <b>Cerchi</b>, <b>Supporti motore</b>, <b>Telai</b>, <b>Gomme</b>, <b>Ingranaggi</b> e <b>Motori</b>. Gli altri tre — <b>Marche</b>, <b>Coppe</b> (la lista principale) e <b>Club</b> — sono liste di supporto e non hanno coppa.</p>
       <div class="callout">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
-        <div><b>Coppa contrassegnata vs. non contrassegnata.</b> Se un elemento non ha nessuna coppa contrassegnata, è considerato valido per <b>tutte</b>. Se contrassegni coppe specifiche, si applica solo a quelle. Così, nella verifica di una squadra di <span class="mono">GRUPO C2</span> vedrai il suo materiale e quello "per tutte", ma <b>mai</b> quello esclusivo del <span class="mono">GRUPO C1</span>.</div>
+        <div><b>Coppa contrassegnata vs. non contrassegnata.</b> Se in una scheda <b>non contrassegni nessuna coppa</b>, quella scheda si applica a <b>TUTTE</b> le coppe. Non appena contrassegni coppe specifiche, la <b>limiti</b> solo a quelle. Così, nella verifica di una squadra di <span class="mono">GRUPO C2</span> vedrai il suo materiale e quello "per tutte", ma <b>mai</b> quello esclusivo del <span class="mono">GRUPO C1</span>. La regola è identica in tutti e sette i cataloghi.</div>
       </div>
-      <p>Puoi riempire i cataloghi a mano, <b>importarli via CSV</b> (vedi <a class="inl" href="#csv">Modelli CSV</a>) o <b>sincronizzarli con Google Sheets</b> (vedi <a class="inl" href="#google">Sincronizzare</a>).</p>
+      <p>Nella finestra di <b>nuova scheda / modifica</b> (cerchi inclusi) trovi il <b>selettore di coppe</b>, e la lista del catalogo mostra sotto ogni scheda le sue <span class="mono">Coppe: …</span> — oppure <span class="mono">Coppe: Tutte</span> se non ne hai contrassegnata nessuna.</p>
+      <!-- figura: manual/img/control-03b-llanta-copas.png — Finestra di modifica del cerchio con il selettore di coppe e la lista che mostra "Coppe: GT, GT2" -->
+
+      <p>Puoi riempire i cataloghi a mano, <b>importarli via CSV</b> (vedi <a class="inl" href="#csv">Modelli CSV</a>), <b>esportarli e importarli in Excel</b> (vedi sotto) o <b>sincronizzarli con Google Sheets</b> (vedi <a class="inl" href="#google">Sincronizzare</a>).</p>
       <figure class="shot">
         <img src="manual/img/control-03-catalogos.png" loading="lazy" alt="Catalogo delle auto con schede per tipo, motore di ricerca e filtro per coppa">
         <figcaption>Cataloghi: schede per tipo (auto, marche, ingranaggi, motori…), con motore di ricerca e filtro per coppa.</figcaption>
       </figure>
+
+      <h3>Tutto il catalogo in Excel</h3>
+      <p>In alto a destra in <b>Cataloghi</b>, il pulsante con l'<b>icona di tabella</b> apre due azioni che lavorano su <b>tutti</b> i cataloghi in una volta sola:</p>
+      <ul>
+        <li><b>Esporta tutto in Excel</b>: genera un file <span class="mono">.xlsx</span> con <b>una scheda per catalogo</b> — <span class="mono">Coches, Marcas, Llantas, Engranajes, Motores, Bancadas, Chasis, Neumaticos, Copas, Clubs</span> (Auto, Marche, Cerchi, Ingranaggi, Motori, Supporti motore, Telai, Gomme, Coppe e Club). I nomi delle schede sono in spagnolo, esattamente come compaiono nel file.</li>
+        <li><b>Importa l'Excel modificato</b>: restituisci il foglio e l'app applica le modifiche.</li>
+      </ul>
+      <p>La <b>prima colonna di ogni scheda è l'ID</b>. Da lì nascono le uniche tre regole da ricordare:</p>
+      <ul>
+        <li>Riga <b>con ID</b> → quella scheda viene <b>aggiornata</b>.</li>
+        <li>Riga <b>senza ID</b> (cella vuota) → viene <b>creata</b> una scheda nuova.</li>
+        <li>Riga che <b>elimini</b> dal foglio → <b>resta nell'app</b>. L'importazione <b>non elimina mai nulla</b>.</li>
+      </ul>
+      <p>La colonna <b>Coppe</b> viaggia come testo leggibile separato da punto e virgola (p. es. <span class="mono">GT;GT2</span>), con il significato di sempre: <b>cella vuota = si applica a tutte le coppe</b>.</p>
+      <p>Prima di applicare, l'app <b>chiede conferma</b>; al termine riepiloga <b>quante schede sono state create e quante aggiornate</b> in ogni catalogo.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+        <div>È la <b>via rapida per classificare per coppa tutto il catalogo in un colpo solo</b>: esporta, riempi la colonna <span class="mono">Coppe</span> nel foglio trascinando come in qualsiasi Excel, e reimporta. Molto più comodo che aprire scheda per scheda.</div>
+      </div>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div><b>Non cancellare gli ID.</b> Se svuoti la cella dell'ID di una riga esistente, quella scheda verrà creata <b>di nuovo</b> come nuova (avrai un duplicato). E poiché l'importazione non elimina, per <b>cancellare</b> una scheda devi farlo dall'app. <b>E non rinominare le schede:</b> l'importatore le cerca per nome (ignorando maiuscole e accenti) e, se non ne riconosce una, <b>ti avvisa che quella scheda non è stata importata</b> invece di ignorarla in silenzio.</div>
+      </div>
+      <!-- figura: manual/img/control-03c-excel-menu.png — Pulsante tabella in Cataloghi, aperto con "Esporta tutto in Excel" e "Importa l'Excel modificato" -->
+      <!-- figura: manual/img/control-03d-excel-hoja.png — Foglio .xlsx esportato: una scheda per catalogo e colonne ID … Coppe ("GT;GT2") -->
     </section>
 
     <section id="pilotos">
@@ -226,13 +257,23 @@
         <li><b>Auto</b>: solo i modelli della sua coppa (o "per tutte"), con la <b>foto di riferimento</b> sotto per confrontarla con l'auto consegnata.</li>
         <li><b>Motore</b>: dell'organizzazione (con <b>sorteggio</b>) o proprio, con RPM/misure.</li>
         <li><b>Pignone e corona</b>: marca (limitata a quelle omologate di quella coppa) e denti, validati rispetto all'<b>intervallo del campionato</b>.</li>
-        <li><b>Gomma, supporto motore, telaio, cerchi</b>: filtrati per coppa.</li>
+        <li><b>Gomma, supporto motore, telaio</b>: filtrati per coppa.</li>
+        <li><b>Cerchio anteriore</b> e <b>cerchio posteriore</b>: due menu a tendina, entrambi <b>ridotti alla coppa della squadra</b>.</li>
         <li><b>Peso</b>, sospensione, treccia, note e <b>foto</b>.</li>
       </ul>
+
+      <h3>I cerchi, in dettaglio</h3>
+      <p>Ogni menu a tendina dei cerchi applica <b>due filtri contemporaneamente</b>:</p>
+      <ul>
+        <li>Per <b>coppa</b>: solo i cerchi contrassegnati con la coppa della squadra, più quelli che <b>non hanno nessuna coppa contrassegnata</b> (quelli validi per tutte).</li>
+        <li>Per <b>tipo</b>: il menu dell'anteriore offre quelli <span class="mono">ANTERIORE</span> e quelli <span class="mono">ENTRAMBI</span>; quello del posteriore, i <span class="mono">POSTERIORE</span> e gli <span class="mono">ENTRAMBI</span>.</li>
+      </ul>
+      <p>Se l'incrocio dei due filtri lasciasse il menu a tendina <b>vuoto</b>, l'app mostra <b>tutti</b> i cerchi: è una rete di sicurezza perché il verificatore non resti mai senza opzioni in pieno tavolo dei commissari.</p>
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
         <div>Se nella coppa della squadra non c'è alcun elemento contrassegnato nel catalogo, il menu a tendina <b>ripiega sulle coppe del campionato</b> e, in ultima istanza, su tutto — così non resti mai senza opzioni, ma dà sempre priorità a ciò che è della sua coppa.</div>
       </div>
+      <!-- figura: manual/img/control-07b-llantas-copa.png — Verifica di una squadra di GRUPO C2 con i menu a tendina del cerchio anteriore/posteriore già ridotti alla sua coppa -->
       <p>La verifica si <b>salva automaticamente</b> come bozza a ogni modifica (in alto a destra vedi lo stato: in attesa / salvataggio / salvato), così puoi averne diverse aperte senza perdere nulla. Quando tutto è conforme, appare <b>"Tutto conforme ai regolamenti. Puoi convalidare"</b> e confermi.</p>
       <figure class="shot">
         <img src="manual/img/control-07-verificaciones.png" loading="lazy" alt="Riepilogo delle verifiche tecniche per manche con l'avanzamento delle squadre convalidate">
@@ -311,6 +352,7 @@
       <div class="num">// 13</div>
       <h2>Modelli CSV</h2>
       <p>Da <b>Modelli CSV</b> (accesso secondario, globale) scarichi i modelli pronti da riempire e importare: piloti, squadre (incluso quello di <b>endurance</b> con le colonne <span class="mono">Equipo · Copa · Piloto 1…5</span>) e cataloghi. Riempi il CSV, lo importi dalla sezione corrispondente e l'app mappa le colonne automaticamente.</p>
+      <p>Per <b>modificare in blocco ciò che hai già</b> nei cataloghi (e non solo aggiungere schede nuove), la via comoda è <a class="inl" href="#catalogos">Tutto il catalogo in Excel</a>: esporti, correggi e reimporti.</p>
       <figure class="shot">
         <img src="manual/img/control-13-plantillas.png" loading="lazy" alt="Sezione dei modelli CSV con i download per piloti, squadre, endurance e cataloghi">
         <figcaption>Modelli CSV: scarica il modello di ogni import (piloti, squadre, endurance, cataloghi) con le sue colonne.</figcaption>
@@ -362,6 +404,8 @@
         <li><b>Coppa / classe</b>: la classe in cui gareggia una squadra (GRUPO C1, GT, Clásicos…). Filtra i cataloghi e raggruppa la classifica.</li>
         <li><b>Formato</b>: Individuale (1), Coppie (2) o Endurance (fino a 6 piloti per squadra).</li>
         <li><b>Catalogo</b>: libreria riutilizzabile di materiale (auto, motori, ingranaggi, gomme, supporti motore, telai, cerchi…).</li>
+        <li><b>Coppa nel catalogo</b>: le coppe contrassegnate in una scheda. Senza nessuna contrassegnata, la scheda vale per <b>tutte</b> le coppe; contrassegnando delle coppe, si limita a quelle. Ce l'hanno sette cataloghi: auto, cerchi, supporti motore, telai, gomme, ingranaggi e motori.</li>
+        <li><b>Esportare / importare il catalogo in Excel</b>: riversare tutti i cataloghi in un file <span class="mono">.xlsx</span> (una scheda per catalogo) e restituirlo modificato. Con ID aggiorna, senza ID crea, e non elimina mai nulla.</li>
         <li><b>Profilo del pilota</b>: i dati del pilota <b>in un campionato</b> (categoria, crediti).</li>
         <li><b>Prova</b>: ogni appuntamento del calendario; contiene manche e iscrizioni.</li>
         <li><b>Manche</b>: una tornata della prova con la sua assegnazione delle corsie.</li>

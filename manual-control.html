@@ -148,18 +148,49 @@
         <li><b>Engranajes</b>: piñones y coronas (marca y dientes) con <b>copa(s)</b>.</li>
         <li><b>Neumáticos</b>: nombre, referencia y <b>copa(s)</b>.</li>
         <li><b>Bancadas</b> y <b>chasis</b>: con <b>copa(s)</b>.</li>
-        <li><b>Llantas</b>: por eje (delantera / trasera / ambas), marca y medida.</li>
+        <li><b>Llantas</b>: medida (dimensión), <b>tipo</b> por eje (delantera / trasera / ambas) y <b>copa(s)</b>.</li>
         <li><b>Marcas</b>, <b>copas</b> y <b>clubs</b>: listas de apoyo.</li>
       </ul>
+
+      <h3>Qué catálogos llevan copa</h3>
+      <p>Son <b>siete</b> los catálogos en los que cada ficha puede marcar a qué copas aplica: <b>Coches</b>, <b>Llantas</b>, <b>Bancadas</b>, <b>Chasis</b>, <b>Neumáticos</b>, <b>Engranajes</b> y <b>Motores</b>. Los otros tres — <b>Marcas</b>, <b>Copas</b> (la lista maestra) y <b>Clubs</b> — son listas de apoyo y no llevan copa.</p>
       <div class="callout">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
-        <div><b>Copa marcada vs. sin marcar.</b> Si un elemento no tiene ninguna copa marcada, se considera válido para <b>todas</b>. Si marcas copas concretas, solo aplica a esas. Así, en la verificación de un equipo de <span class="mono">GRUPO C2</span> verás su material y el "para todas", pero <b>nunca</b> el que es exclusivo de <span class="mono">GRUPO C1</span>.</div>
+        <div><b>Copa marcada vs. sin marcar.</b> Si en una ficha <b>no marcas ninguna copa</b>, esa ficha aplica a <b>TODAS</b> las copas. En cuanto marcas copas concretas, la <b>restringes</b> solo a ésas. Así, en la verificación de un equipo de <span class="mono">GRUPO C2</span> verás su material y el "para todas", pero <b>nunca</b> el que es exclusivo de <span class="mono">GRUPO C1</span>. La regla es idéntica en los siete catálogos.</div>
       </div>
-      <p>Puedes rellenar los catálogos a mano, <b>importarlos por CSV</b> (ver <a class="inl" href="#csv">Plantillas CSV</a>) o <b>sincronizarlos con Google Sheets</b> (ver <a class="inl" href="#google">Sincronizar</a>).</p>
+      <p>En el diálogo de <b>nueva ficha / editar</b> (llantas incluidas) tienes el <b>selector de copas</b>, y la lista del catálogo muestra debajo de cada ficha su <span class="mono">Copas: …</span> — o <span class="mono">Copas: Todas</span> si no marcaste ninguna.</p>
+      <!-- figura: manual/img/control-03b-llanta-copas.png — Diálogo de editar llanta con el selector de copas y la lista mostrando "Copas: GT, GT2" -->
+
+      <p>Puedes rellenar los catálogos a mano, <b>importarlos por CSV</b> (ver <a class="inl" href="#csv">Plantillas CSV</a>), <b>exportarlos e importarlos en Excel</b> (ver más abajo) o <b>sincronizarlos con Google Sheets</b> (ver <a class="inl" href="#google">Sincronizar</a>).</p>
       <figure class="shot">
         <img src="manual/img/control-03-catalogos.png" loading="lazy" alt="Catálogo de coches con pestañas por tipo, buscador y filtro por copa">
         <figcaption>Catálogos: pestañas por tipo (coches, marcas, engranajes, motores…), con buscador y filtro por copa.</figcaption>
       </figure>
+
+      <h3>Todo el catálogo en Excel</h3>
+      <p>Arriba a la derecha de <b>Catálogos</b>, el botón con <b>icono de tabla</b> abre dos acciones que trabajan sobre <b>todos</b> los catálogos a la vez:</p>
+      <ul>
+        <li><b>Exportar todo a Excel</b>: genera un <span class="mono">.xlsx</span> con <b>una pestaña por catálogo</b> — <span class="mono">Coches, Marcas, Llantas, Engranajes, Motores, Bancadas, Chasis, Neumaticos, Copas, Clubs</span>.</li>
+        <li><b>Importar Excel editado</b>: le devuelves la hoja y la app aplica los cambios.</li>
+      </ul>
+      <p>La <b>primera columna de cada pestaña es el ID</b>. De ahí salen las tres únicas reglas que necesitas recordar:</p>
+      <ul>
+        <li>Fila <b>con ID</b> → se <b>actualiza</b> esa ficha.</li>
+        <li>Fila <b>sin ID</b> (celda vacía) → se <b>crea</b> una ficha nueva.</li>
+        <li>Fila que <b>borras</b> de la hoja → <b>se queda en la app</b>. El import <b>nunca borra nada</b>.</li>
+      </ul>
+      <p>La columna <b>Copas</b> viaja como texto legible separado por punto y coma (p. ej. <span class="mono">GT;GT2</span>), con la misma semántica de siempre: <b>celda vacía = aplica a todas las copas</b>.</p>
+      <p>Antes de aplicar, la app <b>pide confirmación</b>; al terminar, resume <b>cuántas fichas se crearon y cuántas se actualizaron</b> en cada catálogo.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+        <div>Es la <b>vía rápida para clasificar por copa todo el catálogo de golpe</b>: exporta, rellena la columna <span class="mono">Copas</span> en la hoja arrastrando como en cualquier Excel, y reimporta. Mucho más cómodo que abrir ficha a ficha.</div>
+      </div>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div><b>No borres los ID.</b> Si vacías la celda de ID de una fila existente, esa ficha se dará de alta <b>otra vez</b> como nueva (tendrás un duplicado). Y como el import no borra, para <b>eliminar</b> una ficha tienes que hacerlo desde la app. <b>Y no renombres las pestañas:</b> el importador las busca por su nombre (no distingue mayúsculas ni tildes) y, si no reconoce una, te avisa de que esa pestaña <b>no se ha importado</b> en vez de tragársela en silencio.</div>
+      </div>
+      <!-- figura: manual/img/control-03c-excel-menu.png — Botón de tabla en Catálogos desplegado con "Exportar todo a Excel" e "Importar Excel editado" -->
+      <!-- figura: manual/img/control-03d-excel-hoja.png — Hoja .xlsx exportada: pestañas por catálogo y columnas ID … Copas ("GT;GT2") -->
     </section>
 
     <section id="pilotos">
@@ -226,13 +257,23 @@
         <li><b>Coche</b>: solo modelos de su copa (o "para todas"), con la <b>foto de referencia</b> debajo para comparar con el coche entregado.</li>
         <li><b>Motor</b>: de organización (con <b>sorteo</b>) o propio, con RPM/medidas.</li>
         <li><b>Piñón y corona</b>: marca (restringida a las homologadas de esa copa) y dientes, validados contra el <b>rango del campeonato</b>.</li>
-        <li><b>Neumático, bancada, chasis, llantas</b>: filtrados por la copa.</li>
+        <li><b>Neumático, bancada, chasis</b>: filtrados por la copa.</li>
+        <li><b>Llanta delantera</b> y <b>llanta trasera</b>: dos desplegables, ambos <b>recortados a la copa del equipo</b>.</li>
         <li><b>Peso</b>, suspensión, trencilla, observaciones y <b>fotos</b>.</li>
       </ul>
+
+      <h3>Las llantas, en detalle</h3>
+      <p>Cada desplegable de llanta aplica <b>dos filtros a la vez</b>:</p>
+      <ul>
+        <li>Por <b>copa</b>: solo las llantas marcadas con la copa del equipo, más las que <b>no tienen ninguna copa marcada</b> (las que valen para todas).</li>
+        <li>Por <b>tipo</b>: el desplegable de delantera ofrece las <span class="mono">DELANTERA</span> y las <span class="mono">AMBAS</span>; el de trasera, las <span class="mono">TRASERA</span> y las <span class="mono">AMBAS</span>.</li>
+      </ul>
+      <p>Si el cruce de ambos filtros dejara el desplegable <b>vacío</b>, la app muestra <b>todas</b> las llantas: es una red de seguridad para que el verificador nunca se quede sin opciones en plena mesa de comisarios.</p>
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
         <div>Si en la copa del equipo no hay ningún elemento marcado en el catálogo, el desplegable <b>cae a las copas del campeonato</b> y, en último recurso, a todo — así nunca te quedas sin opciones, pero prioriza siempre lo de su copa.</div>
       </div>
+      <!-- figura: manual/img/control-07b-llantas-copa.png — Verificación de un equipo de GRUPO C2 con los desplegables de llanta delantera/trasera ya recortados a su copa -->
       <p>La verificación se <b>autoguarda</b> como borrador con cada cambio (arriba a la derecha ves el estado: pendiente / guardando / guardado), así que puedes tener varias abiertas sin perder nada. Cuando todo cumple, aparece <b>"Todo cumple las normas. Puedes validar"</b> y confirmas.</p>
       <figure class="shot">
         <img src="manual/img/control-07-verificaciones.png" loading="lazy" alt="Resumen de verificaciones por manga con el progreso de equipos validados">
@@ -311,6 +352,7 @@
       <div class="num">// 13</div>
       <h2>Plantillas CSV</h2>
       <p>Desde <b>Plantillas CSV</b> (acceso secundario, global) descargas las plantillas listas para rellenar e importar: pilotos, equipos (incluida la de <b>resistencia</b> con columnas <span class="mono">Equipo · Copa · Piloto 1…5</span>) y catálogos. Rellenas el CSV, lo importas desde la sección correspondiente y la app mapea las columnas automáticamente.</p>
+      <p>Para <b>editar en bloque lo que ya tienes</b> en los catálogos (y no solo dar de alta), la vía cómoda es <a class="inl" href="#catalogos">Todo el catálogo en Excel</a>: exportas, corriges y reimportas.</p>
       <figure class="shot">
         <img src="manual/img/control-13-plantillas.png" loading="lazy" alt="Sección de plantillas CSV con descargas para pilotos, equipos, resistencia y catálogos">
         <figcaption>Plantillas CSV: descarga la plantilla de cada import (pilotos, equipos, resistencia, catálogos) con sus columnas.</figcaption>
@@ -362,6 +404,8 @@
         <li><b>Copa / categoría</b>: la clase en la que corre un equipo (GRUPO C1, GT, Clásicos…). Filtra catálogos y agrupa la clasificación.</li>
         <li><b>Formato</b>: Individual (1), Parejas (2) o Resistencia (hasta 6 pilotos por equipo).</li>
         <li><b>Catálogo</b>: biblioteca reutilizable de material (coches, motores, engranajes, neumáticos, bancadas, chasis, llantas…).</li>
+        <li><b>Copa en catálogo</b>: las copas marcadas en una ficha. Sin ninguna marcada, la ficha vale para <b>todas</b> las copas; marcando copas, se restringe a ésas. La llevan siete catálogos: coches, llantas, bancadas, chasis, neumáticos, engranajes y motores.</li>
+        <li><b>Exportar / importar el catálogo en Excel</b>: volcar todos los catálogos a un <span class="mono">.xlsx</span> (una pestaña por catálogo) y devolverlo editado. Con ID actualiza, sin ID crea, y nunca borra.</li>
         <li><b>Perfil de piloto</b>: los datos del piloto <b>en un campeonato</b> (categoría, créditos).</li>
         <li><b>Prueba</b>: cada cita del calendario; contiene mangas e inscripciones.</li>
         <li><b>Manga</b>: una tirada de la prueba con su asignación de carriles.</li>
