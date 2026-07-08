@@ -148,18 +148,49 @@
         <li><b>Gears</b>: pinions and crown gears (brand and teeth) with <b>cup(s)</b>.</li>
         <li><b>Tyres</b>: name, reference and <b>cup(s)</b>.</li>
         <li><b>Motor pods</b> and <b>chassis</b>: with <b>cup(s)</b>.</li>
-        <li><b>Wheels</b>: by axle (front / rear / both), brand and size.</li>
+        <li><b>Wheels</b>: size (dimension), <b>type</b> by axle (front / rear / both) and <b>cup(s)</b>.</li>
         <li><b>Brands</b>, <b>cups</b> and <b>clubs</b>: support lists.</li>
       </ul>
+
+      <h3>Which catalogues carry a cup</h3>
+      <p><b>Seven</b> catalogues let each entry mark which cups it applies to: <b>Cars</b>, <b>Wheels</b>, <b>Motor pods</b>, <b>Chassis</b>, <b>Tyres</b>, <b>Gears</b> and <b>Motors</b>. The other three — <b>Brands</b>, <b>Cups</b> (the master list) and <b>Clubs</b> — are support lists and carry no cup.</p>
       <div class="callout">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
-        <div><b>Cup marked vs. unmarked.</b> If an item has no cup marked, it is considered valid for <b>all</b>. If you mark specific cups, it only applies to those. This way, when scrutineering a <span class="mono">GRUPO C2</span> team you will see its material and the "for all" one, but <b>never</b> the one exclusive to <span class="mono">GRUPO C1</span>.</div>
+        <div><b>Cup marked vs. unmarked.</b> If you mark <b>no cup at all</b> on an entry, that entry applies to <b>ALL</b> cups. As soon as you mark specific cups, you <b>restrict</b> it to those only. This way, when scrutineering a <span class="mono">GRUPO C2</span> team you will see its material and the "for all" one, but <b>never</b> the one exclusive to <span class="mono">GRUPO C1</span>. The rule is identical in all seven catalogues.</div>
       </div>
-      <p>You can fill the catalogues by hand, <b>import them via CSV</b> (see <a class="inl" href="#csv">CSV templates</a>) or <b>sync them with Google Sheets</b> (see <a class="inl" href="#google">Sync</a>).</p>
+      <p>The <b>new entry / edit</b> dialog (wheels included) has the <b>cup selector</b>, and the catalogue list shows below each entry its <span class="mono">Cups: …</span> — or <span class="mono">Cups: All</span> if you marked none.</p>
+      <!-- figura: manual/img/control-03b-llanta-copas.png — Edit wheel dialog with the cup selector, and the list showing "Cups: GT, GT2" -->
+
+      <p>You can fill the catalogues by hand, <b>import them via CSV</b> (see <a class="inl" href="#csv">CSV templates</a>), <b>export and import them in Excel</b> (see below) or <b>sync them with Google Sheets</b> (see <a class="inl" href="#google">Sync</a>).</p>
       <figure class="shot">
         <img src="manual/img/control-03-catalogos.png" loading="lazy" alt="Cars catalogue with tabs by type, search box and filter by cup">
         <figcaption>Catalogues: tabs by type (cars, brands, gears, motors…), with a search box and filter by cup.</figcaption>
       </figure>
+
+      <h3>The whole catalogue in Excel</h3>
+      <p>At the top right of <b>Catalogues</b>, the button with the <b>table icon</b> opens two actions that work on <b>all</b> the catalogues at once:</p>
+      <ul>
+        <li><b>Export everything to Excel</b>: builds an <span class="mono">.xlsx</span> file with <b>one tab per catalogue</b> — <span class="mono">Coches, Marcas, Llantas, Engranajes, Motores, Bancadas, Chasis, Neumaticos, Copas, Clubs</span> (Cars, Brands, Wheels, Gears, Motors, Motor pods, Chassis, Tyres, Cups and Clubs). The tab names are in Spanish, exactly as they appear in the file.</li>
+        <li><b>Import edited Excel</b>: you hand the sheet back and the app applies the changes.</li>
+      </ul>
+      <p>The <b>first column of every tab is the ID</b>. From it follow the only three rules you need to remember:</p>
+      <ul>
+        <li>Row <b>with an ID</b> → that entry is <b>updated</b>.</li>
+        <li>Row <b>without an ID</b> (empty cell) → a new entry is <b>created</b>.</li>
+        <li>Row you <b>delete</b> from the sheet → <b>it stays in the app</b>. The import <b>never deletes anything</b>.</li>
+      </ul>
+      <p>The <b>Cups</b> column travels as readable text separated by semicolons (e.g. <span class="mono">GT;GT2</span>), with the usual meaning: <b>empty cell = applies to all cups</b>.</p>
+      <p>Before applying, the app <b>asks for confirmation</b>; when it finishes, it summarises <b>how many entries were created and how many updated</b> in each catalogue.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+        <div>This is the <b>fast lane to classify the whole catalogue by cup in one go</b>: export, fill in the <span class="mono">Cups</span> column by dragging as in any Excel, and re-import. Far more comfortable than opening entry by entry.</div>
+      </div>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div><b>Do not delete the IDs.</b> If you empty the ID cell of an existing row, that entry will be created <b>again</b> as new (you will end up with a duplicate). And since the import never deletes, to <b>remove</b> an entry you have to do it from the app. <b>And do not rename the tabs:</b> the importer looks them up by name (case- and accent-insensitive) and, if it does not recognise one, it <b>tells you that tab was not imported</b> instead of silently swallowing it.</div>
+      </div>
+      <!-- figura: manual/img/control-03c-excel-menu.png — Table button in Catalogues, expanded with "Export everything to Excel" and "Import edited Excel" -->
+      <!-- figura: manual/img/control-03d-excel-hoja.png — Exported .xlsx: one tab per catalogue and columns ID … Cups ("GT;GT2") -->
     </section>
 
     <section id="pilotos">
@@ -226,13 +257,23 @@
         <li><b>Car</b>: only models from its cup (or "for all"), with the <b>reference photo</b> below to compare against the car handed in.</li>
         <li><b>Motor</b>: organisation (with <b>draw</b>) or own, with RPM/measurements.</li>
         <li><b>Pinion and crown gear</b>: brand (restricted to the ones homologated for that cup) and teeth, validated against the <b>championship range</b>.</li>
-        <li><b>Tyre, motor pod, chassis, wheels</b>: filtered by the cup.</li>
+        <li><b>Tyre, motor pod, chassis</b>: filtered by the cup.</li>
+        <li><b>Front wheel</b> and <b>rear wheel</b>: two dropdowns, both <b>trimmed to the team's cup</b>.</li>
         <li><b>Weight</b>, suspension, braid, notes and <b>photos</b>.</li>
       </ul>
+
+      <h3>Wheels, in detail</h3>
+      <p>Each wheel dropdown applies <b>two filters at once</b>:</p>
+      <ul>
+        <li>By <b>cup</b>: only the wheels marked with the team's cup, plus those with <b>no cup marked at all</b> (the ones valid for every cup).</li>
+        <li>By <b>type</b>: the front dropdown offers the <span class="mono">FRONT</span> ones and the <span class="mono">BOTH</span> ones; the rear dropdown, the <span class="mono">REAR</span> ones and the <span class="mono">BOTH</span> ones.</li>
+      </ul>
+      <p>If crossing both filters would leave the dropdown <b>empty</b>, the app shows <b>all</b> the wheels: a safety net so the scrutineer never runs out of options in the middle of the stewards' table.</p>
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
         <div>If the team's cup has no item marked in the catalogue, the dropdown <b>falls back to the championship cups</b> and, as a last resort, to everything — so you never run out of options, but it always prioritises what belongs to its cup.</div>
       </div>
+      <!-- figura: manual/img/control-07b-llantas-copa.png — Scrutineering a GRUPO C2 team with the front/rear wheel dropdowns already trimmed to its cup -->
       <p>Scrutineering <b>autosaves</b> as a draft with every change (top right you see the status: pending / saving / saved), so you can have several open without losing anything. When everything complies, <b>"Everything meets the rules. You can validate"</b> appears and you confirm.</p>
       <figure class="shot">
         <img src="manual/img/control-07-verificaciones.png" loading="lazy" alt="Scrutineering summary by heat with the progress of validated teams">
@@ -311,6 +352,7 @@
       <div class="num">// 13</div>
       <h2>CSV templates</h2>
       <p>From <b>CSV templates</b> (secondary, global shortcut) you download the templates ready to fill in and import: drivers, teams (including the <b>endurance</b> one with <span class="mono">Equipo · Copa · Piloto 1…5</span> columns) and catalogues. You fill in the CSV, import it from the corresponding section and the app maps the columns automatically.</p>
+      <p>To <b>bulk-edit what you already have</b> in the catalogues (and not only add new entries), the comfortable route is <a class="inl" href="#catalogos">The whole catalogue in Excel</a>: export, fix and re-import.</p>
       <figure class="shot">
         <img src="manual/img/control-13-plantillas.png" loading="lazy" alt="CSV templates section with downloads for drivers, teams, endurance and catalogues">
         <figcaption>CSV templates: download the template for each import (drivers, teams, endurance, catalogues) with their columns.</figcaption>
@@ -362,6 +404,8 @@
         <li><b>Cup / class</b>: the class in which a team races (GRUPO C1, GT, Clásicos…). It filters catalogues and groups the standings.</li>
         <li><b>Format</b>: Individual (1), Pairs (2) or Endurance (up to 6 drivers per team).</li>
         <li><b>Catalogue</b>: reusable library of material (cars, motors, gears, tyres, motor pods, chassis, wheels…).</li>
+        <li><b>Cup in a catalogue</b>: the cups marked on an entry. With none marked, the entry is valid for <b>all</b> cups; marking cups restricts it to those. Seven catalogues carry it: cars, wheels, motor pods, chassis, tyres, gears and motors.</li>
+        <li><b>Export / import the catalogue in Excel</b>: dump every catalogue into an <span class="mono">.xlsx</span> file (one tab per catalogue) and hand it back edited. With an ID it updates, without an ID it creates, and it never deletes.</li>
         <li><b>Driver profile</b>: the driver's data <b>in a championship</b> (class, credits).</li>
         <li><b>Event</b>: each fixture on the calendar; contains heats and entries.</li>
         <li><b>Heat</b>: one run of the event with its lane assignment.</li>

@@ -148,18 +148,49 @@
         <li><b>Engrenages</b> : pignons et couronnes (marque et dents) avec <b>coupe(s)</b>.</li>
         <li><b>Pneus</b> : nom, référence et <b>coupe(s)</b>.</li>
         <li><b>Supports moteur</b> et <b>châssis</b> : avec <b>coupe(s)</b>.</li>
-        <li><b>Jantes</b> : par essieu (avant / arrière / les deux), marque et dimension.</li>
+        <li><b>Jantes</b> : dimension, <b>type</b> par essieu (avant / arrière / les deux) et <b>coupe(s)</b>.</li>
         <li><b>Marques</b>, <b>coupes</b> et <b>clubs</b> : listes de soutien.</li>
       </ul>
+
+      <h3>Quels catalogues portent une coupe</h3>
+      <p>Ils sont <b>sept</b>, les catalogues dont chaque fiche peut cocher les coupes auxquelles elle s'applique : <b>Voitures</b>, <b>Jantes</b>, <b>Supports moteur</b>, <b>Châssis</b>, <b>Pneus</b>, <b>Engrenages</b> et <b>Moteurs</b>. Les trois autres — <b>Marques</b>, <b>Coupes</b> (la liste maîtresse) et <b>Clubs</b> — sont des listes de soutien et ne portent pas de coupe.</p>
       <div class="callout">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
-        <div><b>Coupe cochée vs. non cochée.</b> Si un élément n'a aucune coupe cochée, il est considéré valable pour <b>toutes</b>. Si vous cochez des coupes précises, il ne s'applique qu'à celles-ci. Ainsi, lors de la vérification d'une équipe de <span class="mono">GRUPO C2</span>, vous verrez son matériel et le « pour toutes », mais <b>jamais</b> celui réservé exclusivement à <span class="mono">GRUPO C1</span>.</div>
+        <div><b>Coupe cochée vs. non cochée.</b> Si vous <b>ne cochez aucune coupe</b> sur une fiche, cette fiche s'applique à <b>TOUTES</b> les coupes. Dès que vous cochez des coupes précises, vous la <b>restreignez</b> à celles-ci uniquement. Ainsi, lors de la vérification d'une équipe de <span class="mono">GRUPO C2</span>, vous verrez son matériel et le « pour toutes », mais <b>jamais</b> celui réservé exclusivement à <span class="mono">GRUPO C1</span>. La règle est identique dans les sept catalogues.</div>
       </div>
-      <p>Vous pouvez remplir les catalogues à la main, les <b>importer par CSV</b> (voir <a class="inl" href="#csv">Modèles CSV</a>) ou les <b>synchroniser avec Google Sheets</b> (voir <a class="inl" href="#google">Synchroniser</a>).</p>
+      <p>Dans la boîte de dialogue <b>nouvelle fiche / modifier</b> (jantes comprises), vous avez le <b>sélecteur de coupes</b>, et la liste du catalogue affiche sous chaque fiche ses <span class="mono">Coupes : …</span> — ou <span class="mono">Coupes : Toutes</span> si vous n'en avez coché aucune.</p>
+      <!-- figura: manual/img/control-03b-llanta-copas.png — Boîte de dialogue de modification d'une jante avec le sélecteur de coupes et la liste affichant « Coupes : GT, GT2 » -->
+
+      <p>Vous pouvez remplir les catalogues à la main, les <b>importer par CSV</b> (voir <a class="inl" href="#csv">Modèles CSV</a>), les <b>exporter et importer en Excel</b> (voir plus bas) ou les <b>synchroniser avec Google Sheets</b> (voir <a class="inl" href="#google">Synchroniser</a>).</p>
       <figure class="shot">
         <img src="manual/img/control-03-catalogos.png" loading="lazy" alt="Catalogue de voitures avec onglets par type, moteur de recherche et filtre par coupe">
         <figcaption>Catalogues : onglets par type (voitures, marques, engrenages, moteurs…), avec moteur de recherche et filtre par coupe.</figcaption>
       </figure>
+
+      <h3>Tout le catalogue en Excel</h3>
+      <p>En haut à droite de <b>Catalogues</b>, le bouton avec l'<b>icône de tableau</b> ouvre deux actions qui travaillent sur <b>tous</b> les catalogues d'un coup :</p>
+      <ul>
+        <li><b>Exporter tout vers Excel</b> : génère un fichier <span class="mono">.xlsx</span> avec <b>un onglet par catalogue</b> — <span class="mono">Coches, Marcas, Llantas, Engranajes, Motores, Bancadas, Chasis, Neumaticos, Copas, Clubs</span> (Voitures, Marques, Jantes, Engrenages, Moteurs, Supports moteur, Châssis, Pneus, Coupes et Clubs). Les noms des onglets sont en espagnol, exactement tels qu'ils apparaissent dans le fichier.</li>
+        <li><b>Importer l'Excel modifié</b> : vous rendez la feuille et l'application applique les changements.</li>
+      </ul>
+      <p>La <b>première colonne de chaque onglet est l'ID</b>. De là découlent les trois seules règles à retenir :</p>
+      <ul>
+        <li>Ligne <b>avec ID</b> → cette fiche est <b>mise à jour</b>.</li>
+        <li>Ligne <b>sans ID</b> (cellule vide) → une nouvelle fiche est <b>créée</b>.</li>
+        <li>Ligne que vous <b>supprimez</b> de la feuille → <b>elle reste dans l'application</b>. L'import <b>ne supprime jamais rien</b>.</li>
+      </ul>
+      <p>La colonne <b>Coupes</b> voyage sous forme de texte lisible séparé par des points-virgules (p. ex. <span class="mono">GT;GT2</span>), avec le sens habituel : <b>cellule vide = s'applique à toutes les coupes</b>.</p>
+      <p>Avant d'appliquer, l'application <b>demande confirmation</b> ; à la fin, elle récapitule <b>combien de fiches ont été créées et combien mises à jour</b> dans chaque catalogue.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+        <div>C'est la <b>voie rapide pour classer tout le catalogue par coupe d'un seul coup</b> : exportez, remplissez la colonne <span class="mono">Coupes</span> dans la feuille en glissant comme dans n'importe quel Excel, puis réimportez. Bien plus confortable que d'ouvrir fiche par fiche.</div>
+      </div>
+      <div class="callout warn">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+        <div><b>Ne supprimez pas les ID.</b> Si vous videz la cellule d'ID d'une ligne existante, cette fiche sera créée <b>à nouveau</b> comme nouvelle (vous aurez un doublon). Et comme l'import ne supprime rien, pour <b>effacer</b> une fiche vous devez le faire depuis l'application. <b>Et ne renommez pas les onglets :</b> l'importateur les recherche par leur nom (sans tenir compte des majuscules ni des accents) et, s'il n'en reconnaît pas un, il <b>vous prévient que cet onglet n'a pas été importé</b> au lieu de l'ignorer en silence.</div>
+      </div>
+      <!-- figura: manual/img/control-03c-excel-menu.png — Bouton tableau dans Catalogues, déployé avec « Exporter tout vers Excel » et « Importer l'Excel modifié » -->
+      <!-- figura: manual/img/control-03d-excel-hoja.png — Feuille .xlsx exportée : un onglet par catalogue et colonnes ID … Coupes (« GT;GT2 ») -->
     </section>
 
     <section id="pilotos">
@@ -226,13 +257,23 @@
         <li><b>Voiture</b> : seulement les modèles de sa coupe (ou « pour toutes »), avec la <b>photo de référence</b> en dessous pour comparer avec la voiture remise.</li>
         <li><b>Moteur</b> : d'organisation (avec <b>tirage</b>) ou personnel, avec RPM/dimensions.</li>
         <li><b>Pignon et couronne</b> : marque (limitée aux homologuées de cette coupe) et dents, validés face à la <b>plage du championnat</b>.</li>
-        <li><b>Pneu, support moteur, châssis, jantes</b> : filtrés par la coupe.</li>
+        <li><b>Pneu, support moteur, châssis</b> : filtrés par la coupe.</li>
+        <li><b>Jante avant</b> et <b>jante arrière</b> : deux menus déroulants, tous deux <b>réduits à la coupe de l'équipe</b>.</li>
         <li><b>Poids</b>, suspension, tresse, observations et <b>photos</b>.</li>
       </ul>
+
+      <h3>Les jantes, en détail</h3>
+      <p>Chaque menu déroulant de jante applique <b>deux filtres à la fois</b> :</p>
+      <ul>
+        <li>Par <b>coupe</b> : seulement les jantes cochées avec la coupe de l'équipe, plus celles qui <b>n'ont aucune coupe cochée</b> (celles qui valent pour toutes).</li>
+        <li>Par <b>type</b> : le menu de l'avant propose les <span class="mono">AVANT</span> et les <span class="mono">LES DEUX</span> ; celui de l'arrière, les <span class="mono">ARRIÈRE</span> et les <span class="mono">LES DEUX</span>.</li>
+      </ul>
+      <p>Si le croisement des deux filtres laissait le menu déroulant <b>vide</b>, l'application affiche <b>toutes</b> les jantes : un filet de sécurité pour que le vérificateur ne se retrouve jamais sans options en pleine table des commissaires.</p>
       <div class="callout warn">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>
         <div>Si aucun élément n'est coché dans le catalogue pour la coupe de l'équipe, le menu déroulant <b>bascule vers les coupes du championnat</b> et, en dernier recours, vers tout — ainsi vous n'êtes jamais sans options, mais il privilégie toujours ce qui relève de sa coupe.</div>
       </div>
+      <!-- figura: manual/img/control-07b-llantas-copa.png — Vérification d'une équipe de GRUPO C2 avec les menus déroulants de jante avant/arrière déjà réduits à sa coupe -->
       <p>La vérification est <b>enregistrée automatiquement</b> comme brouillon à chaque changement (en haut à droite vous voyez le statut : en attente / enregistrement / enregistré), vous pouvez donc en avoir plusieurs ouvertes sans rien perdre. Quand tout est conforme, apparaît <b>« Tout est conforme aux règlements. Vous pouvez valider »</b> et vous confirmez.</p>
       <figure class="shot">
         <img src="manual/img/control-07-verificaciones.png" loading="lazy" alt="Récapitulatif des vérifications par manche avec la progression des équipes validées">
@@ -311,6 +352,7 @@
       <div class="num">// 13</div>
       <h2>Modèles CSV</h2>
       <p>Depuis <b>Modèles CSV</b> (accès secondaire, global), vous téléchargez les modèles prêts à remplir et à importer : pilotes, équipes (y compris celui d'<b>endurance</b> avec colonnes <span class="mono">Equipo · Copa · Piloto 1…5</span>) et catalogues. Vous remplissez le CSV, l'importez depuis la section correspondante et l'application mappe les colonnes automatiquement.</p>
+      <p>Pour <b>modifier en bloc ce que vous avez déjà</b> dans les catalogues (et pas seulement ajouter de nouvelles fiches), la voie confortable est <a class="inl" href="#catalogos">Tout le catalogue en Excel</a> : vous exportez, corrigez et réimportez.</p>
       <figure class="shot">
         <img src="manual/img/control-13-plantillas.png" loading="lazy" alt="Section des modèles CSV avec téléchargements pour pilotes, équipes, endurance et catalogues">
         <figcaption>Modèles CSV : téléchargez le modèle de chaque import (pilotes, équipes, endurance, catalogues) avec ses colonnes.</figcaption>
@@ -362,6 +404,8 @@
         <li><b>Coupe / catégorie</b> : la classe dans laquelle court une équipe (GRUPO C1, GT, Clásicos…). Filtre les catalogues et regroupe le classement.</li>
         <li><b>Format</b> : Individuel (1), Doublettes (2) ou Endurance (jusqu'à 6 pilotes par équipe).</li>
         <li><b>Catalogue</b> : bibliothèque réutilisable de matériel (voitures, moteurs, engrenages, pneus, supports moteur, châssis, jantes…).</li>
+        <li><b>Coupe dans le catalogue</b> : les coupes cochées sur une fiche. Sans aucune coupe cochée, la fiche vaut pour <b>toutes</b> les coupes ; en cochant des coupes, elle se restreint à celles-ci. Sept catalogues la portent : voitures, jantes, supports moteur, châssis, pneus, engrenages et moteurs.</li>
+        <li><b>Exporter / importer le catalogue en Excel</b> : verser tous les catalogues dans un fichier <span class="mono">.xlsx</span> (un onglet par catalogue) et le rendre modifié. Avec un ID il met à jour, sans ID il crée, et il ne supprime jamais rien.</li>
         <li><b>Profil de pilote</b> : les données du pilote <b>dans un championnat</b> (catégorie, crédits).</li>
         <li><b>Épreuve</b> : chaque rendez-vous du calendrier ; contient manches et inscriptions.</li>
         <li><b>Manche</b> : un passage de l'épreuve avec son attribution de couloirs.</li>
