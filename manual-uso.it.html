@@ -378,6 +378,14 @@
         <li><b>Massimo di turni per pilota</b>.</li>
       </ul>
       <p>I <b>cambi di pilota</b> si registrano scansionando il <b>QR del pilota</b> (o inserendo il suo codice) all'ingresso in pista. Dalla diretta apri <b>Controllo dei turni ("Control de turnos")</b>, che mostra il <b>pilota attuale per corsia</b>, il <b>tempo accumulato</b> di ciascuno (segnalando se viola una regola) e lo <b>storico dei turni</b>; se un cambio è stato registrato male, puoi <b>correggere il tempo</b> del turno.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>La fotocamera dello scanner su telefoni e tablet (HTTPS locale).</b> Lo scanner di QR usa la fotocamera, e il browser la consente solo su <b>localhost</b> (il computer dell'operatore) o via <b>HTTPS</b>. Un telefono o tablet che raggiunge PitWall tramite l'IP della rete (192.168.x.x) troverà la fotocamera bloccata, con il messaggio <i>«La fotocamera richiede HTTPS o localhost»</i>. Per scansionare da quei dispositivi, attiva <b>Impostazioni → HTTPS locale (fotocamera dello scanner QR)</b>: PitWall apre una porta sicura separata (<b>3443</b> per impostazione predefinita) senza cambiare nulla del funzionamento normale, e occorre <b>riavviare</b> il server una volta. Poi apri il controllo dei turni tramite il link <b>https://IP:3443/control/shifts</b> (sono pronti in quella stessa sezione delle Impostazioni).</div>
+      </div>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>L'avviso di sicurezza e come eliminarlo.</b> La prima volta che un dispositivo apre il link <b>https://</b>, il browser avvisa una volta (<b>«connessione non privata → continua»</b>); dopo aver accettato, la fotocamera funziona. Se vuoi eliminare quell'avviso, <b>installa la CA di PitWall</b> sul dispositivo: nelle Impostazioni trovi <b>Scarica CA</b> e la pagina <b>/cert</b> con la guida passo passo per <b>iPhone/iPad, Android e Windows</b>. Installare la CA una sola volta basta anche se cambia l'IP della rete: PitWall riemette solo il certificato del server e il dispositivo continua a fidarsi.</div>
+      </div>
     </section>
 
     <section id="correcciones">
@@ -449,6 +457,17 @@
         <li><b>Da competizione</b>: squadre o piloti assegnati alle corsie con <b>rotazione automatica dopo ogni tanda</b>, come una gara ma pensato per allenare il formato di campionato.</li>
       </ul>
       <p>Scegli la modalità, assegna le corsie e premi <b>Inizia ("Empezar")</b>. Il cronometraggio in diretta funziona come in gara (GO del box, giri, miglior/media per corsia).</p>
+      <p><b>Gli allenamenti da competizione vengono salvati.</b> Alla <b>caduta della bandiera di ogni tanda</b>, PitWall salva una riga per ogni corsia che ha girato, con il suo <b>partecipante</b>, i suoi <b>giri</b>, il suo <b>miglior giro</b> e la sua <b>media</b>. I partecipanti <b>a riposo</b> e le corsie <b>senza passaggi</b> non lasciano righe. Uno <b>stop forzato non salva</b> quella tanda: viene scartata e ripetuta per intero.</p>
+      <p>Dalla schermata di preparazione dell'allenamento da competizione, il link <b>Vedi allenamenti salvati ("Ver entrenos guardados")</b> apre l'elenco delle sessioni (<b>data</b>, <b>n° di tande</b>, <b>partecipanti</b>, <b>giri</b> e <b>miglior giro</b>), con la più recente in alto. Premendo una sessione ne vedi il dettaglio in due blocchi:</p>
+      <ul>
+        <li><b>Classifica</b> della sessione: vince chi <b>somma più giri</b> in tutte le sue tande e, a parità, chi ha il <b>miglior giro</b>. La <b>media</b> è quella di <b>tutti</b> i suoi giri, ponderata per tanda (una tanda da 40 giri pesa quanto deve rispetto a una da 3).</li>
+        <li><b>Tanda per tanda</b>: il dettaglio di ogni tanda, corsia per corsia.</li>
+      </ul>
+      <p>Ogni sessione si può <b>eliminare</b> dal suo dettaglio. Se fermi la sessione con <b>STOP</b> e ha salvato almeno una tanda, PitWall ti porta direttamente ai <b>suoi</b> risultati.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>L'<b>allenamento libero</b> non salva risultati: è una sessione aperta di tempi per corsia.</div>
+      </div>
     </section>
 
     <section id="ajustes">
@@ -460,7 +479,8 @@
         <figcaption>Impostazioni: hardware e porte, circuiti salvati, seguito pubblico, licenza e lingua.</figcaption>
       </figure>
       <ul>
-        <li><b>Sorgente dati</b>: scegli da dove arrivano i passaggi — <b>Simulazione</b>, <b>DS-300</b> (un box per porta, con il suo n° di corsie), <b>DS-300 aggregatore</b> (più box su un'unica porta COM: indica <b>porta</b>, <b>baud</b> —57600, 8N1— e <b>n° di box</b> 2/3/4 → 16/24/32 corsie) o <b>BART</b> via Bluetooth. Con l'aggregatore le corsie sono numerate di seguito (box 1 → 1–8, box 2 → 9–16…) e un unico segnale di partenza avvia tutti i box.</li>
+        <li><b>Sorgente dati</b>: scegli da dove arrivano i passaggi — <b>Simulazione</b>, <b>DS-300</b> (un box per porta, con il suo n° di corsie), <b>DS-300 aggregatore</b> (più box su un'unica porta COM: indica <b>porta</b>, <b>baud</b> —57600, 8N1— e <b>n° di box</b> 2/3/4 → 16/24/32 corsie) o <b>BART</b> via Bluetooth (si connette in <b>BLE diretto</b> per impostazione predefinita; il <b>TCP</b> resta nell'elenco per l'emulatore o un ponte BLE→TCP). Con l'aggregatore le corsie sono numerate di seguito (box 1 → 1–8, box 2 → 9–16…) e un unico segnale di partenza avvia tutti i box.</li>
+        <li><b>Configurazione della porta, senza complicazioni</b>: per ogni circuito DS-300 (e per l'aggregatore) a colpo d'occhio vedi solo <b>Porta</b> e <b>Baud rate</b>. La <b>porta</b> si sceglie dall'elenco rilevato; se la tua non compare, con <b>« Scrivi il percorso a mano »</b> la digiti (es. <code>COM3</code> o <code>/dev/ttys003</code>). Il <b>baud rate</b> è un menu a tendina con le velocità abituali (9600–921600), con <b>« Scrivi a mano »</b> per un valore fuori elenco. Le impostazioni fini della seriale (<b>Data bits, Parità, Stop bits, Controllo di flusso</b>) sono ripiegate in <b>« Opzioni avanzate della porta »</b>: di default <b>8N1</b>, quasi mai da toccare.</li>
         <li><b>Circuiti</b>: definisci le piste salvate (sequenza di corsie, tempo minimo).</li>
         <li><b>Seguito pubblico su internet</b>: pubblica le viste pubbliche su internet per seguire la gara da fuori della sede (vedi la <a class="inl" href="#publico">sezione seguente</a>).</li>
         <li><b>Licenza</b> e lingua (ES/EN).</li>

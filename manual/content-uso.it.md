@@ -184,6 +184,10 @@ Nelle gare di **campionato a squadre** puoi imporre regole di ripartizione del v
 
 I **cambi di pilota** si registrano scansionando il **QR del pilota** (o inserendo il suo codice) all'ingresso in pista. Dalla diretta apri **Controllo dei turni (“Control de turnos”)**, che mostra il **pilota attuale per corsia**, il **tempo accumulato** di ciascuno (segnalando se viola una regola) e lo **storico dei turni**; se un cambio è stato registrato male, puoi **correggere il tempo** del turno.
 
+> **La fotocamera dello scanner su telefoni e tablet (HTTPS locale).** Lo scanner di QR usa la fotocamera, e il browser la consente solo su **localhost** (il computer dell'operatore) o via **HTTPS**. Un telefono o tablet che raggiunge PitWall tramite l'IP della rete (192.168.x.x) troverà la fotocamera bloccata, con il messaggio *«La fotocamera richiede HTTPS o localhost»*. Per scansionare da quei dispositivi, attiva **Impostazioni → HTTPS locale (fotocamera dello scanner QR)**: PitWall apre una porta sicura separata (**3443** per impostazione predefinita) senza cambiare nulla del funzionamento normale, e occorre **riavviare** il server una volta. Poi apri il controllo dei turni tramite il link **`https://IP:3443/control/shifts`** (sono pronti in quella stessa sezione delle Impostazioni).
+
+> **L'avviso di sicurezza e come eliminarlo.** La prima volta che un dispositivo apre il link `https://`, il browser avvisa una volta (**«connessione non privata → continua»**); dopo aver accettato, la fotocamera funziona. Se vuoi eliminare quell'avviso, **installa la CA di PitWall** sul dispositivo: nelle Impostazioni trovi **Scarica CA** e la pagina **`/cert`** con la guida passo passo per **iPhone/iPad, Android e Windows**. Installare la CA una sola volta basta anche se cambia l'IP della rete: PitWall riemette solo il certificato del server e il dispositivo continua a fidarsi.
+
 ## 11. Giro per giro e correzioni (aggiungere / togliere giri)
 ![img: 30-correcciones.png]
 
@@ -224,10 +228,22 @@ Oltre alle gare, PitWall ha una modalità **Allenamento (“Entrenamiento”)** 
 
 Scegli la modalità, assegna le corsie e premi **Inizia (“Empezar”)**. Il cronometraggio in diretta funziona come in gara (GO del box, giri, miglior/media per corsia).
 
+**Gli allenamenti da competizione vengono salvati.** Alla **caduta della bandiera di ogni tanda**, PitWall salva una riga per ogni corsia che ha girato, con il suo **partecipante**, i suoi **giri**, il suo **miglior giro** e la sua **media**. I partecipanti **a riposo** e le corsie **senza passaggi** non lasciano righe. Uno **stop forzato non salva** quella tanda: viene scartata e ripetuta per intero.
+
+Dalla schermata di preparazione dell'allenamento da competizione, il link **Vedi allenamenti salvati (“Ver entrenos guardados”)** apre l'elenco delle sessioni (**data**, **n° di tande**, **partecipanti**, **giri** e **miglior giro**), con la più recente in alto. Premendo una sessione ne vedi il dettaglio in due blocchi:
+
+- **Classifica** della sessione: vince chi **somma più giri** in tutte le sue tande e, a parità, chi ha il **miglior giro**. La **media** è quella di **tutti** i suoi giri, ponderata per tanda (una tanda da 40 giri pesa quanto deve rispetto a una da 3).
+- **Tanda per tanda**: il dettaglio di ogni tanda, corsia per corsia.
+
+Ogni sessione si può **eliminare** dal suo dettaglio. Se fermi la sessione con **STOP** e ha salvato almeno una tanda, PitWall ti porta direttamente ai **suoi** risultati.
+
+> L'**allenamento libero** non salva risultati: è una sessione aperta di tempi per corsia.
+
 ## 14. Impostazioni
 ![img: 04-settings.png]
 
-- **Sorgente dati**: scegli da dove arrivano i passaggi — **Simulazione**, **DS-300** (un box per porta, con il suo n° di corsie), **DS-300 aggregatore** (più box su un'unica porta COM: indica **porta**, **baud** —57600, 8N1— e **n° di box** 2/3/4 → 16/24/32 corsie) o **BART** via Bluetooth. Con l'aggregatore le corsie sono numerate di seguito (box 1 → 1–8, box 2 → 9–16…) e un unico segnale di partenza avvia tutti i box.
+- **Sorgente dati**: scegli da dove arrivano i passaggi — **Simulazione**, **DS-300** (un box per porta, con il suo n° di corsie), **DS-300 aggregatore** (più box su un'unica porta COM: indica **porta**, **baud** —57600, 8N1— e **n° di box** 2/3/4 → 16/24/32 corsie) o **BART** via Bluetooth (si connette in **BLE diretto** per impostazione predefinita; il **TCP** resta nell'elenco per l'emulatore o un ponte BLE→TCP). Con l'aggregatore le corsie sono numerate di seguito (box 1 → 1–8, box 2 → 9–16…) e un unico segnale di partenza avvia tutti i box.
+- **Configurazione della porta, senza complicazioni**: per ogni circuito DS-300 (e per l'aggregatore) a colpo d'occhio vedi solo **Porta** e **Baud rate**. La **porta** si sceglie dall'elenco rilevato; se la tua non compare, con **« Scrivi il percorso a mano »** la digiti (es. `COM3` o `/dev/ttys003`). Il **baud rate** è un menu a tendina con le velocità abituali (9600–921600), con **« Scrivi a mano »** per un valore fuori elenco. Le impostazioni fini della seriale (**Data bits, Parità, Stop bits, Controllo di flusso**) sono ripiegate in **« Opzioni avanzate della porta »**: di default **8N1**, quasi mai da toccare.
 - **Circuiti**: definisci le piste salvate (sequenza di corsie, tempo minimo).
 - **Seguito pubblico su internet**: pubblica le viste pubbliche su internet per seguire la gara da fuori della sede (vedi la sezione seguente).
 - **Licenza** e lingua (ES/EN).

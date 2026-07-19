@@ -184,6 +184,10 @@ En carreras de **campeonato por equipos** puedes obligar reglas de reparto de vo
 
 Los **cambios de piloto** se registran escaneando el **QR del piloto** (o metiendo su código) al entrar a pista. Desde el directo abres **Control de turnos**, que muestra el **piloto actual por carril**, el **tiempo acumulado** de cada uno (avisando si incumple una regla) y el **histórico de turnos**; si un cambio se registró mal, puedes **corregir el tiempo** del turno.
 
+> **La cámara del escáner en móviles y tablets (HTTPS local).** El escáner de QR usa la cámara, y el navegador solo la permite en **localhost** (el ordenador del operador) o por **HTTPS**. Un móvil o tablet que entra por la IP de la red (192.168.x.x) verá la cámara bloqueada, con el aviso *«La cámara necesita HTTPS o localhost»*. Para escanear desde esos dispositivos, activa **Ajustes → HTTPS local (cámara del escáner QR)**: PitWall abre un puerto seguro aparte (por defecto **3443**) sin tocar nada del funcionamiento normal, y hay que **reiniciar** el servidor una vez. Después, abre el control de pilotos por el enlace **`https://IP:3443/control/shifts`** (los tienes listos en esa misma sección de Ajustes).
+
+> **El aviso de seguridad y cómo quitarlo.** La primera vez que un dispositivo abre el enlace `https://`, el navegador avisa una vez (**«conexión no privada → continuar»**); al aceptar, la cámara ya funciona. Si quieres que ese aviso no salga, **instala la CA de PitWall** en el dispositivo: en Ajustes tienes **Descargar CA** y la página **`/cert`** con la guía paso a paso para **iPhone/iPad, Android y Windows**. Instalar la CA una vez basta aunque cambie la IP de la red: PitWall reemite solo el certificado del servidor y el dispositivo sigue confiando.
+
 ## 11. Vuelta a vuelta y correcciones (añadir / quitar vueltas)
 ![img: 30-correcciones.png]
 
@@ -224,10 +228,22 @@ Además de las carreras, PitWall tiene un modo **Entrenamiento** (desde la panta
 
 Elige la modalidad, asigna los carriles y pulsa **Empezar**. El cronometraje en directo funciona igual que en carrera (GO de la caja, vueltas, mejor/media por carril).
 
+**Los entrenos de competición se guardan.** Al **caer la bandera de cada heat**, PitWall guarda una fila por cada carril que ha rodado, con su **participante**, sus **vueltas**, su **mejor vuelta** y su **media**. Los participantes que **descansan** y los carriles **sin cruces** no dejan fila. Un **stop forzado no guarda** ese heat: se descarta y se repite entero.
+
+Desde el setup del entreno de competición, el enlace **Ver entrenos guardados** abre la lista de sesiones (**fecha**, **nº de heats**, **participantes**, **vueltas** y **mejor vuelta**), con la más reciente arriba. Al pulsar una sesión ves su detalle con dos bloques:
+
+- **Clasificación** de la sesión: gana quien **más vueltas suma** en todos sus heats y, a igualdad, quien tenga la **mejor vuelta**. La **media** es la de **todas** sus vueltas, ponderada por heat (un heat de 40 vueltas pesa lo que debe frente a uno de 3).
+- **Heat a heat**: el desglose de cada heat, carril a carril.
+
+Cada sesión se puede **borrar** desde su detalle. Si paras la sesión con **STOP** y llegó a guardar algún heat, PitWall te lleva directamente a **sus** resultados.
+
+> El **entrenamiento libre** no guarda resultados: es una sesión abierta de tiempos por carril.
+
 ## 14. Ajustes
 ![img: 04-settings.png]
 
-- **Fuente de datos**: elige de dónde llegan los cruces — **Simulación**, **DS-300** (una caja por puerto, con su nº de carriles), **DS-300 agrupador** (varias cajas por un solo puerto COM: indica **puerto**, **baud** —57600, 8N1— y **nº de cajas** 2/3/4 → 16/24/32 carriles) o **BART** por Bluetooth. Con el agrupador los carriles se numeran de corrido (caja 1 → 1–8, caja 2 → 9–16…) y una sola señal de salida arranca todas las cajas.
+- **Fuente de datos**: elige de dónde llegan los cruces — **Simulación**, **DS-300** (una caja por puerto, con su nº de carriles), **DS-300 agrupador** (varias cajas por un solo puerto COM: indica **puerto**, **baud** —57600, 8N1— y **nº de cajas** 2/3/4 → 16/24/32 carriles) o **BART** por Bluetooth (se conecta por **BLE directo** por defecto; queda **TCP** en la lista para el emulador o un puente BLE→TCP). Con el agrupador los carriles se numeran de corrido (caja 1 → 1–8, caja 2 → 9–16…) y una sola señal de salida arranca todas las cajas.
+- **Configuración del puerto, sin líos**: en cada circuito DS-300 (y en el agrupador) de un vistazo solo ves **Puerto** y **Baud rate**. El **puerto** se elige de la lista de puertos detectados; si el tuyo no aparece, con **«Escribir el path a mano»** lo tecleas (p. ej. `COM3` o `/dev/ttys003`). El **baud rate** es un desplegable con las velocidades habituales (9600–921600), con **«Escribir a mano»** para un valor fuera de lista. Los ajustes finos de la conexión serie (**Data bits, Paridad, Stop bits, Control de flujo**) están plegados en **«Opciones avanzadas del puerto»**: por defecto **8N1** y casi nunca hay que tocarlos.
 - **Circuitos**: define pistas guardadas (secuencia de carriles, tiempo mínimo).
 - **Seguimiento público por internet**: publica las vistas públicas en internet para seguir la carrera desde fuera del local (ver la sección siguiente).
 - **Licencia** e idioma (ES/EN).

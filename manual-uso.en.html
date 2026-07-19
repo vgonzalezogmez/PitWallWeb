@@ -378,6 +378,14 @@
         <li><b>Maximum number of shifts per driver</b>.</li>
       </ul>
       <p><b>Driver changes</b> are recorded by scanning the <b>driver's QR</b> (or entering their code) when they come onto the track. From the live screen you open <b>Shift control</b>, which shows the <b>current driver per lane</b>, the <b>accumulated time</b> of each one (warning if they break a rule) and the <b>shift history</b>; if a change was recorded wrong, you can <b>correct the time</b> of the shift.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>The scanner camera on phones and tablets (local HTTPS).</b> The QR scanner uses the camera, and the browser only allows it on <b>localhost</b> (the operator's computer) or over <b>HTTPS</b>. A phone or tablet reaching PitWall through the network IP (192.168.x.x) will find the camera blocked, with the message <i>"Camera needs HTTPS or localhost"</i>. To scan from those devices, enable <b>Settings → Local HTTPS (QR scanner camera)</b>: PitWall opens a separate secure port (<b>3443</b> by default) without changing anything about normal operation, and the server must be <b>restarted</b> once. Then open driver control through the link <b>https://IP:3443/control/shifts</b> (they are ready for you in that same Settings section).</div>
+      </div>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>The security warning and how to remove it.</b> The first time a device opens the <b>https://</b> link, the browser warns once (<b>"connection not private → continue"</b>); once you accept, the camera works. If you want that warning gone, <b>install the PitWall CA</b> on the device: Settings has <b>Download CA</b> and the <b>/cert</b> page with a step-by-step guide for <b>iPhone/iPad, Android and Windows</b>. Installing the CA once is enough even if the network IP changes: PitWall only re-issues the server certificate and the device keeps trusting it.</div>
+      </div>
     </section>
 
     <section id="correcciones">
@@ -449,6 +457,17 @@
         <li><b>Competition</b>: teams or drivers assigned to lanes with <b>automatic rotation after each batch</b>, like a race but designed to practice the championship format.</li>
       </ul>
       <p>Choose the mode, assign the lanes and press <b>Start</b>. Live timing works the same as in a race (box GO, laps, best/average per lane).</p>
+      <p><b>Competition training sessions are saved.</b> When <b>each heat's flag drops</b>, PitWall saves one row per lane that ran, with its <b>participant</b>, its <b>laps</b>, its <b>best lap</b> and its <b>average</b>. Participants who are <b>resting</b> and lanes <b>with no crossings</b> leave no row. A <b>forced stop does not save</b> that heat: it's discarded and repeated in full.</p>
+      <p>From the competition training setup, the <b>See saved sessions</b> link opens the list of sessions (<b>date</b>, <b>no. of heats</b>, <b>participants</b>, <b>laps</b> and <b>best lap</b>), most recent first. Pressing a session shows its detail with two blocks:</p>
+      <ul>
+        <li><b>Classification</b> for the session: the winner is whoever <b>adds up the most laps</b> across all their heats and, on a tie, whoever has the <b>best lap</b>. The <b>average</b> is that of <b>all</b> their laps, weighted per heat (a 40-lap heat carries the weight it should against a 3-lap one).</li>
+        <li><b>Heat by heat</b>: the breakdown of each heat, lane by lane.</li>
+      </ul>
+      <p>Each session can be <b>deleted</b> from its detail. If you stop the session with <b>STOP</b> and it saved at least one heat, PitWall takes you straight to <b>its</b> results.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>Free training</b> does not save results: it's an open session of times per lane.</div>
+      </div>
     </section>
 
     <section id="ajustes">
@@ -460,7 +479,8 @@
         <figcaption>Settings: hardware and ports, saved tracks, public tracking, license and language.</figcaption>
       </figure>
       <ul>
-        <li><b>Data source</b>: choose where crossings come from — <b>Simulation</b>, <b>DS-300</b> (one box per port, with its lane count), <b>DS-300 aggregator</b> (several boxes over a single COM port: set the <b>port</b>, <b>baud</b> —57600, 8N1— and <b>number of boxes</b> 2/3/4 → 16/24/32 lanes) or <b>BART</b> over Bluetooth. With the aggregator, lanes are numbered consecutively (box 1 → 1–8, box 2 → 9–16…) and a single start signal launches all boxes.</li>
+        <li><b>Data source</b>: choose where crossings come from — <b>Simulation</b>, <b>DS-300</b> (one box per port, with its lane count), <b>DS-300 aggregator</b> (several boxes over a single COM port: set the <b>port</b>, <b>baud</b> —57600, 8N1— and <b>number of boxes</b> 2/3/4 → 16/24/32 lanes) or <b>BART</b> over Bluetooth (it connects over <b>direct BLE</b> by default; <b>TCP</b> stays in the list for the emulator or a BLE→TCP bridge). With the aggregator, lanes are numbered consecutively (box 1 → 1–8, box 2 → 9–16…) and a single start signal launches all boxes.</li>
+        <li><b>Port setup, kept simple</b>: for each DS-300 circuit (and the aggregator) you only see <b>Port</b> and <b>Baud rate</b> at a glance. Pick the <b>port</b> from the detected list; if yours isn't there, tap <b>"Type the path manually"</b> to enter it (e.g. <code>COM3</code> or <code>/dev/ttys003</code>). The <b>baud rate</b> is a dropdown with the usual speeds (9600–921600), with <b>"Type manually"</b> for an out-of-list value. The fine serial settings (<b>Data bits, Parity, Stop bits, Flow control</b>) are folded under <b>"Advanced port options"</b>: they default to <b>8N1</b> and rarely need touching.</li>
         <li><b>Tracks</b>: define saved tracks (lane sequence, minimum time).</li>
         <li><b>Public tracking over the internet</b>: publish the public views on the internet to follow the race from outside the venue (see the <a class="inl" href="#publico">next section</a>).</li>
         <li><b>License</b> and language (ES/EN).</li>

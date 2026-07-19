@@ -378,6 +378,14 @@
         <li><b>Máximo de turnos por piloto</b>.</li>
       </ul>
       <p>Los <b>cambios de piloto</b> se registran escaneando el <b>QR del piloto</b> (o metiendo su código) al entrar a pista. Desde el directo abres <b>Control de turnos</b>, que muestra el <b>piloto actual por carril</b>, el <b>tiempo acumulado</b> de cada uno (avisando si incumple una regla) y el <b>histórico de turnos</b>; si un cambio se registró mal, puedes <b>corregir el tiempo</b> del turno.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>La cámara del escáner en móviles y tablets (HTTPS local).</b> El escáner de QR usa la cámara, y el navegador solo la permite en <b>localhost</b> (el ordenador del operador) o por <b>HTTPS</b>. Un móvil o tablet que entra por la IP de la red (192.168.x.x) verá la cámara bloqueada, con el aviso <i>«La cámara necesita HTTPS o localhost»</i>. Para escanear desde esos dispositivos, activa <b>Ajustes → HTTPS local (cámara del escáner QR)</b>: PitWall abre un puerto seguro aparte (por defecto <b>3443</b>) sin tocar nada del funcionamiento normal, y hay que <b>reiniciar</b> el servidor una vez. Después, abre el control de pilotos por el enlace <b>https://IP:3443/control/shifts</b> (los tienes listos en esa misma sección de Ajustes).</div>
+      </div>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div><b>El aviso de seguridad y cómo quitarlo.</b> La primera vez que un dispositivo abre el enlace <b>https://</b>, el navegador avisa una vez (<b>«conexión no privada → continuar»</b>); al aceptar, la cámara ya funciona. Si quieres que ese aviso no salga, <b>instala la CA de PitWall</b> en el dispositivo: en Ajustes tienes <b>Descargar CA</b> y la página <b>/cert</b> con la guía paso a paso para <b>iPhone/iPad, Android y Windows</b>. Instalar la CA una vez basta aunque cambie la IP de la red: PitWall reemite solo el certificado del servidor y el dispositivo sigue confiando.</div>
+      </div>
     </section>
 
     <section id="correcciones">
@@ -449,6 +457,17 @@
         <li><b>De competición</b>: equipos o pilotos asignados a carriles con <b>rotación automática tras cada tanda</b>, como una carrera pero pensado para entrenar el formato de campeonato.</li>
       </ul>
       <p>Elige la modalidad, asigna los carriles y pulsa <b>Empezar</b>. El cronometraje en directo funciona igual que en carrera (GO de la caja, vueltas, mejor/media por carril).</p>
+      <p><b>Los entrenos de competición se guardan.</b> Al <b>caer la bandera de cada heat</b>, PitWall guarda una fila por cada carril que ha rodado, con su <b>participante</b>, sus <b>vueltas</b>, su <b>mejor vuelta</b> y su <b>media</b>. Los participantes que <b>descansan</b> y los carriles <b>sin cruces</b> no dejan fila. Un <b>stop forzado no guarda</b> ese heat: se descarta y se repite entero.</p>
+      <p>Desde el setup del entreno de competición, el enlace <b>Ver entrenos guardados</b> abre la lista de sesiones (<b>fecha</b>, <b>nº de heats</b>, <b>participantes</b>, <b>vueltas</b> y <b>mejor vuelta</b>), con la más reciente arriba. Al pulsar una sesión ves su detalle con dos bloques:</p>
+      <ul>
+        <li><b>Clasificación</b> de la sesión: gana quien <b>más vueltas suma</b> en todos sus heats y, a igualdad, quien tenga la <b>mejor vuelta</b>. La <b>media</b> es la de <b>todas</b> sus vueltas, ponderada por heat (un heat de 40 vueltas pesa lo que debe frente a uno de 3).</li>
+        <li><b>Heat a heat</b>: el desglose de cada heat, carril a carril.</li>
+      </ul>
+      <p>Cada sesión se puede <b>borrar</b> desde su detalle. Si paras la sesión con <b>STOP</b> y llegó a guardar algún heat, PitWall te lleva directamente a <b>sus</b> resultados.</p>
+      <div class="callout tip">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <div>El <b>entrenamiento libre</b> no guarda resultados: es una sesión abierta de tiempos por carril.</div>
+      </div>
     </section>
 
     <section id="ajustes">
@@ -460,7 +479,8 @@
         <figcaption>Ajustes: hardware y puertos, circuitos guardados, seguimiento público, licencia e idioma.</figcaption>
       </figure>
       <ul>
-        <li><b>Fuente de datos</b>: elige de dónde llegan los cruces — <b>Simulación</b>, <b>DS-300</b> (una caja por puerto, con su nº de carriles), <b>DS-300 agrupador</b> (varias cajas por un solo puerto COM: indica <b>puerto</b>, <b>baud</b> —57600, 8N1— y <b>nº de cajas</b> 2/3/4 → 16/24/32 carriles) o <b>BART</b> por Bluetooth. Con el agrupador los carriles se numeran de corrido (caja 1 → 1–8, caja 2 → 9–16…) y una sola señal de salida arranca todas las cajas.</li>
+        <li><b>Fuente de datos</b>: elige de dónde llegan los cruces — <b>Simulación</b>, <b>DS-300</b> (una caja por puerto, con su nº de carriles), <b>DS-300 agrupador</b> (varias cajas por un solo puerto COM: indica <b>puerto</b>, <b>baud</b> —57600, 8N1— y <b>nº de cajas</b> 2/3/4 → 16/24/32 carriles) o <b>BART</b> por Bluetooth (se conecta por <b>BLE directo</b> por defecto; queda <b>TCP</b> en la lista para el emulador o un puente BLE→TCP). Con el agrupador los carriles se numeran de corrido (caja 1 → 1–8, caja 2 → 9–16…) y una sola señal de salida arranca todas las cajas.</li>
+        <li><b>Configuración del puerto, sin líos</b>: en cada circuito DS-300 (y en el agrupador) de un vistazo solo ves <b>Puerto</b> y <b>Baud rate</b>. El <b>puerto</b> se elige de la lista de puertos detectados; si el tuyo no aparece, con <b>«Escribir el path a mano»</b> lo tecleas (p. ej. <code>COM3</code> o <code>/dev/ttys003</code>). El <b>baud rate</b> es un desplegable con las velocidades habituales (9600–921600), con <b>«Escribir a mano»</b> para un valor fuera de lista. Los ajustes finos de la conexión serie (<b>Data bits, Paridad, Stop bits, Control de flujo</b>) están plegados en <b>«Opciones avanzadas del puerto»</b>: por defecto <b>8N1</b> y casi nunca hay que tocarlos.</li>
         <li><b>Circuitos</b>: define pistas guardadas (secuencia de carriles, tiempo mínimo).</li>
         <li><b>Seguimiento público por internet</b>: publica las vistas públicas en internet para seguir la carrera desde fuera del local (ver la <a class="inl" href="#publico">sección siguiente</a>).</li>
         <li><b>Licencia</b> e idioma (ES/EN).</li>

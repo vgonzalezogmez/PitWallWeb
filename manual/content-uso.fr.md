@@ -184,6 +184,10 @@ Dans les courses de **championnat par équipes**, tu peux imposer des règles de
 
 Les **changements de pilote** s'enregistrent en scannant le **QR du pilote** (ou en saisissant son code) à l'entrée en piste. Depuis le direct, tu ouvres **Contrôle des relais**, qui affiche le **pilote actuel par voie**, le **temps cumulé** de chacun (en signalant s'il enfreint une règle) et l'**historique des relais** ; si un changement a été mal enregistré, tu peux **corriger le temps** du relais.
 
+> **La caméra du scanner sur téléphones et tablettes (HTTPS local).** Le scanner de QR utilise la caméra, et le navigateur ne l'autorise que sur **localhost** (l'ordinateur de l'opérateur) ou en **HTTPS**. Un téléphone ou une tablette qui rejoint PitWall par l'IP du réseau (192.168.x.x) verra la caméra bloquée, avec le message *« La caméra a besoin de HTTPS ou localhost »*. Pour scanner depuis ces appareils, active **Réglages → HTTPS local (caméra du scanner QR)** : PitWall ouvre un port sécurisé séparé (**3443** par défaut) sans rien changer au fonctionnement normal, et il faut **redémarrer** le serveur une fois. Ouvre ensuite le contrôle des relais via le lien **`https://IP:3443/control/shifts`** (ils sont prêts dans cette même section des Réglages).
+
+> **L'avertissement de sécurité et comment le faire disparaître.** La première fois qu'un appareil ouvre le lien `https://`, le navigateur avertit une fois (**« connexion non privée → continuer »**) ; une fois accepté, la caméra fonctionne. Si tu veux supprimer cet avertissement, **installe la CA de PitWall** sur l'appareil : les Réglages proposent **Télécharger la CA** et la page **`/cert`** avec un guide pas à pas pour **iPhone/iPad, Android et Windows**. Installer la CA une seule fois suffit même si l'IP du réseau change : PitWall ne réémet que le certificat du serveur et l'appareil continue de lui faire confiance.
+
 ## 11. Tour par tour et corrections (ajouter / retirer des tours)
 ![img: 30-correcciones.png]
 
@@ -224,10 +228,22 @@ En plus des courses, PitWall dispose d'un mode **Entraînement** (depuis l'écra
 
 Choisis la modalité, attribue les voies et appuie sur *Commencer (« Empezar »)*. Le chronométrage en direct fonctionne comme en course (GO du boîtier, tours, meilleur/moyenne par voie).
 
+**Les entraînements de compétition sont enregistrés.** À la **chute du drapeau de chaque série**, PitWall enregistre une ligne par voie ayant roulé, avec son **participant**, ses **tours**, son **meilleur tour** et sa **moyenne**. Les participants **au repos** et les voies **sans passages** ne laissent aucune ligne. Un **arrêt forcé n'enregistre pas** cette série : elle est écartée et refaite en entier.
+
+Depuis l'écran de préparation de l'entraînement de compétition, le lien *Voir les entraînements enregistrés (« Ver entrenos guardados »)* ouvre la liste des séances (**date**, **nb de séries**, **participants**, **tours** et **meilleur tour**), la plus récente en haut. En appuyant sur une séance, tu vois son détail en deux blocs :
+
+- **Classement** de la séance : gagne celui qui **cumule le plus de tours** sur toutes ses séries et, à égalité, celui qui a le **meilleur tour**. La **moyenne** est celle de **tous** ses tours, pondérée par série (une série de 40 tours pèse ce qu'elle doit face à une de 3).
+- **Série par série** : le détail de chaque série, voie par voie.
+
+Chaque séance peut être **supprimée** depuis son détail. Si tu arrêtes la séance avec **STOP** et qu'elle a enregistré au moins une série, PitWall t'amène directement à **ses** résultats.
+
+> L'**entraînement libre** n'enregistre pas de résultats : c'est une séance ouverte de temps par voie.
+
 ## 14. Réglages
 ![img: 04-settings.png]
 
-- **Source de données** : choisis d'où arrivent les passages — **Simulation**, **DS-300** (un boîtier par port, avec son nombre de voies), **DS-300 agrégateur** (plusieurs boîtiers sur un seul port COM : indique le **port**, le **baud** —57600, 8N1— et le **nombre de boîtiers** 2/3/4 → 16/24/32 voies) ou **BART** par Bluetooth. Avec l'agrégateur les voies sont numérotées à la suite (boîtier 1 → 1–8, boîtier 2 → 9–16…) et un seul signal de départ lance tous les boîtiers.
+- **Source de données** : choisis d'où arrivent les passages — **Simulation**, **DS-300** (un boîtier par port, avec son nombre de voies), **DS-300 agrégateur** (plusieurs boîtiers sur un seul port COM : indique le **port**, le **baud** —57600, 8N1— et le **nombre de boîtiers** 2/3/4 → 16/24/32 voies) ou **BART** par Bluetooth (il se connecte en **BLE direct** par défaut ; le **TCP** reste dans la liste pour l'émulateur ou un pont BLE→TCP). Avec l'agrégateur les voies sont numérotées à la suite (boîtier 1 → 1–8, boîtier 2 → 9–16…) et un seul signal de départ lance tous les boîtiers.
+- **Configuration du port, sans prise de tête** : pour chaque circuit DS-300 (et l'agrégateur) tu ne vois d'un coup d'œil que le **Port** et le **Baud rate**. Choisis le **port** dans la liste détectée ; s'il n'y figure pas, **« Saisir le chemin à la main »** permet de le taper (p. ex. `COM3` ou `/dev/ttys003`). Le **baud rate** est un menu déroulant avec les vitesses habituelles (9600–921600), avec **« Saisir à la main »** pour une valeur hors liste. Les réglages fins de la liaison série (**Data bits, Parité, Stop bits, Contrôle de flux**) sont repliés sous **« Options avancées du port »** : par défaut **8N1**, on n'y touche presque jamais.
 - **Circuits** : définis des pistes enregistrées (séquence de voies, temps minimum).
 - **Suivi public par internet** : publie les vues publiques sur internet pour suivre la course depuis l'extérieur du local (voir la section suivante).
 - **Licence** et langue (ES/EN).

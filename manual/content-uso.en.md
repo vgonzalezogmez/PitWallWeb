@@ -184,6 +184,10 @@ In **team championship** races you can enforce rules for sharing the wheel among
 
 **Driver changes** are recorded by scanning the **driver's QR** (or entering their code) when they come onto the track. From the live screen you open **Shift control**, which shows the **current driver per lane**, the **accumulated time** of each one (warning if they break a rule) and the **shift history**; if a change was recorded wrong, you can **correct the time** of the shift.
 
+> **The scanner camera on phones and tablets (local HTTPS).** The QR scanner uses the camera, and the browser only allows it on **localhost** (the operator's computer) or over **HTTPS**. A phone or tablet reaching PitWall through the network IP (192.168.x.x) will find the camera blocked, with the message *"Camera needs HTTPS or localhost"*. To scan from those devices, enable **Settings → Local HTTPS (QR scanner camera)**: PitWall opens a separate secure port (**3443** by default) without changing anything about normal operation, and the server must be **restarted** once. Then open driver control through the link **`https://IP:3443/control/shifts`** (they are ready for you in that same Settings section).
+
+> **The security warning and how to remove it.** The first time a device opens the `https://` link, the browser warns once (**"connection not private → continue"**); once you accept, the camera works. If you want that warning gone, **install the PitWall CA** on the device: Settings has **Download CA** and the **`/cert`** page with a step-by-step guide for **iPhone/iPad, Android and Windows**. Installing the CA once is enough even if the network IP changes: PitWall only re-issues the server certificate and the device keeps trusting it.
+
 ## 11. Lap by lap and corrections (add / remove laps)
 ![img: 30-correcciones.png]
 
@@ -224,10 +228,22 @@ Besides races, PitWall has a **Training** mode (from the home screen) to run wit
 
 Choose the mode, assign the lanes and press **Start**. Live timing works the same as in a race (box GO, laps, best/average per lane).
 
+**Competition training sessions are saved.** When **each heat's flag drops**, PitWall saves one row per lane that ran, with its **participant**, its **laps**, its **best lap** and its **average**. Participants who are **resting** and lanes **with no crossings** leave no row. A **forced stop does not save** that heat: it's discarded and repeated in full.
+
+From the competition training setup, the **See saved sessions** link opens the list of sessions (**date**, **no. of heats**, **participants**, **laps** and **best lap**), most recent first. Pressing a session shows its detail with two blocks:
+
+- **Classification** for the session: the winner is whoever **adds up the most laps** across all their heats and, on a tie, whoever has the **best lap**. The **average** is that of **all** their laps, weighted per heat (a 40-lap heat carries the weight it should against a 3-lap one).
+- **Heat by heat**: the breakdown of each heat, lane by lane.
+
+Each session can be **deleted** from its detail. If you stop the session with **STOP** and it saved at least one heat, PitWall takes you straight to **its** results.
+
+> **Free training** does not save results: it's an open session of times per lane.
+
 ## 14. Settings
 ![img: 04-settings.png]
 
-- **Data source**: choose where crossings come from — **Simulation**, **DS-300** (one box per port, with its lane count), **DS-300 aggregator** (several boxes over a single COM port: set the **port**, **baud** —57600, 8N1— and **number of boxes** 2/3/4 → 16/24/32 lanes) or **BART** over Bluetooth. With the aggregator, lanes are numbered consecutively (box 1 → 1–8, box 2 → 9–16…) and a single start signal launches all boxes.
+- **Data source**: choose where crossings come from — **Simulation**, **DS-300** (one box per port, with its lane count), **DS-300 aggregator** (several boxes over a single COM port: set the **port**, **baud** —57600, 8N1— and **number of boxes** 2/3/4 → 16/24/32 lanes) or **BART** over Bluetooth (it connects over **direct BLE** by default; **TCP** stays in the list for the emulator or a BLE→TCP bridge). With the aggregator, lanes are numbered consecutively (box 1 → 1–8, box 2 → 9–16…) and a single start signal launches all boxes.
+- **Port setup, kept simple**: for each DS-300 circuit (and the aggregator) you only see **Port** and **Baud rate** at a glance. Pick the **port** from the detected list; if yours isn't there, tap **"Type the path manually"** to enter it (e.g. `COM3` or `/dev/ttys003`). The **baud rate** is a dropdown with the usual speeds (9600–921600), with **"Type manually"** for an out-of-list value. The fine serial settings (**Data bits, Parity, Stop bits, Flow control**) are folded under **"Advanced port options"**: they default to **8N1** and rarely need touching.
 - **Tracks**: define saved tracks (lane sequence, minimum time).
 - **Public tracking over the internet**: publish the public views on the internet to follow the race from outside the venue (see the next section).
 - **License** and language (ES/EN).
