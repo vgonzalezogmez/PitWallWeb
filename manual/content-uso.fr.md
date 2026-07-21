@@ -168,6 +168,8 @@ Depuis la page de la course :
 
 **Choisir la vue.** Avec le bouton *Vue (« Vista »)*, tu changes la mise en page selon les voies : *Lignes horizontales* (peu de voies), *Grille compacte* (beaucoup) ou *Cartes détaillées* (avec tours/sorties/pit/Δ par carte).
 
+**Distance au leader et estimation provisoire.** Sur les écrans de classement (**Le Mans** et **statistiques en direct**), la distance au leader est donnée **avec la virgule** et son équivalent **en secondes** —*« a 2,8 v (35,5\") »*, soit à 2,8 tours, c'est-à-dire 35,5 secondes—, et non arrondie à des tours entiers. Et si une estimation porte un **astérisque orange**, c'est que cette équipe en est encore à sa **première manche** sans avoir dépassé les **60 %** : sa référence n'est pas figée et le chiffre peut encore bouger. Tout cela est expliqué en détail dans le *Manuel de statistiques*.
+
 **Changer de série, répéter une manche et terminer.** Depuis le direct lui-même, tu as des raccourcis sans quitter l'écran :
 - **Série suivante** — quand les manches d'une série se terminent, passe directement à la suivante.
 - **Répéter la manche** — si une manche a été jugée mauvaise (faux départ, incident), tu la relances avec les mêmes participants et voies.

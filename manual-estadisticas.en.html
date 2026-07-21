@@ -86,7 +86,7 @@
       <ul>
         <li><b>TOTAL</b> — laps accumulated so far in the heat.</li>
         <li><b>LAST</b> — your last complete lap. It's your immediate reference: are you improving or dropping off?</li>
-        <li><b>AVERAGE</b> — your average pace in the heat (a simple average of your laps, not counting the warm-up one). It's what really matters for winning in endurance: not the odd fast lap, but sustained pace.</li>
+        <li><b>AVERAGE</b> — your average pace in the heat (a simple average of your laps, not counting the <b>start crossing</b>; your first complete lap <b>does</b> count). It's what really matters for winning in endurance: not the odd fast lap, but sustained pace.</li>
         <li><b>BEST</b> — your best valid lap of the heat.</li>
       </ul>
       <p><b>Fastest lap banner.</b> When someone sets the fastest lap of the moment, a highlighted alert pops up. If it's yours, good. If it's a rival's, it's the benchmark to beat.</p>
@@ -164,12 +164,12 @@
       <p><b>HEAT LAPS.</b> How many laps you have in the current heat.</p>
       <p><b>BEST.</b> Your best valid lap. "Valid" means that <b>it does NOT count</b>:</p>
       <ul>
-        <li>the <b>warm-up lap</b> (the first one, with the fuss of the lights and the initial crossing),</li>
+        <li>the <b>start crossing</b> (from the grid to the line, starting from a standstill: it's half the layout, not a lap),</li>
         <li>nor a <b>partial crossing</b> (a lap that's really half a lap miscounted),</li>
         <li>nor times <b>below the minimum</b> of the race (impossible ghost crossings).</li>
       </ul>
-      <p>So your BEST is a truly real lap, never a gifted number.</p>
-      <p><b>AVERAGE.</b> Your average pace. A simple average of your race laps (includes exits and pit-stops; only excludes the warm-up). It's the number the projection uses to estimate where you finish. <b>Lower your average and you climb in the overall.</b></p>
+      <p>Careful with this one: <b>your first complete lap DOES count</b> —it's real pace and it can perfectly well be your best lap—. The only thing discarded is that first crossing from a standstill. So your BEST is a truly real lap, never a gifted number nor a good lap that gets lost.</p>
+      <p><b>AVERAGE.</b> Your average pace. A simple average of your race laps (includes exits and pit-stops; only excludes the <b>start crossing</b>). It's exactly the same criterion TicTac uses, to the millisecond. It's the number the projection uses to estimate where you finish. <b>Lower your average and you climb in the overall.</b></p>
       <p><b>Δ (delta).</b> It's your <b>clean average minus your best lap</b>. That is: how much margin you have left. A small Δ = you almost always run flat out, very little to shave off. A big Δ = you have pace but lose it on many laps: that's where your gold is, in being more consistent. The "clean average" here doesn't count exits or pits, only your normal running.</p>
       <p><b>EXITS / PIT-STOPS.</b> How many times you've gone off and how many stops you've made. Each exit costs you time and positions.</p>
       <p><b>Time lost in exits.</b> What those exits cost you, in seconds. Put it in context: sometimes a single exit is worth more positions than tenths of pace throughout the whole heat. Here you see it clearly.</p>
@@ -233,7 +233,7 @@
       </ul>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-        <div><b>Minimum laps.</b> You need at least <b>3 valid laps</b> (which, removing warm-up and the first crossing, are about 5 laps run) for the number to be reliable. With fewer you'll see a dash (—) until you build up mileage.</div>
+        <div><b>Minimum laps.</b> You need at least <b>3 valid laps</b> (which, removing the start crossing, are about 4 times across the line) for the number to be reliable. With fewer you'll see a dash (—) until you build up mileage.</div>
       </div>
     </section>
 
@@ -274,13 +274,21 @@
         <li><b>Projected</b> — where you'll finish the race adding up all the heats. It's your REAL position in the overall. The projection estimates your total laps by dividing the total race time by your average. <b>Lowering your average = better projection.</b></li>
       </ul>
       <p>Important: the projected position is <b>the same everywhere</b> (live card, Overall Classification and Lap panel). If you see P2 in one place, you see P2 everywhere. There aren't two truths.</p>
+      <p><b>The provisional estimate (the asterisk *).</b> If you see an <b>orange asterisk</b> next to an estimate, it means that figure <b>hasn't settled yet</b>: that team is in its <b>first heat</b> and hasn't gone past <b>60 %</b> of it, so PitWall doesn't have a solid reference for its pace from the start. The number can still move. As soon as the heat crosses that point, the asterisk disappears and the reference is locked in. You'll see it in the <b>Le Mans classification</b> and in the <b>live stats</b>; hover over it and the explanation appears.</p>
+      <p><b>The distance carries the fraction (and is also given in seconds).</b> The gap to the leader is <b>not</b> rounded to whole laps: it includes the <b>fraction</b> of a lap you've already covered. That's why the label no longer reads <i>"+3 vlts."</i> but something like <b>"a 2,8 v (35,5")"</b> — 2.8 laps behind, worth 35.5 seconds:</p>
+      <ul>
+        <li><b>2,8 v</b> is the real distance in laps, decimal included.</li>
+        <li><b>35,5"</b> is what it would cost you to make it up <b>at your own pace</b> (those 2.8 laps × your average). It's the same number TicTac calls out.</li>
+      </ul>
+      <p>Where the fraction comes from: <b>with the heat running</b> it's the <b>live</b> fraction —what you've covered since your last time across the line—, so the distance moves with you within the lap; <b>with the heat finished, or if you're resting</b>, it's the fraction you had <b>as the flag fell</b>. Before this, when the flag fell you lost all trace of who was further ahead on the road, and two cars 2.8 laps apart looked exactly like two cars 3.0 apart.</p>
       <p><b>Types of gap.</b></p>
       <ul>
         <li><b>Gap to leader</b> — how far you are from the first.</li>
-        <li><b>Gap by laps</b> — the distance expressed in laps (more intuitive in endurance: "I'm one lap down").</li>
+        <li><b>Gap by laps</b> — the distance expressed in laps, <b>with its fraction</b> ("I'm 2.8 laps down", not "3").</li>
+        <li><b>Gap in seconds</b> — that same distance turned into time using <b>your</b> average. That's what you have to claw back.</li>
         <li><b>Gap by minute</b> — how the distance evolves with time, to see if you're closing in or dropping off.</li>
       </ul>
-      <p>When two drivers have the same laps, the <b>fraction</b> breaks the tie: the fraction of a lap you'd completed just as the flag fell. Running right to the end can give you that extra fraction that moves you up a position.</p>
+      <p>When two drivers have the same laps, the <b>fraction</b> breaks the tie: the fraction of a lap you'd completed just as the flag fell. Running right to the end can give you that extra fraction that moves you up a position. And if you're level on the fraction too, the accumulated <b>total time</b> decides.</p>
     </section>
 
     <section id="resultados">
@@ -357,6 +365,7 @@
         <figcaption>The team overall with projected laps, gap to leader and pace to climb.</figcaption>
       </figure>
       <p>In team races there's also the <b>Le Mans classification</b>: the overall in large, with <b>projected laps</b>, total, <b>gap</b> to the leader, average, best and <b>P/Climb</b> (the pace you'd need to catch the one ahead). Ideal for long races.</p>
+      <p>The <b>gap</b> in this table reads <b>"a 2,8 v (35,5")"</b>: the distance in laps <b>with its fraction</b> and, in brackets, what it would cost to make it up at your pace. And if an estimate carries an <b>orange asterisk</b>, that figure is still <b>provisional</b> (first heat, not yet past 60 %).</p>
 
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
@@ -370,15 +379,16 @@
       <ul>
         <li><b>Consistency</b> — your lap-to-lap regularity. 100 minus your relative variation. Higher = more consistent.</li>
         <li><b>±SD (standard deviation) / CV</b> — the ±SD is the seconds you swing from lap to lap (look at this number). The CV is that swing as a percentage relative to your pace; the consistency % is 100 − CV.</li>
-        <li><b>Average</b> — a simple average of your lap times, without the warm-up one. Includes exits and pits. It's the one the projection uses.</li>
+        <li><b>Average</b> — a simple average of your lap times, without the start crossing (your first complete lap <b>does</b> go in). Includes exits and pits. It's the one the projection uses, and it matches TicTac to the millisecond.</li>
         <li><b>Clean average</b> — your average counting only normal laps (without exits). Used for the Δ and to detect incidents, not to project.</li>
-        <li><b>Warmup (warm-up lap / partial crossing)</b> — the first real lap of the heat, with artifacts from the lights and the initial crossing. Doesn't count for average, best or consistency.</li>
+        <li><b>Start crossing (warmup / partial crossing)</b> — the first time you cross the line in the heat: from the grid to the line, starting from a standstill. It's half the layout, not a lap, so it doesn't count for average, best or consistency. <b>Only that one</b>: the first complete lap that comes after counts for everything.</li>
         <li><b>Sub-minimum</b> — a time below the race's minimum lap. An impossible ghost crossing; always discarded.</li>
         <li><b>Exit</b> — you've gone off the track. Counts for the average (it's real time lost) but not for your best lap.</li>
         <li><b>Pit-stop</b> — a stop in the pits. Counts as time, not as best lap.</li>
-        <li><b>Fraction</b> — the fraction of a lap you'd completed when the flag fell. Breaks the tie when two of you have the same laps.</li>
-        <li><b>Projection</b> — an estimate of your final result by adding up all the heats: total race time divided by your average.</li>
-        <li><b>Gap</b> — your distance to another car (or to the leader), in time, in laps or per minute.</li>
+        <li><b>Fraction</b> — the fraction of a lap you've covered: while running, what you've done since your last time across the line; at the end, the one you had as the flag fell. It counts in the distance to the leader and breaks the tie when two of you have the same laps.</li>
+        <li><b>Projection</b> — an estimate of your final result by adding up all the heats: total race time divided by your average, plus the fraction you've already covered.</li>
+        <li><b>Provisional estimate (*)</b> — the orange asterisk next to an estimate: the team is in its first heat and hasn't gone past 60 % of it, so its reference isn't locked in and the number can still move.</li>
+        <li><b>Gap</b> — your distance to another car (or to the leader), in laps <b>with the fraction</b>, in seconds (those laps × your average) or per minute. It reads <i>"a 2,8 v (35,5")"</i>.</li>
         <li><b>PitWall Lap</b> — your team's mobile web page (PIN access): your projected position, your pace cards and the voice that calls out the laps. Only in team races.</li>
         <li><b>Occurrence</b> — each time you run the same lane in passes/repeat-lane races (<code>1/2</code>, <code>2/2</code>…); it lets you compare one pass with another.</li>
         <li><b>P/Climb</b> — in the Le Mans classification, the pace (average per lap) you'd need to catch the team ahead.</li>

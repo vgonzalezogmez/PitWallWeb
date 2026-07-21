@@ -168,6 +168,8 @@ Dalla pagina della gara:
 
 **Scegliere la vista.** Con il pulsante **Vista** cambi il layout in base alle corsie: *Righe orizzontali* (poche corsie), *Griglia compatta* (molte) o *Schede con dettagli* (con giri/uscite/pit/Δ per scheda).
 
+**Distanza dal leader e stima provvisoria.** Nelle schermate di classifica (**Le Mans** e **statistiche in diretta**) la distanza dal leader viene data **con la virgola** e il suo equivalente **in secondi** —*"a 2,8 v (35,5\")"*, cioè a 2,8 giri, ovvero 35,5 secondi—, non arrotondata a giri interi. E se una stima porta un **asterisco arancione**, quella squadra è ancora nella sua **prima manche** senza aver superato il **60 %**: il suo riferimento non è fissato e la cifra può ancora muoversi. Tutto questo è spiegato in dettaglio nel *Manuale di statistiche*.
+
 **Cambiare tanda, ripetere una manche e finalizzare.** Dalla diretta stessa hai scorciatoie senza uscire dalla schermata:
 - **Tanda successiva (“Siguiente tanda”)** — quando finiscono le manche di una tanda, passa direttamente alla successiva.
 - **Ripeti manche (“Repetir manga”)** — se una manche è stata annullata (falsa partenza, incidente), la rilanci con gli stessi partecipanti e corsie.

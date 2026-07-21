@@ -86,7 +86,7 @@
       <ul>
         <li><b>TOTAL</b> — vueltas acumuladas hasta ahora en la manga.</li>
         <li><b>ÚLTIMA</b> — tu última vuelta completa. Es tu referencia inmediata: ¿mejoras o te caes?</li>
-        <li><b>MEDIA</b> — tu ritmo medio en la manga (media simple de tus vueltas, sin contar la de calentamiento). Es lo que de verdad manda para ganar en resistencia: no la mejor vuelta suelta, sino el ritmo sostenido.</li>
+        <li><b>MEDIA</b> — tu ritmo medio en la manga (media simple de tus vueltas, sin contar el <b>cruce de salida</b>; tu primera vuelta completa <b>sí</b> cuenta). Es lo que de verdad manda para ganar en resistencia: no la mejor vuelta suelta, sino el ritmo sostenido.</li>
         <li><b>MEJOR</b> — tu mejor vuelta válida de la manga.</li>
       </ul>
       <p><b>Banner de vuelta rápida.</b> Cuando alguien marca la vuelta más rápida del momento, salta un aviso destacado. Si es tuya, bien. Si es de un rival, es la vara de medir a batir.</p>
@@ -164,12 +164,12 @@
       <p><b>VUELTAS MANGA.</b> Cuántas vueltas llevas en la manga actual.</p>
       <p><b>MEJOR.</b> Tu mejor vuelta válida. "Válida" significa que <b>no cuenta</b>:</p>
       <ul>
-        <li>la <b>vuelta de calentamiento</b> (la primera, con el lío del semáforo y el cruce inicial),</li>
+        <li>el <b>cruce de salida</b> (de la rejilla a la línea, arrancando parado: es medio trazado, no una vuelta),</li>
         <li>ni un <b>cruce parcial</b> (una vuelta que en realidad es media vuelta mal contada),</li>
         <li>ni tiempos <b>por debajo del mínimo</b> de la carrera (cruces fantasma imposibles).</li>
       </ul>
-      <p>Así que tu MEJOR es una vuelta real de verdad, nunca un número regalado.</p>
-      <p><b>MEDIA.</b> Tu ritmo medio. Media simple de tus vueltas de carrera (incluye salidas y pit-stops; solo excluye el calentamiento). Es el número que la proyección usa para estimar dónde acabas. <b>Baja tu media y subes en la general.</b></p>
+      <p>Ojo con esto: <b>tu primera vuelta completa sí cuenta</b> —es ritmo real y puede ser perfectamente tu mejor vuelta—. Lo único que se descarta es ese primer cruce desde parado. Así que tu MEJOR es una vuelta real de verdad, nunca un número regalado ni una vuelta buena que se pierde.</p>
+      <p><b>MEDIA.</b> Tu ritmo medio. Media simple de tus vueltas de carrera (incluye salidas y pit-stops; solo excluye el <b>cruce de salida</b>). Es exactamente el mismo criterio que usa TicTac, al milisegundo. Es el número que la proyección usa para estimar dónde acabas. <b>Baja tu media y subes en la general.</b></p>
       <p><b>Δ (delta).</b> Es tu <b>media limpia menos tu mejor vuelta</b>. O sea: cuánto margen te queda. Un Δ pequeño = ruedas casi siempre a tope, muy poco que rascar. Un Δ grande = tienes ritmo pero lo pierdes en muchas vueltas: ahí está tu oro, en ser más constante. La "media limpia" aquí no cuenta salidas ni pits, solo tu rodar normal.</p>
       <p><b>SALIDAS / PIT-STOPS.</b> Cuántas veces te has salido y cuántas paradas has hecho. Cada salida te cuesta tiempo y posiciones.</p>
       <p><b>Tiempo perdido en salidas.</b> Lo que te han costado esas salidas, en segundos. Ponlo en contexto: a veces una sola salida vale más posiciones que décimas de ritmo durante toda la manga. Aquí lo ves claro.</p>
@@ -233,7 +233,7 @@
       </ul>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-        <div><b>Mínimo de vueltas.</b> Hacen falta al menos <b>3 vueltas válidas</b> (que, quitando calentamiento y primera cruzada, son unas 5 vueltas dadas) para que el número sea fiable. Con menos verás un guion (—) hasta que acumules recorrido.</div>
+        <div><b>Mínimo de vueltas.</b> Hacen falta al menos <b>3 vueltas válidas</b> (que, quitando el cruce de salida, son unas 4 pasadas por meta) para que el número sea fiable. Con menos verás un guion (—) hasta que acumules recorrido.</div>
       </div>
     </section>
 
@@ -274,13 +274,21 @@
         <li><b>Proyectada</b> — dónde vas a acabar la carrera sumando todas las mangas. Es tu posición REAL en la general. La proyección estima tus vueltas totales dividiendo el tiempo total de carrera entre tu media. <b>Bajar tu media = mejor proyección.</b></li>
       </ul>
       <p>Importante: la posición proyectada es <b>la misma en todas partes</b> (tarjeta del directo, Clasificación General y panel Lap). Si en un sitio ves P2, en todos ves P2. No hay dos verdades.</p>
+      <p><b>La estimada provisional (el asterisco *).</b> Si al lado de una estimada ves un <b>asterisco naranja</b>, significa que esa cifra <b>todavía no está asentada</b>: el equipo está en su <b>primera manga</b> y aún no ha pasado del <b>60 %</b> de ella, así que PitWall todavía no tiene una referencia sólida de su ritmo desde la salida. Ese número puede moverse. En cuanto la manga cruza ese punto, el asterisco desaparece y la referencia queda fijada. Lo verás en la <b>clasificación Le Mans</b> y en las <b>estadísticas en vivo</b>; pasando el ratón por encima sale la explicación.</p>
+      <p><b>La distancia lleva la coma (y también se dice en segundos).</b> El hueco al líder <b>no</b> se redondea a vueltas enteras: incluye la <b>coma</b>, la fracción de vuelta que llevas hecha. Por eso la etiqueta ya no dice <i>"+3 vlts."</i> sino algo como <b>"a 2,8 v (35,5")"</b>:</p>
+      <ul>
+        <li><b>2,8 v</b> es la distancia real en vueltas, con su decimal.</li>
+        <li><b>35,5"</b> es lo que te costaría recuperarla <b>a tu propio ritmo</b> (esas 2,8 vueltas × tu media). Es el mismo número que canta TicTac.</li>
+      </ul>
+      <p>De dónde sale la coma: <b>con la manga en marcha</b> es la coma <b>viva</b> —lo que llevas rodado desde tu último paso por meta—, así que la distancia se mueve contigo dentro de la vuelta; <b>con la manga terminada o si estás descansando</b>, es la coma con la que <b>cruzaste la bandera</b>. Antes de esto, al caer la bandera se perdía quién iba más adelantado en pista y dos coches separados por 2,8 vueltas y por 3,0 se veían idénticos.</p>
       <p><b>Tipos de gap.</b></p>
       <ul>
         <li><b>Gap al líder</b> — a cuánto estás del primero.</li>
-        <li><b>Gap por vueltas</b> — la distancia expresada en vueltas (más intuitivo en resistencia: "voy a una vuelta").</li>
+        <li><b>Gap por vueltas</b> — la distancia expresada en vueltas, <b>con su coma</b> ("voy a 2,8 vueltas", no "a 3").</li>
+        <li><b>Gap en segundos</b> — esa misma distancia traducida a tiempo con <b>tu</b> media. Es lo que hay que recortar.</li>
         <li><b>Gap por minuto</b> — cómo evoluciona la distancia con el tiempo, para ver si recortas o te descuelgas.</li>
       </ul>
-      <p>Cuando dos pilotos tienen las mismas vueltas, desempata la <b>coma</b>: la fracción de vuelta que llevabas hecha justo al caer la bandera. Rodar apurado hasta el final puede darte esa fracción de más que te sube una posición.</p>
+      <p>Cuando dos pilotos tienen las mismas vueltas, desempata la <b>coma</b>: la fracción de vuelta que llevabas hecha justo al caer la bandera. Rodar apurado hasta el final puede darte esa fracción de más que te sube una posición. Y si también empatáis en coma, decide el <b>tiempo total</b> acumulado.</p>
     </section>
 
     <section id="resultados">
@@ -357,6 +365,7 @@
         <figcaption>La general por equipos con vueltas proyectadas, gap al líder y ritmo para subir.</figcaption>
       </figure>
       <p>En carreras por equipos existe además la <b>clasificación Le Mans</b>: la general en grande, con <b>vueltas proyectadas</b>, total, <b>gap</b> al líder, media, mejor y <b>P/Subir</b> (el ritmo que necesitarías para cazar al de delante). Ideal para carreras largas.</p>
+      <p>El <b>gap</b> de esta tabla se lee <b>"a 2,8 v (35,5")"</b>: la distancia en vueltas <b>con su coma</b> y, entre paréntesis, lo que costaría recuperarla a tu ritmo. Y si una estimada lleva <b>asterisco naranja</b>, esa cifra aún es <b>provisional</b> (primera manga sin pasar del 60 %).</p>
 
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
@@ -370,15 +379,16 @@
       <ul>
         <li><b>Consistencia</b> — tu regularidad vuelta a vuelta. 100 menos tu variación relativa. Más alto = más constante.</li>
         <li><b>±DE (desviación típica) / CV</b> — el ±DE son los segundos que oscilas de vuelta a vuelta (mira este número). El CV es esa oscilación en porcentaje relativo a tu ritmo; el % de consistencia es 100 − CV.</li>
-        <li><b>Media</b> — media simple de tus tiempos de vuelta, sin la de calentamiento. Incluye salidas y pits. Es la que usa la proyección.</li>
+        <li><b>Media</b> — media simple de tus tiempos de vuelta, sin el cruce de salida (tu primera vuelta completa <b>sí</b> entra). Incluye salidas y pits. Es la que usa la proyección y coincide al milisegundo con la de TicTac.</li>
         <li><b>Media limpia</b> — tu media contando solo vueltas normales (sin salidas). Se usa para el Δ y para detectar incidentes, no para proyectar.</li>
-        <li><b>Warmup (vuelta de calentamiento / cruce parcial)</b> — la primera vuelta real de la manga, con artefactos del semáforo y el cruce inicial. No cuenta para media, mejor ni consistencia.</li>
+        <li><b>Cruce de salida (warmup / cruce parcial)</b> — el primer paso por meta de la manga: de la rejilla a la línea, arrancando parado. Es medio trazado, no una vuelta, así que no cuenta para media, mejor ni consistencia. <b>Solo ese</b>: la primera vuelta completa que viene después sí cuenta para todo.</li>
         <li><b>Sub-mínimo</b> — un tiempo por debajo del mínimo de vuelta de la carrera. Cruce fantasma imposible; se descarta siempre.</li>
         <li><b>Salida (exit)</b> — te has salido de pista. Cuenta para la media (es tiempo real perdido) pero no para tu mejor vuelta.</li>
         <li><b>Pit-stop</b> — parada en boxes. Cuenta como tiempo, no como mejor vuelta.</li>
-        <li><b>Coma</b> — la fracción de vuelta que llevabas al caer la bandera. Desempata cuando dos tenéis las mismas vueltas.</li>
-        <li><b>Proyección</b> — estimación de tu resultado final sumando todas las mangas: tiempo total de carrera dividido entre tu media.</li>
-        <li><b>Gap</b> — tu distancia a otro coche (o al líder), en tiempo, en vueltas o por minuto.</li>
+        <li><b>Coma</b> — la fracción de vuelta que llevas hecha: en marcha, lo rodado desde tu último paso por meta; al final, la que llevabas al caer la bandera. Cuenta en la distancia al líder y desempata cuando dos tenéis las mismas vueltas.</li>
+        <li><b>Proyección</b> — estimación de tu resultado final sumando todas las mangas: tiempo total de carrera dividido entre tu media, más la coma que ya llevas hecha.</li>
+        <li><b>Estimada provisional (*)</b> — asterisco naranja junto a una estimada: el equipo está en su primera manga y aún no ha pasado del 60 %, así que su referencia no está fijada y el número puede moverse.</li>
+        <li><b>Gap</b> — tu distancia a otro coche (o al líder), en vueltas <b>con coma</b>, en segundos (esas vueltas × tu media) o por minuto. Se lee <i>"a 2,8 v (35,5")"</i>.</li>
         <li><b>PitWall Lap</b> — la web móvil de tu equipo (acceso por PIN): tu posición proyectada, tus tarjetas de ritmo y la voz que canta las vueltas. Solo en carreras por equipos.</li>
         <li><b>Ocurrencia</b> — cada vez que corres el mismo carril en carreras de pasadas/repetir-carril (<code>1/2</code>, <code>2/2</code>…); permite comparar una pasada con otra.</li>
         <li><b>P/Subir</b> — en la clasificación Le Mans, el ritmo (media por vuelta) que necesitarías para alcanzar al equipo de delante.</li>

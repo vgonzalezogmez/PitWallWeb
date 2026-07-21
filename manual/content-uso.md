@@ -168,6 +168,8 @@ Desde la página de la carrera:
 
 **Elegir la vista.** Con el botón **Vista** cambias el layout según los carriles: *Filas horizontales* (pocos carriles), *Cuadrícula compacta* (muchos) o *Tarjetas con detalles* (con vueltas/salidas/pit/Δ por tarjeta).
 
+**Distancia al líder y estimada provisional.** En las pantallas de clasificación (**Le Mans** y **estadísticas en vivo**) la distancia al líder se da **con la coma** y su equivalente **en segundos** —*"a 2,8 v (35,5\")"*—, no redondeada a vueltas enteras. Y si una estimada lleva un **asterisco naranja**, es que ese equipo sigue en su **primera manga** sin haber pasado del **60 %**: su referencia aún no está fijada y la cifra puede moverse. Todo esto se explica en detalle en el *Manual de estadísticas*.
+
 **Cambiar de tanda, repetir una manga y finalizar.** Desde el propio directo tienes atajos sin salir de la pantalla:
 - **Siguiente tanda** — cuando acaban las mangas de una tanda, pasa directamente a la siguiente.
 - **Repetir manga** — si una manga se dio por mala (falsa salida, incidencia), la vuelves a lanzar con los mismos participantes y carriles.

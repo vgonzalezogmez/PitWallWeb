@@ -86,7 +86,7 @@
       <ul>
         <li><b>TOTALE</b> — giri accumulati finora nella manche.</li>
         <li><b>ULTIMO</b> — il tuo ultimo giro completo. È il tuo riferimento immediato: migliori o cali?</li>
-        <li><b>MEDIA</b> — il tuo ritmo medio nella manche (media semplice dei tuoi giri, senza contare quello di riscaldamento). È ciò che davvero conta per vincere in resistenza: non il miglior giro isolato, ma il ritmo sostenuto.</li>
+        <li><b>MEDIA</b> — il tuo ritmo medio nella manche (media semplice dei tuoi giri, senza contare il <b>passaggio di partenza</b>; il tuo primo giro completo <b>conta</b>). È ciò che davvero conta per vincere in resistenza: non il miglior giro isolato, ma il ritmo sostenuto.</li>
         <li><b>MIGLIORE</b> — il tuo miglior giro valido della manche.</li>
       </ul>
       <p><b>Banner del giro veloce.</b> Quando qualcuno segna il giro più veloce del momento, appare un avviso in evidenza. Se è tuo, bene. Se è di un rivale, è il metro di misura da battere.</p>
@@ -164,12 +164,12 @@
       <p><b>GIRI MANCHE.</b> Quanti giri hai fatto nella manche attuale.</p>
       <p><b>MIGLIORE.</b> Il tuo miglior giro valido. "Valido" significa che <b>non conta</b>:</p>
       <ul>
-        <li>il <b>giro di riscaldamento</b> (il primo, con la confusione del semaforo e del passaggio iniziale),</li>
+        <li>il <b>passaggio di partenza</b> (dalla griglia alla linea, partendo da fermo: è mezzo tracciato, non un giro),</li>
         <li>né un <b>passaggio parziale</b> (un giro che in realtà è mezzo giro contato male),</li>
         <li>né tempi <b>al di sotto del minimo</b> della gara (passaggi fantasma impossibili).</li>
       </ul>
-      <p>Quindi il tuo MIGLIORE è un giro davvero reale, mai un numero regalato.</p>
-      <p><b>MEDIA.</b> Il tuo ritmo medio. Media semplice dei tuoi giri di gara (include uscite e pit-stop; esclude solo il riscaldamento). È il numero che la proiezione usa per stimare dove finisci. <b>Abbassa la tua media e sali nella generale.</b></p>
+      <p>Attenzione a questo: <b>il tuo primo giro completo conta</b> —è ritmo reale e può benissimo essere il tuo miglior giro—. L'unica cosa che si scarta è quel primo passaggio da fermo. Quindi il tuo MIGLIORE è un giro davvero reale, mai un numero regalato né un buon giro che va perso.</p>
+      <p><b>MEDIA.</b> Il tuo ritmo medio. Media semplice dei tuoi giri di gara (include uscite e pit-stop; esclude solo il <b>passaggio di partenza</b>). È esattamente lo stesso criterio che usa TicTac, al millisecondo. È il numero che la proiezione usa per stimare dove finisci. <b>Abbassa la tua media e sali nella generale.</b></p>
       <p><b>Δ (delta).</b> È la tua <b>media pulita meno il tuo miglior giro</b>. Cioè: quanto margine ti resta. Un Δ piccolo = giri quasi sempre al massimo, poco da raschiare. Un Δ grande = hai ritmo ma lo perdi in molti giri: lì c'è il tuo oro, nell'essere più costante. La "media pulita" qui non conta uscite né pit, solo il tuo girare normale.</p>
       <p><b>USCITE / PIT-STOP.</b> Quante volte sei uscito e quante soste hai fatto. Ogni uscita ti costa tempo e posizioni.</p>
       <p><b>Tempo perso nelle uscite.</b> Quanto ti sono costate quelle uscite, in secondi. Mettilo in contesto: a volte una sola uscita vale più posizioni che decimi di ritmo per tutta la manche. Qui lo vedi chiaro.</p>
@@ -233,7 +233,7 @@
       </ul>
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-        <div><b>Minimo di giri.</b> Servono almeno <b>3 giri validi</b> (che, togliendo il riscaldamento e il primo passaggio, sono circa 5 giri percorsi) perché il numero sia affidabile. Con meno vedrai un trattino (—) finché non accumuli percorso.</div>
+        <div><b>Minimo di giri.</b> Servono almeno <b>3 giri validi</b> (che, togliendo il passaggio di partenza, sono circa 4 passaggi sul traguardo) perché il numero sia affidabile. Con meno vedrai un trattino (—) finché non accumuli percorso.</div>
       </div>
     </section>
 
@@ -274,13 +274,21 @@
         <li><b>Proiettata</b> — dove finirai la gara sommando tutte le manche. È la tua posizione REALE nella generale. La proiezione stima i tuoi giri totali dividendo il tempo totale di gara per la tua media. <b>Abbassare la tua media = migliore proiezione.</b></li>
       </ul>
       <p>Importante: la posizione proiettata è <b>la stessa ovunque</b> (scheda della diretta, Classifica Generale e pannello Lap). Se in un posto vedi P2, in tutti vedi P2. Non ci sono due verità.</p>
+      <p><b>La stima provvisoria (l'asterisco *).</b> Se accanto a una stima vedi un <b>asterisco arancione</b>, significa che quella cifra <b>non si è ancora assestata</b>: quella squadra è nella sua <b>prima manche</b> e non ha ancora superato il <b>60 %</b> di essa, quindi PitWall non ha ancora un riferimento solido del suo ritmo dalla partenza. Quel numero può ancora muoversi. Appena la manche supera quel punto, l'asterisco sparisce e il riferimento resta fissato. Lo vedrai nella <b>classifica Le Mans</b> e nelle <b>statistiche in diretta</b>; passandoci sopra il mouse compare la spiegazione.</p>
+      <p><b>La distanza include la virgola (e si dice anche in secondi).</b> Il distacco dal leader <b>non</b> si arrotonda a giri interi: include la <b>virgola</b>, la frazione di giro che hai già percorso. Per questo l'etichetta non dice più <i>"+3 vlts."</i> ma qualcosa come <b>"a 2,8 v (35,5")"</b> — a 2,8 giri, cioè 35,5 secondi:</p>
+      <ul>
+        <li><b>2,8 v</b> è la distanza reale in giri, decimale compreso.</li>
+        <li><b>35,5"</b> è quanto ti costerebbe recuperarla <b>al tuo ritmo</b> (quei 2,8 giri × la tua media). È lo stesso numero che annuncia TicTac.</li>
+      </ul>
+      <p>Da dove esce la virgola: <b>con la manche in corso</b> è la virgola <b>viva</b> —quello che hai percorso dal tuo ultimo passaggio sul traguardo—, quindi la distanza si muove con te dentro il giro; <b>con la manche finita, o se stai riposando</b>, è la virgola che avevi <b>al calare della bandiera</b>. Prima di questo, al calare della bandiera si perdeva ogni traccia di chi fosse più avanti in pista, e due auto distanti 2,8 giri sembravano identiche a due distanti 3,0.</p>
       <p><b>Tipi di gap.</b></p>
       <ul>
         <li><b>Gap dal leader</b> — a quanto stai dal primo.</li>
-        <li><b>Gap per giri</b> — la distanza espressa in giri (più intuitivo in resistenza: "sono a un giro").</li>
+        <li><b>Gap per giri</b> — la distanza espressa in giri, <b>con la sua virgola</b> ("sono a 2,8 giri", non "a 3").</li>
+        <li><b>Gap in secondi</b> — quella stessa distanza tradotta in tempo con <b>la tua</b> media. È quello che devi recuperare.</li>
         <li><b>Gap per minuto</b> — come evolve la distanza col tempo, per vedere se recuperi o ti stacchi.</li>
       </ul>
-      <p>Quando due piloti hanno gli stessi giri, il pareggio si decide con la <b>virgola</b>: la frazione di giro che avevi percorso proprio al calare della bandiera. Girare al limite fino alla fine può darti quella frazione in più che ti fa salire di una posizione.</p>
+      <p>Quando due piloti hanno gli stessi giri, il pareggio si decide con la <b>virgola</b>: la frazione di giro che avevi percorso proprio al calare della bandiera. Girare al limite fino alla fine può darti quella frazione in più che ti fa salire di una posizione. E se siete pari anche nella virgola, decide il <b>tempo totale</b> accumulato.</p>
     </section>
 
     <section id="resultados">
@@ -357,6 +365,7 @@
         <figcaption>La generale a squadre con giri proiettati, gap dal leader e ritmo per salire.</figcaption>
       </figure>
       <p>Nelle gare a squadre esiste inoltre la <b>classifica Le Mans</b>: la generale in grande, con <b>giri proiettati</b>, totale, <b>gap</b> dal leader, media, migliore e <b>P/Salire</b> (il ritmo che ti servirebbe per cacciare quello davanti). Ideale per le gare lunghe.</p>
+      <p>Il <b>gap</b> di questa tabella si legge <b>"a 2,8 v (35,5")"</b>: la distanza in giri <b>con la sua virgola</b> e, tra parentesi, quanto costerebbe recuperarla al tuo ritmo. E se una stima porta un <b>asterisco arancione</b>, quella cifra è ancora <b>provvisoria</b> (prima manche, non ancora oltre il 60 %).</p>
 
       <div class="callout tip">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
@@ -370,15 +379,16 @@
       <ul>
         <li><b>Consistenza</b> — la tua regolarità giro dopo giro. 100 meno la tua variazione relativa. Più alto = più costante.</li>
         <li><b>±DS (deviazione standard) / CV</b> — il ±DS sono i secondi che oscilli da giro a giro (guarda questo numero). Il CV è quell'oscillazione in percentuale relativa al tuo ritmo; la % di consistenza è 100 − CV.</li>
-        <li><b>Media</b> — media semplice dei tuoi tempi di giro, senza quello di riscaldamento. Include uscite e pit. È quella che usa la proiezione.</li>
+        <li><b>Media</b> — media semplice dei tuoi tempi di giro, senza il passaggio di partenza (il tuo primo giro completo <b>entra</b>). Include uscite e pit. È quella che usa la proiezione e coincide con TicTac al millisecondo.</li>
         <li><b>Media pulita</b> — la tua media contando solo i giri normali (senza uscite). Si usa per il Δ e per rilevare gli incidenti, non per proiettare.</li>
-        <li><b>Warmup (giro di riscaldamento / passaggio parziale)</b> — il primo giro reale della manche, con artefatti del semaforo e del passaggio iniziale. Non conta per media, migliore né consistenza.</li>
+        <li><b>Passaggio di partenza (warmup / passaggio parziale)</b> — il primo passaggio sul traguardo della manche: dalla griglia alla linea, partendo da fermo. È mezzo tracciato, non un giro, quindi non conta per media, migliore né consistenza. <b>Solo quello</b>: il primo giro completo che viene dopo conta per tutto.</li>
         <li><b>Sotto-minimo</b> — un tempo al di sotto del minimo di giro della gara. Passaggio fantasma impossibile; si scarta sempre.</li>
         <li><b>Uscita (exit)</b> — sei uscito di pista. Conta per la media (è tempo reale perso) ma non per il tuo miglior giro.</li>
         <li><b>Pit-stop</b> — sosta ai box. Conta come tempo, non come miglior giro.</li>
-        <li><b>Virgola</b> — la frazione di giro che avevi percorso al calare della bandiera. Decide il pareggio quando in due avete gli stessi giri.</li>
-        <li><b>Proiezione</b> — stima del tuo risultato finale sommando tutte le manche: tempo totale di gara diviso per la tua media.</li>
-        <li><b>Gap</b> — la tua distanza da un'altra auto (o dal leader), in tempo, in giri o per minuto.</li>
+        <li><b>Virgola</b> — la frazione di giro che hai percorso: in corsa, quello che hai fatto dal tuo ultimo passaggio sul traguardo; alla fine, quella che avevi al calare della bandiera. Conta nella distanza dal leader e decide il pareggio quando in due avete gli stessi giri.</li>
+        <li><b>Proiezione</b> — stima del tuo risultato finale sommando tutte le manche: tempo totale di gara diviso per la tua media, più la virgola già percorsa.</li>
+        <li><b>Stima provvisoria (*)</b> — l'asterisco arancione accanto a una stima: la squadra è nella sua prima manche e non ha superato il 60 % di essa, quindi il suo riferimento non è fissato e il numero può ancora muoversi.</li>
+        <li><b>Gap</b> — la tua distanza da un'altra auto (o dal leader), in giri <b>con la virgola</b>, in secondi (quei giri × la tua media) o per minuto. Si legge <i>"a 2,8 v (35,5")"</i>.</li>
         <li><b>PitWall Lap</b> — il sito web mobile della tua squadra (accesso tramite PIN): la tua posizione proiettata, le tue schede di ritmo e la voce che annuncia i giri. Solo nelle gare a squadre.</li>
         <li><b>Occorrenza</b> — ogni volta che corri la stessa corsia nelle gare di passate/ripeti-corsia (<code>1/2</code>, <code>2/2</code>…); permette di confrontare una passata con l'altra.</li>
         <li><b>P/Salire</b> — nella classifica Le Mans, il ritmo (media per giro) che ti servirebbe per raggiungere la squadra davanti.</li>

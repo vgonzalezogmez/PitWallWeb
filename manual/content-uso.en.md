@@ -168,6 +168,8 @@ From the race page:
 
 **Choosing the view.** With the View (“Vista”) button you change the layout depending on the lanes: *Horizontal rows* (few lanes), *Compact grid* (many) or *Cards with details* (with laps/exits/pit/Δ per card).
 
+**Distance to the leader and provisional estimate.** On the classification screens (**Le Mans** and **live stats**) the distance to the leader is given **with the fraction** and its equivalent **in seconds** —*"a 2,8 v (35,5\")"*, i.e. 2.8 laps behind, worth 35.5 seconds—, not rounded to whole laps. And if an estimate carries an **orange asterisk**, that team is still in its **first heat** without having gone past **60 %** of it: its reference isn't locked in yet and the figure can still move. It's all explained in detail in the *Statistics manual*.
+
 **Switching batch, repeating a heat and finishing.** From the live screen itself you have shortcuts without leaving the screen:
 - **Next batch** — when a batch's heats are done, it moves straight to the next.
 - **Repeat heat** — if a heat was called bad (false start, incident), you launch it again with the same participants and lanes.

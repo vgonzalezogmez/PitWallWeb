@@ -18,7 +18,7 @@ Es la pantalla de la manga en curso. Lo que ves en tiempo real, vuelta a vuelta.
 
 - **TOTAL** — vueltas acumuladas hasta ahora en la manga.
 - **ÚLTIMA** — tu última vuelta completa. Es tu referencia inmediata: ¿mejoras o te caes?
-- **MEDIA** — tu ritmo medio en la manga (media simple de tus vueltas, sin contar la de calentamiento). Es lo que de verdad manda para ganar en resistencia: no la mejor vuelta suelta, sino el ritmo sostenido.
+- **MEDIA** — tu ritmo medio en la manga (media simple de tus vueltas, sin contar el **cruce de salida**; tu primera vuelta completa **sí** cuenta). Es lo que de verdad manda para ganar en resistencia: no la mejor vuelta suelta, sino el ritmo sostenido.
 - **MEJOR** — tu mejor vuelta válida de la manga.
 
 **Banner de vuelta rápida.** Cuando alguien marca la vuelta más rápida del momento, salta un aviso destacado. Si es tuya, bien. Si es de un rival, es la vara de medir a batir.
@@ -78,13 +78,13 @@ Elige tu piloto y tendrás tu propio panel con tarjetas. Una a una:
 **VUELTAS MANGA.** Cuántas vueltas llevas en la manga actual.
 
 **MEJOR.** Tu mejor vuelta válida. "Válida" significa que **no cuenta**:
-- la **vuelta de calentamiento** (la primera, con el lío del semáforo y el cruce inicial),
+- el **cruce de salida** (de la rejilla a la línea, arrancando parado: es medio trazado, no una vuelta),
 - ni un **cruce parcial** (una vuelta que en realidad es media vuelta mal contada),
 - ni tiempos **por debajo del mínimo** de la carrera (cruces fantasma imposibles).
 
-Así que tu MEJOR es una vuelta real de verdad, nunca un número regalado.
+Ojo con esto: **tu primera vuelta completa sí cuenta** —es ritmo real y puede ser perfectamente tu mejor vuelta—. Lo único que se descarta es ese primer cruce desde parado. Así que tu MEJOR es una vuelta real de verdad, nunca un número regalado ni una vuelta buena que se pierde.
 
-**MEDIA.** Tu ritmo medio. Media simple de tus vueltas de carrera (incluye salidas y pit-stops; solo excluye el calentamiento). Es el número que la proyección usa para estimar dónde acabas. **Baja tu media y subes en la general.**
+**MEDIA.** Tu ritmo medio. Media simple de tus vueltas de carrera (incluye salidas y pit-stops; solo excluye el **cruce de salida**). Es exactamente el mismo criterio que usa TicTac, al milisegundo. Es el número que la proyección usa para estimar dónde acabas. **Baja tu media y subes en la general.**
 
 **Δ (delta).** Es tu **media limpia menos tu mejor vuelta**. O sea: cuánto margen te queda. Un Δ pequeño = ruedas casi siempre a tope, muy poco que rascar. Un Δ grande = tienes ritmo pero lo pierdes en muchas vueltas: ahí está tu oro, en ser más constante. La "media limpia" aquí no cuenta salidas ni pits, solo tu rodar normal.
 
@@ -143,7 +143,7 @@ La tarjeta más importante para mejorar. **La consistencia mide tu regularidad v
 - **Sin salidas** — tu **ritmo puro**. Quita salidas, pits e incidentes. Responde: *cuando ruedo bien, ¿soy regular?* Úsalo para pulir tu conducción.
 - **Con salidas** — la **regularidad real de tu stint**. Incluye TODO: salidas, pits, tráfico. Responde: *de verdad, tal cual, ¿qué ritmo entregué?* Úsalo para ver el impacto real de tus errores. Suele salir peor que "Sin salidas", y esa diferencia es exactamente lo que te cuestan los incidentes.
 
-**Mínimo de vueltas.** Hacen falta al menos **3 vueltas válidas** (que, quitando calentamiento y primera cruzada, son unas 5 vueltas dadas) para que el número sea fiable. Con menos verás un guion (—) hasta que acumules recorrido.
+**Mínimo de vueltas.** Hacen falta al menos **3 vueltas válidas** (que, quitando el cruce de salida, son unas 4 pasadas por meta) para que el número sea fiable. Con menos verás un guion (—) hasta que acumules recorrido.
 
 ---
 
@@ -178,13 +178,23 @@ Tu distancia al líder a lo largo del tiempo (eje X = minutos de la manga; eje Y
 
 Importante: la posición proyectada es **la misma en todas partes** (tarjeta del directo, Clasificación General y panel Lap). Si en un sitio ves P2, en todos ves P2. No hay dos verdades.
 
+**La estimada provisional (el asterisco \*).** Si al lado de una estimada ves un **asterisco naranja**, significa que esa cifra **todavía no está asentada**: el equipo está en su **primera manga** y aún no ha pasado del **60 %** de ella, así que PitWall todavía no tiene una referencia sólida de su ritmo desde la salida. Ese número puede moverse. En cuanto la manga cruza ese punto, el asterisco desaparece y la referencia queda fijada. Lo verás en la **clasificación Le Mans** y en las **estadísticas en vivo**; pasando el ratón por encima sale la explicación.
+
+**La distancia lleva la coma (y también se dice en segundos).** El hueco al líder **no** se redondea a vueltas enteras: incluye la **coma**, la fracción de vuelta que llevas hecha. Por eso la etiqueta ya no dice *"+3 vlts."* sino algo como **"a 2,8 v (35,5\")"**:
+
+- **2,8 v** es la distancia real en vueltas, con su decimal.
+- **35,5"** es lo que te costaría recuperarla **a tu propio ritmo** (esas 2,8 vueltas × tu media). Es el mismo número que canta TicTac.
+
+De dónde sale la coma: **con la manga en marcha** es la coma **viva** —lo que llevas rodado desde tu último paso por meta—, así que la distancia se mueve contigo dentro de la vuelta; **con la manga terminada o si estás descansando**, es la coma con la que **cruzaste la bandera**. Antes de esto, al caer la bandera se perdía quién iba más adelantado en pista y dos coches separados por 2,8 vueltas y por 3,0 se veían idénticos.
+
 **Tipos de gap.**
 
 - **Gap al líder** — a cuánto estás del primero.
-- **Gap por vueltas** — la distancia expresada en vueltas (más intuitivo en resistencia: "voy a una vuelta").
+- **Gap por vueltas** — la distancia expresada en vueltas, **con su coma** ("voy a 2,8 vueltas", no "a 3").
+- **Gap en segundos** — esa misma distancia traducida a tiempo con **tu** media. Es lo que hay que recortar.
 - **Gap por minuto** — cómo evoluciona la distancia con el tiempo, para ver si recortas o te descuelgas.
 
-Cuando dos pilotos tienen las mismas vueltas, desempata la **coma**: la fracción de vuelta que llevabas hecha justo al caer la bandera. Rodar apurado hasta el final puede darte esa fracción de más que te sube una posición.
+Cuando dos pilotos tienen las mismas vueltas, desempata la **coma**: la fracción de vuelta que llevabas hecha justo al caer la bandera. Rodar apurado hasta el final puede darte esa fracción de más que te sube una posición. Y si también empatáis en coma, decide el **tiempo total** acumulado.
 
 ---
 
@@ -245,21 +255,24 @@ El análisis profundo de un participante: **total de vueltas** (y limpias), **me
 
 En carreras por equipos existe además la **clasificación Le Mans**: la general en grande, con **vueltas proyectadas**, total, **gap** al líder, media, mejor y **P/Subir** (el ritmo que necesitarías para cazar al de delante). Ideal para carreras largas.
 
+El **gap** de esta tabla se lee **"a 2,8 v (35,5\")"**: la distancia en vueltas **con su coma** y, entre paréntesis, lo que costaría recuperarla a tu ritmo. Y si una estimada lleva **asterisco naranja**, esa cifra aún es **provisional** (primera manga sin pasar del 60 %).
+
 > **Iconos y colores que verás:** punto azul + **MEJOR** = vuelta rápida de ese carril · rectángulo azul = carril de salida · **borde dorado** = hubo pit-stop en esa manga · tendencia **▲/▼** = subiste/bajaste respecto a la manga anterior.
 
 ## 9. Glosario
 
 - **Consistencia** — tu regularidad vuelta a vuelta. 100 menos tu variación relativa. Más alto = más constante.
 - **±DE (desviación típica) / CV** — el ±DE son los segundos que oscilas de vuelta a vuelta (mira este número). El CV es esa oscilación en porcentaje relativo a tu ritmo; el % de consistencia es 100 − CV.
-- **Media** — media simple de tus tiempos de vuelta, sin la de calentamiento. Incluye salidas y pits. Es la que usa la proyección.
+- **Media** — media simple de tus tiempos de vuelta, sin el cruce de salida (tu primera vuelta completa **sí** entra). Incluye salidas y pits. Es la que usa la proyección y coincide al milisegundo con la de TicTac.
 - **Media limpia** — tu media contando solo vueltas normales (sin salidas). Se usa para el Δ y para detectar incidentes, no para proyectar.
-- **Warmup (vuelta de calentamiento / cruce parcial)** — la primera vuelta real de la manga, con artefactos del semáforo y el cruce inicial. No cuenta para media, mejor ni consistencia.
+- **Cruce de salida (warmup / cruce parcial)** — el primer paso por meta de la manga: de la rejilla a la línea, arrancando parado. Es medio trazado, no una vuelta, así que no cuenta para media, mejor ni consistencia. **Solo ese**: la primera vuelta completa que viene después sí cuenta para todo.
 - **Sub-mínimo** — un tiempo por debajo del mínimo de vuelta de la carrera. Cruce fantasma imposible; se descarta siempre.
 - **Salida (exit)** — te has salido de pista. Cuenta para la media (es tiempo real perdido) pero no para tu mejor vuelta.
 - **Pit-stop** — parada en boxes. Cuenta como tiempo, no como mejor vuelta.
-- **Coma** — la fracción de vuelta que llevabas al caer la bandera. Desempata cuando dos tenéis las mismas vueltas.
-- **Proyección** — estimación de tu resultado final sumando todas las mangas: tiempo total de carrera dividido entre tu media.
-- **Gap** — tu distancia a otro coche (o al líder), en tiempo, en vueltas o por minuto.
+- **Coma** — la fracción de vuelta que llevas hecha: en marcha, lo rodado desde tu último paso por meta; al final, la que llevabas al caer la bandera. Cuenta en la distancia al líder y desempata cuando dos tenéis las mismas vueltas.
+- **Proyección** — estimación de tu resultado final sumando todas las mangas: tiempo total de carrera dividido entre tu media, más la coma que ya llevas hecha.
+- **Estimada provisional (\*)** — asterisco naranja junto a una estimada: el equipo está en su primera manga y aún no ha pasado del 60 %, así que su referencia no está fijada y el número puede moverse.
+- **Gap** — tu distancia a otro coche (o al líder), en vueltas **con coma**, en segundos (esas vueltas × tu media) o por minuto. Se lee *"a 2,8 v (35,5\")"*.
 - **PitWall Lap** — la web móvil de tu equipo (acceso por PIN): tu posición proyectada, tus tarjetas de ritmo y la voz que canta las vueltas. Solo en carreras por equipos.
 - **Ocurrencia** — cada vez que corres el mismo carril en carreras de pasadas/repetir-carril (`1/2`, `2/2`…); permite comparar una pasada con otra.
 - **P/Subir** — en la clasificación Le Mans, el ritmo (media por vuelta) que necesitarías para alcanzar al equipo de delante.

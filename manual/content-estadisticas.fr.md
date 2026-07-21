@@ -18,7 +18,7 @@ C'est l'écran de la manche en cours. Ce que tu vois en temps réel, tour par to
 
 - **TOTAL** — tours cumulés jusqu'à présent dans la manche.
 - **DERNIER** — ton dernier tour complet. C'est ta référence immédiate : tu progresses ou tu chutes ?
-- **MOYENNE** — ton rythme moyen dans la manche (moyenne simple de tes tours, sans compter celui d'échauffement). C'est ce qui commande vraiment pour gagner en endurance : pas le meilleur tour isolé, mais le rythme soutenu.
+- **MOYENNE** — ton rythme moyen dans la manche (moyenne simple de tes tours, sans compter le **passage de départ** ; ton premier tour complet, lui, **compte**). C'est ce qui commande vraiment pour gagner en endurance : pas le meilleur tour isolé, mais le rythme soutenu.
 - **MEILLEUR** — ton meilleur tour valide de la manche.
 
 **Bannière du meilleur tour.** Quand quelqu'un signe le tour le plus rapide du moment, un avis mis en avant apparaît. Si c'est le tien, tant mieux. Si c'est celui d'un rival, c'est la référence à battre.
@@ -78,13 +78,13 @@ Choisis ton pilote et tu auras ton propre panneau avec des cartes. Une par une :
 **TOURS MANCHE.** Combien de tours tu as effectués dans la manche actuelle.
 
 **MEILLEUR.** Ton meilleur tour valide. « Valide » signifie qu'**il ne compte pas** :
-- le **tour d'échauffement** (le premier, avec le bazar du feu tricolore et le passage initial),
+- le **passage de départ** (de la grille à la ligne, en partant à l'arrêt : c'est un demi-tracé, pas un tour),
 - ni un **passage partiel** (un tour qui est en réalité un demi-tour mal compté),
 - ni des temps **en dessous du minimum** de la course (passages fantômes impossibles).
 
-Ainsi, ton MEILLEUR est un vrai tour réel, jamais un chiffre offert.
+Attention à ceci : **ton premier tour complet, lui, compte** — c'est du rythme réel et il peut parfaitement être ton meilleur tour. La seule chose écartée est ce premier passage à l'arrêt. Ainsi, ton MEILLEUR est un vrai tour réel, jamais un chiffre offert ni un bon tour qui se perd.
 
-**MOYENNE.** Ton rythme moyen. Moyenne simple de tes tours de course (inclut sorties et pit-stops ; n'exclut que l'échauffement). C'est le chiffre que la projection utilise pour estimer où tu finis. **Baisse ta moyenne et tu montes au général.**
+**MOYENNE.** Ton rythme moyen. Moyenne simple de tes tours de course (inclut sorties et pit-stops ; n'exclut que le **passage de départ**). C'est exactement le même critère qu'utilise TicTac, à la milliseconde près. C'est le chiffre que la projection utilise pour estimer où tu finis. **Baisse ta moyenne et tu montes au général.**
 
 **Δ (delta).** C'est ta **moyenne propre moins ton meilleur tour**. Autrement dit : combien de marge il te reste. Un Δ petit = tu roules presque toujours à fond, très peu à gratter. Un Δ grand = tu as du rythme mais tu le perds sur beaucoup de tours : c'est là qu'est ton or, dans le fait d'être plus constant. La « moyenne propre » ici ne compte ni sorties ni pits, seulement ton roulage normal.
 
@@ -143,7 +143,7 @@ La carte la plus importante pour progresser. **La consistance mesure ta régular
 - **Sans sorties** — ton **rythme pur**. Retire sorties, pits et incidents. Elle répond : *quand je roule bien, suis-je régulier ?* Utilise-la pour peaufiner ta conduite.
 - **Avec sorties** — la **régularité réelle de ton relais**. Elle inclut TOUT : sorties, pits, trafic. Elle répond : *vraiment, tel quel, quel rythme ai-je livré ?* Utilise-la pour voir l'impact réel de tes erreurs. Elle ressort en général pire que « Sans sorties », et cette différence est exactement ce que te coûtent les incidents.
 
-**Minimum de tours.** Il faut au moins **3 tours valides** (qui, en retirant l'échauffement et le premier passage, correspondent à environ 5 tours effectués) pour que le chiffre soit fiable. Avec moins, tu verras un tiret (—) jusqu'à ce que tu accumules du roulage.
+**Minimum de tours.** Il faut au moins **3 tours valides** (qui, en retirant le passage de départ, correspondent à environ 4 passages sur la ligne) pour que le chiffre soit fiable. Avec moins, tu verras un tiret (—) jusqu'à ce que tu accumules du roulage.
 
 ---
 
@@ -178,13 +178,23 @@ Ta distance au leader au fil du temps (axe X = minutes de la manche ; axe Y = é
 
 Important : la position projetée est **la même partout** (carte du direct, Classement Général et panneau Lap). Si tu vois P2 à un endroit, tu vois P2 partout. Il n'y a pas deux vérités.
 
+**L'estimation provisoire (l'astérisque \*).** Si tu vois un **astérisque orange** à côté d'une estimation, c'est que ce chiffre **n'est pas encore stabilisé** : cette équipe en est à sa **première manche** et n'a pas dépassé les **60 %** de celle-ci, donc PitWall n'a pas encore de référence solide de son rythme depuis le départ. Le chiffre peut encore bouger. Dès que la manche franchit ce point, l'astérisque disparaît et la référence est figée. Tu le verras dans le **classement Le Mans** et dans les **statistiques en direct** ; en passant la souris dessus, l'explication apparaît.
+
+**La distance intègre la virgule (et se dit aussi en secondes).** L'écart au leader n'est **pas** arrondi à des tours entiers : il inclut la **virgule**, la fraction de tour que tu as déjà parcourue. C'est pourquoi l'étiquette ne dit plus *« +3 vlts. »* mais quelque chose comme **« a 2,8 v (35,5\") »** — à 2,8 tours, soit 35,5 secondes :
+
+- **2,8 v** est la distance réelle en tours, décimale comprise.
+- **35,5"** est ce qu'il t'en coûterait de la rattraper **à ton propre rythme** (ces 2,8 tours × ta moyenne). C'est le même chiffre qu'annonce TicTac.
+
+D'où vient la virgule : **manche en cours**, c'est la virgule **vivante** —ce que tu as parcouru depuis ton dernier passage sur la ligne—, donc la distance bouge avec toi à l'intérieur du tour ; **manche terminée, ou si tu es au repos**, c'est la virgule que tu avais **à la chute du drapeau**. Avant cela, dès le drapeau on perdait toute trace de qui était le plus avancé en piste, et deux voitures séparées de 2,8 tours semblaient identiques à deux voitures séparées de 3,0.
+
 **Types d'écart.**
 
 - **Écart au leader** — à combien tu es du premier.
-- **Écart en tours** — la distance exprimée en tours (plus intuitif en endurance : « je suis à un tour »).
+- **Écart en tours** — la distance exprimée en tours, **avec sa virgule** (« je suis à 2,8 tours », pas « à 3 »).
+- **Écart en secondes** — cette même distance traduite en temps avec **ta** moyenne. C'est ce qu'il faut reprendre.
 - **Écart par minute** — comment la distance évolue avec le temps, pour voir si tu recolles ou si tu décroches.
 
-Quand deux pilotes ont le même nombre de tours, c'est la **virgule** qui départage : la fraction de tour que tu avais faite juste au moment où le drapeau est tombé. Rouler à fond jusqu'au bout peut te donner cette fraction en plus qui te fait gagner une position.
+Quand deux pilotes ont le même nombre de tours, c'est la **virgule** qui départage : la fraction de tour que tu avais faite juste au moment où le drapeau est tombé. Rouler à fond jusqu'au bout peut te donner cette fraction en plus qui te fait gagner une position. Et si vous êtes aussi à égalité sur la virgule, c'est le **temps total** cumulé qui tranche.
 
 ## 8. La vue Résultats (après la course)
 
@@ -243,21 +253,24 @@ L'analyse en profondeur d'un participant : **total de tours** (et propres), **me
 
 Dans les courses par équipes existe en plus le **classement Le Mans** : le général en grand, avec **tours projetés**, total, **écart** au leader, moyenne, meilleur et **P/Monter** (le rythme dont tu aurais besoin pour rattraper celui de devant). Idéal pour les courses longues.
 
+L'**écart** de ce tableau se lit **« a 2,8 v (35,5\") »** : la distance en tours **avec sa virgule** et, entre parenthèses, ce qu'il en coûterait de la rattraper à ton rythme. Et si une estimation porte un **astérisque orange**, ce chiffre est encore **provisoire** (première manche, pas encore au-delà de 60 %).
+
 > **Icônes et couleurs que tu verras :** point bleu + **MEILLEUR** = meilleur tour de cette voie · rectangle bleu = voie de départ · **bord doré** = il y a eu un pit-stop dans cette manche · tendance **▲/▼** = tu es monté/descendu par rapport à la manche précédente.
 
 ## 9. Glossaire
 
 - **Consistance** — ta régularité tour par tour. 100 moins ta variation relative. Plus c'est élevé = plus constant.
 - **±ÉT (écart-type) / CV** — le ±ÉT, ce sont les secondes que tu oscilles de tour en tour (regarde ce chiffre). Le CV est cette oscillation en pourcentage relatif à ton rythme ; le % de consistance est 100 − CV.
-- **Moyenne** — moyenne simple de tes temps de tour, sans celui d'échauffement. Inclut sorties et pits. C'est celle qu'utilise la projection.
+- **Moyenne** — moyenne simple de tes temps de tour, sans le passage de départ (ton premier tour complet, lui, **y entre**). Inclut sorties et pits. C'est celle qu'utilise la projection, et elle colle à TicTac à la milliseconde près.
 - **Moyenne propre** — ta moyenne en comptant seulement les tours normaux (sans sorties). Elle sert pour le Δ et pour détecter les incidents, pas pour projeter.
-- **Warmup (tour d'échauffement / passage partiel)** — le premier vrai tour de la manche, avec les artefacts du feu tricolore et du passage initial. Ne compte ni pour la moyenne, ni pour le meilleur, ni pour la consistance.
+- **Passage de départ (warmup / passage partiel)** — le premier passage sur la ligne de la manche : de la grille à la ligne, en partant à l'arrêt. C'est un demi-tracé, pas un tour, donc il ne compte ni pour la moyenne, ni pour le meilleur, ni pour la consistance. **Celui-là seulement** : le premier tour complet qui suit compte pour tout.
 - **Sous-minimum** — un temps en dessous du minimum de tour de la course. Passage fantôme impossible ; il est toujours écarté.
 - **Sortie (exit)** — tu es sorti de la piste. Compte pour la moyenne (c'est du temps réel perdu) mais pas pour ton meilleur tour.
 - **Pit-stop** — arrêt aux stands. Compte comme du temps, pas comme meilleur tour.
-- **Virgule** — la fraction de tour que tu avais faite au moment où le drapeau est tombé. Départage quand vous avez le même nombre de tours.
-- **Projection** — estimation de ton résultat final en additionnant toutes les manches : temps total de course divisé par ta moyenne.
-- **Écart** — ta distance à une autre voiture (ou au leader), en temps, en tours ou par minute.
+- **Virgule** — la fraction de tour que tu as parcourue : en course, ce que tu as fait depuis ton dernier passage sur la ligne ; à la fin, celle que tu avais quand le drapeau est tombé. Elle compte dans la distance au leader et départage quand vous avez le même nombre de tours.
+- **Projection** — estimation de ton résultat final en additionnant toutes les manches : temps total de course divisé par ta moyenne, plus la virgule déjà parcourue.
+- **Estimation provisoire (\*)** — l'astérisque orange à côté d'une estimation : l'équipe en est à sa première manche et n'a pas dépassé les 60 % de celle-ci, sa référence n'est donc pas figée et le chiffre peut encore bouger.
+- **Écart** — ta distance à une autre voiture (ou au leader), en tours **avec la virgule**, en secondes (ces tours × ta moyenne) ou par minute. Il se lit *« a 2,8 v (35,5\") »*.
 - **PitWall Lap** — le site web mobile de ton équipe (accès par PIN) : ta position projetée, tes cartes de rythme et la voix qui annonce les tours. Seulement dans les courses par équipes.
 - **Occurrence** — chaque fois que tu cours la même voie dans les courses à passages/répétition de voie (`1/2`, `2/2`…) ; permet de comparer un passage avec un autre.
 - **P/Monter** — dans le classement Le Mans, le rythme (moyenne par tour) dont tu aurais besoin pour atteindre l'équipe de devant.
